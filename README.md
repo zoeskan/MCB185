@@ -16,29 +16,27 @@ time to study than others. For these reasons, not every student will start or
 end at the same place. In order to accommodate different learning trajectories,
 there are 2 tracks through the course: standard and accelerated.
 
-On the standard path, the class moves at a pace that matches the numeric
-syllabus (Unit 0 through Unit 9). The maximum grade on the standard path is a
+On the standard track, the class moves at a pace that matches the numeric
+syllabus (Unit 0 through Unit 9). The maximum grade on the standard track is a
 B+. In order to attain the maximum grade, you must have completed all of the
 homework assignments correctly and have been an active participant in class.
 
-Any student, at any time, may decide to go to the accelerated path and learn
+Any student, at any time, may decide to go to the accelerated track and learn
 extra content (Unit A through Unit F). The only way to earn an A-, A, or A+ is
-on the accelerated path. Being on the accelerated path doesn't guarantee a
-higher grade. You must still complete all of the assignments correctly and be
-an active participant in the class.
+on the accelerated track. Being on the accelerated track doesn't guarantee a
+higher grade. You must still complete all of the assignments on the standard
+track correctly and be an active participant in the class.
 
 ## Programming Progression ##
 
 Your development as a programmer will not be linear. Some concepts will be easy
 and others will be difficult. In order to become a high level programmer, you
 need to understand about 100 new concepts. Each of these concepts will make you
-pause for between 1 minute and forever (seriously, I know programmers who still
-don't understand pointer arithmetic - incidentally, not part of this course).
-How long you get stuck is partly up to you. You might not be able to get to the
-next level of understanding by yourself. The solution is to **ask for help**.
-If you find yourself stuck for more than 20 minutes, stop banging your head
-against a wall and ask someone for help! Every time you ask for help, at least
-two people win.
+pause for between 1 minute and forever. How long you get stuck is partly up to
+you. You might not be able to get to the next level of understanding by
+yourself. The solution is to **ask for help**. If you find yourself stuck for
+more than 20 minutes, stop banging your head against a wall and ask someone for
+help! Every time you ask for help, at least two people win.
 
 Unlike most of your other classes, there is no penalty for working with another
 student. In fact, you're _encouraged_ to do so. Programming _should_ be done in
@@ -62,15 +60,14 @@ is one of the greatest sources of silent programming errors.
 In this course, you are not allowed to use any concept unless it has been
 introduced in a previous or current unit. Do you already know how to write
 functions? Good for you, but you aren't allowed to use them until they have
-been formally introduced. Want to use numpy or pandas? Sorry, we never use
-those in this course. Looking up answers on the Internet will frequently end
-with code that you're not allowed to use. Assignments with _illegal_ solutions
-will be marked as incorrect and receive no credit. The `REFERENCE.md` file has
-a chronological description of Python concepts.
+been formally introduced in unit 6. Want to use numpy or pandas? Sorry, we
+never use those in this course. Looking up answers on the Internet will
+frequently end with code that you're not allowed to use. Assignments with
+_illegal_ solutions will be marked as incorrect and receive no credit.
 
 ## Course Content ##
 
-Each unit of the course corresponds to 1 week. This is the standard path.
+Each unit of the course corresponds to 1 week. This is the standard track.
 
 + Unit 0: Tools of the Trade
 + Unit 1: Basic Unix
@@ -83,12 +80,12 @@ Each unit of the course corresponds to 1 week. This is the standard path.
 + Unit 8: Dictionaries
 + Unit 9: Final Project
 
-Content on the Accelerated Path can be completed in any order.
+Content on the accelerated track can be completed in any order.
 
 + Unit A: Regular Expressions
 + Unit B: Complex Data Structures
 + Unit C: Object-Oriented Programming
-+ Unit D: Exceptions and Testing 
++ Unit D: Exceptions and Testing
 + Unit E: Documentation
 + Unit F: Interprocess Communication
 
