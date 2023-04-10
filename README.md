@@ -71,10 +71,10 @@ Each unit of the course corresponds to 1 week. This is the standard track.
 
 + Unit 0: Tools of the Trade
 + Unit 1: Basic Unix
-+ Unit 2: Variables, Math, and Conditionals
-+ Unit 3: Strings, Tuples, and Loops
-+ Unit 4: Lists
-+ Unit 5: More lists
++ Unit 2: Beginning Python (Variables, Math, Conditionals, and Loops)
++ Unit 3: Containers (Strings, Tuples, and Lists)
++ Unit 4: Algorithms
++ Unit 5: Algoirthms
 + Unit 6: Functions and Files
 + Unit 7: Executables and CLI
 + Unit 8: Dictionaries
