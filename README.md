@@ -108,4 +108,4 @@ other students even sooner. Email will also work.
 It's worth re-stating some unusual rules of the course.
 
 + No programming constructs more advanced than the current unit
-+ No penalty for working with other students
++ No penalty for working with other students, it's encourged
