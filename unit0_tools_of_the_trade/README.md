@@ -326,7 +326,7 @@ theme the terminal similarly to the editor.
 
 The CLI always has a **focus**. When you first start up your terminal, the
 focus is your home directory. To examine the contents of your home directory,
-start up your terminal and they type:
+start up your terminal and then type:
 
 ```
 ls
@@ -364,98 +364,22 @@ ls
 pwd
 ```
 
-To get back to your home directory, you have two choices (for now, later you
-will have many more).
+To get back to your home directory, use `cd` without any arguments.
 
 ```
 cd
-cd ~
 ```
-
-Using `cd` by itself will change focus to your home directory. Your home
-directory is so important that there is a simple shortcut to get to it: the
-tilde key `~`. If you've never used this key before, it's probably at top left
-of your keyboard (depends on where your keyboard was made). Try one of these
-methods and check examine the location of your home with `pwd`.
-
-### Code Directory ###
-
-We are going to organize all of our programming efforts in a directory called
-`Code`. The life cycle of source code (and other documents) can be very complex.
-There may be multiple authors who contribute at various times and to varying
-degrees. To manage these complex histories, we use Git (see below). Let's make
-the `Code` directory in our home directory.
-
-```
-mkdir ~/Code
-```
-
-### DATA Directory ###
-
-Data is very different from code. It tends to be huge and pretty stable. For
-these reasons, code and data should be managed very differently. Data belongs
-in an entirely different place, possibly not even in your home directory or
-even on your physical computer (e.g. mounted over a network). Imagine a shared
-computing environment where multiple users are all accessing the same file
-(e.g. the human genome). It would be wasteful for each person to have a copy of
-a huge data file in their home directory. Large data files should be shared in
-a place where everyone can get to them (and also write-protected to prevent
-them from being changed).
-
-Let's make the `DATA` directory now.
-
-```
-mkdir ~/DATA
-```
-
-Notice that the `DATA` directory is in all caps. Why is this? Because it's
-thematically different from other directories. All the contents should be
-shared and read-only. For now, we'll keep it in our home directory but later
-you might want to move it.
-
-
-### File-naming Conventions ###
-
-+ Use lowercase in general
-+ Don't put spaces or punctuation in your file names
-+ Use underscores to separate words (e.g. `human_genome.fa.gz`)
-+ Use Uppercase for directories in your home directory (e.g. `Code`)
 
 ------------------------------------------------------------------------------
 
 ## Git ##
 
+- this whole section needs a review
+
+
+
 You should already have a GitHub account and have _forked_ this repository. If
 you haven't completed these tasks already, you aren't following directions.
-
-### Create a Repository ###
-
-It's time to create your first repository, which we often shorten to _repo_.
-Before we begin, we need to talk a little about ownership, privacy, and
-security.
-
-When you create a repo, you own it. You can read it, write to it, or even
-delete it. Later, you can invite collaborators who can join you in your
-efforts, but by default, only you can make edits.
-
-When a repo is created, it can be either _Public_ or _Private_. A Public
-repository allows other people to download a copy of your repo. This is called
-_cloning_. There is no security risk in cloning a Public repository (unless you
-put sensitive info in there). If people modify their clones, it does not affect
-your files. If you want people to be able to edit files in your repo, you have
-to invite them as collaborators.
-
-A Private repository is invisible to everyone but you. You can add
-collaborators to Public or Private repos and specify what kinds of permissions
-each collaborator may have. As the owner, you can change a repo from Public to
-Private and back. Most of my repos are public because I believe in openly
-sharing (but hands off my sandwich).
-
-Now let's go make a repo. Go to the GitHub website and click on the green "New"
-button to create a new repo. Name this "demo" or something like that. Click the
-checkboxes to initialize with a README. Click the "Create Repository" and you
-will be transported to your new mostly empty repo. That's all there is to
-creating a repository. You can add files to it later.
 
 ### Personal Access Token ###
 
@@ -490,19 +414,19 @@ Type the following commands in your terminal, substituting `YOUR_GITHUB_HANDLE`
 for whatever your GitHub user name is.
 
 ```
-
-cd ~/Code
+cd
 git clone https://github.com/YOUR_GITHUB_HANDLE/MCB185
 ```
 
-You should now see your fork of the MCB185 course materials.
+You should now see your fork of the MCB185 course materials in your home
+directory.
 
 ### Git Commands ###
 
-Enter your homework repository and check its status.
+Enter your MCB185 repository and check its status.
 
 ```
-cd ~/Code/homework
+cd MCB185
 git status
 ```
 
@@ -578,6 +502,7 @@ on multiple computers, your git activity cycle will look like this:
 1. `git pull` at the start of your session
 2. edit files
 3. `git push` at the end of your session
+
 
 ------------------------------------------------------------------------------
 
@@ -815,6 +740,8 @@ them into their browser.
 ------------------------------------------------------------------------------
 
 ## Python: Hello World ##
+
+- this section needs editing!!
 
 It's time to write your first Python program (for this course anyway). Change
 directory to your homework repo and create a file with the `touch` command.

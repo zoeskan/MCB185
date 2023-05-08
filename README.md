@@ -1,8 +1,6 @@
 MCB185
 ======
 
-- change all MCB185-2024 to MCB185
-
 ## Intent ##
 
 In this course, you will learn computer programming in a biological context.
@@ -125,9 +123,8 @@ setting your email and password, choose the free plan and then answer a few
 questions about your interests to create your account. Go to your email to
 verify your email address.
 
-Point your web browser to https://github.com/iankorf/MCB185-2024. At the top of
-the page, there is a button labeled **Fork**. Click the button. This will
-present a page with a **Create Fork** button at the bottom. By clicking this
-button, you will add a copy of the course materials to your personal GitHub
-account. You are now ready to start Unit 0 (look at the `README.md` file
-there).
+Point your web browser to https://github.com/iankorf/MCB185. At the top of the
+page, there is a button labeled **Fork**. Click the button. This will present a
+page with a **Create Fork** button at the bottom. By clicking this button, you
+will add a copy of the course materials to your personal GitHub account. You
+are now ready to start Unit 0 (look at the `README.md` file there).
