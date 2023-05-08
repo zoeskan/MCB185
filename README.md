@@ -1,5 +1,7 @@
-MCB185-2024
-===========
+MCB185
+======
+
+- change all MCB185-2024 to MCB185
 
 ## Intent ##
 
@@ -103,9 +105,29 @@ The instructor and TA monitor the course Discord server, so asking questions in
 the #mcb185 channel will get you the fastest response. You may get answers from
 other students even sooner. Email will also work.
 
-## Rules ##
+## Getting Started ##
 
-It's worth re-stating some unusual rules of the course.
+This course is organized as a GitHub repository. GitHub is a website that lets
+you store and manage Git repositories. While Git was designed for source code
+management, it can be used to manage all kinds of projects. Git allows multiple
+people to work on the same files without anyone over-writing anyone else's
+work. You will always know who did what and when.
 
-+ No programming constructs more advanced than the current unit
-+ No penalty for working with other students, it's encourged
+There are several services similar to GitHub, but GitHub is the most popular.
+Every bioinformatics developer should have a GitHub account. Your repositories
+and activity are part of your CV. If you don't have a GitHub account, it's time
+to point your web browser to [GitHub](https://github.com) and create an
+account.
+
+Choose a username. Your GitHub account will be part of your CV, so choose a
+name that you won't be embarrassed by in a few years. I use my full name. After
+setting your email and password, choose the free plan and then answer a few
+questions about your interests to create your account. Go to your email to
+verify your email address.
+
+Point your web browser to https://github.com/iankorf/MCB185-2024. At the top of
+the page, there is a button labeled **Fork**. Click the button. This will
+present a page with a **Create Fork** button at the bottom. By clicking this
+button, you will add a copy of the course materials to your personal GitHub
+account. You are now ready to start Unit 0 (look at the `README.md` file
+there).

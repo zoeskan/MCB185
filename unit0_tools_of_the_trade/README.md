@@ -15,18 +15,17 @@ Unit 0: Tools of the Trade
 
 ## Unix/Linux ##
 
-Most professional bioinformatics is done in a Unix/Linux environment. You don't
-have to love Unix/Linux, but you do have to be proficient at it. The file,
-`REFERENCE.md`, contains all of the Unix commands we use in the course (also
-all of the Python programming concepts).
+Most professional bioinformatics is done in a Unix/Linux environment, so you
+must become familiar with it. The file, `UNIX_REFERENCE.md`, contains all of
+the Unix commands we use in the course.
 
 ### What's the deal with Unix vs. Linux? ###
 
 Most people about to embark on an adventure in bioinformatics programming will
 be using some flavor of Linux (e.g. Debian, Fedora, LinuxLite, Mint, Ubuntu,
 etc.) and not actually Unix. Is there a difference between Linux and Unix? No
-and yes. Linux was designed to be just like Unix, so from a practical
-standpoint they are very similar. Despite looking the same, they share no
+and yes. Linux was designed to behave just like Unix, so from a practical
+standpoint they are very similar. Despite behaving the same, they share no
 source code in common. The biggest difference is philosophical. Unix is a
 commercial product and Linux is free open source software (FOSS). From a
 philosophical perspective, they are very different. In this document, the terms
@@ -55,8 +54,8 @@ follow the instructions:
 xcode-select --install
 ```
 
-By default, your home directory might not be shown in your sidebar. If you want
-it there, change that in Finder->Preferences.
+By default, your home directory might not be shown in your Finder window
+sidebars. If you want it there, change that in Finder->Preferences.
 
 ### Linux on PC ###
 
@@ -66,7 +65,7 @@ disadvantages, which are described in more detail below.
 
 + Virtual machine - recommended
 + Install Linux on a PC - best if you have a spare PC
-+ Cygwin - good for advanced users
++ Cygwin - recommended if VMs are a problem
 + Git bash - good for advanced users
 + Windows Subsystem for Linux - official Microsoft solution (not recommended)
 + Chromebook - inexpensive and works okay
@@ -124,9 +123,6 @@ post-install customizations you might need to do. On VirtualBox these include:
 
 If you're having problems with the install or post-install, ask for help.
 
-Mac users can also install VMs, but the experience is sometimes not as good as
-PC users.
-
 ### Install Linux on PC ###
 
 This is the native way to run Linux, but it may change your PC permanently.
@@ -135,12 +131,12 @@ There are a variety of ways you can install Linux on a hard disk. This could be
 an external hard disk you plug in when you want to run Linux (e.g. a flash
 drive), or you can split your current hard disk into multiple partitions, or
 you can wipe Windows and install Linux instead. All of these methods will give
-you Linux with all of the RAM and CPU. Each one is slightly destructive,
-however, and you may accidentally wipe your Windows partition even if you
-didn't intend to. For these reasons, if you only have 1 computer, I don't
-recommend installing Linux directly. Use VirtualBox or Cygwin instead. However
-if you do have a spare computer, installing Linux will give you that fully
-immersive experience that helps you learn Linux faster.
+you Linux with all of the RAM and CPU of your computer. Each one is slightly
+destructive, however, and you may accidentally wipe your Windows partition even
+if you didn't intend to. For these reasons, if you only have 1 computer, I
+don't recommend installing Linux directly. Use VirtualBox or Cygwin instead.
+However if you do have a spare computer, installing Linux will give you that
+fully immersive experience that helps you learn Linux faster.
 
 You can sometimes pick up old PCs for $50. Old Macs make great Linux boxes. I
 have a 2015 iMac and 2012 Mac Mini that are too old to work with the current
@@ -151,17 +147,17 @@ MacOS, but both continue to work flawlessly as Linux machines.
 Cygwin is not an entire operating system but rather a terminal with POSIX
 commands (POSIX is a standard for portable Unix). Cygwin does not come
 pre-installed with Python, so you will have to run the Cygwin `Setup.exe` to
-install it and possibly other programming tools (git, nanot). For basic Python
-programming, I've found Cygwin to work great. However, installing some external
-libraries can be frustrating. Since we don't use external libraries in this
-course, Cygwin will work great. Later, it may become a pain.
+install it and possibly other programming tools (`git`, `nano`). For basic
+Python programming, I've found Cygwin to work great. However, installing some
+external libraries can be frustrating. Since we don't use external libraries in
+this course, Cygwin will work great. Later, it may become a pain.
 
 Your Windows C drive is mounted at `/cygdrive/c`. Your Cygwin root depends on
 where you chose to install it (probably `C:\cygdrive64`).
 
 ### Git Bash on Windows ###
 
-Git Bash is software intended for running git commands on Windows PCs using a
+Git Bash is software intended for running `git` commands on Windows PCs using a
 command line interface. It can be used for more tasks, such as Python
 programming. Some programming languages are built-in (e.g. Perl) but Python is
 not by default. Git Bash feels very similar to Cygwin but software installation
@@ -309,7 +305,6 @@ work with Windows line endings.
 Most Mac software has switched over to LF line endings, but check your editor
 to make sure it doesn't use CR.
 
-
 ### Editor Customization ###
 
 Every source code editor has a lot of options. Make sure your editor is set up
@@ -324,8 +319,6 @@ for the following:
 In addition, you might want to change the theme. Some people like light
 characters on a dark background while others prefer the reverse. You should
 theme the terminal similarly to the editor.
-
-
 
 ------------------------------------------------------------------------------
 
@@ -432,24 +425,8 @@ you might want to move it.
 
 ## Git ##
 
-Git is the most popular version control software. While it was designed for
-source code management, it can be used to manage all kinds of projects. Git
-allows multiple people to work on the same files without anyone over-writing
-anyone else's work. You will always know who did what and when.
-
-## GitHub Account ##
-
-GitHub is a website that lets you store your git repositories for free. There
-are several similar sites, but GitHub is the most popular. Every bioinformatics
-developer should have a GitHub account. Your repositories and activity are part
-of your CV. If you don't have a GitHub account, it's time to point your web
-browser to [GitHub](https://github.com) and create an account.
-
-Choose a username. It's okay to be clever, but don't be silly. Remember, this
-will be part of your CV. I use my full name. After setting your email and
-password, choose the free plan and then answer a few questions about your
-interests to create your account. Go to your email to verify your email
-address.
+You should already have a GitHub account and have _forked_ this repository. If
+you haven't completed these tasks already, you aren't following directions.
 
 ### Create a Repository ###
 
@@ -475,14 +452,10 @@ Private and back. Most of my repos are public because I believe in openly
 sharing (but hands off my sandwich).
 
 Now let's go make a repo. Go to the GitHub website and click on the green "New"
-button to create a new repo. Name this "homework" because this is where you'll
-be submitting your homework. Make it **public**. Does this mean that students
-can see each others' homework? Yes. You're actually encouraged to work with
-other students in this class. Click the checkboxes to initialize with a README,
-add a .gitignore, and add a license. Scroll through the .gitignore options
-until you get to "Python". Choose whichever license you like. I generally use
-MIT. Click the "Create Repository" and you will be transported to your new
-mostly empty repo.
+button to create a new repo. Name this "demo" or something like that. Click the
+checkboxes to initialize with a README. Click the "Create Repository" and you
+will be transported to your new mostly empty repo. That's all there is to
+creating a repository. You can add files to it later.
 
 ### Personal Access Token ###
 
@@ -504,61 +477,25 @@ again, use the "No expiration" option.
 
 Click on the "repo" checkbox, which will also check the subordinate boxes.
 
-This personal access token is given to you once. Copy it and save it somewhere
-safe. You can never get to this PAT again. Ever. However, you can generate a
-new one anytime you like, so if you lose your PAT, you can just generate a new
-one. I put my PAT in a personal message to myself in Slack. I also keep it in a
-file on Dropbox.
+This personal access token is given to you **once**. Copy it and save it
+somewhere safe. You can never get to this PAT again. Ever. However, you can
+generate a new one anytime you like, so if you lose your PAT, you can just
+generate a new one. I put my PAT in a personal message to myself in Slack and
+Discord.
 
 ### Cloning Repos from the CLI ###
 
-Your current homework repo is located on GitHub, but not in your Linux
-computer. Type the following commands in your terminal, substituting
-`YOUR_GITHUB_HANDLE` for whatever your GitHub user name is.
+Your current MCB185 repo is located on GitHub, but not in your Linux computer.
+Type the following commands in your terminal, substituting `YOUR_GITHUB_HANDLE`
+for whatever your GitHub user name is.
 
 ```
 
 cd ~/Code
-git clone https://github.com/YOUR_GITHUB_HANDLE/homework
+git clone https://github.com/YOUR_GITHUB_HANDLE/MCB185
 ```
 
-You should now see your homework directory. Also clone the MCB185-2023 repo so
-that you have all of the course content on your computer.
-
-```
-git clone https://github.com/iankorf/MCB185-2023
-ls
-```
-
-You should now see both your homework and the course repos in your Code
-directory. Since you own your homework repo, you will be able to make changes
-to it and the files on the website will change. However, you don't own
-MCB185-2023 and I haven't invited you as a collaborator, so you won't be able
-to make changes to my repo. You can edit the files all you want on your
-computer, you just can't change the files on the website.
-
-Let's get one more repository and put this in our `DATA` directory. Note that
-most of the time data isn't managed by git. It's usually too large. But in this
-case, the data is small enough that it's okay.
-
-```
-cd ~/DATA
-git clone https://github.com/iankorf/E.coli
-```
-
-As the name suggests, this is some data from the E. coli genome. There are 5
-files inside.
-
-```
-ls ~/DATA/E.coli
-```
-
-+ GCF_000005845.2_ASM584v2_genomic.fna.gz - genome in FASTA
-+ GCF_000005845.2_ASM584v2_genomic.gbff.gz - annotation in GFF
-+ GCF_000005845.2_ASM584v2_genomic.gff.gz - genome and annotation in GenBank
-+ GCF_000005845.2_ASM584v2_protein.faa.gz - proteins in FASTA
-+ README.md - notes about the data
-
+You should now see your fork of the MCB185 course materials.
 
 ### Git Commands ###
 
