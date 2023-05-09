@@ -69,25 +69,26 @@ _illegal_ solutions will be marked as incorrect and receive no credit.
 
 Each unit of the course corresponds to 1 week. This is the standard track.
 
-+ Unit 0: Tools of the Trade
-+ Unit 1: Basic Unix
-+ Unit 2: Beginning Python (Variables, Math, Conditionals, and Loops)
-+ Unit 3: Containers (Strings, Tuples, and Lists)
-+ Unit 4: Algorithms
-+ Unit 5: Algoirthms
-+ Unit 6: Functions and Files
-+ Unit 7: Executables and CLI
++ Unit 0: Tools of the trade
++ Unit 1: Unix basics
++ Unit 2: Math, variables, conditionals, and loops
++ Unit 3: Strings
++ Unit 4: Lists and tuples
++ Unit 5: Sequence algorithms
++ Unit 6: Functions
++ Unit 7: Files and CLI
 + Unit 8: Dictionaries
 + Unit 9: Final Project
 
 Content on the accelerated track can be completed in any order.
 
-+ Unit A: Regular Expressions
-+ Unit B: Complex Data Structures
-+ Unit C: Object-Oriented Programming
-+ Unit D: Exceptions and Testing
-+ Unit E: Documentation
-+ Unit F: Interprocess Communication
++ Unit A: Regular expressions
++ Unit B: Multidimensional data structures
++ Unit C: Optimizing performance
++ Unit D: Libraries, exceptions, and testing
++ Unit E: Object-oriented programming and API documentation
++ Unit F: Advanced projects
+
 
 ## Getting Good ##
 
