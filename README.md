@@ -127,6 +127,11 @@ The instructor and TA monitor the course Discord server, so asking questions in
 the #mcb185 channel will get you the fastest response. You may get answers from
 other students even sooner. Email will also work.
 
+The instructor and TA also hold _coderies_, which are online, small group
+programming sessions. Not only is this a good way to meet your classmates and
+get personalized help in a cozy setting, it's also a _required_ part of your
+participation grade. The schedule will be announced in Canvas and Discord.
+
 ## Getting Started ##
 
 This course is organized as a GitHub repository. GitHub is a website that lets
