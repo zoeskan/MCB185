@@ -81,7 +81,7 @@ been formally introduced in unit 6. Want to use numpy or pandas? Sorry, we
 never use those in this course. Looking up answers on the Internet will
 frequently end with code that you're not allowed to use. Programs with
 _illegal_ solutions will be penalized. Programs with plagiarism will be
-reported to student judial affairs.
+reported to student judicial affairs.
 
 In general, resist copy-paste. Typing words helps you remember what you did
 later. Copy-paste is one of the worst ways to learn how to program. Also,
@@ -104,7 +104,7 @@ Each unit of the course corresponds to 1 week. This is the standard track.
 + Unit 9: Final Project
 
 Content on the accelerated track can be completed in any order. Most of the
-content assumes you have already completed the stadnard track.
+content assumes you have already completed the standard track.
 
 + Unit A: Regular expressions
 + Unit B: Multidimensional data structures
