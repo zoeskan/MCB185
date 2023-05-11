@@ -1,3 +1,3 @@
-Unit 8: Dictionaries
+Unit 8: Complex Data
 ====================
 
