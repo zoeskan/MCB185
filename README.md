@@ -94,24 +94,23 @@ Each unit of the course corresponds to 1 week. This is the standard track.
 
 + Unit 0: Tools of the trade
 + Unit 1: Unix basics
-+ Unit 2: Math, variables, conditionals, and loops
-+ Unit 3: Strings
-+ Unit 4: Lists and tuples
-+ Unit 5: Sequence algorithms
++ Unit 2: Python basics
++ Unit 3: Math
++ Unit 4: Strings
++ Unit 5: Lists
 + Unit 6: Functions
-+ Unit 7: Files and CLI
-+ Unit 8: Dictionaries
-+ Unit 9: Final Project
++ Unit 7: Dictionaries
++ Unit 8: Objects
++ Unit 9: Projects
 
-Content on the accelerated track can be completed in any order. Most of the
-content assumes you have already completed the standard track.
+Content on the accelerated track can be completed at any time.
 
-+ Unit A: Regular expressions
-+ Unit B: Multidimensional data structures
-+ Unit C: Optimizing performance
-+ Unit D: Libraries, exceptions, and testing
-+ Unit E: Object-oriented programming and API documentation
-+ Unit F: Advanced projects
++ Unit A: Advanced Linux (requires Unit 1)
++ Unit B: Regular expressions (requires Unit 4)
++ Unit C: Matrices (requires Unit 5)
++ Unit D: Libraries (requires unit 6)
++ Unit E:
++ Unit F:
 
 ## Getting Good ##
 

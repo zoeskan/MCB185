@@ -1,3 +1,4 @@
-Unit 9: Final Projects
-======================
+Unit 9: Projects
+================
 
+Various possibilities for team-based code
