@@ -107,10 +107,10 @@ Content on the accelerated track can be completed at any time.
 
 + Unit A: Advanced Linux (requires Unit 1)
 + Unit B: Regular expressions (requires Unit 4)
-+ Unit C: Matrices (requires Unit 5)
-+ Unit D: Libraries (requires unit 6)
-+ Unit E:
-+ Unit F:
++ Unit C: More lists (requires Unit 5)
++ Unit D: Libraries (requires Unit 6)
++ Unit E: Optimization (requires Unit 7)
++ Unit F: Object-oriented programming (requires Unit 8)
 
 ## Getting Good ##
 
