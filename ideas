@@ -1,0 +1,38 @@
++ hello world
+
+## Simple Programs ##
+
++ pre-variables
+	+ 
++ variables
+	+ create a variable
+	+ change its value
+	+ create 2 variables
+	+ swap their values
+	+ create a variable with a random number
+	+ divisor and remainder
+	+ hypotenuse
+	+ quadratic formula
+	+ circumference and area of shapes
+	+ olgio-Tm 2*at + 3*gc
+	+ cartesian distance
++ conditionals
+	+ odd/even
+	+ smaller, bigger, equal 0.6/60 != 0.1 # yay
+	+ booleans: and, or, not (a lead into fizzbuzz)
+		+ divisible by x and y
+		+ divisible by x or y
+		+ div by x and not y
++ loops
+	+ print numbers 1 to 10
+	+ same in reverse
+	+ counting by threes
+	+ running sum
+	+ break, continue maybe next unit
++ loops & conditionals
+	+ print out odds and evens
+		+ use step
+		+ use modulo
+		+ use while
+	+ while is best for loops that stop themselves during a task
+
