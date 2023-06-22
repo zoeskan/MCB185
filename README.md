@@ -53,7 +53,8 @@ courses, the instructors have automated grading. I would never do that, because
 that would mean that the focus was on getting the code to provide the correct
 answer. In this course, the focus is on what the code looks like more than what
 it does. It's better to have beautiful code that is broken than ugly code that
-solves the problem correctly.
+solves the problem correctly because the beautiful code is easier to fix and
+maintain in the long run.
 
 ## Collaboration vs Plagiarism ##
 
@@ -75,11 +76,8 @@ plagiarism. If you take answers from the Internet and state where you got the
 information, it is not plagiarism. However, it's also not recommended.
 
 In this course, you are not allowed to use any concept unless it has been
-introduced in a previous or current unit. Do you already know how to write
-functions? Good for you, but you aren't allowed to use them until they have
-been formally introduced in unit 6. Want to use numpy or pandas? Sorry, we
-never use those in this course. Looking up answers on the Internet will
-frequently end with code that you're not allowed to use. Programs with
+introduced in a previous or current unit. Looking up answers on the Internet
+will frequently end with code that you're not allowed to use. Programs with
 _illegal_ solutions will be penalized. Programs with plagiarism will be
 reported to student judicial affairs.
 
@@ -87,30 +85,6 @@ In general, resist copy-paste. Typing words helps you remember what you did
 later. Copy-paste is one of the worst ways to learn how to program. Also,
 copy-paste is one of the greatest sources of silent programming errors and
 plagiarism.
-
-## Course Content ##
-
-Each unit of the course corresponds to 1 week. This is the standard track.
-
-+ Unit 0: Tools of the trade
-+ Unit 1: Unix basics
-+ Unit 2: Python basics
-+ Unit 3: Math
-+ Unit 4: Strings
-+ Unit 5: Lists
-+ Unit 6: Functions
-+ Unit 7: Dictionaries
-+ Unit 8: Objects
-+ Unit 9: Projects
-
-Content on the accelerated track can be completed at any time.
-
-+ Unit A: Advanced Linux (requires Unit 1)
-+ Unit B: Regular expressions (requires Unit 4)
-+ Unit C: More lists (requires Unit 5)
-+ Unit D: Libraries (requires Unit 6)
-+ Unit E: Optimization (requires Unit 7)
-+ Unit F: Object-oriented programming (requires Unit 8)
 
 ## Getting Good ##
 
