@@ -129,4 +129,4 @@ Point your web browser to https://github.com/iankorf/MCB185. At the top of the
 page, there is a button labeled **Fork**. Click the button. This will present a
 page with a **Create Fork** button at the bottom. By clicking this button, you
 will add a copy of the course materials to your personal GitHub account. You
-are now ready to start Unit 0 (look at the `README.md` file there).
+are now ready to start.
