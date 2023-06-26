@@ -1,4 +1,4 @@
-## Unit 0 ##
+## Tools ##
 
 + Unix/Linux
 + Editor
@@ -6,60 +6,101 @@
 + Markdown
 + Python - helloworld.py
 
-## Unit 1 ##
+## Unix ##
 
 CLI practice and problem solving
+spelling queen
 
-## Unit 2 ##
+## Essential Python ##
 
-| Topic          | DR | Lesson
-|:---------------|:--:|:-------------------------------------------------------
-| variables      | 01 | containers, type(), type conversion, None
-| print          | 02 | auto-conversion, end, sep, f-string
-| math           | 03 | + - / ** hypotenuse, quadratic, cartesian, shapes
-| math           | 03 | % // += -= *= /= divisor/remainder floats not real
-|                | 03 | math.log and other useful functions
-| swap           |    | thinking vs. coding
++ variables
++ math
++ random
++ functions
 
---- conditionals ---
-| conditionals   |    | == != < > if elif else Boolean None
-| strings        |    | concatenation, comparison, slices
++ conditionals
++ loops
++ strings
++ files
++ tuples, lists
 
---- loops ---
-| fori           |    | for range break continue redo
-| forc           |    | for zip enumerate
-| evens          |    | more than one way to step a loop
-| transcribe     |    | loop and string manipulation
-| codons         |    | substrings and offsets
-| kmers          |    | windowing pattern
-| triangular     |    | init and sum
-| factorial      |    | init and product
-| squares*       |    | loops and math synthesis
-| fizzbuzz       |    | order of operations
-| fibonacci      |    | using previous values
-| primes         |    | flag variables, break
-| powers*        |    | similar to above but different break
-| nilakantha*    |    | a little challenging
-| dyad           |    | palindrome variant
+## Essential Patterns ##
 
---- functions ---
-| functions      |    | def
-| factorial()    |    | make a factorial function
-| stirling()     |    | make a variant function
++ sum, product
++ min, max
++ flag
++ item search
++ precision search
 
-| random         |    | intro to random number generators
+
+
+## Advanced Python ##
+
++ dictionaries
++ regex
++ data structures
+
+## Advanced Patterns ##
+
++
+
+| Topic          | Lesson
+|:---------------|:-------------------------------------------------------
+| variables      | containers, type(), type conversion, None
+| print          | auto-conversion, end, sep, f-string
+| math           | + - / ** hypotenuse, quadratic, cartesian, shapes
+|                | % // += -= *= /= divisor/remainder floats not real
+|                | math.log and other useful functions
+| functions      | def your own functions
+|                | functions from previous calculations
+| swap           | thinking vs. coding
+| conditionals   | == != < > if elif else Boolean None
+| strings        | concatenation, comparison, slices
+| fori           | for range break continue redo
+| forc           | for zip enumerate
+| files          | open close with
+| random         | intro to random number generators
+
+| Program        | Pattern
+|:---------------|:--------------------
+| transcribe     | string concatenation
+
+| evens          | stepping (3 ways)
+
+| anti           | stepping (2 ways)
+| codons         | stepping, substring
+| kmers          | stepping, substring
+
+| triangular     | init and sum
+| factorial      | init and product
+
+| squares*       | loops and math synthesis
+
+| fizzbuzz       | order of operations
+| fibonacci      | using previous values
+
+| primes         | flag variables, break
+
+| powers*        | similar to above but different break
+| nilakantha*    | a little challenging
+| dyad           | palindrome variant
+
+| factorial      | bounds, init, product loop
+| stirling()     | bounds
+
+
 
 --- files ---
-| files          |    | open close with
+
 | readseq()      |    | useful
-| tm()           |    | counting letters 
+| tm()           |    | counting letters
 | anti()         |    | useful later
 | gc()           |    | useful later
 | entropy()      |    | math.log2
 | randseq()      |    |
-| translate      |    | 
+| translate      |    |
 | gcwin          |    | prelude to dust
-| dust*          |    | 
+| dust*          |    |
 | splice         |    | splice exons, split gff
 |                |    | create a tsv...
 
@@ -82,7 +123,7 @@ CLI practice and problem solving
 | chain          |    | Boolean chaining and short-circuit
 | benchmark      |    | time performance in python and unix
 | birthday*      |    | list, flag, benchmark
-| xcoverage*     |    | 
+| xcoverage*     |    |
 
 --- generators ---
 
@@ -100,7 +141,7 @@ CLI practice and problem solving
 
 --- regex ---
 
-| 
+|
 
 --- algorithms ---
 

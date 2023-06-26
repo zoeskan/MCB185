@@ -2,17 +2,69 @@ Python Bioinformatics Cookbook
 ==============================
 
 A collection of statements, functions, and programs that illustrate how to
-perform typical bioinformatics tasks in Python. The programs are written to be
-easy to understand more than efficient or bullet-proof.
+perform biology-flavored programming tasks in Python. The source code is
+written to be easy to understand more than efficient or bullet-proof. No
+external modules (e.g. `numpy`) need to be installed.
 
 ## Table of Contents ##
 
+Shortcuts
+
++ Swapping 2 variables
+
+Sorting
+
++ Sorting a list by...
++ Sorting a dictionary by value
++ Sorting a list of objects by value
+
+Random
+
++ Generating a random DNA sequence
++ Generating random DNA with specific probabilities
++ Selecting random values...
+
+Reading files
+
++ Reading a file of numbers into a list
++ Iterating through a CSV or TSV file
 + Reading a single sequence from a FASTA file
 + Reading multiple sequences from a FASTA file
+
+
+Command line interface
+
 + Retrieving command line arguments with `sys.argv`
 + Defining and retrieving command line arguments with `argparse`
 
 
+
+## Swapping 2 variables ##
+
+```
+a = 'cat'
+b = 'dog'
+```
+
+Now put swap the variables, so that `a` contains 'cat'. This is sometimes
+confusing for new programmers, but if you ask them to do it in real life, it's
+easy.
+
+```
+glass = 'milk'
+mug = 'coffee'
+```
+
+"Oh, let me get another container." Sometimes the answer is obvious in the real
+world but not while programming. In Python, you don't need another container.
+You can swap them as tuples.
+
+```
+a, b = b, a
+glass, mug = mug, glass
+```
+
+## Reading a file of numbers into a list ##
 
 To read a file of numbers into a list, convert each number to a `float` and
 then append it to a list.
@@ -23,6 +75,11 @@ with open(filename) as fp:
 	for line in fp:
 		values.append(float(line))
 ```
+
+## Reading a CSV or TSV ##
+
+
+## Reading a FASTA file ##
 
 To read a FASTA file into a string, remove the newlines and concatenate the
 lines together.
@@ -35,9 +92,12 @@ with open(filename) as fp:
 		seq += line.rstrip()
 ```
 
+## Reading a multi-FASTA file ##
+
 Reading a multi-FASTA file is a little complicated. Building and returning a
-list of sequences is wasteful of CPU and RAM for long sequences. Use the
-function below, which has some useful features.
+list of sequences is wasteful of CPU and RAM for long sequences. Why slurp in
+an entire genome when you can iterate over chromosomes? The function below,
+which has some useful features.
 
 + It can read from compressed files or stdin
 + It uses `join` to prevent the CPU overhead of concatenation

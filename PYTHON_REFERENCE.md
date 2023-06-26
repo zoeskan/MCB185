@@ -1,17 +1,43 @@
 Python Reference
 ================
 
+## Naming Convenentions ##
+
+Variable and function names are generally all lowercase. If a variable consists
+of two words, you can merge them together or put an underscore between them.
+The Python community does not use mixedCase or CamelCase.
+
++ `myvar` yes
++ `my_var` yes
++ `myVar` no
++ `MYVAR` yes, for constant value that never changes
+
+Variables sometimes have very short names that describe their type.
+
++ `n` is an integer, as are `i`, `j`, and `k`
++ `f` is a float, as are `x`, `y`, `x1`, `x2`, `y1`, and `y2`
++ `p` is a probability, as is `q`
++ `a`, `b`, and `c` are often numbers: ax^2 + bx + c or a^2 + b^2 = c^2
++ `c` by itself is a character
++ `s` is a string, as are `s1`, `s2`
++ `nt` and `aa` are single nucleotides or amino acids
++ `seq` is often used for a biological sequence along with `dna` and `pep`
++ lists are usually plural: `seqs` is a list of sequences
++ `it` is an iterable, as are `it1` and `it2`
++ `d` is a dictionary
++ `fp` is a file pointer (variable)
+
 ## Print ##
 
 The `print()` function is very flexible. There are many options not shown here.
 
 | Code                   | Output
-|:-----------------------|:------------------------------------
+|:-----------------------|:-----------------------------------------
 | `print('hello')`       | "hello" followed by a newline
 | `print(a, b)`          | values a and b, separated by a space
 | `print(a, b, sep=',')` | values a and b, separated by a comma
 | `print(a, end='')`     | value of a, no newline at end
-| `print(f'{a + b})`     | value of a + b
+| `print(f'{a + b})`     | value of a + b interpolated in f-string
 | `print(f'{a/b:.3f}')`  | value of a / b with 3 digits after .
 | `print(f'{a/b:.3g}')`  | value of a / b in scientific notation
 
@@ -20,13 +46,13 @@ The `print()` function is very flexible. There are many options not shown here.
 The `type()` function returns the type of a variable.
 
 | Type                | Meaning
-|:--------------------|:----------------
-| `int`               | integers
-| `float`             | decimal numbers
+|:--------------------|:---------------------------------
+| `int`               | integer
+| `float`             | number with a decimal point
 | `str`               | string (text)
 | `None`              | a non-value useful for debugging
 | `bool`              | Boolean (True or False)
-| `tuple`             | a collection of immutable values
+| `tuple`             | a collection of fixed values
 | `list`              | a collection of mutable values
 | `dict`              | a collection of key/value pairs
 | `_io.textIOWrapper` | file handle
@@ -34,89 +60,149 @@ The `type()` function returns the type of a variable.
 The `int()`, `float()`, and `str()` functions are useful to convert values from
 one type to another.
 
+## Numbers ##
+
+Math operators work as you expect. There are some you may not be familiar with,
+such as modulo `%`, which is the remainder after integer division `//`.
+Absolute value is provided as the function `abs()`.
+
+| Operator | Purpose           | Example
+|:---------|:------------------|:--------------------------
+| `=`      | assignment        | `a = 2`
+| `+`      | addition          | `a = b + c`
+| `-`      | subtraction       | `a = b - c`
+| `*`      | multiplication    | `a = b * c`
+| `/`      | division          | `a = b / c`
+| `**`     | exponentiation    | `a = b ** c`
+| `//`     | integer divide    | `a = 5 // 2 # 2`
+| `%`      | remainder         | `a = 5 % 2  # 1`
+| `()`     | precedence        | `c = (a**2 + b**2)**0.5`
+| `+=`     | increment         | `a += 1`
+| `-=`     | decrement         | `a -= 1`
+| `*=`     | multiply & assign | `a *= 2`
+| `/=`     | divide & assign   | `a /= 2`
+
+Comparison operators are unsurprising.
+
+| Operator | Purpose           | Example
+|:---------|:------------------|:----------------------
+| `==`     | equality          | `if a == b:`
+| `!=`     | inequality        | `if a != b:`
+| `<`      | less than         | `if a < b:`
+| `>`      | greater than      | `if a > b:`
+| `<=`     | less or equal     | `if a <= b:`
+| `>=`     | greater or equal  | `if a >= b:`
+
+Constants from the `math` library include:
+
+| Constant      | Meaning
+|:--------------|:---------------------------
+| `math.pi`     | 3.14159...
+| `math.e`      | 2.71828...
+| `math.inf`    | infinity
+| `math.nan`    | not a number (e.g. log(0))
+
+Functions from the `math` library include:
+
+| Function            | Purpose
+|:--------------------|:---------------------------------------------
+| `math.ceil(x)`      | round `x` up
+| `math.floor(x)`     | round `x` down
+| `math.log(x)`       | `x` in log base e
+| `math.log2(x)`      | `x` in log base 2
+| `math.log10(x)`     | `x` in log base 10
+| `math.sqrt(x)`      | square root of `x`
+| `math.pow(x, y)`    | `x` to the power of `y`
+| `math.comb(n, k)`   | n choose k
+| `math.factorial(n)` | factorial of integer n
+| `math.isclose(a, b)`| returns True if `a` is nearly identical to `b`
+| `math.sin(x)`       | sine of `x` (there are many trig functions)
+| `math.degrees(x)`   | convert to radians
+| `math.radians(x)`   | convert to degrees
+
+## Strings ##
+
+Some of the familar mathematical operators are also used for text.
+
+| Operator | Purpose           | Example
+|:---------|:------------------|:------------------------
+| `=`      | assignment        | `s = 'hello'`
+| `+`      | concatenation     | `s = 'hello' + 'world'`
+| `*`      | repetition        | `polyA = 'A' * 100`
+| `\`      | special symbols   | `tab = '\t'`
+| `in`     | membership        | `if 'GAATTC' in dna:`
+| `[]`     | slice             | see Slices below
+
+Comparison operators work just like their numeric counterparts except that
+strings are compared by their ASCII values.
+
++ 'A' is less than 'B'
++ 'B' is less than 'a'
++ '1' is less than '10'
++ '2' is greater than '1000'
+
+Some useful characater and string functions are in the global namespace.
+
+| Function  | Purpose
+|:----------|:---------------------------------------------
+| `len(s)`  | get the length of a string
+| `chr(n)`  | get the character whose ASCII value is `n`
+| `ord(c)`  | get the ASCII value of the character `c`
+
+Most string functions use method syntax `s.function()`.
+
+| Method              | Purpose
+|:--------------------|:------------------------------------------------
+| `s.count(s1)`       | number of occurrences of `s1` in `s`
+| `s.endswith(s1)`    | True if `s` ends with `s1`
+| `s.startswith(s1)`  | True if `s` starts with `s1`
+| `s.find(s1)`        | position of `s1` in `s` or -1 if not found
+| `s.join(it)`        | join elements of `it` with s between
+| `s.upper()`         | convert s to uppercase
+| `s.lower()`         | convert s to lowercase
+| `s.rstrip()`        | remove characters from the end, usually newline
+| `s.split(s1)`       | split `s` into a list of strings at every `s1`
+
+## Lists ##
 
 
+sorted() - return a new sorted list
+list.sort()
+
+is
+append
+clear
+count
+extend
+index
+insert
+pop
+remove
+reverse
+sort
+len
+
+## Slices ##
 
 
-
-## Math Operators ##
-
-| Operator | Function          | Example
-|:---------|:------------------|:---------
-| `=`      | assignment        | a = 2
-| `+`      | addition          | a = a + 1
-| `-`      | subtraction       | a = 3 - 2
-| `*`      | multiplication    | a = b * c
-| `/`      | division          |
-| `**`     | exponentiation    | c = (a**2 + b**2)**0.5
-| `//`     | integer divide    |
-| `%`      | remainder         |
-| `()`     | precedence        |
-| `+=`     | increment         |
-| `-=`     | decrement         |
-| `*=`     | multiply & assign |
-| `/=`     | divide & assign   |
+## Looping ##
 
 
-## Math Functions ##
+## Iterables ##
 
-|
-| `min()`
-| `max()`
-| `sum()`
-| `math.sqrt()`
-| `math.`
+Iterables are objects that can return their contents one at a time.
+Commonly-used iterable operations are defined for your convenience.
 
-| Function
-|:------
-| `int()`
-| `float()`
-| `str()`
-
-## String Operators ##
-
-## String Functions/Methods ##
-
-| Functions
-
-Examples
-
-| Code                  |
-|:----------------------|:---------------------------------------
-| `a = 2`               | assigns the value of 2 to variable `a`
-| `a = a + 1`           | increases `a` by 1
-| `a += 1`              | increases `a` by 1
+| Function        | Purpose
+|:----------------|:--------------------------------------------------
+| `next(it)`      | gets the next item in the iterable
+| `min(it)`       | return the minimum value from an iterable
+| `max(it)`       | return the maximum value from an iterable
+| `sum(it)`       | return the sum of an iterable
+| `enumerate(it)` | creates tuples of index and item
+| `zip(it, it2)`  | simultaneously iterate through multiple iterables
 
 
-## Comparison Operators and Conditional Statements ##
-
-| `==`
-| `!=`
-| `>=`
-| `<=`
-
-## Loops ##
-
-+ Variables
-	+ Assignment
-	+ Comparison
-	+ Conversion
-+ Functions
-+ Conditionals
-+ Loops
-+ Lists
-+ File I/O
-
-+ variables
-+ math
-+ random
-+ functions
-
-+ conditionals
-+ loops
-+ strings
-+ files
-+ tuples, lists
 
 ## Functions ##
 
@@ -157,74 +243,23 @@ k = int(sys.argv[2])
 h = float(sys.argv[3])
 ```
 
-The better way to retrieve values from the command line is `argparse`.
+The better way to retrieve values from the command line is with `argparse`.
+This allows you to control input type, provide optional arguments, and display
+a pretty usage statement.
 
 ```
 import argparse
-example code here
+parser = argparse.ArgumentParser(description='DNA entropy filter.')
+parser.add_argument('file', type=str, help='name of fasta file')
+parser.add_argument('k', type=int, help='window size')
+parser.add_argument('h', type=float, help='entropy threshold')
+parser.add_argument('--lower', action='store_true', help='mask with lowercase')
+arg = parser.parse_args()
+do_something(arg.file, arg.k, arg.h, arg.lower)
 ```
-
-
-
-
-| `len()`
-| `range()`
-
-
 
 ## Reading Files ##
 
-To read in a file of numbers into a list, you must convert each number to a
-`float` and then append it to a list.
-
-```
-values = [] # empty list
-with open(filename) as fp:
-	for line in fp:
-		values.append(float(line))
-```
-
-To read a FASTA file into a string, remove the newlines and concatenate the
-lines together.
-
-```
-seq = '' # empty string
-with open(filename) as fp:
-	header = fp.readline()
-	for line in fp:
-		seq += line.rstrip()
-```
-
-To read a multi-FASTA file, you can read all of the sequences into a list and
-then return the list. However, this can be wasteful of CPU and memory for long
-sequences. The function below has several interesting features.
-
-+ It can read from compressed files or stdin
-+ It uses `join` to reduce reallocations
-+ It uses `yield` to reduce memory footprint
-
-```
-import gzip
-def read_fasta(filename):
-	if   filename == '-':          fp = sys.stdin
-	elif filename.endswith('.gz'): fp = gzip.open(filename, 'rt')
-	else:                          fp = open(filename)
-	name = None
-	seqs = []
-	while True:
-		line = fp.readline()
-		if line == '': break
-		line = line.rstrip()
-		if line.startswith('>'):
-			if len(seqs) > 0:
-				yield(name, ''.join(seqs))
-				name = line[1:]
-				seqs = []
-			else:
-				name = line[1:]
-		else:
-			seqs.append(line)
-
-	yield(name, ''.join(seqs))
-	fp.close()
-```
+fp = open()
+fp.close()
+with open() as fp
