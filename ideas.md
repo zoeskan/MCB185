@@ -33,6 +33,13 @@ spelling queen
 + precision search
 
 
+What if the class ended here?
+
+
+
+----------------------------
+
+
 
 ## Advanced Python ##
 
@@ -42,7 +49,6 @@ spelling queen
 
 ## Advanced Patterns ##
 
-+
 
 | Topic          | Lesson
 |:---------------|:-------------------------------------------------------

@@ -3,8 +3,9 @@ Python Bioinformatics Cookbook
 
 A collection of statements, functions, and programs that illustrate how to
 perform biology-flavored programming tasks in Python. The source code is
-written to be easy to understand more than efficient or bullet-proof. No
-external modules (e.g. `numpy`) need to be installed.
+written to be easy to understand more than efficient or bullet-proof. MCB185
+also limits how much of the Python language is used. For example, there are no
+dictionaries or numpy.
 
 ## Table of Contents ##
 
@@ -36,6 +37,42 @@ Command line interface
 
 + Retrieving command line arguments with `sys.argv`
 + Defining and retrieving command line arguments with `argparse`
+
+Translation and K-mers
+
+
+
+
+
+
+To iterate through items in a container (string list, tuple), use a `for` loop.
+
+```
+dna = 'acgt'
+for nt in dna:
+	print(nt)
+```
+
+If you need the index, you can use `range()` or `enumerate()`.
+
+```
+for i in range(len(dna)):
+	print(i, dna[i])
+for i, nt in enumerate(dna):
+	print(i, dna[i])
+```
+
+Top iterate through two lists at the same time, use `range()` or `zip()`.
+
+```
+pets = ('cat', 'dog', 'rat')
+ranks = (1, 0, 2)
+for i in range(len(pets)):
+	print(pets[i], ranks[i])
+for pet, rank in zip(pets, ranks):
+	print(pet, rank)
+```
+
 
 
 

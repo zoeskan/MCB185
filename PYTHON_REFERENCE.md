@@ -1,18 +1,44 @@
 Python Reference
 ================
 
+This Python Reference contains a subset of the Python language used
+specifically for MCB185. MCB185 students are not allowed to use any Python
+construct that isn't in this reference.
+
+## Spacing ##
+
+(1) Use a maximum line length of 79 characters most of the time.
+
+(2) Use 1 space around/after most operators, just like in English. But don't be
+robotic about it, as sometimes it's better not to use spaces.
+
++ Yes: "Hello, my name is Ian. What's your name?"
++ No: "Hello,my name is Ian.What's your name?"
++ No: "Hello, my name is  Ian .  What's your name?"
++ Yes: `if a > b: a, b = b, a`
++ No: `if a>b: a,b=b,a`
++ Yes: `print('hello', end='')` there is no space around keyword `=`
++ Yes: `c = (a**2 + b**2) ** 0.5` the interior looks better without spaces
+
+(3) Use vertical spacing (blank lines) to separate logic, just as you would use
+paragraph structure in English.
+
+(4) The Python convention is to use 4 spaces to indent. However, in this class,
+you **must use tabs**.
+
 ## Naming Convenentions ##
 
 Variable and function names are generally all lowercase. If a variable consists
 of two words, you can merge them together or put an underscore between them.
-The Python community does not use mixedCase or CamelCase.
+The Python community does not use mixedCase.
 
-+ `myvar` yes
-+ `my_var` yes
-+ `myVar` no
-+ `MYVAR` yes, for constant value that never changes
++ `speedlimit` yes
++ `speed_limit` yes
++ `speedLimit` no
 
-Variables sometimes have very short names that describe their type.
+Variables sometimes have very short names that implicitly describe their type.
+It's okay for loop variables to have such names, but for more longer-lived
+variables, you should use more descriptive names.
 
 + `n` is an integer, as are `i`, `j`, and `k`
 + `f` is a float, as are `x`, `y`, `x1`, `x2`, `y1`, and `y2`
@@ -20,26 +46,32 @@ Variables sometimes have very short names that describe their type.
 + `a`, `b`, and `c` are often numbers: ax^2 + bx + c or a^2 + b^2 = c^2
 + `c` by itself is a character
 + `s` is a string, as are `s1`, `s2`
-+ `nt` and `aa` are single nucleotides or amino acids
-+ `seq` is often used for a biological sequence along with `dna` and `pep`
-+ lists are usually plural: `seqs` is a list of sequences
-+ `it` is an iterable, as are `it1` and `it2`
-+ `d` is a dictionary
 + `fp` is a file pointer (variable)
 
-## Print ##
+For biological sequences it's common to use these shorthands:
+
++ `nt` and `aa` are single characters of nucleotides or amino acids
++ `seq` is often used for a biological sequence along with `dna` and `pep`
+
+Lists are often plural version of descriptive names:
+
++ `params` is a list of parameters
++ `seqs` is a list of sequences
+
+## Output ##
 
 The `print()` function is very flexible. There are many options not shown here.
 
-| Code                   | Output
-|:-----------------------|:-----------------------------------------
-| `print('hello')`       | "hello" followed by a newline
-| `print(a, b)`          | values a and b, separated by a space
-| `print(a, b, sep=',')` | values a and b, separated by a comma
-| `print(a, end='')`     | value of a, no newline at end
-| `print(f'{a + b})`     | value of a + b interpolated in f-string
-| `print(f'{a/b:.3f}')`  | value of a / b with 3 digits after .
-| `print(f'{a/b:.3g}')`  | value of a / b in scientific notation
+| Code                        | Output
+|:----------------------------|:-----------------------------------------
+| `print('hello')`            | "hello" followed by a newline to stdout
+| `print(a, b)`               | values a and b, separated by a space
+| `print(a, b, sep=',')`      | values a and b, separated by a comma
+| `print(a, end='')`          | value of a, no newline at end
+| `print(f'{a + b})`          | value of a + b interpolated in f-string
+| `print(f'{a/b:.3f}')`       | value of a / b with 3 digits after .
+| `print(f'{a/b:.3g}')`       | value of a / b in scientific notation
+| `print(a, file=sys.stderr)` | print `a` to stderr rather than stdout
 
 ## Variables ##
 
@@ -62,9 +94,9 @@ one type to another.
 
 ## Numbers ##
 
-Math operators work as you expect. There are some you may not be familiar with,
-such as modulo `%`, which is the remainder after integer division `//`.
-Absolute value is provided as the function `abs()`.
+Math operators work as you expect. Unfamiliar operators `//` for integer
+division and `%` (modulo) for the remainder after integer division. Absolute
+value is provided as the function `abs()`.
 
 | Operator | Purpose           | Example
 |:---------|:------------------|:--------------------------
@@ -137,11 +169,11 @@ Comparison operators work just like their numeric counterparts except that
 strings are compared by their ASCII values.
 
 + 'A' is less than 'B'
-+ 'B' is less than 'a'
-+ '1' is less than '10'
-+ '2' is greater than '1000'
++ 'B' is less than 'a' (all capital letters are less than lowercase)
++ '1' is less than '10' (as 'a' is less than 'ace')
++ '2' is greater than '1000' (as 'b' is greater than 'ant')
 
-Some useful characater and string functions are in the global namespace.
+A few useful character and string operations use function syntax:
 
 | Function  | Purpose
 |:----------|:---------------------------------------------
@@ -149,7 +181,7 @@ Some useful characater and string functions are in the global namespace.
 | `chr(n)`  | get the character whose ASCII value is `n`
 | `ord(c)`  | get the ASCII value of the character `c`
 
-Most string functions use method syntax `s.function()`.
+Most string operations use method syntax `s.method()`.
 
 | Method              | Purpose
 |:--------------------|:------------------------------------------------
@@ -163,46 +195,78 @@ Most string functions use method syntax `s.function()`.
 | `s.rstrip()`        | remove characters from the end, usually newline
 | `s.split(s1)`       | split `s` into a list of strings at every `s1`
 
-## Lists ##
+## Lists and Tuples ##
 
+Tuples are created with parentheses. Lists are created with square brackets.
+Tuples cannot be changed, but lists can.
 
-sorted() - return a new sorted list
-list.sort()
+```
+tup = (1, 2, 'cat', 'dog')
+lis = [1, 2, 'cat', 'dog']
+```
 
-is
-append
-clear
-count
-extend
-index
-insert
-pop
-remove
-reverse
-sort
-len
+Some useful list/tuple operations use function syntax:
+
+| Function            | Purpose
+|:--------------------|:--------------------------------------------------
+| `len(list)`         | get the length of a list
+| `min(list)`         | return the minimum value from an iterable
+| `max(list)`         | return the maximum value from an iterable
+| `sum(list)`         | return the sum of an iterable
+| `sorted(list)`      | return a copy of the sorted list (or tuple)
+| `enumerate(list)`   | creates tuples of index and item
+| `zip(list1, list2)` | simultaneously iterate through multiple iterables
+
+Most list operations use method syntax `list.method()`.
+
+| Method              | Purpose
+|:--------------------|:------------------------------------------------
+| `list.append(a)`    | add `a` to the end of a list
+| `list.pop()`        | remove and return the last item
+| `list.pop(i)`       | remove and return the item at position `i`
+| `list.insert(i, a)` | add `a` to list at position `i`
+| `list.remove(i)`    | remove item at position `i`
+| `list.clear()`      | remove all items form the list
+| `list.count(a)`     | count the number of times `a` occurs in list
+| `list.sort()`       | sort the list in place
+| `list.reverse()`    | reverse the list in place
+| `list.copy()`       | return a shallow copy (see data structures)
 
 ## Slices ##
 
+Slice syntax is a succinct way to access individual elements or segments of a
+string, list, or tuple.
 
-## Looping ##
+| Example      | Value    | Explanation
+|:-------------|:---------|:----------------------------------------------
+| `s = abcdef` |          | example string
+| `s[0]`       | 'a'      | first element
+| `s[1]`       | 'b'      | second element
+| `s[0:1]`     | 'a'      | slice from first, ending *before* second
+| `s[0:2]`     | 'ab'     | slice from first, ending *before* third
+| `s[:2]`      | 'ab'     | from implicit begin, ending before element 2
+| `s[3:]`      | 'def'    | from position 3 to implicit end
+| `s[:]`       | 'abcdef' | from implicit begin to implicit end
+| `s[::-1]`    | 'fedcba' | from begin to end, backwards
+| `s[::2]`     | 'ace'    | from begin to end by twos
 
+## Loops ##
 
-## Iterables ##
-
-Iterables are objects that can return their contents one at a time.
-Commonly-used iterable operations are defined for your convenience.
-
-| Function        | Purpose
-|:----------------|:--------------------------------------------------
-| `next(it)`      | gets the next item in the iterable
-| `min(it)`       | return the minimum value from an iterable
-| `max(it)`       | return the maximum value from an iterable
-| `sum(it)`       | return the sum of an iterable
-| `enumerate(it)` | creates tuples of index and item
-| `zip(it, it2)`  | simultaneously iterate through multiple iterables
-
-
+| Statement                    | Meaning
+|:-----------------------------|:--------------------------------------------
+| `for i in range(3):`         | iterate 0, 1, 2
+| `for i in range(0, 3):`      | iterate 0, 1, 2
+| `for i in range(1, 3):`      | iterate 1, 2
+| `for i in range(0, 7, 3):`   | iterate 0, 3, 6
+| `for i in range(3, -1, -1):` | iterate 3, 2, 1, 0
+| `for nt in dna:`             | for each nucleotide letter in a dna sequence
+| `for n in numbers:`          | for each number in a list of numbers
+| `for s in sys.argv[1:]`      | for each parameter on the command line
+| `while True:`                | infinite loop
+| `break`                      | exit the loop now
+| `continue`                   | restart the loop now
+| `for i, v in enumerate(t):`  | provide index for every item in `t`
+| `for a, b in zip(t1, t2):`   | step through containers `t1` and `t2`
 
 ## Functions ##
 
@@ -222,7 +286,7 @@ def quadratic(a, b, c):
 Functions can have named parameters, which are placed after positional
 arguments and may occur in any order. For example, a `translate()` function
 might translate coding sequence in frame 0 by default, but can also translate
-in other reading frames using an optional `frame` named parameter.
+in other reading frames using an optional `frame` parameter.
 
 ```
 def translate(seq, frame=0):
@@ -230,7 +294,19 @@ def translate(seq, frame=0):
 	for i in range(frame, len(seq) -2, 3):
 		cds += seq[i:i+3]
 	return cds
+translate('ATGACG')    # implicitly use frame 0
+translate('ATGACG', 1) # use frame 1
 ```
+
+Functions may call themselves. This is called _recursion_.
+**Recursion is not allowed in MCB185.**
+
+## File I/O ##
+
+fp = open()
+fp.close()
+with open() as fp
+
 
 ## Commandline Parameters ##
 
@@ -257,9 +333,3 @@ parser.add_argument('--lower', action='store_true', help='mask with lowercase')
 arg = parser.parse_args()
 do_something(arg.file, arg.k, arg.h, arg.lower)
 ```
-
-## Reading Files ##
-
-fp = open()
-fp.close()
-with open() as fp
