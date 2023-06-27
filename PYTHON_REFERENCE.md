@@ -443,17 +443,20 @@ MCB185, and are considered illegal for homework purposes.
 + Writing files - we use stdout and redirection instead
 + Dunders: for example, `if __name__ == '__main__':`
 
-Only 4 libraries are allowed in MCB185:
+Only 5 libraries are allowed in MCB185:
 
++ argparse
++ gzip
 + math
 + random
 + sys
-+ gzip
 
 To be clear, no other libraries are allowed, including the following common,
 and very useful libraries:
 
++ array
 + csv
++ fileinput
 + io
 + itertools
 + keras
