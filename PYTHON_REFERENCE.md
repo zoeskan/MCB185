@@ -9,10 +9,23 @@ common constructs that are not allowed.
 Table of Contents
 -----------------
 
-+ [MCB185 Style Guide](#mcb185-style-guide)
++ [Style](#style)
++ [Print](#print)
++ [Variables](#variables)
++ [Math](#math)
++ [Strings](#strings)
++ [Lists](#lists)
++ [Slices](#slices)
++ [Loops](#loops)
++ [Functions](#functions)
++ [Random](#random)
++ [Files](#files)
++ [Regex](#regex)
++ [CLI](#cli)
++ [Illegal](#illegal)
 
-
-## MCB185 Style Guide ##
+Style
+-----
 
 Spacing Rules:
 
@@ -124,8 +137,8 @@ The `int()`, `float()`, and `str()` functions are useful to convert values from
 one type to another.
 
 
-Numbers and Math
-----------------
+Math
+----
 
 Math operators work as you expect, except `=` is used for assignment not
 equality. Unfamiliar operators include `//` for integer division and `%`
@@ -225,8 +238,8 @@ Most string operations use method syntax `s.method()`.
 | `s.split(s1)`       | split `s` into a list of strings at every `s1`
 
 
-Lists and Tuples
-----------------
+Lists
+-----
 
 Tuples are created with parentheses. Lists are created with square brackets.
 Tuples cannot be changed, but lists can. Both lists and tuples are indexed with
@@ -390,8 +403,8 @@ with gzip.open(filename, 'rt') as fp:
 ```
 
 
-Regular Expressions
--------------------
+Regex
+-----
 
 This section not finished...
 
@@ -401,8 +414,8 @@ re.match(pattern, string)
 ```
 
 
-Commandline Interface
----------------------
+CLI
+---
 
 Values on the command line are in the `sys.argv` list. While you _can_ read
 values directly from here, it's not recommended.
@@ -429,8 +442,8 @@ do_something(arg.file, arg.k, arg.h, arg.lower)
 ```
 
 
-MCB185 Illegal
---------------
+Illegal
+-------
 
 The following common and useful features of Python are not introduced in
 MCB185, and are considered illegal for homework purposes.
