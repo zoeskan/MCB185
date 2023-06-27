@@ -1,5 +1,5 @@
-Python Bioinformatics Cookbook
-==============================
+MCB185 Python Cookbook
+======================
 
 A collection of statements, functions, and programs that illustrate how to
 perform biology-flavored programming tasks in Python. The source code is
@@ -9,9 +9,14 @@ dictionaries or numpy.
 
 ## Table of Contents ##
 
-Shortcuts
++ Shortcuts
+	+ [Swapping 2 variables](#swapping-2-variables)
+	+ something else
++ Sequences
+	+ Reading FASTA files
 
-+ Swapping 2 variables
+
+
 
 Sorting
 

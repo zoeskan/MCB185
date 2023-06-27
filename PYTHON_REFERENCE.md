@@ -1,5 +1,5 @@
-Python Reference
-================
+MCB185 Python Reference
+=======================
 
 This Python Reference contains a subset of the Python language used
 specifically for MCB185. MCB185 students are not allowed to use any Python
@@ -19,6 +19,7 @@ common constructs that are not allowed.
 + [Functions](#functions)
 + [Random](#random)
 + [Files](#files)
++ [Dictionaries](#dictionaries)
 + [Regex](#regex)
 + [CLI](#cli)
 + [Illegal](#illegal)
@@ -84,11 +85,11 @@ use an abbreviation.
 + `seqs` is a list of sequences
 
 
-## Writing Output ##
+## Print ##
 
-In MCB185, we write to stdout only. We don't create named files. We use
-f-strings only, and not the printf-style or str.format() constructions found in
-older Python.
+In MCB185, we print to stdout only. We don't create named files. For formatted
+text, we use f-strings only, and not the printf-style or str.format()
+constructions found in older Python.
 
 | Code                        | Output
 |:----------------------------|:-----------------------------------------
@@ -235,7 +236,7 @@ Most string operations use method syntax `s.method()`.
 
 ## Lists ##
 
-Tuples are created with parentheses. Lists are created with square brackets.
+Lists are created with square brackets. Tuples are created with parentheses.
 Tuples cannot be changed, but lists can. Both lists and tuples are indexed with
 square brackets.
 
@@ -257,6 +258,8 @@ Some useful list/tuple operations use function syntax:
 | `sorted(list)`      | return a copy of the sorted list (or tuple)
 | `enumerate(list)`   | creates tuples of index and item
 | `zip(list1, list2)` | simultaneously iterate through multiple lists
+| `list(string)`      | returns an array of single characters
+| `list(dict)`        | returns the keys as a list
 
 Most list operations use method syntax `list.method()`.
 
@@ -320,7 +323,7 @@ for thing in enumerate(pets):   # no, don't index it numerically
 
 ## Functions ##
 
-A function is created with the `def` keyword. Functions usually have
+Functions are created with the `def` keyword. Functions usually have
 _positional_ arguments, meaning the arguments are in a specific order.
 Functions may return multiple values. Here is a function with 3 positional
 arguments that returns a tuple of 2 values.
@@ -393,14 +396,98 @@ with gzip.open(filename, 'rt') as fp:
 ```
 
 
+## Dictionaries ##
+
+Dictionaries are created with curly brackets and indexed with square brackets.
+Dictionaries consist of key:value pairs.
+
+```
+d = {'cat': 'meow', 'dog': 'woof', 'rat': 'squeak'}
+print(d['cat'])  # meow
+```
+
+The assignment operator `=` adds new elements to the dictionary. It also
+overwrites previous values.
+
+```
+d['pig'] = 'oink'  # new pair
+d['cat'] = 'mew'   # overwrite previous value
+```
+
+To check if a key exists, use the `in` keyword.
+
+```
+if 'cow' not in d: d['cow'] = 'moo'
+```
+
+To remove a key from a dictionary, use the `del` keyword.
+
+```
+del d['cow']
+```
+
+There are several methods that are useful for looping over the keys or values
+of a dictionary. The order of keys is the order in which they were created. 
+
+| Method              | Purpose
+|:--------------------|:------------------------------------------------
+| `d.items()`         | iterates key, value pairs
+| `d.keys()`          | returns a list of keys
+| `d.values()`        | returns a list of values
+
+
+Use the `items()` method to iterate over a tuple of key/value pairs. A `for`
+loop iterates over the keys of a dictionary. These 3 loops do the same thing.
+
+```
+for k, v in d.items(): print(k, v)
+for k in d.keys(): print(k, d[k])
+for k in d: print(k, d[k])
+```
+
+
 ## Regex ##
 
-This section not finished...
+Regular expressions can be used to search a string for a sub-string. You can
+also do this with `in`.
 
 ```
 import re
-re.match(pattern, string)
+s = 'abcdefghij'
+if 'e' in s: print('found with in')
+if re.search('e', s): print('found with regex')
 ```
+
+The power of regular expressions is that they let you specify a _fuzzy_ pattern
+and retrieve matches to that pattern. In the example below `\w+` indicates any
+characters that make up words. The parentheses associate what was found into
+group 1. If there was a second pair of parentheses, the contents would go into
+group 2.
+
+```
+m = re.search('e(\w+)i', s)
+if m: print(m.group(1))     # prints fgh
+```
+
+Regex syntax is a little arcane. Here is a subset of the regex rules.
+
+| Pattern    | Meaning
+|:-----------|:---------------------------------------------------------
+| `a`        | matches the letter 'a' but not 'A'
+| `\w`       | matches any word symbol (letters, numbers, underscore)
+| `\W`       | matches any non-word symbol
+| `\d`       | matches any digit (0-9)
+| `\D`       | matches any non-digit
+| `.`        | matches anything
+| `\.`       | matches an actual dot
+| `\w+`      | matches 1 or more word symbols
+| `\w*`      | matches 0 or more word symbols
+| `[ab]`     | matches a or b
+| `[^ab]`    | matches everything except a and b
+| `[ab]+`    | matches a or b, 1 or more times
+| `[a-d]`    | matches a, b, c, d
+| `()`       | used for capturing matches into groups
+| `\(`       | matches a left parenthese
 
 
 ## CLI ##
@@ -436,30 +523,32 @@ The following common and useful features of Python are not introduced in
 MCB185, and are considered illegal for homework purposes.
 
 + Recursion - functions that call themselves
-+ Dictionaries - maps, hashes, associative arrays
 + Sets - valueless dictionaries
++ Multi-dimensional data structures (except using strings in lists or dicts)
 + The `match` and `case` conditional statement
 + Comprehensions (list, generator, dictionary, set)
 + Exceptions: `try` and `raise`
 + Classes - object-oriented programming
 + Decorators - function wrappers
-+ Function annotations - function hints
++ Function annotations - descriptive hints for function parameters
 + Writing files - we use stdout and redirection instead
 + Dunders - for example, `if __name__ == '__main__':`
++ Lambda functions - anonymous functions
 
 Only 6 libraries are allowed in MCB185:
 
-+ argparse
-+ gzip
-+ math
-+ random
-+ re
-+ sys
++ argparse - creating standard command line interfaces
++ gzip - reading compressed files
++ math - various math functions 
++ random - random numbers, shuffling
++ re - regular expressions
++ sys - used for `sys.argv`, `sys.stdin`, `sys.stderr` only
 
-To be clear, no other libraries are allowed, including the following common,
-and very useful libraries:
+To be clear, no other libraries are allowed. All of these common and useful
+libraries are illegal.
 
 + array
++ bio
 + csv
 + fileinput
 + io

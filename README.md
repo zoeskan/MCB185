@@ -1,29 +1,16 @@
-MCB185
-======
+MCB185: Programming for Biologists
+==================================
 
 ## Intent ##
 
 In this course, you will learn computer programming in a biological context.
-This is not so much a science course as a software engineering course with a
-molecular biology theme. Along with programming, you will be introduced to some
-essential bioinformatics skills and standards.
+This is not so much a science or data analysis course as an introductory
+programming course with a molecular biology theme. Along with programming, you
+will be introduced to some essential bioinformatics skills and standards.
 
-## Experience, Aptitude, Participation, and Grading ##
+## Participation and Grading ##
 
-Some students come to the class with previous programming experience. Some
-students learn programming concepts faster than others. Some students have more
-time to study than others. For these reasons, not every student will start or
-end at the same place. In order to accommodate different learning trajectories,
-there are 2 tracks through the course: standard and accelerated.
-
-On the standard track (Unit 0 through Unit 9), the class is paced at 1 week per
-unit. The maximum grade on the standard track is A-. For those who want more
-advanced content, or a higher grade, there is an accelerated track (Unit A
-through Unit F). Being on the accelerated track doesn't guarantee a higher
-grade. You must still complete all of the assignments on the standard track
-correctly.
-
-Programming _should_ be done in pairs or small groups. For this reason,
+In the real world, programming is generally done in teams. For this reason,
 participation is a large part of your grade. There are multiple ways to
 participate.
 
@@ -37,24 +24,16 @@ participate.
 	+ Providing help
 	+ Solving problems together
 
-The points break-down for grading looks something like this:
-
-+ 50 points coding
-+ 40 points participation
-+ extra points for accelerated content
-+ extra points for exceptional participation
-
 This is foremost a course about _how_ to program. When faced with a homework
 problem, such as "compute the descriptive statistics for a set of numbers", you
 could very easily `import statistics` instead of writing the code yourself. In
 a professional setting, you _should_ do that. However, the goal here isn't to
 _solve_ a problem but to _learn_ how to solve a problem. In many programming
 courses, the instructors have automated grading. I would never do that, because
-that would mean that the focus was on getting the code to provide the correct
-answer. In this course, the focus is on what the code looks like more than what
-it does. It's better to have beautiful code that is broken than ugly code that
-solves the problem correctly because the beautiful code is easier to fix and
-maintain in the long run.
+that would mean that the focus was on getting the correct answer. In this
+course, the focus is on style as much as substance. It's better to have
+beautiful code that is broken than ugly code that solves the problem correctly
+because the beautiful code is easier to fix and maintain in the long run.
 
 ## Collaboration vs Plagiarism ##
 
