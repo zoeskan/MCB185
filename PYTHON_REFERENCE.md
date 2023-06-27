@@ -12,8 +12,7 @@ Table of Contents
 + [MCB185 Style Guide][]
 
 
-MCB185 Style Guide
-------------------
+## MCB185 Style Guide ##
 
 Spacing Rules:
 
