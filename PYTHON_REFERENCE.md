@@ -6,8 +6,7 @@ specifically for MCB185. MCB185 students are not allowed to use any Python
 construct that isn't in this reference. See the end of this document for some
 common constructs that are not allowed.
 
-Table of Contents
------------------
+## Table of Contents ##
 
 + [Style](#style)
 + [Print](#print)
@@ -24,8 +23,8 @@ Table of Contents
 + [CLI](#cli)
 + [Illegal](#illegal)
 
-Style
------
+
+## Style ##
 
 Spacing Rules:
 
@@ -85,8 +84,7 @@ use an abbreviation.
 + `seqs` is a list of sequences
 
 
-Writing Output
---------------
+## Writing Output ##
 
 In MCB185, we write to stdout only. We don't create named files. We use
 f-strings only, and not the printf-style or str.format() constructions found in
@@ -104,8 +102,7 @@ older Python.
 | `print(a, file=sys.stderr)` | print `a` to stderr rather than stdout
 
 
-Variables
----------
+## Variables ##
 
 Variables are given a type as they are created.
 
@@ -137,8 +134,7 @@ The `int()`, `float()`, and `str()` functions are useful to convert values from
 one type to another.
 
 
-Math
-----
+## Math ##
 
 Math operators work as you expect, except `=` is used for assignment not
 equality. Unfamiliar operators include `//` for integer division and `%`
@@ -193,8 +189,7 @@ Functions from the `math` library include:
 | `math.isclose(a, b)`| returns True if `a` is nearly identical to `b`
 
 
-Strings
--------
+## Strings ##
 
 Some of the familar mathematical operators are also used for text.
 
@@ -238,8 +233,7 @@ Most string operations use method syntax `s.method()`.
 | `s.split(s1)`       | split `s` into a list of strings at every `s1`
 
 
-Lists
------
+## Lists ##
 
 Tuples are created with parentheses. Lists are created with square brackets.
 Tuples cannot be changed, but lists can. Both lists and tuples are indexed with
@@ -275,8 +269,7 @@ Most list operations use method syntax `list.method()`.
 | `list.reverse()`    | reverse the list in place
 
 
-Slices
-------
+## Slices ##
 
 Slice syntax is a succinct way to access individual elements or segments of a
 string, list, or tuple.
@@ -295,8 +288,7 @@ string, list, or tuple.
 | `s[::2]`     | 'ace'    | from begin to end by twos
 
 
-Loops
------
+## Loops ##
 
 | Statement                    | Meaning
 |:-----------------------------|:--------------------------------------------
@@ -325,8 +317,8 @@ for thing in enumerate(pets):   # no, don't index it numerically
 	print(thing[0], thing[1]) 
 ```
 
-Functions
----------
+
+## Functions ##
 
 A function is created with the `def` keyword. Functions usually have
 _positional_ arguments, meaning the arguments are in a specific order.
@@ -359,8 +351,7 @@ Functions may call themselves. This is called _recursion_.
 **Recursion is not allowed in MCB185.**
 
 
-Random
-------
+## Random ##
 
 The random library is used to create random(-ish) numbers. If you want to
 reproduce the same random numbers over and over (useful for debugging), set the
@@ -375,8 +366,7 @@ random see to any integer value.
 | `random.shuffle('ACGT')` | randomize positions, works on lists too
 
 
-Reading Files
--------------
+## Files ##
 
 Files are opened and closed as follows:
 
@@ -403,8 +393,7 @@ with gzip.open(filename, 'rt') as fp:
 ```
 
 
-Regex
------
+## Regex ##
 
 This section not finished...
 
@@ -414,8 +403,7 @@ re.match(pattern, string)
 ```
 
 
-CLI
----
+## CLI ##
 
 Values on the command line are in the `sys.argv` list. While you _can_ read
 values directly from here, it's not recommended.
@@ -442,8 +430,7 @@ do_something(arg.file, arg.k, arg.h, arg.lower)
 ```
 
 
-Illegal
--------
+## Illegal ##
 
 The following common and useful features of Python are not introduced in
 MCB185, and are considered illegal for homework purposes.
