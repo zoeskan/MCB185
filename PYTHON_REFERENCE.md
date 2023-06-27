@@ -3,9 +3,14 @@ Python Reference
 
 This Python Reference contains a subset of the Python language used
 specifically for MCB185. MCB185 students are not allowed to use any Python
-construct that isn't in this reference.
+construct that isn't in this reference. See the end of this document for some
+common constructs that are not allowed.
 
-## Spacing ##
+
+MCB185 Style Guide
+------------------
+
+Spacing Rules:
 
 (1) Use a maximum line length of 79 characters (most of the time).
 
@@ -23,26 +28,26 @@ robotic about it, as sometimes it's clearer not to use spaces.
 (3) Use vertical spacing (blank lines) to separate logic, just as you would use
 paragraph structure in English.
 
-(4) The Python convention is to use 4 spaces to indent. However, in MCB185, you
-**must use tabs**.
+(4) Use tabs for left side indentation, but spaces everywhere else.
 
-## Naming Convenentions ##
+Naming Rules:
 
-Variable and function names are generally all lowercase. If a variable consists
-of two words, you can merge them together or put an underscore between them.
-The Python community does not use mixedCase.
++ Variable and function names are generally all lowercase
++ Multi-word variables may use snake case, but not mixedCase
 
-+ `speedlimit` yes
-+ `speed_limit` yes
-+ `speedLimit` no
+```
+speedlimit  = 65  # yes
+speed_limit = 65  # yes
+speedLimit  = 65  # no
+```
 
 Variables sometimes have very short names that implicitly describe their type.
-It's okay for loop variables to have such names, but for longer-lived
+It's okay for loop variables to have such short names, but for longer-lived
 variables, you should use more descriptive names.
 
 + `n` is an integer, as are `i`, `j`, and `k`
 + `f` is a float, as are `x`, `y`, `x1`, `x2`, `y1`, and `y2`
-+ `p` is a probability, as is `q`
++ `p` and `q` are probabilities
 + `a`, `b`, and `c` are often numbers: ax^2 + bx + c or a^2 + b^2 = c^2
 + `c` by itself is a character
 + `s` is a string, as are `s1`, `s2`
@@ -51,16 +56,24 @@ variables, you should use more descriptive names.
 For biological sequences it's common to use these shorthands:
 
 + `nt` and `aa` are single characters of nucleotides or amino acids
-+ `seq` is often used for a biological sequence along with `dna` and `pep`
++ `seq` is often used for a biological sequence
++ `dna`, `rna`, `tx` are nucleotide strings
++ `pro` and `pep` are protein strings
 
-Lists are often plural version of descriptive names:
+Lists are often plural version of descriptive names. If the word is very long,
+use an abbreviation.
 
++ `probs` is a list of probabilities
 + `params` is a list of parameters
 + `seqs` is a list of sequences
 
-## Output ##
 
-The `print()` function is very flexible. There are many options not shown here.
+Writing Output
+--------------
+
+In MCB185, we write to stdout only. We don't create named files. We use
+f-strings only, and not the printf-style or str.format() constructions found in
+older Python.
 
 | Code                        | Output
 |:----------------------------|:-----------------------------------------
@@ -73,7 +86,22 @@ The `print()` function is very flexible. There are many options not shown here.
 | `print(f'{a/b:.3g}')`       | value of a / b in scientific notation
 | `print(a, file=sys.stderr)` | print `a` to stderr rather than stdout
 
-## Variables ##
+
+Variables
+---------
+
+Variables are given a type as they are created.
+
+```
+n = 1               # integer
+f = 1.0             # floating point number
+s = `1`             # string
+v = None            # None
+b = True            # Boolean
+t = (1, 2)          # tuple
+a = [1, 2]          # list (array)
+fp = open(filename) # file pointer
+```
 
 The `type()` function returns the type of a variable.
 
@@ -86,17 +114,19 @@ The `type()` function returns the type of a variable.
 | `bool`              | Boolean (True or False)
 | `tuple`             | a collection of fixed values
 | `list`              | a collection of mutable values
-| `dict`              | a collection of key/value pairs
 | `_io.textIOWrapper` | file handle
 
 The `int()`, `float()`, and `str()` functions are useful to convert values from
 one type to another.
 
-## Numbers ##
 
-Math operators work as you expect. Unfamiliar operators `//` for integer
-division and `%` (modulo) for the remainder after integer division. Absolute
-value is provided as the function `abs()`.
+Numbers and Math
+----------------
+
+Math operators work as you expect, except `=` is used for assignment not
+equality. Unfamiliar operators include `//` for integer division and `%`
+(modulo) for the remainder after integer division. Absolute value is provided
+as the function `abs()`.
 
 | Operator | Purpose           | Example
 |:---------|:------------------|:--------------------------
@@ -112,9 +142,9 @@ value is provided as the function `abs()`.
 | `+=`     | increment         | `a += 1`
 | `-=`     | decrement         | `a -= 1`
 | `*=`     | multiply & assign | `a *= 2`
-| `/=`     | divide & assign   | `a /= 2`
 
-Comparison operators are unsurprising.
+Comparison operators are unsurprising except that `==` is used for equality
+(because `=` is used for assignment).
 
 | Operator | Purpose           | Example
 |:---------|:------------------|:----------------------
@@ -131,8 +161,6 @@ Constants from the `math` library include:
 |:--------------|:---------------------------
 | `math.pi`     | 3.14159...
 | `math.e`      | 2.71828...
-| `math.inf`    | infinity
-| `math.nan`    | not a number (e.g. log(0))
 
 Functions from the `math` library include:
 
@@ -140,19 +168,16 @@ Functions from the `math` library include:
 |:--------------------|:---------------------------------------------
 | `math.ceil(x)`      | round `x` up
 | `math.floor(x)`     | round `x` down
-| `math.log(x)`       | `x` in log base e
 | `math.log2(x)`      | `x` in log base 2
 | `math.log10(x)`     | `x` in log base 10
 | `math.sqrt(x)`      | square root of `x`
 | `math.pow(x, y)`    | `x` to the power of `y`
-| `math.comb(n, k)`   | n choose k
 | `math.factorial(n)` | factorial of integer n
 | `math.isclose(a, b)`| returns True if `a` is nearly identical to `b`
-| `math.sin(x)`       | sine of `x` (there are many trig functions)
-| `math.degrees(x)`   | convert to radians
-| `math.radians(x)`   | convert to degrees
 
-## Strings ##
+
+Strings
+-------
 
 Some of the familar mathematical operators are also used for text.
 
@@ -195,14 +220,19 @@ Most string operations use method syntax `s.method()`.
 | `s.rstrip()`        | remove characters from the end, usually newline
 | `s.split(s1)`       | split `s` into a list of strings at every `s1`
 
-## Lists and Tuples ##
+
+Lists and Tuples
+----------------
 
 Tuples are created with parentheses. Lists are created with square brackets.
-Tuples cannot be changed, but lists can.
+Tuples cannot be changed, but lists can. Both lists and tuples are indexed with
+square brackets.
 
 ```
 tup = (1, 2, 'cat', 'dog')
 lis = [1, 2, 'cat', 'dog']
+print(tup[2]) # cat
+print(lis[3]) # dog
 ```
 
 Some useful list/tuple operations use function syntax:
@@ -215,7 +245,7 @@ Some useful list/tuple operations use function syntax:
 | `sum(list)`         | return the sum of an iterable
 | `sorted(list)`      | return a copy of the sorted list (or tuple)
 | `enumerate(list)`   | creates tuples of index and item
-| `zip(list1, list2)` | simultaneously iterate through multiple iterables
+| `zip(list1, list2)` | simultaneously iterate through multiple lists
 
 Most list operations use method syntax `list.method()`.
 
@@ -223,16 +253,13 @@ Most list operations use method syntax `list.method()`.
 |:--------------------|:------------------------------------------------
 | `list.append(a)`    | add `a` to the end of a list
 | `list.pop()`        | remove and return the last item
-| `list.pop(i)`       | remove and return the item at position `i`
-| `list.insert(i, a)` | add `a` to list at position `i`
-| `list.remove(i)`    | remove item at position `i`
-| `list.clear()`      | remove all items form the list
 | `list.count(a)`     | count the number of times `a` occurs in list
 | `list.sort()`       | sort the list in place
 | `list.reverse()`    | reverse the list in place
-| `list.copy()`       | return a shallow copy (see data structures)
 
-## Slices ##
+
+Slices
+------
 
 Slice syntax is a succinct way to access individual elements or segments of a
 string, list, or tuple.
@@ -250,7 +277,9 @@ string, list, or tuple.
 | `s[::-1]`    | 'fedcba' | from begin to end, backwards
 | `s[::2]`     | 'ace'    | from begin to end by twos
 
-## Loops ##
+
+Loops
+-----
 
 | Statement                    | Meaning
 |:-----------------------------|:--------------------------------------------
@@ -265,16 +294,27 @@ string, list, or tuple.
 | `while True:`                | infinite loop
 | `break`                      | exit the loop now
 | `continue`                   | restart the loop now
-| `for i, v in enumerate(t):`  | provide index for every item in `t`
+| `for i, v in enumerate(t):`  | provide index and value for every item in `t`
 | `for a, b in zip(t1, t2):`   | step through containers `t1` and `t2`
 
-## Functions ##
+For `enumerate()`, `zip()` and related iterators, always unpack the tuple into
+named variables.
+
+```
+pets = ('cat', 'dot', 'rat')
+for i, pet in enumerate((pets): # yes, unpack the tuple
+	print(i, pet)
+for thing in enumerate(pets):   # no, don't index it numerically
+	print(thing[0], thing[1]) 
+```
+
+Functions
+---------
 
 A function is created with the `def` keyword. Functions usually have
-_positional_ arguments, meaning they must have a specific number of arguments,
-and those arguments must be in the correct order. Functions may return multiple
-values. Here is a function with 3 positional arguments that returns a tuple of
-2 values.
+_positional_ arguments, meaning the arguments are in a specific order.
+Functions may return multiple values. Here is a function with 3 positional
+arguments that returns a tuple of 2 values.
 
 ```
 def quadratic(a, b, c):
@@ -301,14 +341,64 @@ translate('ATGACG', 1) # use frame 1
 Functions may call themselves. This is called _recursion_.
 **Recursion is not allowed in MCB185.**
 
-## File I/O ##
 
-fp = open()
+Random
+------
+
+The random library is used to create random(-ish) numbers. If you want to
+reproduce the same random numbers over and over (useful for debugging), set the
+random see to any integer value.
+
+| Statement                | Meaning
+|:-------------------------|:----------------------------------------
+| `random.random()`        | a random variable from 0 almost 1
+| `random.seed(i)`         | set the random seed
+| `random.randint(a, b)`   | a random integer from a to b, inclusive
+| `random.choice('ACGT')`  | a random letter: A, C, G, or T
+| `random.shuffle('ACGT')` | randomize positions, works on lists too
+
+
+Reading Files
+-------------
+
+Files are opened and closed as follows:
+
+```
+fp = open(filename)
 fp.close()
-with open() as fp
-gzip
+```
 
-## Commandline Parameters ##
+Files are automatically closed when using a `with open` construction. Here's
+the preferred code to open a file, read it line-by-line, and automataically
+close it:
+
+```
+with open(filename) as fp:
+	for line in fp:
+		# do something with each line
+```
+
+To open a compressed file, use `gzip.open()` and include an additional argument
+`rt` to read as text, as shown below.
+
+```
+with gzip.open(filename, 'rt') as fp:
+```
+
+
+Regular Expressions
+-------------------
+
+This section not finished...
+
+```
+import re
+re.match(pattern, string)
+```
+
+
+Commandline Interface
+---------------------
 
 Values on the command line are in the `sys.argv` list. While you _can_ read
 values directly from here, it's not recommended.
@@ -321,7 +411,7 @@ h = float(sys.argv[3])
 
 The better way to retrieve values from the command line is with `argparse`.
 This allows you to control input type, provide optional arguments, and display
-a pretty usage statement.
+a standard usage statement.
 
 ```
 import argparse
@@ -334,42 +424,45 @@ arg = parser.parse_args()
 do_something(arg.file, arg.k, arg.h, arg.lower)
 ```
 
-## Random ##
 
+MCB185 Illegal
+--------------
 
+The following common and useful features of Python are not introduced in
+MCB185, and are considered illegal for homework purposes.
 
-
-## Illegal ##
-
-The following features are not introduced in MCB185, and are considered
-illegal.
-
-+ Recursion
-+ Dictionaries
-+ Sets
-+ Exceptions: `try` and `raise`
++ Recursion - functions that call themselves
++ Dictionaries - maps, hashes, associative arrays
++ Sets - valueless dictionaries
 + The `match` and `case` conditional statement
 + Comprehensions (list, generator, dictionary, set)
-+ Decorators
-+ Function annotations
-+ Dunders: `if __name__ == '__main__':`
++ Exceptions: `try` and `raise`
++ Classes - object-oriented programming
++ Decorators - function wrappers
++ Function annotations - function hints
++ Writing files - we use stdout and redirection instead
++ Dunders: for example, `if __name__ == '__main__':`
 
-## Libraries ##
+Only 4 libraries are allowed in MCB185:
 
-Only the following 5 libraries are allowed in MCB185:
-
-+ gzip
 + math
-+ os
 + random
 + sys
++ gzip
 
 To be clear, no other libraries are allowed, including the following common,
 and very useful libraries:
 
 + csv
++ io
 + itertools
++ keras
++ matplotlib
 + numpy
 + pandas
-+ re
++ os
++ seaborn
++ scipy
++ sklearn
 + statistics
++ torch
