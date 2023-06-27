@@ -9,7 +9,7 @@ common constructs that are not allowed.
 Table of Contents
 -----------------
 
-+ [foo][#MCB185 Style Guide]
++ [MCB185 Style Guide](#mcb185-style-guide)
 
 
 ## MCB185 Style Guide ##
