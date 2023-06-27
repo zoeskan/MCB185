@@ -6,6 +6,11 @@ specifically for MCB185. MCB185 students are not allowed to use any Python
 construct that isn't in this reference. See the end of this document for some
 common constructs that are not allowed.
 
+Table of Contents
+-----------------
+
++ [MCB185 Style Guide][]
+
 
 MCB185 Style Guide
 ------------------
@@ -28,7 +33,7 @@ robotic about it, as sometimes it's clearer not to use spaces.
 (3) Use vertical spacing (blank lines) to separate logic, just as you would use
 paragraph structure in English.
 
-(4) Use tabs for left side indentation, but spaces everywhere else.
+(4) Use tabs for left side indentation, but spaces to pad elsewhere.
 
 Naming Rules:
 
@@ -95,7 +100,7 @@ Variables are given a type as they are created.
 ```
 n = 1               # integer
 f = 1.0             # floating point number
-s = `1`             # string
+s = '1'             # string
 v = None            # None
 b = True            # Boolean
 t = (1, 2)          # tuple
@@ -441,14 +446,15 @@ MCB185, and are considered illegal for homework purposes.
 + Decorators - function wrappers
 + Function annotations - function hints
 + Writing files - we use stdout and redirection instead
-+ Dunders: for example, `if __name__ == '__main__':`
++ Dunders - for example, `if __name__ == '__main__':`
 
-Only 5 libraries are allowed in MCB185:
+Only 6 libraries are allowed in MCB185:
 
 + argparse
 + gzip
 + math
 + random
++ re
 + sys
 
 To be clear, no other libraries are allowed, including the following common,
