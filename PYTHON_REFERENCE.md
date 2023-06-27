@@ -492,8 +492,7 @@ Regex syntax is a little arcane. Here is a subset of the regex rules.
 
 ## CLI ##
 
-Values on the command line are in the `sys.argv` list. While you _can_ read
-values directly from here, it's not recommended.
+Values on the command line are in the `sys.argv` list.
 
 ```
 filename = sys.argv[1]
@@ -501,9 +500,9 @@ k = int(sys.argv[2])
 h = float(sys.argv[3])
 ```
 
-The better way to retrieve values from the command line is with `argparse`.
-This allows you to control input type, provide optional arguments, and display
-a standard usage statement.
+While you _can_ read values directly from `sys.argv`, it's better to use
+`argparse`. This allows you to control input type, provide optional arguments,
+and display a standard usage statement.
 
 ```
 import argparse
@@ -522,44 +521,18 @@ do_something(arg.file, arg.k, arg.h, arg.lower)
 The following common and useful features of Python are not introduced in
 MCB185, and are considered illegal for homework purposes.
 
-+ Recursion - functions that call themselves
-+ Sets - valueless dictionaries
-+ Multi-dimensional data structures (except using strings in lists or dicts)
-+ The `match` and `case` conditional statement
-+ Comprehensions (list, generator, dictionary, set)
-+ Exceptions: `try` and `raise`
-+ Classes - object-oriented programming
-+ Decorators - function wrappers
-+ Function annotations - descriptive hints for function parameters
-+ Writing files - we use stdout and redirection instead
-+ Dunders - for example, `if __name__ == '__main__':`
-+ Lambda functions - anonymous functions
++ Recursion
++ Sets
++ Multi-dimensional data structures
++ The `match` and `case` keywords to make switch statements
++ The `try` and `raise` keywords for handling exceptions
++ Comprehensions (list, generator, dictionary)
++ The `class` keyword used in object-oriented programming
++ Decorators
++ Function annotations
++ Writing named files
++ Dunders like `if __name__ == '__main__':`
++ Lambda functions
 
-Only 6 libraries are allowed in MCB185:
-
-+ argparse - creating standard command line interfaces
-+ gzip - reading compressed files
-+ math - various math functions 
-+ random - random numbers, shuffling
-+ re - regular expressions
-+ sys - used for `sys.argv`, `sys.stdin`, `sys.stderr` only
-
-To be clear, no other libraries are allowed. All of these common and useful
-libraries are illegal.
-
-+ array
-+ bio
-+ csv
-+ fileinput
-+ io
-+ itertools
-+ keras
-+ matplotlib
-+ numpy
-+ pandas
-+ os
-+ seaborn
-+ scipy
-+ sklearn
-+ statistics
-+ torch
+Only 6 libraries are allowed in MCB185: `argparse`, `gzip`, `math`, `random`,
+`re`, and `sys`. Importing any other library is illegal.
