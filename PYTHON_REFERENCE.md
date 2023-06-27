@@ -7,24 +7,24 @@ construct that isn't in this reference.
 
 ## Spacing ##
 
-(1) Use a maximum line length of 79 characters most of the time.
+(1) Use a maximum line length of 79 characters (most of the time).
 
 (2) Use 1 space around/after most operators, just like in English. But don't be
-robotic about it, as sometimes it's better not to use spaces.
+robotic about it, as sometimes it's clearer not to use spaces.
 
 + Yes: "Hello, my name is Ian. What's your name?"
 + No: "Hello,my name is Ian.What's your name?"
 + No: "Hello, my name is  Ian .  What's your name?"
 + Yes: `if a > b: a, b = b, a`
-+ No: `if a>b: a,b=b,a`
++ No: `if a>b:a,b=b,a`
 + Yes: `print('hello', end='')` there is no space around keyword `=`
 + Yes: `c = (a**2 + b**2) ** 0.5` the interior looks better without spaces
 
 (3) Use vertical spacing (blank lines) to separate logic, just as you would use
 paragraph structure in English.
 
-(4) The Python convention is to use 4 spaces to indent. However, in this class,
-you **must use tabs**.
+(4) The Python convention is to use 4 spaces to indent. However, in MCB185, you
+**must use tabs**.
 
 ## Naming Convenentions ##
 
@@ -37,7 +37,7 @@ The Python community does not use mixedCase.
 + `speedLimit` no
 
 Variables sometimes have very short names that implicitly describe their type.
-It's okay for loop variables to have such names, but for more longer-lived
+It's okay for loop variables to have such names, but for longer-lived
 variables, you should use more descriptive names.
 
 + `n` is an integer, as are `i`, `j`, and `k`
@@ -306,7 +306,7 @@ Functions may call themselves. This is called _recursion_.
 fp = open()
 fp.close()
 with open() as fp
-
+gzip
 
 ## Commandline Parameters ##
 
@@ -333,3 +333,43 @@ parser.add_argument('--lower', action='store_true', help='mask with lowercase')
 arg = parser.parse_args()
 do_something(arg.file, arg.k, arg.h, arg.lower)
 ```
+
+## Random ##
+
+
+
+
+## Illegal ##
+
+The following features are not introduced in MCB185, and are considered
+illegal.
+
++ Recursion
++ Dictionaries
++ Sets
++ Exceptions: `try` and `raise`
++ The `match` and `case` conditional statement
++ Comprehensions (list, generator, dictionary, set)
++ Decorators
++ Function annotations
++ Dunders: `if __name__ == '__main__':`
+
+## Libraries ##
+
+Only the following 5 libraries are allowed in MCB185:
+
++ gzip
++ math
++ os
++ random
++ sys
+
+To be clear, no other libraries are allowed, including the following common,
+and very useful libraries:
+
++ csv
++ itertools
++ numpy
++ pandas
++ re
++ statistics
