@@ -9,6 +9,7 @@ common constructs that are not allowed.
 ## Table of Contents ##
 
 + [Style](#style)
++ [Comments](#comments)
 + [Print](#print)
 + [Variables](#variables)
 + [Math](#math)
@@ -84,6 +85,24 @@ use an abbreviation.
 + `params` is a list of parameters
 + `seqs` is a list of sequences
 
+Dictionaries...
+
+
+In general, variable names are nouns that describe the contents of the
+variable, not the type. Similarly, function names should be verbs that describe
+what the function does.
+
++ `s = 'ACGT'` not as descriptive as `nts = 'ACGT'`
++ `alist` doesn't describe what the list contains
++ `buttons` is an approrpiate name for a list of buttons
++ Translating nucleotide to protein is better as `translate()` than `protein()`
++ `optimize()` doesn't describe what is being optimized
+
+## Comments ##
+
+inline
+multi-line
+doc-strings
 
 ## Print ##
 
