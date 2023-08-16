@@ -1,112 +1,42 @@
 MCB185 Python Cookbook
 ======================
 
-A collection of statements, functions, and programs that illustrate how to
-perform biology-flavored programming tasks in Python. The source code is
-written to be easy to understand more than efficient or bullet-proof. MCB185
-also limits how much of the Python language is used. For example, there are no
-dictionaries or numpy.
+This cookbook is a collection of statements, functions, and programs that
+illustrate how to perform biology-flavored programming tasks in Python. The
+source code is written to be easy to understand more than efficient or
+bullet-proof. MCB185 also limits parts of the Python language, so there may be
+better solutions than shown here.
 
 ## Table of Contents ##
 
-+ Shortcuts
++ Simple solutions
 	+ [Swapping 2 variables](#swapping-2-variables)
-	+ something else
+	+ [Editing a sequence](#editing-a-sequence)
++ Files
+	+ [Reading a file of numbers](#reading-a-file-of-numbers)
+	+ [Reading CSV and TSV](#reading-csv-and-tsv)
+	+ [Reading a FASTA file](#reading-a-fasta-file)
+	+ [Reading a multi-FASTA file](#reading-a-multi-fasta-file)
 + Sequences
-	+ Reading FASTA files
+	+ [Generating Random Sequences](#generating-random-sequences)
+	+ [Windowing Algorithms](#windowing-algorithms)
+	+ [Calculating Hydropathy](#calculating-hydropathy)
+	+ [Translating DNA](#translating-dna)
 
 
+## Editing a Sequence ##
 
-
-Sorting
-
-+ Sorting a list by...
-+ Sorting a dictionary by value
-+ Sorting a list of objects by value
-
-Random
-
-+ Generating a random DNA sequence
-+ Generating random DNA with specific probabilities
-+ Selecting random values...
-
-Reading files
-
-+ Reading a file of numbers into a list
-+ Iterating through a CSV or TSV file
-+ Reading a single sequence from a FASTA file
-+ Reading multiple sequences from a FASTA file
-
-
-Command line interface
-
-+ Retrieving command line arguments with `sys.argv`
-+ Defining and retrieving command line arguments with `argparse`
-
-Translation and K-mers
-
-
-
-
-
-
-To iterate through items in a container (string list, tuple), use a `for` loop.
+Strings are immutable in Python. You can't make a _mutation_ in a sequence if
+it's stored as a string. However, you can edit a list. To convert a string to a
+list, use the `list()` function.
 
 ```
-dna = 'acgt'
-for nt in dna:
-	print(nt)
-```
-
-If you need the index, you can use `range()` or `enumerate()`.
-
-```
-for i in range(len(dna)):
-	print(i, dna[i])
-for i, nt in enumerate(dna):
-	print(i, dna[i])
-```
-
-Top iterate through two lists at the same time, use `range()` or `zip()`.
-
-```
-pets = ('cat', 'dog', 'rat')
-ranks = (1, 0, 2)
-for i in range(len(pets)):
-	print(pets[i], ranks[i])
-for pet, rank in zip(pets, ranks):
-	print(pet, rank)
+seq = list(string)
+seq[5] = 'G'
 ```
 
 
-
-
-## Swapping 2 variables ##
-
-```
-a = 'cat'
-b = 'dog'
-```
-
-Now put swap the variables, so that `a` contains 'cat'. This is sometimes
-confusing for new programmers, but if you ask them to do it in real life, it's
-easy.
-
-```
-glass = 'milk'
-mug = 'coffee'
-```
-
-"Oh, let me get another container." Sometimes the answer is obvious in the real
-world but not while programming. In Python, you don't need another container.
-You can swap them as tuples.
-
-```
-a, b = b, a
-glass, mug = mug, glass
-```
-
-## Reading a file of numbers into a list ##
+## Reading a file of numbers ##
 
 To read a file of numbers into a list, convert each number to a `float` and
 then append it to a list.
@@ -118,8 +48,90 @@ with open(filename) as fp:
 		values.append(float(line))
 ```
 
-## Reading a CSV or TSV ##
+To make this a function, return the list.
 
+```
+def read_numbers(filename):
+	values = [] # empty list
+	with open(filename) as fp:
+		for line in fp:
+			values.append(float(line))
+	return values
+```
+
+To make this a generator, yield the list, one number at a time
+
+```
+def read_numbers(filename):
+	with open(filename) as fp:
+		for line in fp:
+			f = float(line)
+			yield f
+
+for f in read_numbers(filename): ...
+```
+
+
+
+## Reading CSV and TSV ##
+
+To read a CSV (comma-separated values) file, split each line at the comma
+character into its columns.
+
+```
+with open(filename) as fp:
+	for line in fp:
+		cols = line.split(',')
+```
+
+To read tab-separated files (TSV) change the comma to a tab.
+
+```
+with open(filename) as fp:
+	for line in fp:
+		cols = line.split('\t')
+```
+
+To read space-separated files, use the default `split()`.
+
+```
+with open(filename) as fp:
+	for line in fp:
+		cols = line.split()
+```
+
+If some of the columns have numeric values, you must change them to `int` or
+`float` appropriately. If you know exactly how many columns there are, you can
+split the line into named variables rather than a list of unknown length. The
+function below hands back a list of tuples.
+
+```
+def read_people(filename):
+	people = []
+	with open(filename) as fp:
+		for line in fp:
+			name, age, salary = line.split()
+			age = int(age)
+			salary = float(salary)
+			people.append( (name, age, salary) )
+	return people
+```
+
+An alternative is to write this as a generator where each call to the function
+retrieves the next person. The advantage of the generator is that you don't
+need to keep all of the people in memory at the same time.
+
+```
+def read_people(filename):
+	with open(filename) as fp:
+		for line in fp:
+			name, age, salary = line.split()
+			age = int(age)
+			salary = float(salary)
+			yield name, age, salary
+
+for name, age, salary in read_people(filename): ...
+```
 
 ## Reading a FASTA file ##
 
@@ -129,17 +141,15 @@ lines together.
 ```
 seq = '' # empty string
 with open(filename) as fp:
-	header = fp.readline() # or is it better as next(fp)?
-	for line in fp:
+	header = fp.readline() # read one line
+	for line in fp:        # iterate through the remaining lines
 		seq += line.rstrip()
 ```
 
 ## Reading a multi-FASTA file ##
 
-Reading a multi-FASTA file is a little complicated. Building and returning a
-list of sequences is wasteful of CPU and RAM for long sequences. Why slurp in
-an entire genome when you can iterate over chromosomes? The function below,
-which has some useful features.
+Reading a multi-FASTA file is a little complicated. Use the code below, which
+has some useful features.
 
 + It can read from compressed files or stdin
 + It uses `join` to prevent the CPU overhead of concatenation
@@ -147,6 +157,7 @@ which has some useful features.
 
 ```
 import gzip
+import sys
 def read_fasta(filename):
 	if   filename == '-':          fp = sys.stdin
 	elif filename.endswith('.gz'): fp = gzip.open(filename, 'rt')
@@ -169,4 +180,132 @@ def read_fasta(filename):
 
 	yield(name, ''.join(seqs))
 	fp.close()
+```
+
+To iterate over all of the sequences in a file, unpack the tuple in a for loop.
+
+```
+for name, seq in read_fasta(filename): ...
+```
+
+## Generating Random Sequences ##
+
+To generate a sequence of DNA with equal probabilities of each letter, use
+`random.choice()`.
+
+```
+s = ''
+for i in range(100):
+	s += random.choice('ACGT')
+```
+
+If you want sequences biased towards AT or GC, split the probability space. The
+code below creates sequences that are 70% 
+
+```
+s = ''
+for i in range(100):
+	if random.random() < 0.7:
+		if random.random() < 0.5: s += 'A'
+		else:                     s += 'T'
+	else:
+		if random.random() < 0.5: s += 'C'
+		else:                     s += 'G'
+```
+
+For individual compositions, you can use a conditional stack.
+
+
+Alternatively, use the other form or random
+
+
+
+
+## Windowing Algorithms ##
+
+A windowing algorithm moves a window of fixed size along a sequence, doing
+_something_ with each window.
+
+```
+seq = ... # from somewhere
+w = 10 # window size
+for i in range(len(seq) - w + 1):
+	win = seq[i:i+w]
+	do_something(win)
+```
+
+Most windowing algorithms move the window in steps of 1 (as is done implicitly
+above). However, sometimes you may want to skip by 3s for codons, in which case
+you must use the 3 argument form of `range()`, which specifies the starting
+index, the length, and the increment (e.g. 3).
+
+```
+for i in range(0, len(seq), 3):
+	codon = seq[i:i+3]
+```
+
+To get codons in a different frame, you would start with a different initial
+value (e.g. 1 instead of 0).
+
+```
+for i in range(1, len(seq), 3):
+	codon = seq[i:i+3]
+```
+
+To print out a FASTA file with typical 60-character line lengths, you would
+skip by 60.
+
+```
+for i in range(0, len(seq), 60):
+	print(seq[i:i+60])
+```
+
+Windowing algorithms can be sped up immensely by cacheing previous
+calculations. For example, if you move the window over by 1 nt, the GC
+composition doesn't change very much.
+
+## Translating DNA ##
+
+First, see [Windowing Algorithms](#windowing-algorithms)
+
+Translate each codon using the dictionary below. Note that if a codon contains
+an ambiguity code (e.g. `N`), it will not be in the dictionary, and you will
+have to translate that codon as `X`. If your sequence contains lowercase
+letters, you will need to change them.
+
+```
+gcode = {
+	'AAA' : 'K',	'AAC' : 'N',	'AAG' : 'K',	'AAT' : 'N',
+	'ACA' : 'T',	'ACC' : 'T',	'ACG' : 'T',	'ACT' : 'T',
+	'AGA' : 'R',	'AGC' : 'S',	'AGG' : 'R',	'AGT' : 'S',
+	'ATA' : 'I',	'ATC' : 'I',	'ATG' : 'M',	'ATT' : 'I',
+	'CAA' : 'Q',	'CAC' : 'H',	'CAG' : 'Q',	'CAT' : 'H',
+	'CCA' : 'P',	'CCC' : 'P',	'CCG' : 'P',	'CCT' : 'P',
+	'CGA' : 'R',	'CGC' : 'R',	'CGG' : 'R',	'CGT' : 'R',
+	'CTA' : 'L',	'CTC' : 'L',	'CTG' : 'L',	'CTT' : 'L',
+	'GAA' : 'E',	'GAC' : 'D',	'GAG' : 'E',	'GAT' : 'D',
+	'GCA' : 'A',	'GCC' : 'A',	'GCG' : 'A',	'GCT' : 'A',
+	'GGA' : 'G',	'GGC' : 'G',	'GGG' : 'G',	'GGT' : 'G',
+	'GTA' : 'V',	'GTC' : 'V',	'GTG' : 'V',	'GTT' : 'V',
+	'TAA' : '*',	'TAC' : 'Y',	'TAG' : '*',	'TAT' : 'Y',
+	'TCA' : 'S',	'TCC' : 'S',	'TCG' : 'S',	'TCT' : 'S',
+	'TGA' : '*',	'TGC' : 'C',	'TGG' : 'W',	'TGT' : 'C',
+	'TTA' : 'L',	'TTC' : 'F',	'TTG' : 'L',	'TTT' : 'F',
+}
+```
+
+## Calculating Hydropathy ##
+
+First, see [Windowing Algorithms](#windowing-algorithms)
+
+Use the dictionary below or write a stack of `if-elif-else` statements. Also
+see the notes about unusual characters or lowercase in Translating DNA.
+
+```
+kdh = {
+	'I':  4.5, 'V':  4.2, 'L':  3.8, 'F':  2.8, 'C':  2.5,
+	'M':  1.9, 'A':  1.8, 'G': -0.4, 'T': -0.7, 'S': -0.8,
+	'W': -0.9, 'Y': -1.3, 'P': -1.6, 'H': -3.2, 'E': -3.5,
+	'Q': -3.5, 'D': -3.5, 'K': -3.9, 'N': -3.5, 'R': -4.5,
+}
 ```

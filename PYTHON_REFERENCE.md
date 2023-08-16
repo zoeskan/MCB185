@@ -63,13 +63,13 @@ Variables sometimes have very short names that implicitly describe their type.
 It's okay for loop variables to have such short names, but for longer-lived
 variables, you should use more descriptive names.
 
-+ `n` is an integer, as are `i`, `j`, and `k`
-+ `f` is a float, as are `x`, `y`, `x1`, `x2`, `y1`, and `y2`
++ `i`, `j`, `k`, and `n` are integers
++ `f`, `x`, and `y`, are floating point numbers
 + `p` and `q` are probabilities
 + `a`, `b`, and `c` are often numbers: ax^2 + bx + c or a^2 + b^2 = c^2
 + `c` by itself is a character
-+ `s` is a string, as are `s1`, `s2`
-+ `fp` is a file pointer (variable)
++ `s` is a string
++ `fp` is a file pointer
 
 For biological sequences it's common to use these shorthands:
 
@@ -78,15 +78,27 @@ For biological sequences it's common to use these shorthands:
 + `dna`, `rna`, `tx` are nucleotide strings
 + `pro` and `pep` are protein strings
 
+Use single quotes for strings rather than double quotes.
+
++ `s = 'hello'` yes
++ `s = "hello"` no
+
 Lists are often plural version of descriptive names. If the word is very long,
-use an abbreviation.
+use an abbreviation. Using singluar and plural names allows for intuitive looop
+constructs such as:
+
+```
+for name in names: ...
+```
 
 + `probs` is a list of probabilities
 + `params` is a list of parameters
 + `seqs` is a list of sequences
 
-Dictionaries...
-
+Despite being containers, dictionaries are generally not plural. Sometimes
+people use a `2` in a dictionary as it indicates key-value relationships. For
+example, a dict that counts kmers might be called `kmer2count`. A better
+alternative is to call it `kmercount`.
 
 In general, variable names are nouns that describe the contents of the
 variable, not the type. Similarly, function names should be verbs that describe
@@ -95,14 +107,20 @@ what the function does.
 + `s = 'ACGT'` not as descriptive as `nts = 'ACGT'`
 + `alist` doesn't describe what the list contains
 + `buttons` is an approrpiate name for a list of buttons
-+ Translating nucleotide to protein is better as `translate()` than `protein()`
++ `translate()` is better than `protein()` for converting nts to aas
 + `optimize()` doesn't describe what is being optimized
 
 ## Comments ##
 
-inline
-multi-line
-doc-strings
+Comments should be used to describe intentions, not trivialities
+
++ `a = 9.8 # set the value of a to 9.8` no, trivial
++ `a = 9.8 # default gravity` yes
+
+Multi-line comments using triple-quotes are useful in debugging for blocking
+out large sections of code. When using triple-quotes, use double-quote `"`
+rather than single quote `'` so that you don't interfere with strings (which
+should be single quoted).
 
 ## Print ##
 
@@ -290,7 +308,6 @@ Most list operations use method syntax `list.method()`.
 | `list.sort()`       | sort the list in place
 | `list.reverse()`    | reverse the list in place
 
-
 ## Slices ##
 
 Slice syntax is a succinct way to access individual elements or segments of a
@@ -464,6 +481,14 @@ for k in d.keys(): print(k, d[k])
 for k in d: print(k, d[k])
 ```
 
+Sometimes you want to sort a dictionary by keys and sometimes by values. The
+syntax for this is a little arcane, using a lambda function.
+
+```
+d = { ... }
+for k, v in sorted(d.items(), key=lambda x: x[1]): ...
+```
+
 
 ## Regex ##
 
@@ -511,7 +536,8 @@ Regex syntax is a little arcane. Here is a subset of the regex rules.
 
 ## CLI ##
 
-Values on the command line are in the `sys.argv` list.
+Values on the command line are in the `sys.argv` list. You could therefore
+harvest parameters from the command line as follows:
 
 ```
 filename = sys.argv[1]
@@ -542,16 +568,14 @@ MCB185, and are considered illegal for homework purposes.
 
 + Recursion
 + Sets
-+ Multi-dimensional data structures
 + The `match` and `case` keywords to make switch statements
 + The `try` and `raise` keywords for handling exceptions
 + Comprehensions (list, generator, dictionary)
 + The `class` keyword used in object-oriented programming
-+ Decorators
-+ Function annotations
-+ Writing named files
++ Decorators like `@function_name`
++ Function annotations like `def foo() -> expression:`
++ Writing named files (use `print()` only)
 + Dunders like `if __name__ == '__main__':`
-+ Lambda functions
 
 Only 6 libraries are allowed in MCB185: `argparse`, `gzip`, `math`, `random`,
-`re`, and `sys`. Importing any other library is illegal.
+`re`, and `sys`. Importing any other library is **illegal**.

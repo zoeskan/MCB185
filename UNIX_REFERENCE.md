@@ -1,7 +1,7 @@
 Unix Quick Reference
 ====================
 
-These are all of Unix commands we use in the course.
+These are all of the Unix commands we use in the course.
 
 
 | Token | Meaning
