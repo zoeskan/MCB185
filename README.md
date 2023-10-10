@@ -104,7 +104,7 @@ setting your email and password, choose the free plan and then answer a few
 questions about your interests to create your account. Go to your email to
 verify your email address.
 
-Point your web browser to [MCB1i5](https://github.com/iankorf/MCB185). At the
+Point your web browser to [MCB185](https://github.com/iankorf/MCB185). At the
 top of the page, there is a button labeled **Fork**. Click the button. This
 will present a page with a **Create Fork** button at the bottom. By clicking
 this button, you will add a copy of the course materials to your personal
