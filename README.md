@@ -8,6 +8,10 @@ This is not so much a science or data analysis course as an introductory
 programming course with a molecular biology theme. Along with programming, you
 will be introduced to some essential bioinformatics skills and standards.
 
+## Re-Design ##
+
+The course is currently undergoing a re-design. This is currently INCOMPLETE.
+
 ## Participation and Grading ##
 
 In the real world, programming is generally done in teams. For this reason,
