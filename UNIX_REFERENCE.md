@@ -3,7 +3,6 @@ Unix Quick Reference
 
 These are all of the Unix commands we use in the course.
 
-
 | Token | Meaning
 |:------|:-------------------------------------------
 | ^C    | send interrupt signal
@@ -38,7 +37,7 @@ These are all of the Unix commands we use in the course.
 | `head`    | `head f`      | display the first 10 lines of file f
 |           | `head -2 f`   | display the first 2 lines of file f
 | `history` | `history`     | display the recent commands you typed
-| `less`    | `less f`      | page through a file
+| `less`    | `less f`      | page or search through a file
 | `ls`      | `ls`          | list current directory
 |           | `ls -l`       | list with file details
 |           | `ls -la`      | also show invisible files
@@ -65,14 +64,14 @@ These are all of the Unix commands we use in the course.
 
 ----------
 
-These may show up in an the optional content
+These may show up in the optional content
 
 | Command   | Example       | Intent
 |:----------|:--------------|:------------------------------------------------
 | `chmod`   | `chmod 644 f` | change permissions for file f in octal format
-|           | `chmod u+x f` | change permissions for f the hard way
+|           | `chmod u+x f` | change permissions for file f the hard way
 | `df`      | `df -h .`     | display free space on file system
-| `diff`    | `diff f1 f2`  | shows differese between files f1 and f2
+| `diff`    | `diff f1 f2`  | shows differences between files f1 and f2
 | `du`      | `du -h ~`     | display the sizes of your files
 | `echo`    | `echo hi`     | prints hi to stdout
 | `echo`    | `echo $HOME`  | prints path to home directory

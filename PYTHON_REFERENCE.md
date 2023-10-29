@@ -98,14 +98,14 @@ for name in names: ...
 Despite being containers, dictionaries are generally not plural. Sometimes
 people use a `2` in a dictionary as it indicates key-value relationships. For
 example, a dict that counts kmers might be called `kmer2count`. A better
-alternative is to call it `kmercount`.
+alternative is to call it `kmercount` or `kmer_count`.
 
 In general, variable names are nouns that describe the contents of the
 variable, not the type. Similarly, function names should be verbs that describe
 what the function does.
 
 + `s = 'ACGT'` not as descriptive as `nts = 'ACGT'`
-+ `alist` doesn't describe what the list contains
++ `my_list` doesn't describe what the list contains
 + `buttons` is an approrpiate name for a list of buttons
 + `translate()` is better than `protein()` for converting nts to aas
 + `optimize()` doesn't describe what is being optimized
@@ -119,14 +119,15 @@ Comments should be used to describe intentions, not trivialities
 
 Multi-line comments using triple-quotes are useful in debugging for blocking
 out large sections of code. When using triple-quotes, use double-quote `"`
-rather than single quote `'` so that you don't interfere with strings (which
-should be single quoted).
+rather than single quote `'` so that you don't interfere with normal strings
+(which should be single quoted as described above).
 
-## Print ##
+## print() ##
 
-In MCB185, we print to stdout only. We don't create named files. For formatted
-text, we use f-strings only, and not the printf-style or str.format()
-constructions found in older Python.
+In MCB185, we use f-strings only, and not the printf-style or str.format()
+constructions found in older Python. If you use the old styles, it's because
+you copy-pasted from the Internet, which is both not recommended and
+potentially grounds for plagiarism.
 
 | Code                        | Output
 |:----------------------------|:-----------------------------------------
@@ -142,7 +143,8 @@ constructions found in older Python.
 
 ## Variables ##
 
-Variables are given a type as they are created.
+In Python, variables are given a type as they are created. There is no way to
+create a variable without a type.
 
 ```
 n = 1               # integer
@@ -157,16 +159,17 @@ fp = open(filename) # file pointer
 
 The `type()` function returns the type of a variable.
 
-| Type                | Meaning
-|:--------------------|:---------------------------------
-| `int`               | integer
-| `float`             | number with a decimal point
-| `str`               | string (text)
-| `None`              | a non-value useful for debugging
-| `bool`              | Boolean (True or False)
-| `tuple`             | a collection of fixed values
-| `list`              | a collection of mutable values
-| `_io.textIOWrapper` | file handle
+| Type                          | Meaning
+|:------------------------------|:---------------------------------
+| `<class 'int'>`               | integer
+| `<class 'float'>`             | number with a decimal point
+| `<class 'str'>`               | string (text)
+| `<class 'NoneType'>`          | a non-value useful for debugging
+| `<class 'bool'>`              | Boolean (True or False)
+| `<class 'tuple'>`             | a collection of fixed values
+| `<class 'list'>`              | a collection of mutable values
+| `<class 'dict'>`              | a dictionary of key, value pairs
+| `<class '_io.TextIOWrapper'>` | file handle
 
 The `int()`, `float()`, and `str()` functions are useful to convert values from
 one type to another.
@@ -271,10 +274,10 @@ Most string operations use method syntax `s.method()`.
 | `s.split(s1)`       | split `s` into a list of strings at every `s1`
 
 
-## Lists ##
+## Tuples & Lists ##
 
-Lists are created with square brackets. Tuples are created with parentheses.
-Tuples cannot be changed, but lists can. Both lists and tuples are indexed with
+Tuples are created with parentheses. Lists are created with square brackets.
+Tuples cannot be changed, but lists can. Both tuples and lists are indexed with
 square brackets.
 
 ```
@@ -293,17 +296,18 @@ Some useful list/tuple operations use function syntax:
 | `max(list)`         | return the maximum value from an iterable
 | `sum(list)`         | return the sum of an iterable
 | `sorted(list)`      | return a copy of the sorted list (or tuple)
-| `enumerate(list)`   | creates tuples of index and item
+| `enumerate(list)`   | iterates through tuples of index and item
 | `zip(list1, list2)` | simultaneously iterate through multiple lists
 | `list(string)`      | returns an array of single characters
 | `list(dict)`        | returns the keys as a list
+| `list(dict.keys())` | as above
 
 Most list operations use method syntax `list.method()`.
 
 | Method              | Purpose
 |:--------------------|:------------------------------------------------
 | `list.append(a)`    | add `a` to the end of a list
-| `list.pop()`        | remove and return the last item
+| `v = list.pop()`    | remove and return the last item
 | `list.count(a)`     | count the number of times `a` occurs in list
 | `list.sort()`       | sort the list in place
 | `list.reverse()`    | reverse the list in place
@@ -579,3 +583,6 @@ MCB185, and are considered illegal for homework purposes.
 
 Only 6 libraries are allowed in MCB185: `argparse`, `gzip`, `math`, `random`,
 `re`, and `sys`. Importing any other library is **illegal**.
+
+input
+write files
