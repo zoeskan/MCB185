@@ -11,6 +11,7 @@ will be introduced to some essential bioinformatics skills and standards.
 ## Re-Design ##
 
 The course is currently undergoing a re-design. This is currently INCOMPLETE.
+Do not use this yet. Instead, use MCB185-legacy.
 
 ## Participation and Grading ##
 
@@ -35,9 +36,9 @@ a professional setting, you _should_ do that. However, the goal here isn't to
 _solve_ a problem but to _learn_ how to solve a problem. In many programming
 courses, the instructors have automated grading. I would never do that, because
 that would mean that the focus was on getting the correct answer. In this
-course, the focus is on style as much as substance. It's better to have
-beautiful code that is broken than ugly code that solves the problem correctly
-because the beautiful code is easier to fix and maintain in the long run.
+course, the focus is on form as functio. It's better to have beautiful code
+that is broken than ugly code that solves the problem correctly because the
+beautiful code is easier to fix and maintain in the long run.
 
 ## Collaboration vs Plagiarism ##
 
@@ -86,7 +87,8 @@ other students even sooner. Email will also work.
 The instructor and TA also hold _coderies_, which are online, small group
 programming sessions. Not only is this a good way to meet your classmates and
 get personalized help in a cozy setting, it's also a _required_ part of your
-participation grade. The schedule will be announced in Canvas and Discord.
+participation grade. Sign-ups are managed via Calendly. See Canvas and Discord
+for the schedule and URL.
 
 ## Getting Started ##
 
