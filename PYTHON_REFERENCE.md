@@ -4,7 +4,7 @@ MCB185 Python Reference
 This Python Reference contains a subset of the Python language used
 specifically for MCB185. MCB185 students are not allowed to use any Python
 construct that isn't in this reference. See the end of this document for some
-common constructs that are not allowed.
+common constructs that are specifically forbidden.
 
 ## Table of Contents ##
 
@@ -357,7 +357,7 @@ pets = ('cat', 'dot', 'rat')
 for i, pet in enumerate((pets): # yes, unpack the tuple
 	print(i, pet)
 for thing in enumerate(pets):   # no, don't index it numerically
-	print(thing[0], thing[1]) 
+	print(thing[0], thing[1])
 ```
 
 
@@ -467,7 +467,7 @@ del d['cow']
 ```
 
 There are several methods that are useful for looping over the keys or values
-of a dictionary. The order of keys is the order in which they were created. 
+of a dictionary. The order of keys is the order in which they were created.
 
 | Method              | Purpose
 |:--------------------|:------------------------------------------------
@@ -568,21 +568,29 @@ do_something(arg.file, arg.k, arg.h, arg.lower)
 ## Illegal ##
 
 The following common and useful features of Python are not introduced in
-MCB185, and are considered illegal for homework purposes.
+MCB185, and are considered illegal.
 
-+ Recursion
-+ Sets
-+ The `match` and `case` keywords to make switch statements
++ Recursion: functions that call themselves (e.g. for factorial)
++ The `input()` function to get user input from the keyboard
++ Sets like `s = {'a', 'b'}` of type `<class 'set'>`
++ The `match` and `case` keywords to make switch-like statements
 + The `try` and `raise` keywords for handling exceptions
 + Comprehensions (list, generator, dictionary)
 + The `class` keyword used in object-oriented programming
 + Decorators like `@function_name`
 + Function annotations like `def foo() -> expression:`
-+ Writing named files (use `print()` only)
++ Writing named files (e.g. `open('whatever', 'w')`)
 + Dunders like `if __name__ == '__main__':`
 
-Only 6 libraries are allowed in MCB185: `argparse`, `gzip`, `math`, `random`,
-`re`, and `sys`. Importing any other library is **illegal**.
+Only 6 libraries are allowed in MCB185. The use of any other library is
+considered illegal.
 
-input
-write files
++ `argparse` - for processing command-line arguments
++ `gzip` - for decompressing compressed files
++ `math` - for various math functions `like math.log2()`
++ `random` - for creating random numbers or choices
++ `re` - for regular expressions
++ `sys` - for `sys.argv`, `sys.stdin`, `sys.stderr`, and `sys.exit()`
+
+Turning in homework with illegal code receives zero credit and may result in a
+conversation with student judicial affairs.

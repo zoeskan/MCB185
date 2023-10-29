@@ -7,6 +7,11 @@ source code is written to be easy to understand more than efficient or
 bullet-proof. MCB185 also limits parts of the Python language, so there may be
 better solutions than shown here.
 
+Note that some of the recipes here are too advanced for the homework problems
+of some unit. Just because there's a solution in the cookbook, doesn't mean
+you're automatically allowed to use it for your homework. Only use the language
+features that have been previously introduced.
+
 ## Table of Contents ##
 
 + Simple solutions
@@ -22,6 +27,8 @@ better solutions than shown here.
 	+ [Windowing Algorithms](#windowing-algorithms)
 	+ [Calculating Hydropathy](#calculating-hydropathy)
 	+ [Translating DNA](#translating-dna)
+	+ [Counting K-mers](#counting-kmers)
+	+ [Generating K-mers](#generating-kmers)
 
 
 ## Editing a Sequence ##
@@ -70,7 +77,6 @@ def read_numbers(filename):
 
 for f in read_numbers(filename): ...
 ```
-
 
 
 ## Reading CSV and TSV ##
@@ -194,13 +200,21 @@ To generate a sequence of DNA with equal probabilities of each letter, use
 `random.choice()`.
 
 ```
+import random
 s = ''
 for i in range(100):
 	s += random.choice('ACGT')
 ```
 
+An alternative is to use `random.choices()` to generate a tuple of random
+letters of length k (which you may want to `join()` into a string as shown).
+
+```
+s = ''.join(random.choices('ACGT', k=100))
+```
+
 If you want sequences biased towards AT or GC, split the probability space. The
-code below creates sequences that are 70% 
+code below creates sequences that are 70%
 
 ```
 s = ''
@@ -213,13 +227,16 @@ for i in range(100):
 		else:                     s += 'G'
 ```
 
-For individual compositions, you can use a conditional stack.
+An alternative to the above is to use `random.choices()` with `weights` or
+`cum_weights` and a value for `k` that is the length of the sequence.
 
-
-Alternatively, use the other form or random
-
-
-
+```
+nts = 'ACGT'
+ntp = (0.35, 0.15, 0.15, 0.35)
+ntc = (0.35, 0.50, 0.65, 1.00)
+s1 = ''.join(random.choices(nts, weights=ntp, k=100))
+s2 = ''.join(random.choices(nts, cum_weights=ntc, k=100))
+```
 
 ## Windowing Algorithms ##
 
@@ -264,9 +281,10 @@ Windowing algorithms can be sped up immensely by cacheing previous
 calculations. For example, if you move the window over by 1 nt, the GC
 composition doesn't change very much.
 
+
 ## Translating DNA ##
 
-First, see [Windowing Algorithms](#windowing-algorithms)
+First, see [Windowing Algorithms](#windowing-algorithms).
 
 Translate each codon using the dictionary below. Note that if a codon contains
 an ambiguity code (e.g. `N`), it will not be in the dictionary, and you will
@@ -292,11 +310,16 @@ gcode = {
 	'TGA' : '*',	'TGC' : 'C',	'TGG' : 'W',	'TGT' : 'C',
 	'TTA' : 'L',	'TTC' : 'F',	'TTG' : 'L',	'TTT' : 'F',
 }
+seq = uc(seq) # if you have lowercase sequences
+for i in range(1, len(seq), 3):
+	codon = seq[i:i+3]
+	if codon in gcode: aa = gcode[codon]
+	else:              aa = 'X'
 ```
 
 ## Calculating Hydropathy ##
 
-First, see [Windowing Algorithms](#windowing-algorithms)
+First, see [Windowing Algorithms](#windowing-algorithms).
 
 Use the dictionary below or write a stack of `if-elif-else` statements. Also
 see the notes about unusual characters or lowercase in Translating DNA.
@@ -308,4 +331,37 @@ kdh = {
 	'W': -0.9, 'Y': -1.3, 'P': -1.6, 'H': -3.2, 'E': -3.5,
 	'Q': -3.5, 'D': -3.5, 'K': -3.9, 'N': -3.5, 'R': -4.5,
 }
+```
+
+## Counting K-mers ##
+
+First, see [Windowing Algorithms](#windowing-algorithms).
+
+The first time you 'see' a k-mer, you must add it to the dictionary.
+Afterwards, increase counts by one. If you want to pre-populate the dictionary
+to include missing k-mers, see [Generating K-mers](#generating-kmers).
+
+```
+seq = 'ACATGAGGATATATAT'
+k = 3
+kcount = {}
+for i in range(len(seq) -k +1):
+	kmer = seq[i:i+k]
+	if kmer not in kcount: kcount[kmer] = 0
+	kcount[kmer] += 1
+```
+
+## Generating K-mers ##
+
+`itertools.product()` makes it simple to generate all possible k-mers. The
+function generates tuples, so you might want to join them into a string as
+shown below.
+
+```
+import itertools
+k = 3
+kcount = {}
+for kmers in itertools.product('ACGT', repeat=k):
+	kcount[''.join(kmers)] = 0
+print(kcount)
 ```
