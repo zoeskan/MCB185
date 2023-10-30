@@ -4,13 +4,12 @@ MCB185 Python Cookbook
 This cookbook is a collection of statements, functions, and programs that
 illustrate how to perform biology-flavored programming tasks in Python. The
 source code is written to be easy to understand more than efficient or
-bullet-proof. MCB185 also limits parts of the Python language, so there may be
-better solutions than shown here.
+bullet-proof. MCB185 students are only allowed to use a subset of the Python
+language, so there may be better solutions than shown here.
 
-Note that some of the recipes here are too advanced for the homework problems
-of some unit. Just because there's a solution in the cookbook, doesn't mean
-you're automatically allowed to use it for your homework. Only use the language
-features that have been previously introduced.
+MCB185 students are not allowed to use language features more advanced than the
+current unit. Just because there's a solution in the cookbook, doesn't mean
+you're automatically allowed to use it for your homework.
 
 ## Table of Contents ##
 

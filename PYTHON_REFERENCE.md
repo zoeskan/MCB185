@@ -3,8 +3,7 @@ MCB185 Python Reference
 
 This Python Reference contains a subset of the Python language used
 specifically for MCB185. MCB185 students are not allowed to use any Python
-construct that isn't in this reference. See the end of this document for some
-common constructs that are specifically forbidden.
+construct more advanced than the current unit.
 
 ## Table of Contents ##
 
@@ -23,7 +22,6 @@ common constructs that are specifically forbidden.
 + [Dictionaries](#dictionaries)
 + [Regex](#regex)
 + [CLI](#cli)
-+ [Illegal](#illegal)
 
 
 ## Style ##
@@ -563,35 +561,3 @@ parser.add_argument('--lower', action='store_true', help='mask with lowercase')
 arg = parser.parse_args()
 do_something(arg.file, arg.k, arg.h, arg.lower)
 ```
-
-
-## Illegal ##
-
-The following common and useful features of Python are not introduced in
-MCB185, and are considered illegal.
-
-+ Recursion: functions that call themselves (e.g. for factorial)
-+ The `input()` function to get user input from the keyboard
-+ Sets like `s = {'a', 'b'}` of type `<class 'set'>`
-+ The `match` and `case` keywords to make switch-like statements
-+ The `try` and `raise` keywords for handling exceptions
-+ Comprehensions (list, generator, dictionary)
-+ The `class` keyword used in object-oriented programming
-+ Decorators like `@function_name`
-+ Function annotations like `def foo() -> expression:`
-+ Writing named files (e.g. `open('whatever', 'w')`)
-+ Dunders like `if __name__ == '__main__':`
-
-Only 6 libraries are allowed in MCB185. The use of any other library is
-considered illegal.
-
-+ `argparse` - for processing command-line arguments
-+ `gzip` - for decompressing compressed files
-+ `itertools` - for producing k-mers from `itertools.product()`
-+ `math` - for various math functions `like math.log2()`
-+ `random` - for creating random numbers or choices
-+ `re` - for regular expressions
-+ `sys` - for `sys.argv`, `sys.stdin`, `sys.stderr`, and `sys.exit()`
-
-Turning in homework with illegal code receives zero credit and may result in a
-conversation with student judicial affairs.
