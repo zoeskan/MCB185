@@ -587,6 +587,7 @@ considered illegal.
 
 + `argparse` - for processing command-line arguments
 + `gzip` - for decompressing compressed files
++ `itertools` - for producing k-mers from `itertools.product()`
 + `math` - for various math functions `like math.log2()`
 + `random` - for creating random numbers or choices
 + `re` - for regular expressions

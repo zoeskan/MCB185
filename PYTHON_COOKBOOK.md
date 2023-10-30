@@ -238,6 +238,16 @@ s1 = ''.join(random.choices(nts, weights=ntp, k=100))
 s2 = ''.join(random.choices(nts, cum_weights=ntc, k=100))
 ```
 
+To shuffle the letters of a sequence, use `random.shuffle()`. Since strings are
+immutable, you must first turn the sequence into a list.
+
+```
+seq = '0123456789'
+lseq = list(seq)
+random.shuffle(lseq)
+seq = ''.join(lseq)
+```
+
 ## Windowing Algorithms ##
 
 A windowing algorithm moves a window of fixed size along a sequence, doing
