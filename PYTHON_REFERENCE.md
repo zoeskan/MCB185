@@ -3,7 +3,7 @@ MCB185 Python Reference
 
 This Python Reference contains a subset of the Python language used
 specifically for MCB185. MCB185 students are not allowed to use any Python
-construct more advanced than the current unit.
+construct that isn't in this reference.
 
 ## Table of Contents ##
 
@@ -44,7 +44,18 @@ robotic about it, as sometimes it's clearer not to use spaces.
 (3) Use vertical spacing (blank lines) to separate logic, just as you would use
 paragraph structure in English.
 
-(4) Use tabs for left side indentation, but spaces to pad elsewhere.
+(4) Use tabs for left side indentation. The use of spaces for indentation flags
+your code as **cheating**.
+
+(5) Use spaces for lining up single `if-elif-else` type constructs.
+
+```
+if   nt == 'A': comp = 'T'
+elif nt == 'C': comp = 'G'
+elif nt == 'G': comp = 'C'
+elif nt == 'T': comp = 'A'
+else:           sys.exit('unknown nucleotide', nt)
+```
 
 Naming Rules:
 
@@ -151,7 +162,8 @@ s = '1'             # string
 v = None            # None
 b = True            # Boolean
 t = (1, 2)          # tuple
-a = [1, 2]          # list (array)
+a = [1, 2]          # list
+d = {'cat': 'meow'} # dictionary
 fp = open(filename) # file pointer
 ```
 
