@@ -60,26 +60,3 @@ These are all of the Unix commands we use in the course.
 | `touch`   | `touch f`     | update file f modification time (create if needed)
 | `wc`      | `wc f`        | count the lines, words, and characters in file f
 | `zless`   | `zless f.gz`  | page through compressed file f.gz, see `less`
-
-
-----------
-
-These may show up in the optional content
-
-| Command   | Example       | Intent
-|:----------|:--------------|:------------------------------------------------
-| `chmod`   | `chmod 644 f` | change permissions for file f in octal format
-|           | `chmod u+x f` | change permissions for file f the hard way
-| `df`      | `df -h .`     | display free space on file system
-| `diff`    | `diff f1 f2`  | shows differences between files f1 and f2
-| `du`      | `du -h ~`     | display the sizes of your files
-| `echo`    | `echo hi`     | prints hi to stdout
-| `echo`    | `echo $HOME`  | prints path to home directory
-| `htop`    | `htop`        | monitor resources, a variant of top
-| `ln`      | `ln -s f1 f2` | make f2 an alias of f1
-| `more`    | `more f`      | page through file f (see less)
-| `sum`     | `sum f`       | create a checksum for a file
-| `tar`     | `tar -cf ...` | create a compressed tar-ball (-z to compress)
-|           | `tar -xf ...` | decompress a tar-ball (-z if compressed)
-| `time`    | `time ...`    | determine how much time a process takes
-| `top`     | `top`         | display processes running on your system

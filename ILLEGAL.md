@@ -7,8 +7,8 @@ rules.
 1. No programming constructs except those in the current and previous units
 2. Indentation must be with tabs, not spaces
 
-Turning in homework with illegal code receives zero credit and may
-result in a conversation with student judicial affairs.
+Turning in homework with illegal code receives zero credit and may result in a
+conversation with student judicial affairs.
 
 -------------------------------------------------------------------------------
 
@@ -42,15 +42,12 @@ MCB185, and any programs using these features are illegal.
 + Dunders like `if __name__ == '__main__':`
 + Writing named files (e.g. `open('whatever', 'w')`)
 + Comprehensions (list, generator, dictionary)
-+ The `try` and `raise` keywords for handling exceptions
 + Function annotations like `def foo() -> expression:`
 + The `class` keyword used in object-oriented programming
 + Decorators like `@function_name`
 
-You are allowed to `import` these 6 built-in libraries when they are introduced
-in the curriculum.
-
-These should be in unit order rather than alphabetical order
+You may `import` these 6 built-in libraries after they are introduced in the
+curriculum.
 
 + `argparse` - for processing command-line arguments
 + `gzip` - for reading compressed files
@@ -60,25 +57,7 @@ These should be in unit order rather than alphabetical order
 + `re` - for regular expressions
 + `sys` - for `sys.argv`, `sys.stdin`, `sys.stderr`, and `sys.exit()`
 
-You may also `import mcb185` or any library you create from unit 6 onward.
+You may also `import mcb185` (provided in the course) and any library you
+co-author with other students of your current MCB185 cohort.
 
-No other libraries may be imported.
-
-## Unit-by-Unit Legal Code ##
-
-+ Unit 0
-	+ `print()`
-+ Unit 1
-+ Unit 2
-	+ Comments
-	+ Operators
-	+ Keywords
-	+ Variables
-	+ Functions
-+ Unit 3
-+ Unit 4
-+ Unit 5
-+ Unit 6
-+ Unit 7
-+ Unit 8
-+ Unit 9
+The use of any other library is illegal.

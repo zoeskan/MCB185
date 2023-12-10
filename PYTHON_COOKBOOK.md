@@ -28,6 +28,22 @@ you're automatically allowed to use it for your homework.
 	+ [Translating DNA](#translating-dna)
 	+ [Counting K-mers](#counting-kmers)
 	+ [Generating K-mers](#generating-kmers)
++ CLI
+	+ [Simple CLI](#simple-cli)
+	+ [Nested CLI](#nested-cli)
+
+
+## Swapping 2 variables ##
+
+The classic way to swap 2 variables is to use a temporary variable. But in
+Python, you can use tuples. The variables can even be different types.
+
+```
+a = 1
+b = 'two'
+a, b = b, a
+print(a, b)
+```
 
 
 ## Editing a Sequence ##
@@ -373,4 +389,92 @@ kcount = {}
 for kmers in itertools.product('ACGT', repeat=k):
 	kcount[''.join(kmers)] = 0
 print(kcount)
+```
+
+## Simple CLI  ##
+
+Every program should have a usage statement that provides users with a brief
+synopsis of what a program does and what parameters it takes. For example, here
+is a simple CLI for the program `dust.py` that masks low complexity regions of
+a sequence.
+
+```
+import argparse
+parser = argparse.ArgumentParser(description='DNA entropy filter.')
+parser.add_argument('file', type=str, help='name of fasta file')
+parser.add_argument('k', type=int, help='window size')
+parser.add_argument('h', type=float, help='entropy threshold')
+parser.add_argument('--lower', action='store_true', help='mask with lowercase')
+arg = parser.parse_args()
+do_something(arg.file, arg.k, arg.h, arg.lower)
+```
+
+When you run the program without any arguments, it reports the following brief
+message.
+
+```
+usage: dust.py [-h] [--lower] file k h
+dust.py: error: the following arguments are required: file, k, h
+```
+
+To get more information about what the program does, run the program again with
+`-h` or `--help`.
+
+```
+usage: dust.py [-h] [--lower] file k h
+
+DNA entropy filter.
+
+positional arguments:
+  file        name of fasta file
+  k           window size
+  h           entropy threshold
+
+optional arguments:
+  -h, --help  show this help message and exit
+  --lower     mask with lowercase
+```
+
+## Nested CLI ##
+
+Some programs, like `git` feature sub-command right after the name of the
+program. You do this daily as `git status` and `git add`. Your programs can
+have the same behavior. The program below features 2 behaviors, `greet` or
+`praise`. If you choose `greet`, the program hands off execution to `fn1()` but
+if you choose `praise` execution goes to `fn2()`.
+
+A CLI created this way has a generic usage statement for the whole program and
+individual usage statements for each sub-command.
+
+```
+import argparse
+import sys
+
+def fn1(arg):
+	print(f'{arg.greeting}, {arg.name}.')
+
+def fn2(arg):
+	print(f'{arg.name}, {arg.message}.')
+
+parser = argparse.ArgumentParser()
+sub = parser.add_subparsers(required=True, help='sub-commands')
+
+## greet sub-command ##
+sub_fn1 = sub.add_parser('greet', help='greet a person')
+sub_fn1.add_argument('name', help='name of person to greet')
+sub_fn1.add_argument('--greeting', default='Hello',
+	help='default %(default)s')
+sub_fn1.set_defaults(func=fn1)
+
+## praise sub-command ##
+sub_fn2 = sub.add_parser('praise', help='praise a person')
+sub_fn2.add_argument('name', help='name of person to praise')
+sub_fn2.add_argument('--message', default='you rock',
+	help='default %(default)s')
+sub_fn2.set_defaults(func=fn2)
+
+## execute sub-command ##
+try: arg = parser.parse_args()
+except: sys.exit(' malformed command line, use --help for more info')
+arg.func(arg)
 ```

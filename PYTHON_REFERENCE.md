@@ -13,6 +13,7 @@ construct that isn't in this reference.
 + [Variables](#variables)
 + [Math](#math)
 + [Strings](#strings)
++ [Exceptions](#exceptions)
 + [Lists](#lists)
 + [Slices](#slices)
 + [Loops](#loops)
@@ -45,7 +46,7 @@ robotic about it, as sometimes it's clearer not to use spaces.
 paragraph structure in English.
 
 (4) Use tabs for left side indentation. The use of spaces for indentation flags
-your code as **cheating**.
+your code as potential **cheating**.
 
 (5) Use spaces for lining up single `if-elif-else` type constructs.
 
@@ -85,14 +86,14 @@ For biological sequences it's common to use these shorthands:
 + `nt` and `aa` are single characters of nucleotides or amino acids
 + `seq` is often used for a biological sequence
 + `dna`, `rna`, `tx` are nucleotide strings
-+ `pro` and `pep` are protein strings
++ `pro` and `pep` are protein/peptide strings
 
 Use single quotes for strings rather than double quotes.
 
 + `s = 'hello'` yes
 + `s = "hello"` no
 
-Lists are often plural version of descriptive names. If the word is very long,
+Lists are often plural versions of descriptive names. If the word is very long,
 use an abbreviation. Using singluar and plural names allows for intuitive looop
 constructs such as:
 
@@ -284,6 +285,39 @@ Most string operations use method syntax `s.method()`.
 | `s.split(s1)`       | split `s` into a list of strings at every `s1`
 
 
+## Exceptions ##
+
+There are times when programs run into illegal instructions or instructions
+that lead to illegal values. For example, you cannot divide by zero. An attempt
+to do so leads to a ZeroDivisionError.
+
+```
+n = 1/0
+ZeroDivisionError: division by zero
+```
+
+A common source of errors occurs when converting strings to numbers. This
+produces a ValueError.
+
+```
+f = float('1e-5o') # that's the letter o, not the numeral 0
+ValueError: could not convert string to float: '1e-5o'
+```
+
+When errors like these occur, your progam exits and reports the error. But what
+if you wanted the program to keep running and skip over the erroneous data?
+This is where `try` and `except` come in. The `try` block is code that you want
+to try running. The `except` block handles what to do in case of failure.
+
+```
+v = '1e-5o'
+try:
+	f = float(v)
+except ValueError:
+	print('error converting', v)
+```
+
+
 ## Tuples & Lists ##
 
 Tuples are created with parentheses. Lists are created with square brackets.
@@ -408,7 +442,7 @@ Functions may call themselves. This is called _recursion_.
 
 The random library is used to create random(-ish) numbers. If you want to
 reproduce the same random numbers over and over (useful for debugging), set the
-random see to any integer value.
+random seed to any integer value.
 
 | Statement                | Meaning
 |:-------------------------|:----------------------------------------
@@ -554,6 +588,7 @@ Values on the command line are in the `sys.argv` list. You could therefore
 harvest parameters from the command line as follows:
 
 ```
+import sys
 filename = sys.argv[1]
 k = int(sys.argv[2])
 h = float(sys.argv[3])
@@ -561,15 +596,5 @@ h = float(sys.argv[3])
 
 While you _can_ read values directly from `sys.argv`, it's better to use
 `argparse`. This allows you to control input type, provide optional arguments,
-and display a standard usage statement.
-
-```
-import argparse
-parser = argparse.ArgumentParser(description='DNA entropy filter.')
-parser.add_argument('file', type=str, help='name of fasta file')
-parser.add_argument('k', type=int, help='window size')
-parser.add_argument('h', type=float, help='entropy threshold')
-parser.add_argument('--lower', action='store_true', help='mask with lowercase')
-arg = parser.parse_args()
-do_something(arg.file, arg.k, arg.h, arg.lower)
-```
+and display a standard usage statement. See the `PYTHON_COOKBOOK.md` file for
+more information.

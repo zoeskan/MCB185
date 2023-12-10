@@ -36,9 +36,9 @@ a professional setting, you _should_ do that. However, the goal here isn't to
 _solve_ a problem but to _learn_ how to solve a problem. In many programming
 courses, the instructors have automated grading. I would never do that, because
 that would mean that the focus was on getting the correct answer. In this
-course, the focus is on form as functio. It's better to have beautiful code
-that is broken than ugly code that solves the problem correctly because the
-beautiful code is easier to fix and maintain in the long run.
+course, the focus is on form as function. It's better to have beautiful code
+that is broken than ugly code that solves the problem correctly. The beautiful
+code is easier to fix and maintain in the long run.
 
 ## Collaboration vs Plagiarism ##
 
@@ -55,15 +55,12 @@ authors. It looks like this:
 ```
 
 Working with people is very different from copy-pasting code from the Internet.
-If you take answers from the Internet without attribution, it is considered
-plagiarism. If you take answers from the Internet and state where you got the
-information, it is not plagiarism. However, it's also not recommended.
-
-In this course, you are not allowed to use any concept unless it has been
-introduced in a previous or current unit. Looking up answers on the Internet
-will frequently end with code that you're not allowed to use. Programs with
-_illegal_ solutions will be penalized. Programs with plagiarism will be
-reported to student judicial affairs.
+If you copy-paste without attribution, it is considered plagiarism. In this
+course, you are not allowed to use any concept unless it has been introduced in
+a previous or current unit. Getting answers from the Internet, AI, or a more
+advanced programmer will frequently result in ILLEGAL code. If you turn in
+illegal code, you will be penalized, and if that code is also plagiarized, your
+misconduct will be sent to student judicial affairs.
 
 In general, resist copy-paste. Typing words helps you remember what you did
 later. Copy-paste is one of the worst ways to learn how to program. Also,
