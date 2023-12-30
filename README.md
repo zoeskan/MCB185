@@ -13,7 +13,7 @@ will be introduced to some essential bioinformatics skills and standards.
 The course is currently undergoing a re-design. This is currently INCOMPLETE.
 Do not use this yet. Instead, use MCB185-legacy.
 
-## Participation and Grading ##
+## Participation ##
 
 In the real world, programming is generally done in teams. For this reason,
 participation is a large part of your grade. There are multiple ways to
@@ -29,6 +29,8 @@ participate.
 	+ Providing help
 	+ Solving problems together
 
+## Form vs. Function ##
+
 This is foremost a course about _how_ to program. When faced with a homework
 problem, such as "compute the descriptive statistics for a set of numbers", you
 could very easily `import statistics` instead of writing the code yourself. In
@@ -40,7 +42,7 @@ course, the focus is on form as function. It's better to have beautiful code
 that is broken than ugly code that solves the problem correctly. The beautiful
 code is easier to fix and maintain in the long run.
 
-## Collaboration vs Plagiarism ##
+## Collaboration vs. Plagiarism ##
 
 In this course, you are encouraged to collaborate with other students. If you
 work closely with other students, it's entirely possible you will have the
@@ -107,8 +109,4 @@ setting your email and password, choose the free plan and then answer a few
 questions about your interests to create your account. Go to your email to
 verify your email address.
 
-Point your web browser to [MCB185](https://github.com/iankorf/MCB185). At the
-top of the page, there is a button labeled **Fork**. Click the button. This
-will present a page with a **Create Fork** button at the bottom. By clicking
-this button, you will add a copy of the course materials to your personal
-GitHub account. You are now ready to start.
+To begin the course, start at `unit0-setup.md`.

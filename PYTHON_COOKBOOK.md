@@ -3,7 +3,7 @@ MCB185 Python Cookbook
 
 This cookbook is a collection of statements, functions, and programs that
 illustrate how to perform biology-flavored programming tasks in Python. The
-source code is written to be easy to understand more than efficient or
+source code is written to be easy to understand rather than efficient or
 bullet-proof. MCB185 students are only allowed to use a subset of the Python
 language, so there may be better solutions than shown here.
 

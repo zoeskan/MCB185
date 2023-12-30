@@ -22,7 +22,7 @@ to catch cheaters is by prohibiting certain conveniences. (3) Not all languages
 have some of the advanced Python features. Using a reduced version of the
 language means you learn more general principles.
 
-Q: Why do we have to use tabs instead of spaces? They Python style guide
+Q: Why do we have to use tabs instead of spaces? The Python style guide
 specifically says "spaces are the preferred indentation method".
 
 A: To prevent copy-pasting code. Copy-paste (1) prevents you from memorizing
@@ -57,7 +57,7 @@ curriculum.
 + `re` - for regular expressions
 + `sys` - for `sys.argv`, `sys.stdin`, `sys.stderr`, and `sys.exit()`
 
-You may also `import mcb185` (provided in the course) and any library you
-co-author with other students of your current MCB185 cohort.
+You may also import any library you write or co-author with other students of
+your current MCB185 cohort.
 
 The use of any other library is illegal.
