@@ -5,8 +5,10 @@ These are all of the Unix commands we use in the course.
 
 | Token | Meaning
 |:------|:-------------------------------------------
+| ^A    | go to the start of the command line
 | ^C    | send interrupt signal
 | ^D    | send enf of transmission signal
+| ^D    | go to the end of the command line
 | tab   | tab-complete names
 | `.`   | your current directory
 | `..`  | your parent directory
