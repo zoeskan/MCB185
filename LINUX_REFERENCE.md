@@ -36,7 +36,9 @@ These are all of the Unix commands we use in the course.
 |           | `git push`       | put changes into repository
 |           | `git pull`       | retrieve latest documents from repository
 |           | `git status`     | check on status of repository
-| `grep`    | `grep p f`       | print lines with the letter p in file f
+| `grep`    | `grep "p" f`     | print lines with the letter p in file f
+|           | `grep "^p" f`    | print lines that begin with p
+|           | `grep "p$" f`    | print lines that end with p
 | `gzip`    | `gzip f`         | compress file f
 |           | `gzip -k f`      | compress file f and keep the original
 | `gunzip`  | `gunzip f.gz`    | uncompress file f.gz
