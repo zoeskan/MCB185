@@ -29,6 +29,8 @@ These are all of the Unix commands we use in the course.
 |           | `cd /d`          | change to absolute directory d
 | `cp`      | `cp f1 f2`       | make a copy of file f1 called f2
 | `cut`     | `cut -f 1 f`     | cut field 1 from file f
+| `date`    | `date -I`        | report the date in ISO 8601 format
+|           | `date "+%m/%d"`  | report month and date
 | `diff`    | `diff a b`       | find differences in file a and b
 | `find`    | `find .`         | reports file information recursively
 | `git`     | `git add f`      | start tracking file f
