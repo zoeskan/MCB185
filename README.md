@@ -8,11 +8,6 @@ This is not so much a science or data analysis course as an introductory
 programming course with a molecular biology theme. Along with programming, you
 will be introduced to some essential bioinformatics skills and standards.
 
-## Re-Design ##
-
-The course is currently undergoing a re-design. This is currently INCOMPLETE.
-Do not use this yet. Instead, use MCB185-legacy.
-
 ## Participation ##
 
 In the real world, programming is generally done in teams. For this reason,
@@ -104,9 +99,9 @@ to point your web browser to [GitHub](https://github.com) and create an
 account.
 
 Choose a username. Your GitHub account will be part of your CV, so choose a
-name that you won't be embarrassed by in a few years. I use my full name. After
-setting your email and password, choose the free plan and then answer a few
-questions about your interests to create your account. Go to your email to
-verify your email address.
+name that future you won't be embarassed by. After setting your email and
+password, choose the free plan and then answer a few questions about your
+interests to create your account. Go to your email to verify your email
+address.
 
 To begin the course, start at `unit0-setup.md`.
