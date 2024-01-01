@@ -154,7 +154,8 @@ potentially grounds for plagiarism.
 ## Variables ##
 
 In Python, variables are given a type as they are created. There is no way to
-create a variable without a type.
+create a variable without a type, but once a variable has been created with one
+type, it can be reassigned to another type.
 
 ```
 n = 1               # integer
@@ -208,6 +209,14 @@ as the function `abs()`.
 | `-=`     | decrement         | `a -= 1`
 | `*=`     | multiply & assign | `a *= 2`
 
+Basic math functions include:
+
+| Function              | Purpose
+|:----------------------|:---------------------------------------------
+| `abs(x)`              | absolute value of x
+| `pow(x, y)`           | x to the power of y
+| `round(x, ndigits=3)` | round off x to some number of digits after .
+
 Comparison operators are unsurprising except that `==` is used for equality
 (because `=` is used for assignment).
 
@@ -219,6 +228,7 @@ Comparison operators are unsurprising except that `==` is used for equality
 | `>`      | greater than      | `if a > b:`
 | `<=`     | less or equal     | `if a <= b:`
 | `>=`     | greater or equal  | `if a >= b:`
+
 
 Constants from the `math` library include:
 
@@ -233,6 +243,7 @@ Functions from the `math` library include:
 |:--------------------|:---------------------------------------------
 | `math.ceil(x)`      | round `x` up
 | `math.floor(x)`     | round `x` down
+| `math.log(x)`       | `x` in log base e
 | `math.log2(x)`      | `x` in log base 2
 | `math.log10(x)`     | `x` in log base 10
 | `math.sqrt(x)`      | square root of `x`
