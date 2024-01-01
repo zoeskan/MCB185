@@ -54,7 +54,10 @@ list, use the `list()` function.
 
 ```
 seq = list(string)
-seq[5] = 'G'
+seq[5] = 'G'        # substitution
+seq.pop(3)          # deletion
+del seq[3]          # also deletion
+seq.insert(1, 'A')  # insertion
 ```
 
 
@@ -304,7 +307,7 @@ for i in range(0, len(seq), 60):
 
 Windowing algorithms can be sped up immensely by cacheing previous
 calculations. For example, if you move the window over by 1 nt, the GC
-composition doesn't change very much.
+composition doesn't change very much. The code for this is homework.
 
 
 ## Translating DNA ##
@@ -437,7 +440,7 @@ optional arguments:
 
 ## Nested CLI ##
 
-Some programs, like `git` feature sub-command right after the name of the
+Some programs, like `git` feature sub-commands right after the name of the
 program. You do this daily as `git status` and `git add`. Your programs can
 have the same behavior. The program below features 2 behaviors, `greet` or
 `praise`. If you choose `greet`, the program hands off execution to `fn1()` but
