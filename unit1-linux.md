@@ -5,7 +5,6 @@ Unit 1: Linux
 
 + Do not copy-paste
 + Injury prevention shortcuts
-+ Do not copy paste
 + Environment variables
 + Viewing files
 + Absolute and relative paths

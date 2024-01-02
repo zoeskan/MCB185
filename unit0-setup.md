@@ -3,7 +3,7 @@ Unit 0: Setup
 
 ## Outline ##
 
-+ Unix/Linux
++ Install Unix/Linux
 + Find your terminal
 + Choose a programming editor
 + Organize your home directory
@@ -411,7 +411,7 @@ source code management, it can be used to manage all kinds of projects. Git
 allows multiple people to work on the same files without anyone over-writing
 anyone else's work. You will always know who did what and when.
 
-## GitHub Account ##
+### GitHub Account ###
 
 GitHub is a website that lets you store your git repositories for free. There
 are several similar sites, but GitHub is the most popular. Every bioinformatics
