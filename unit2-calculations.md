@@ -585,3 +585,8 @@ times with different letters.
 Given values for true positives, false positives, true negatives, and false
 negatives, write a function that reports the accuracy and F1 score. Demonstrate
 your function works by using it several times in the program.
+
+### 25entropy.py ##
+
+Write a function that calculates the Shannon entropy for nucleotide
+compositions. Demonstrate it works using multiple calls.
