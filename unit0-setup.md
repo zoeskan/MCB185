@@ -778,8 +778,8 @@ Here is the table of all the simple characters without special meanings.
 In addition to these simple characters, text files also contain a few special
 characters. The tab key inserts an invisible character that "snaps" to various
 positions, usually multiples of 4 or 8. The "return" key inserts a linefeed
-character, which signal a new line. On Windows, the return key inserts two
-characters, the carriage return then linefeed.
+character, which signals the start of a new line. On Windows, the return key
+inserts two characters, the carriage return followed by linefeed.
 
 | Dec | Hex | Meaning
 |:---:|:---:|:---------
@@ -788,7 +788,7 @@ characters, the carriage return then linefeed.
 | 13  |  0D | carriage return (CR)
 
 If you are using a Windows text editor (e.g. Notepad++) it may be set up to
-insert Windows-style line ending (CRLF) rather the Unix-style (LF). It's a good
+insert Windows-style line ending (CRLF) rather than Unix-style (LF). It's a good
 idea to change your editor defaults to LF.
 
 ### Formatting Plain Text ###
@@ -810,8 +810,8 @@ Markdown that add a few more things like tables.
 
 Another way to learn Markdown is to compare an HTML or PDF file to its original
 Markdown plain text source document. If you're viewing this document on GitHub,
-you're viewing it formatted as HTML. You can also look at the raw text either
-on the website or in your forked repo.
+you're viewing it formatted as HTML. You can examine the raw text either on the
+website or in your copy of the repo.
 
 Here are the basics of Markdown:
 
@@ -831,7 +831,7 @@ Level 2 Heading
 ---------------
 
 
-Bulleted lists can use plus, minus, or star (and even mix them).
+Bulleted lists can use plus, minus, or star.
 
 + Enroll in MCB185
 + Install Linux
@@ -840,6 +840,8 @@ Bulleted lists can use plus, minus, or star (and even mix them).
 - Learn some Unix commands
 - Learn some Python
 * Do cool stuff
+
+Numeric lists are simply numbers and dots.
 
 Text can be _emphasized_ with underline or *stars* or made bold-face with
 **double-stars**. For in-line fixed-width font, such as code snippets or stuff
@@ -948,6 +950,6 @@ activity to the GitHub website.
 
 To get full credit for your homework, submit the following:
 
-+ URL of your homework repository
++ URL of your homework rep (e.g https://github.com/yourname/mcb185_homework)
 + `00hello.sh` in your repo
 + `01hello.py` in your repo
