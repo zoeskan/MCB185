@@ -950,6 +950,6 @@ activity to the GitHub website.
 
 To get full credit for your homework, submit the following:
 
-+ URL of your homework rep (e.g https://github.com/yourname/mcb185_homework)
++ URL of your homework repo (e.g https://github.com/yourname/mcb185_homework)
 + `00hello.sh` in your repo
 + `01hello.py` in your repo

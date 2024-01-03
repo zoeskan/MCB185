@@ -82,7 +82,8 @@ character as a wildcard. The `*` character matches missing characters if it
 can. We'll see this a lot later. The first line below lists your Code
 directory. The second line lists all of the items in your Code directory
 (performs `ls` on `MCB185`, `mcb185_homework`, and anything else in there). The
-third line lists all of the markdown files in the MCB185 directory.
+third line lists all of the markdown files in the MCB185 directory (markdown
+files use the `.md` suffix).
 
 ```
 ls ~/Code
