@@ -11,6 +11,7 @@ Unit 2: Calculations
 + Strings
 + Conditionals
 + Debugging
++ Homework
 
 ------------------------------------------------------------------------------
 
@@ -162,6 +163,13 @@ go at the top of your program. Try out some of the functions below.
 | `math.sqrt(x)`      | square root of `x`
 | `math.pow(x, y)`    | `x` to the power of `y`
 | `math.factorial(n)` | factorial of integer n
+
+The math library also defines some useful constants.
+
++ `math.e`:  2.71828...
++ `math.pi`: 3.14159...
++ `math.inf`: infinity
++ `math.nan`: not a number (e.g. 0/0)
 
 Here's what my demo program looks like. Notice that there are multiple ways to
 do powers and roots.
