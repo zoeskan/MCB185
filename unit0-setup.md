@@ -68,9 +68,7 @@ xcode-select --install
 ```
 
 By default, your home directory might not be shown in your sidebar. Add it by
-clicking the home-shaped icon in Finder->Settings->Sidebar. You might also
-change new finder windows to open your home directory in
-Finder->Settings->General.
+clicking the home-shaped icon in Finder->Settings->Sidebar.
 
 ### Windows + Cygwin ###
 
@@ -89,7 +87,7 @@ external libraries (which we don't use in the course) may be a pain to install.
 	+ Editors - nano
 6. Choose "Next" and ultimately "Finish"
 
-Launching the "Cygwin64 Terminal" brings up a typical CLI interface.
+Launching the "Cygwin64 Terminal" brings up a typical CLI.
 
 + Your Windows C drive is mounted in Cygwin at `/cygdrive/c`
 + Your Cygwin root is mounted in Windows at `C:\cygdrive64` (by default)
@@ -114,7 +112,7 @@ like those.
 The downside of a VM is that your virtual machines will take away some RAM,
 CPU, and storage from your host OS. RAM is the most critical resource because
 it isn't easily shared. If you have less than 8 GB of RAM in your computer, you
-will probably not want to run a VM.
+will probably not want to run a VM. Choose Cygwin instead.
 
 On the CPU side, your programs running in a VM will typically run 1-10% slower.
 You will also have to dedicate about 20 GB of hard disk space. Even with the
@@ -150,9 +148,10 @@ If you're having problems with the install or post-install, ask for help.
 There are a variety of ways you can install Linux natively on your PC. You can
 repartition your main SSD and dual boot, choosing Windows or Linux during
 startup. You can install Linux on a spare SSD. You can even run Linux off a
-flash drive. Any of these methods will give you a 100% Linux-only environment
-that will take advantage of all of the CPU and memory in your machine. The main
-downside is that you may accidentally destroy Windows during installation.
+flash drive, plugging it in whenever you want to run it. Any of these methods
+will give you a 100% Linux-only environment that will take advantage of all of
+the CPU and memory in your machine. The main downside is that you may
+accidentally destroy Windows during installation.
 
 ### Linux on Chromebook ###
 
@@ -207,7 +206,7 @@ computer located somewhere on the Internet. This might be part of a larger
 cloud computing service (e.g. Google, Amazon, etc.) or a computer located at
 your school. The downside here is that you'll need a network connection and
 you'll need to figure out how to edit remote files from your favorite desktop
-editor (unless you like terminal-based editors link `nano`).
+editor (unless you like terminal-based editors like `nano`).
 
 ------------------------------------------------------------------------------
 
@@ -369,8 +368,7 @@ ls bin
 
 The output shows _some_ of the core programs provided by Linux. Note that even
 though the current focus of your terminal is `/`, you were able to `ls` a
-different directory. You don't need to be in a directory to list it. Please
-read that sentence again.
+different directory. You don't need to be in a directory to list it.
 
 To get back to your home directory, use `cd` without any arguments. Verify your
 focus is your home directory using `pwd`.
@@ -399,7 +397,7 @@ Documents, Downloads, etc.). This is why `Code` is capitalized and not `code`.
 
 + Use lowercase letters in general
 + Use underscores or dashes to separate words (e.g. `human_genome.fa.gz`)
-+ Dots are usually reserved for file types (e.g. `poetry.txt`)
++ Dots are usually reserved for file type extensions (e.g. `poetry.txt`)
 + Never put spaces or punctuation in your folder or file names
 
 ------------------------------------------------------------------------------
@@ -450,13 +448,11 @@ sharing (but hands off my sandwich).
 Now let's go make a repo. Go to the GitHub website and click on the green "New"
 button to create a new repo. Name this "mcb185_homework" because this is where
 you'll be submitting your homework. Please name the file exactly as shown with
-lowercase letters and an underscore. Make it **public**. Does this mean that
-students can see each others' homework? Yes. You're actually encouraged to work
-with other students in this class. Click the checkboxes to initialize with a
-README, add a .gitignore, and add a license. Scroll through the .gitignore
-options until you get to "Python". Choose whichever license you like. I
-generally use MIT. Click the "Create Repository" and you will be transported to
-your new, mostly empty repo.
+lowercase letters and an underscore. Make it **public**. Click the checkboxes
+to initialize with a README, add a .gitignore, and add a license. Scroll
+through the .gitignore options until you get to "Python". Choose whichever
+license you like. I generally use MIT. Click the "Create Repository" and you
+will be transported to your new, mostly empty repo.
 
 ### Personal Access Token ###
 
@@ -616,6 +612,9 @@ This is **not** your GitHub password. This is your PAT (personal access token).
 Copy-paste this into the terminal. Sometimes copy-paste doesn't work with
 keyboard shortcuts, so use the right-click context menu instead.
 
+You will eventually tire of copy-pasting your PAT every push. If you want your
+computer to remember your password, do the following.
+
 ```
 git config --global user.name "username"
 git config --global credential.helper store
@@ -733,16 +732,17 @@ green to come through. If we were to express that in hex it would look like
 ### Back to Binary ###
 
 So now it's time to understand the difference between text and binary files. A
-text typically uses only the values from 32-127 (decimal) or 20-7F (hex). These
-are all printable characters without any special meanings. Files that use
-characters less than 32 or greater than 127 are considered binary. Really, all
-files are binary, but text files are a special case of binary files that are
-meant to be human readable.
+text file typically uses only the values from 0-127 (decimal) or 00-7F (hex).
+Binary files use all values from 0-255 (00-FF). Really, all files are binary,
+but text files are a special case of binary files that are meant to be human
+readable.
 
-```
+Here is the table of all the simple characters without special meanings.
+
+
 | Dec | Hex | C | Dec | Hex | C | Dec | Hex | C |
 |:---:|:---:|:-:|:---:|:---:|:-:|:---:|:---:|:-:|
-|  32 |  20 |   |  64 |  40 | @ |  96 |  60 | ` |
+|  32 |  20 |   |  64 |  40 | @ |  96 |  60 |\` |
 |  33 |  21 | ! |  65 |  41 | A |  97 |  61 | a |
 |  34 |  22 | " |  66 |  42 | B |  98 |  62 | b |
 |  35 |  23 | # |  67 |  43 | C |  99 |  63 | c |
@@ -774,12 +774,22 @@ meant to be human readable.
 |  61 |  3d | = |  93 |  5d | ] | 125 |  7d | } |
 |  62 |  3e | > |  94 |  5e | ^ | 126 |  7e | ~ |
 |  63 |  3f | ? |  95 |  5f | _ | 127 |  7f |   |
-```
 
-At this point you may be wondering about other alphabets and how they get
-encoded in a computer. Surely you can't fit all of the symbols in known human
-language into the range of 32-127. You can't. However, there are multi-byte
-encodings that offer many more symbols.
+In addition to these simple characters, text files also contain a few special
+characters. The tab key inserts an invisible character that "snaps" to various
+positions, usually multiples of 4 or 8. The "return" key inserts a linefeed
+character, which signal a new line. On Windows, the return key inserts two
+characters, the carriage return then linefeed.
+
+| Dec | Hex | Meaning
+|:---:|:---:|:---------
+|  9  |  09 | tab
+| 10  |  0A | linefeed (LF)
+| 13  |  0D | carriage return (CR)
+
+If you are using a Windows text editor (e.g. Notepad++) it may be set up to
+insert Windows-style line ending (CRLF) rather the Unix-style (LF). It's a good
+idea to change your editor defaults to LF.
 
 ### Formatting Plain Text ###
 
