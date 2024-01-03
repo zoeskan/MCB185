@@ -462,8 +462,8 @@ The `cp` command is used to make a copy of a file. Let's make an additional
 copy of the poetry in your homework directory back in your home directory. The
 command line below reads as "copy the poetry.txt file from my homework
 directory to my current location", where the dot is your current location. It's
-easy to not notice the dot, which is why there is a line below pointing it out.
-You now have two files with the exact same names and file contents, but in two
+easy to miss the dot, which is why there is a line below pointing it out. You
+now have two files with the exact same names and file contents, but in two
 different locations.
 
 ```
@@ -476,7 +476,6 @@ cp Code/mcb185_homework/poetry.txt .
 If you do a long listing, you will see that both files have the same size.
 
 ```
-ls -l poetry.txt
 ls -l poetry.txt Code/mcb185_homewor/poetry.txt
 ```
 
@@ -565,7 +564,8 @@ head ../MCB185/data/GCF_000005845.2_ASM584v2_genomic.gff.gz
 ```
 
 Make a copy of this file in your current directory. While we could `cp` the
-file, let's use `cat` instead.
+file, let's so something mor fun. We'll use `cat` to stream the file to stdout,
+and `>` to redirect that to a simpler file name.
 
 ```
 cat ../MCB185/data/GCF_000005845.2_ASM584v2_genomic.gff.gz > ecoli.gff.gz
@@ -578,9 +578,9 @@ ls -lh
 ```
 
 Gzipped files can be uncompressed with `gunzip`. Do that and inspect the file
-size. 2.5M is a lot bigger than 430K. While this neither 2.6M nor 430K is very
+size. 2.5M is a lot bigger than 430K. While neither 2.5M nor 430K is very
 large, some data files are huge, and the ~6-fold compression observed here can
-be very meaningful.
+be very useful.
 
 ```
 gunzip ecoli.gff.gz
@@ -590,7 +590,7 @@ ls -lh
 When you `gzip` or `gunzip` a file, the default behavior is to create a new
 file and destroy the old one. You have a file called `ecoli.gff` but the
 original file `ecoli.gff.gz` is gone. If you `gzip` the `ecoli.gff` file, it
-will become `ecoli.gff.gz`, destroying the uncompressed on in the process. If
+will become `ecoli.gff.gz`, destroying the uncompressed one in the process. If
 you want to keep the original file, simply pass the `-k` parameter to `gzip` or
 `gunzip`.
 
@@ -621,7 +621,7 @@ rm ecoli.gff
 ```
 
 You also don't need multiple copies of identical data on your computer. You
-should also get rid of `ecoli.gff.gz`.
+should also get rid of `ecoli.gff.gz` and always use the original file.
 
 ```
 rm ecoli.gff.gz
@@ -644,7 +644,8 @@ ln -s ../MCB185/data/GCF_000005845.2_ASM584v2_genomic.gff.gz ./ecoli.gff.gz
 ```
 
 The `ln` command above shows the use of relative paths but you can also use
-absolute paths. Let's examine the file with `zless`.
+absolute paths. Let's examine the file with `zless`. It looks just like the
+original because it **is** the original.
 
 ```
 zless ecoli.gff.gz
@@ -680,7 +681,7 @@ field 3 reports what kind of feature it is.
 Let's extract all of the features using `cut`. In the command below, `-f 3`
 tells `cut` we want to extract column 3. By default `cut` splits fields on tab
 characters, which is what gff uses. If the file used spaces or commas, we would
-have to change the default delimiter.
+have to change the delimiter to match the file.
 
 ```
 gunzip -c ecoli.gff.gz | cut -f 3
@@ -761,6 +762,7 @@ you ever wonder which words have a double "aa" in them. Let `grep` do the work
 for you.
 
 ```
+cd ~/Code/MCB185/data
 gunzip -c dictionary.gz | grep "aa"
 ```
 
@@ -804,16 +806,17 @@ gunzip -c dictionary.gz | grep "z.*z"
 ```
 
 To get the behavior of "one or more intervening letters" we could pipe the
-previous command to grep and remove all double-z's.
+previous command to another grep and remove all double-z's, but that doesn't
+really do what we want.
 
 ```
 gunzip -c dictionary.gz | grep "z.*z" | grep -v "zz"
 ```
 
-Alternatively, we can use `+` to mean "one or more". The "basic" regular
-expression syntax requires one to backslash the `+` while the "extended" syntax
-(signaled with the `-E` flag) does not. The extended version is similar to what
-we will use in Python much later in the course.
+Instead, we use `+` to mean "one or more". The "basic" regular expression
+syntax requires one to backslash the `+` while the "extended" syntax (signaled
+with the `-E` flag) does not. The extended version is similar to what we will
+use in Python much later in the course.
 
 ```
 gunzip -c dictionary.gz | grep "z.\+z"
@@ -898,10 +901,11 @@ To get full credit for your homework, `git push` the following files into your
 
 ### 13spellingbee.sh ##
 
-Have you ever seen the New York Times Spelling Bee? In this game, you have 7
-letters. The middle letter must be used in every word, but the outer 6 letters
-can be used any number of times. Words must be at least 4 letters long. Create
-a command line that solves the puzzle below and save it as `13spellingbee.sh`.
+Have you ever seen the New York Times Spelling Bee? In this game, you are given
+7 letters in the shape of a hexagon. The middle letter must be used in every
+word, but the outer 6 letters can be used any number of times. Words must be at
+least 4 letters long. Create a command line that solves the puzzle below and
+save it as `13spellingbee.sh`.
 
 ```
    O
