@@ -588,5 +588,5 @@ your function works by using it several times in the program.
 
 ### 25entropy.py ##
 
-Write a function that calculates the Shannon entropy for nucleotide
-compositions. Demonstrate it works using multiple calls.
+Write a function that calculates Shannon entropy for nucleotide counts a, c, g,
+t. Demonstrate it works using multiple calls.
