@@ -482,6 +482,16 @@ elif a > b: print('a > b')
 else:       print('a == b')
 ```
 
+### Chaining ###
+
+Boolean expressions can be chained with `and` and `or` and inverted with `not`.
+
+```
+if a < b or a > b: print('all things being equal, a and b are not')
+if a < b and a > b: print('you are living in a strange world')
+if not False: print(True)
+```
+
 ### Floating Point Warning ###
 
 If you recall that floating point numbers have finite precision you may not be
