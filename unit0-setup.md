@@ -11,6 +11,7 @@ Unit 0: Setup
 + Write documentation with Markdown
 + Write your first shell script
 + Write your first Python program
++ Homework
 
 ------------------------------------------------------------------------------
 

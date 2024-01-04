@@ -202,7 +202,7 @@ print(0.1 * 1)
 print(0.1 * 3)
 ```
 
-Why is 0.1 * 3 equal to 0.30000000000000004? Because the number 0.1 can't be
+Why is `0.1 * 3` equal to 0.30000000000000004? Because the number 0.1 can't be
 represented exactly by the IEEE754 standard for storing 8-byte floats. Python
 sometimes hides the imprecision from you and shows you 0.1 instead of its
 actual value: 0.100000001490116119384765625.
@@ -367,7 +367,7 @@ Write a function that computes DNA concentration from OD260.
 Write a function that computes the distance between two points in a graph.
 
 Write a function that computes the midpoint between two points. Note that this
-function must return values for x and y. our `return` statement will have two
+function must return values for x and y. Your `return` statement will have two
 values separated by a comma. Call it like `x, y = midpoint(x1, y1, x2, y2)`.
 
 ------------------------------------------------------------------------------
@@ -422,7 +422,7 @@ if a == b:
 ```
 
 If you want the program to report the values always, put the second statement
-outside the conditional.
+outside the conditional (either before or after).
 
 ```
 if a == b:
@@ -473,8 +473,8 @@ else:
 ```
 
 When you have a stack of really simple if-elif-else conditions, it's tidy to
-format as one-liners and align them horizontally. You can't do this with
-multiple statements in each block.
+format as one-liners and align them horizontally. You can't do this if each
+block has multiple statments.
 
 ```
 if   a < b: print('a < b')
@@ -560,6 +560,8 @@ more detail below.
 + `21quadratic.py`
 + `22oligotemp.py`
 + `23hydropathy.py`
++ `24accuracy.py`
++ `25entropy.py`
 
 ### 20.demo.py ###
 

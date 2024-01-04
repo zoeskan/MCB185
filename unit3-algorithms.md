@@ -8,6 +8,7 @@ Unit 3: Algorithms
 + Algorithms
 + Practice Problems
 + Practice Solutions
++ Homework
 
 ------------------------------------------------------------------------------
 
@@ -193,13 +194,6 @@ out the numbers from 1 to 100. If the number is divisible by 3, write Fizz
 instead. If the number is divisible by 5, write Buzz instead. If the number is
 divisible by both 3 and 5, write FizzBuzz.
 
-
-### 32finbonacci.py ###
-
-Another classic programming problem is to write the first 10 numbers from the
-Fibonacci sequence. This is a difficult problem because you have to keep track
-of previous values.
-
 ------------------------------------------------------------------------------
 
 ## Algorithms ##
@@ -354,12 +348,21 @@ described in more detail below.
 + `30demo.py`
 + `31fizzbuzz.py`
 + `32finbonacci.py`
++ `33triples.py`
++ `34scoringmatrix.py`
++ `35nchoosek.py`
++ `36poisson.py`
++ `37nilakantha.py`
+
+### 32finbonacci.py ###
+
+A classic programming interview question is to write a program that reports the
+first 10 numbers from the Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21
 
 ### 33triples.py ###
 
 Write a program that finds all Pythagorean triples for triangles with a and b
-less than 100.
-
+less than 100. For example, 3, 4, 5 is a triple: 3^2 + 4^2 = 5^2
 
 ### 34scoringmatrix.py ##
 
@@ -389,4 +392,4 @@ with several values of n an k.
 
 Estimate pi using the Nilakantha series.
 
-Pi = 3 + 4/(2*3*4) - 4/(4*5*6) + 4/(6*7*8) -4/(8*9*10) ...
+Pi = 3 + 4/(2x3x4) - 4/(4x5x6) + 4/(6x7x8) -4/(8x9x10) ...

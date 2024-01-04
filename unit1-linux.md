@@ -14,6 +14,7 @@ Unit 1: Linux
 + Soft Links
 + Extracting text
 + Shell scripting
++ Homework
 
 ------------------------------------------------------------------------------
 
@@ -905,7 +906,8 @@ Have you ever seen the New York Times Spelling Bee? In this game, you are given
 7 letters in the shape of a hexagon. The middle letter must be used in every
 word, but the outer 6 letters can be used any number of times. Words must be at
 least 4 letters long. Create a command line that solves the puzzle below and
-save it as `13spellingbee.sh`.
+save it as `13spellingbee.sh`. Hint: you will have to run `grep` more than
+once.
 
 ```
    O
