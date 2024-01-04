@@ -67,7 +67,7 @@ backtrack through all the commands you've typed. Use the left and right arrows
 to position the cursor if you want to edit parts of the line. To get out of
 this, and many other situations, type Control-C. That is, hit the control key
 and then the letter "c" (not uppercase). In text, Control-C is abbreviated ^C
-with a captial letter even though it's lowercase.
+with a capital letter even though it's lowercase.
 
 After using the up arrow, you may want to jump to the start or end of a line to
 modify it. Use Control-A to get to the start and Control-E for the end.
@@ -120,7 +120,7 @@ As we saw last unit, the `echo` command writes stuff to your terminal.
 echo "hello partner"
 ```
 
-Echo can also report what's in enviornment variables. In order to derference
+Echo can also report what's in environment variables. In order to dereference
 the contents of a variable, you need to put a `$` on the front.
 
 ```
@@ -501,7 +501,7 @@ sum poetry.txt Code/mcb185_homework/potery.txt
 
 The first column is the checksum value. Since they are different, the file
 contents are different. Is it possible for two different files to share the
-exact same checksum? Yes, but it's unlikely. For example, the probailty that
+exact same checksum? Yes, but it's unlikely. For example, the probability that
 two files have the same MD5 checksum is about 1.47e-29.
 
 ### Directories ###
@@ -565,8 +565,8 @@ head ../MCB185/data/GCF_000005845.2_ASM584v2_genomic.gff.gz
 ```
 
 Make a copy of this file in your current directory. While we could `cp` the
-file, let's so something mor fun. We'll use `cat` to stream the file to stdout,
-and `>` to redirect that to a simpler file name.
+file, let's so something more fun. We'll use `cat` to stream the file to
+stdout, and `>` to redirect that to a simpler file name.
 
 ```
 cat ../MCB185/data/GCF_000005845.2_ASM584v2_genomic.gff.gz > ecoli.gff.gz
@@ -724,7 +724,7 @@ gunzip -c ecoli.gff.gz | grep -v "^#" | cut -f 3 | sort -u
 
 To get the number of counts for each feature, we can pass the sorted list
 through `uniq`. This program removes duplicate lines. When used with the `-c`
-flag, it counts occurences of each line.
+flag, it counts occurrences of each line.
 
 ```
 gunzip -c ecoli.gff.gz | grep -v "^#" | cut -f 3 | sort | uniq -c

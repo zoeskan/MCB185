@@ -42,11 +42,11 @@ If you don't see the output "hello, again", stop now and get help.
 
 ### Comments ###
 
-The line you wrote with the `print()` functon is called a _statement_. Programs
-are made up of many statements, but not everything in a program is a statement.
-Another important type of line is a "comment". Any line that begins with `#`
-(pound, hash) symbol is a comment. Comments may also be used at the end of a
-line, at which point, the rest of the line is a comment.
+The line you wrote with the `print()` function is called a _statement_.
+Programs are made up of many statements, but not everything in a program is a
+statement. Another important type of line is a "comment". Any line that begins
+with `#` (pound, hash) symbol is a comment. Comments may also be used at the
+end of a line, at which point, the rest of the line is a comment.
 
 Modify your program with comments as shown below. It's a good idea to put a
 comment in your programs with your name.
@@ -117,7 +117,7 @@ print(1.5e-2)
 
 Python has the typical mathematical operators you're familiar with and uses
 parentheses to force precedence. There are also some operators that you may not
-have seen before. The `//` operator performs an integer divison. That is, it
+have seen before. The `//` operator performs an integer division. That is, it
 throws away the remainder. The `%` operator is called "modulo". It provides the
 remainder after performing an integer division. Modulo will be very useful to
 us later, as it is used to assign reading frame to DNA.
@@ -149,8 +149,8 @@ Absolute value is a function called `abs()`. There is also `pow()` and
 | `pow(x, y)`           | `x` to the power of `y`
 | `round(x, ndigits=3)` | round off `x` to 3 digits
 
-What about logarthims and such? Those are in the math library. In order to use
-those functions you must `import math` in your code. Import statments usually
+What about logarithms and such? Those are in the math library. In order to use
+those functions you must `import math` in your code. Import statements usually
 go at the top of your program. Try out some of the functions below.
 
 | Function            | Purpose
@@ -290,7 +290,7 @@ Preferences -> Language -> Tab Settings -> python
 
 Check right now if your editor has inserted spaces instead of a tab. If you
 have spaces, change your editor preferences. If you can't figure out how to do
-that, ask fo help.
+that, ask for help.
 
 ### Example ###
 
@@ -430,7 +430,7 @@ if a == b:
 print(a, b)
 ```
 
-The numeric comparision operators are shown below.
+The numeric comparison operators are shown below.
 
 | Operator | Purpose           | Example
 |:---------|:------------------|:----------------------
@@ -474,7 +474,7 @@ else:
 
 When you have a stack of really simple if-elif-else conditions, it's tidy to
 format as one-liners and align them horizontally. You can't do this if each
-block has multiple statments.
+block has multiple statements.
 
 ```
 if   a < b: print('a < b')

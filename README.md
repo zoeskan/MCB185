@@ -99,7 +99,7 @@ to point your web browser to [GitHub](https://github.com) and create an
 account.
 
 Choose a username. Your GitHub account will be part of your CV, so choose a
-name that future you won't be embarassed by. After setting your email and
+name that future you won't be embarrassed by. After setting your email and
 password, choose the free plan and then answer a few questions about your
 interests to create your account. Go to your email to verify your email
 address.

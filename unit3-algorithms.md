@@ -178,9 +178,9 @@ for i in range(0, limit):
 		print(i+1, j+1)
 ```
 
-Note that the outer loop did not need to specify the inital value of 0. This is
+Note that the outer loop did not need to specify the initial value of 0. This is
 only to show the contrast with the initialization of the inner loop. There are
-3 common ways to loop through matrices. They differ only by the initalization
+3 common ways to loop through matrices. They differ only by the initialization
 of the inner loop. Try them all.
 
 + full matrix: inner loop starts at 0
@@ -255,7 +255,7 @@ Write a function that estimates Euler's number: e (2.71828...). This can be
 computed as the infinite sum of 1/n!. Choose a finite number of iterations.
 
 Write a function that determines if a number is a perfect square (e.g. 4, 9,
-16, 25 are all perfect square because their square roots are integers).
+16, 25 are all perfect squares because their square roots are integers).
 
 Write a function to determine if a number is prime.
 

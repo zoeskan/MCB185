@@ -255,7 +255,7 @@ date --iso-8601
 
 Some commands and options take "arguments". That is, you follow the command or
 option with more words. Let's tell the `date` command we want to display the
-date in Coordianted Universal Time (UTC) at a point back in time. The `-u` flag
+date in Coordinated Universal Time (UTC) at a point back in time. The `-u` flag
 specifies that we want UTC. Note that we prefer to call `-u` a _flag_ because
 its only behavior is to be on or off (the flag is raised or not). The `-d`
 parameter has an argument of `2020-03-15`, which is our previous moment in
