@@ -357,23 +357,27 @@ described in more detail below.
 ### 32finbonacci.py ###
 
 A classic programming interview question is to write a program that reports the
-first 10 numbers from the Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21
+first 10 numbers from the Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21. This
+is a tricky problem. You need to initialzize and keep track of 2 previous
+values.
 
 ### 33triples.py ###
 
-Write a program that finds all Pythagorean triples for triangles with a and b
-less than 100. For example, 3, 4, 5 is a triple: 3^2 + 4^2 = 5^2
+Write a program that finds all Pythagorean triples for triangles with sides a
+and b less than 100. For example, 3, 4, 5 is a triple: 3^2 + 4^2 = 5^2. Hint:
+all sides, including the hypotenuse, must be an integer.
 
 ### 34scoringmatrix.py ##
 
 Write a program the displays a +1/-1 scoring matrix as shown below. The program
-must have a single variable for the alphabet.
+must have a single variable for the alphabet (don't hard code it multiple
+times).
 
 ```
-   A  C  G  T  
-A +1 -1 -1 -1 
-C -1 +1 -1 -1 
-G -1 -1 +1 -1 
+   A  C  G  T
+A +1 -1 -1 -1
+C -1 +1 -1 -1
+G -1 -1 +1 -1
 T -1 -1 -1 +1
 ```
 
@@ -390,6 +394,7 @@ with several values of n an k.
 
 ### 37nilakantha.py ##
 
-Estimate pi using the Nilakantha series.
+Estimate pi using the Nilakantha series. Hint: you must figure out how to get
+the +/- to flip-flop with each iteration.
 
-Pi = 3 + 4/(2x3x4) - 4/(4x5x6) + 4/(6x7x8) -4/(8x9x10) ...
+Pi = 3 + 4/(2x3x4) - 4/(4x5x6) + 4/(6x7x8) - 4/(8x9x10) ...
