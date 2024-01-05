@@ -16,12 +16,9 @@ Escherichia coli strain K-12 standard files from NCBI downloaded 2022-12-19.
 ## Model Organisms ##
 
 Sequence (fasta) and annotation (gff) files are provided for 3 famous model
-organisms. The first 1 percent of each chromosome is represented.
+organisms. The first 1 percent of each chromosome is represented in FASTA and
+GFF formats.
 
 + A. thaliana
 + C. elegans
 + D. melanogaster
-
-## Vertebrate? ##
-
-## Fungi? ##

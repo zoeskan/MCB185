@@ -366,7 +366,8 @@ Most list operations use method syntax `list.method()`.
 | `list.copy()`       | return a (shallow) copy of the list
 | `list.count(a)`     | count the number of times `a` occurs in list
 | `list.extend(v)`    | add list v to list
-| `list.index(a)`     | return the index of the element a
+| `list.find(a)`      | return index of element matching a or -1 on fail
+| `list.index(a)`     | return index of element matching a or an error
 | `list.sort()`       | sort the list in place
 | `list.reverse()`    | reverse the list in place
 
