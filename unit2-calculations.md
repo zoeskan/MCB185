@@ -267,12 +267,12 @@ Here's a function that simply prints a greeting.
 
 ```
 def greeting():
-	print('hello yourself')
+    print('hello yourself')
 ```
 
 In general, functions like these are useless. Functions should do some _work_
 or solve a problem. Also, it's generally a bad idea to put `print()` statements
-in functions. Don't even bother adding this to your `20demo.py` program.
+in functions.
 
 ### Block Structure ###
 
@@ -302,8 +302,8 @@ looks in code.
 
 ```
 def pythagoras(a, b):
-	c = math.sqrt(a**2 + b**2)
-	return c
+    c = math.sqrt(a**2 + b**2)
+    return c
 ```
 
 We can run it like this:
@@ -317,7 +317,7 @@ We don't really need the variables `c` or `x`.
 
 ```
 def pythagoras(a, b):
-	return math.sqrt(a**2 + b**2)
+    return math.sqrt(a**2 + b**2)
 
 print(pythagoras(3, 4))
 print(pythagoras(1, 1))
@@ -334,9 +334,9 @@ the assertion isn't true, the program ends with an error.
 
 ```
 def pythagoras(a, b):
-	assert(a > 0)
-	assert(b > 0)
-	return math.sqrt(a**2 + b**2)
+    assert(a > 0)
+    assert(b > 0)
+    return math.sqrt(a**2 + b**2)
 
 print(pythagoras(-1, 1))
 ```
@@ -345,9 +345,9 @@ An alternative is to call `sys.exit()` and provide your own error message.
 
 ```
 def pythagoras(a, b):
-	if a <= 0: sys.exit('error: a must be greater than 0')
-	if b <= 0: sys.exit('error: b must be greater than 0')
-	return math.sqrt(a**2 + b**2)
+    if a <= 0: sys.exit('error: a must be greater than 0')
+    if b <= 0: sys.exit('error: b must be greater than 0')
+    return math.sqrt(a**2 + b**2)
 ```
 
 ### Practice ###
@@ -408,7 +408,7 @@ behavior.
 a = 2
 b = 2
 if a == b:
-	print('a equals b')
+    print('a equals b')
 ```
 
 Did you notice that the `print()` statement was indented? That's because it has
@@ -417,8 +417,8 @@ reported if they are equal.
 
 ```
 if a == b:
-	print('a equals b')
-	print(a, b)
+    print('a equals b')
+    print(a, b)
 ```
 
 If you want the program to report the values always, put the second statement
@@ -426,7 +426,7 @@ outside the conditional (either before or after).
 
 ```
 if a == b:
-	print('a equals b')
+    print('a equals b')
 print(a, b)
 ```
 
@@ -465,11 +465,11 @@ only one `else`, but there can be any number of `elif`.
 
 ```
 if a < b:
-	print('a < b')
+    print('a < b')
 elif a > b:
-	print('a > b')
+    print('a > b')
 else:
-	print('a == b')
+    print('a == b')
 ```
 
 When you have a stack of really simple if-elif-else conditions, it's tidy to

@@ -24,7 +24,7 @@ The simplest function is `random.random()`, which produces a number 0 <= X < 1.
 
 ```
 for i in range(5):
-	print(random.random())
+    print(random.random())
 ```
 
 ### random.choice() ###
@@ -36,7 +36,7 @@ alphabet.
 
 ```
 for i in range(50):
-	print(random.choice('ACGT'), end='')
+    print(random.choice('ACGT'), end='')
 print()
 ```
 
@@ -46,9 +46,9 @@ sequence that is 70% AT on average.
 
 ```
 for i in range(50):
-	r = random.random()
-	if r < 0.7: print(random.choice('AT'), end='')
-	else:       print(random.choice('CG'), end='')
+    r = random.random()
+    if r < 0.7: print(random.choice('AT'), end='')
+    else:       print(random.choice('CG'), end='')
 print()
 ```
 
@@ -60,7 +60,7 @@ code simulated rolling a 6-sided die 3 times.
 
 ```
 for i in range(3):
-	print(random.randint(1, 6))
+    print(random.randint(1, 6))
 ```
 
 ### random.gauss() ###
@@ -70,7 +70,7 @@ The random library supports several common distributions, such as the Gaussian
 
 ```
 for i in range(5):
-	print(random.gauss(0.0, 1.0))
+    print(random.gauss(0.0, 1.0))
 ```
 
 ### 41zscores.py ###
@@ -87,21 +87,37 @@ you can do it by yourself. Doing ground-zero re-writes like this is a great way
 to improve your programming aptitude.
 
 ```
-import random
-
-z1 = 0
-z2 = 0
-z3 = 0
-limit = 100000
-for i in range(limit):
-	r = random.gauss(0.0, 1.0)
-	if r > 1: z1 += 1
-	if r > 2: z2 += 1
-	if r > 3: z3 += 1
-print(1 - 2*z1/limit)
-print(1 - 2*z2/limit)
-print(1 - 2*z3/limit)
+1   import random
+2
+3   z1 = 0
+4   z2 = 0
+5   z3 = 0
+6   limit = 100000
+7   for i in range(limit):
+8       r = random.gauss(0.0, 1.0)
+9       if r > 1: z1 += 1
+10      if r > 2: z2 += 1
+11      if r > 3: z3 += 1
+12  print(1 - 2*z1/limit)
+13  print(1 - 2*z2/limit)
+14  print(1 - 2*z3/limit)
 ```
+
+Let's discuss this line-by line.
+
+Line 1 imports the random library. It's at the top of the program, where all
+imports belong.
+
+Line 2 is blank because imports should be separated from the logic of the code.
+
+Lines 3-6 provide initializations. We need several variables to keep track of
+z-scores. A value like 2.3 is greater than a z-score of 1 and 2, but not 3.
+
+Lines 7-11 preform the iterations. In each iteration, we need a random number
+(line 8). The comparisons on lines 9-11 are not if-elif because each one is a
+separate calculation.
+
+Lines 12-14 perform the finalization steps and output.
 
 ------------------------------------------------------------------------------
 
@@ -254,15 +270,25 @@ Let's start by getting the computer to play 10 games of Chicago. Create a new
 file called `42chicago.py` and then type the following lines.
 
 ```
-games = 10
-for i in range(games):
-	print(f'game #{i}')
-	for target in range(2, 13):
-		d1 = random.randint(1, 6)
-		d2 = random.randint(1, 6)
-		if d1 + d2 == target:
-			print(f'yay, rolled {d1} and {d2} for {target} points')
+1   games = 10
+2   for i in range(games):
+3       print(f'game #{i}')
+4       for target in range(2, 13):
+5           d1 = random.randint(1, 6)
+6           d2 = random.randint(1, 6)
+7           if d1 + d2 == target:
+8               print(f'yay, rolled {d1} and {d2} for {target} points')
 ```
+
+Line 3 prints out a new status message with each game. Notice the use of the
+f-string to do the formatting.
+
+Line 4 starts the iteration through values of 2-12.
+
+Lines 5-6 contain the die rolls.
+
+Line 7-8 compare the die rolls to the target number and create a message when
+the roll happens to add up to the target.
 
 In order to get accurate estimates on average score and such, we're going to
 have to play a lot of games of Chicago. We aren't going to want to print 'yay'
@@ -272,14 +298,17 @@ that and increment it every time we score. At the end of the game, we will just
 print out the final score of the game.
 
 ```
-games = 1000
-for i in range(games):
-	score = 0
-	for target in range(2, 13):
-		if random.randint(1, 6) + random.randint(1, 6) == target:
-			score += target
-	print(score) # final game score
+1   games = 1000
+2   for i in range(games):
+3       score = 0
+4       for target in range(2, 13):
+5           if random.randint(1, 6) + random.randint(1, 6) == target:
+6               score += target
+7       print(score) # final game score
 ```
+
+Line 3 resets the score every time a new game is played. One of the most common
+errors new programmers make is placing the `score = 0` outside the loop.
 
 We can get an idea of the distribution of game scores by sending the output to
 `sort` and `uniq` like we did back in Unit 1.
@@ -288,31 +317,44 @@ We can get an idea of the distribution of game scores by sending the output to
 python3 42chicago.py | sort -n | uniq -c | sort -n
 ```
 
-Doing this, I found that 375 of the 1000 games had a score of zero. Try
-changing the 1000 to 10000 or higher. If we want to play millions of games, we
-shouldn't stream the output to `sort` because that ends up taking a lot of
-memory and CPU. Instead, let's keep all the calculations internal to python. We
-will need two variables, one to keep track of the total points and another to
-count the number of games that end with zero points. Let's also add some
-logging so that a message is sent to stderr after each 1% of the trials are
-complete.
+My run found that 375 of the 1000 games had a score of zero. Try changing the
+1000 to 10000 or higher. If we want to play millions of games, we shouldn't
+stream the output to `sort` because that ends up taking a lot of memory and
+CPU. Instead, let's keep all the calculations internal to python. We will need
+two variables, one to keep track of the total points and another to count the
+number of games that end with zero points. Let's also add some logging so that
+a message is sent to stderr after each 1% of the trials are complete.
 
 ```
-games = 1000000 # 1 million trials
-log = games // 100 # report progress at 1% intervals
-total = 0
-zeroes = 0
-for i in range(games):
-	if i % log == 0: print(f'{100 * i/games:.0f}', file=sys.stderr)
-	score = 0
-	for target in range(2, 13):
-		if random.randint(1, 6) + random.randint(1, 6) == target:
-			score += target
-	if score == 0: zeroes += 1
-	total += score
-print(total / games)
-print(zeroes / games)
+1   games = 1000000 # 1 million trials
+2   log = games // 100 # report progress at 1% intervals
+3   total = 0
+4   zeroes = 0
+5   for i in range(games):
+6       if i % log == 0: print(f'{100 * i/games:.0f}', file=sys.stderr)
+7       score = 0
+8       for target in range(2, 13):
+9           if random.randint(1, 6) + random.randint(1, 6) == target:
+10              score += target
+11      if score == 0: zeroes += 1
+12      total += score
+13  print(total / games)
+14  print(zeroes / games)
 ```
+
+Line 2 sets the logging interval relative to he number of games played. This
+value works with line 6 to display a status message each time 1% of the data
+has been processed.
+
+Lines 3 and 4 are the initializations. In the end, we are going to divide the
+total scores by the total number of games played. We are also going to
+calculate the fraction of games that end with zero score. These calculations
+are at the very end of the program, so their initializations (lines 3-4) and
+finalizations (lines 13-14) must be outside all loops.
+
+Lines 7-11 are identical to the previous code (lines 3-6).
+
+Lines 11-2 perform intermediate calculations.
 
 After 1 million trials, the average game has a score of 7.0 and 34.6% of games
 end with zero score. Honestly, the game doesn't sound like nearly as much fun

@@ -363,7 +363,10 @@ Most list operations use method syntax `list.method()`.
 |:--------------------|:------------------------------------------------
 | `list.append(a)`    | add `a` to the end of a list
 | `v = list.pop()`    | remove and return the last item
+| `list.copy()`       | return a (shallow) copy of the list
 | `list.count(a)`     | count the number of times `a` occurs in list
+| `list.extend(v)`    | add list v to list
+| `list.index(a)`     | return the index of the element a
 | `list.sort()`       | sort the list in place
 | `list.reverse()`    | reverse the list in place
 

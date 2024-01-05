@@ -31,7 +31,7 @@ indented code block.
 
 ```
 while <boolen expression is True>:
-	do_someting
+    do_someting
 ```
 
 Add the following lines to your demo program and run it. The Boolean expression
@@ -40,7 +40,7 @@ Interrupt the endless output by typing ^C.
 
 ```
 while True:
-	print('hello')
+    print('hello')
 ```
 
 In order to break the loop, we must provide some kind of condition when the
@@ -52,8 +52,8 @@ the value of `i` increases (`i = i + 1`). Once `i` reaches 5,  `i < 5` is
 ```
 i = 0
 while i < 5:
-	print(i)
-	i = i + 1
+    print(i)
+    i = i + 1
 print('final value of i is', i)
 ```
 
@@ -63,8 +63,8 @@ modified code below starts at 1, ends before 10, and skips by 3s.
 ```
 i = 1
 while i < 10:
-	print(i)
-	i = i + 3
+    print(i)
+    i = i + 3
 print('final value of i is', i)
 ```
 
@@ -75,7 +75,7 @@ last code example using a `for` loop and the `range()` function.
 
 ```
 for i in range(1, 10, 3):
-	print(i)
+    print(i)
 ```
 
 The `range()` function generates integers given an initial value (1), an
@@ -86,7 +86,7 @@ the increment number and use just 2 arguments.
 
 ```
 for i in range(0, 5):
-	print(i)
+    print(i)
 ```
 
 Also, most "for i in range()" loops also start at zero, meaning you can skip
@@ -94,7 +94,7 @@ the initial value and simply give the end-before limit.
 
 ```
 for i in range(5):
-	print(i)
+    print(i)
 ```
 
 All of these constructions do the exact same thing.
@@ -114,7 +114,7 @@ follows.
 
 ```
 for char in 'hello':
-	print(char)
+    print(char)
 ```
 
 As this is class is themed around biology, we will be using nucleotide and
@@ -123,7 +123,7 @@ amino acid sequences very soon.
 ```
 seq = 'GAATTC'
 for nt in seq:
-	print(nt)
+    print(nt)
 ```
 
 ------------------------------------------------------------------------------
@@ -137,9 +137,9 @@ using 2 nested loops, one for each collection of letters.
 
 ```
 for nt1 in 'ACGT':
-	for nt2 in 'ACGT':
-		if nt1 == nt2: print(nt1, nt2, '+1')
-		else:          print(nt1, nt2, '-1')
+    for nt2 in 'ACGT':
+        if nt1 == nt2: print(nt1, nt2, '+1')
+        else:          print(nt1, nt2, '-1')
 ```
 
 In the loop above, we call the loop with `nt1` the "outer loop" and the one
@@ -158,9 +158,9 @@ in nucleotides".
 ```
 nts = 'ACGT'
 for nt1 in nts:
-	for nt2 in nts:
-		if nt1 == nt2: print(nt1, nt2, '+1')
-		else:          print(nt1, nt2, '-1')
+    for nt2 in nts:
+        if nt1 == nt2: print(nt1, nt2, '+1')
+        else:          print(nt1, nt2, '-1')
 ```
 
 A scoring matrix represents all possible pairings of letters. Another form of
@@ -174,8 +174,8 @@ initializing the inner loop one beyond the current value of the outer loop.
 ```
 limit = 4
 for i in range(0, limit):
-	for j in range(i + 1, limit):
-		print(i+1, j+1)
+    for j in range(i + 1, limit):
+        print(i+1, j+1)
 ```
 
 Note that the outer loop did not need to specify the initial value of 0. This is
@@ -199,35 +199,35 @@ divisible by both 3 and 5, write FizzBuzz.
 ## Algorithms ##
 
 Most algorithms are a mixture of loops and conditionals, and are often
-contained inside functions. Let's create such a function, whose goal is to
+contained inside functions. Let's create such an algorithm, whose goal is to
 calculate the GC composition of a nucleotide sequence.
 
-In order to make such a calculation, the function needs an input sequence,
-which we will call `seq`. The function then needs to examine each nucleotide,
-and keep track of how many Gs and Cs it finds. We'll store that in a variable
-called `gc_count`. In order to make the final calculation, we also need to know
-the total number of nucleotides, which we'll store in a variable called
-`total`. Here's what the complete function and an example of use.
+The function needs an input sequence, which we will call `seq`. The function
+then needs to examine each nucleotide, and keep track of how many Gs and Cs it
+finds. We'll store that in a variable called `gc_count`. In order to make the
+final calculation, we also need to know the total number of nucleotides, which
+we'll store in a variable called `total`. Here's the complete function and an
+example of use.
 
 ```
-def gc_comp(seq):
-	gc_count = 0
-	total = 0
-	for nt in seq:
-		if nt == 'C' or nt == 'G':
-			gc_count = gc_count + 1
-		total = total + 1
-	return gc_count / total
-
-print(gc_comp('ACAGCGAAT'))
+1   def gc_comp(seq):
+2       gc_count = 0
+3       total = 0
+4       for nt in seq:
+5           if nt == 'C' or nt == 'G':
+6               gc_count = gc_count + 1
+7           total = total + 1
+8       return gc_count / total
+9
+10  print(gc_comp('ACAGCGAAT'))
 ```
 
 Most of the algorithms we will see in the class have the following 3-part
 structure:
 
-1. Initialization
-2. Iteration
-3. Finalization
+1. Initialization (lines 2, 3)
+2. Iteration (lines 4-7)
+3. Finalization (line 8)
 
 `gc_comp()` has two initializations.
 
@@ -268,74 +268,75 @@ below.
 
 ### triangular() ###
 
-In order to sum up the numbers, we must have a variable to hold the sum. This
-is initialized at 0, and each iteration of the loop adds the current value of
-the loop variable. The finalization step is simply returning the value of the
-sum.
+In order to sum up the numbers, we must have a variable to hold the sum (line
+2). This is initialized at 0, and each iteration of the loop adds the current
+value of the loop variable (line 4). The finalization step is simply returning
+the value of the sum (line 5).
 
 ```
-def triangular(n):
-	tri = 0
-	for i in range(n+1):
-		tri = tri + i
-	return tri
+1   def triangular(n):
+2       tri = 0
+3       for i in range(n+1):
+4           tri = tri + i
+5       return tri
 ```
 
 ### factorial() ###
 
 There are two tricks to this solution. First, the factorial of zero is defined
-as 1. Use a conditional for that special case. Second, when multiplying values,
-you cannot initialize at zero or you will always get zero.
+as 1. Use a conditional for that special case (line 2). Second, when
+multiplying values, you cannot initialize at zero or you will always get zero.
+So factorial must initialize at 1 (line 3).
 
 ```
-def factorial(n):
-	if n == 0: return 1
-	fac = 1
-	for i in range(1, n + 1):
-		fac = fac * i
-	return fac
+1   def factorial(n):
+2       if n == 0: return 1
+3       fac = 1
+4       for i in range(1, n + 1):
+5           fac = fac * i
+6       return fac
 ```
 
 ### euler() ###
 
-The solution to this problems is very similar to `triangular()` because it
+The solution to this problem is very similar to `triangular()` because it
 simply sums up a bunch of numbers. To get the factorial of a number, use the
-function you created above.
+function you created above (line 4).
 
 ```
-def euler(limit):
-	e = 0
-	for n in range(limit):
-		e = e + 1 / factorial(n)
-	return e
+1   def euler(limit):
+2       e = 0
+3       for n in range(limit):
+4           e = e + 1 / factorial(n)
+5       return e
 ```
 
 ### is_perfect_square() ###
 
-The solution to this problem is determining if a floating point number is equal
-to a rounded-down version of the number. The `//` operator does the rounding
-and `math.isclose()` does the comparison because we never ask if floating point
-numbers are equal to anything.
+The trick to solving this problem is determining if a floating point number is
+equal to a rounded-down version of the number. The `//` operator does the
+rounding and `math.isclose()` does the comparison (line 4). Never ask if
+floating point numbers are _equal_ to anything. Note that there is no reason
+for an `else:` statement on line 4.
 
 ```
-def is_perfect_square(n):
-	root = math.sqrt(n)
-	if math.isclose(root, root // 1): return True
-	return False
+1   def is_perfect_square(n):
+2       root = math.sqrt(n)
+3       if math.isclose(root, root // 1): return True
+4       return False
 ```
 
 ### is_prime() ###
 
-This algorithm features a short-circuit. It returns `False` as soon as it finds
-any factor smaller than itself (aside from 1, of course). If it fails to find
-any factors, it eventually returns `True`.
+This algorithm features a short-circuit (line 4). It returns `False` as soon as
+it finds any factor smaller than itself. If it fails to find any factors, it
+eventually returns `True`.
 
 ```
-def is_prime(n):
-	for den in range(2, n//2):
-		if n % den == 0:
-			return False
-	return True
+1   def is_prime(n):
+2       for den in range(2, n//2):
+3           if n % den == 0: return False
+4       return True
 ```
 
 ------------------------------------------------------------------------------
