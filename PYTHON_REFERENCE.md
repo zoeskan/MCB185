@@ -347,9 +347,9 @@ Some useful list/tuple operations use function syntax:
 | Function            | Purpose
 |:--------------------|:--------------------------------------------------
 | `len(list)`         | get the length of a list
-| `min(list)`         | return the minimum value from an iterable
-| `max(list)`         | return the maximum value from an iterable
-| `sum(list)`         | return the sum of an iterable
+| `min(list)`         | get the minimum value (illegal to use in class)
+| `max(list)`         | get the maximum value (illegal to use in class)
+| `sum(list)`         | get the sum of all values (illegal to use in class)
 | `sorted(list)`      | return a copy of the sorted list (or tuple)
 | `enumerate(list)`   | iterates through tuples of index and item
 | `zip(list1, list2)` | simultaneously iterate through multiple lists

@@ -22,6 +22,7 @@ you're automatically allowed to use it for your homework.
 	+ [Reading a FASTA file](#reading-a-fasta-file)
 	+ [Reading a multi-FASTA file](#reading-a-multi-fasta-file)
 + Sequences
+	+ [Reversing a String](#reversing-a-string)
 	+ [Generating Random Sequences](#generating-random-sequences)
 	+ [Windowing Algorithms](#windowing-algorithms)
 	+ [Calculating Hydropathy](#calculating-hydropathy)
@@ -210,6 +211,14 @@ To iterate over all of the sequences in a file, unpack the tuple in a for loop.
 
 ```
 for name, seq in read_fasta(filename): ...
+```
+
+## Reversing a String ##
+
+The simplest way to reverse a string is to retrieve a slice in reverse step.
+
+```
+rev = seq[::-1]
 ```
 
 ## Generating Random Sequences ##
