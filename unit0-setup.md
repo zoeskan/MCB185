@@ -3,7 +3,7 @@ Unit 0: Setup
 
 ## Contents ##
 
-+ [Unix/Linux](#unix/linx)
++ [Unix/Linux](#unixlinx)
 	+ [Unix vs. Linux](#unix-vs-linux)
 	+ [Recommendations](#recommendations)
 	+ [Unix on Mac](#unix-on-mac)
@@ -33,7 +33,7 @@ Unit 0: Setup
 	+ [Markdown](#markdown)
 + [Hello World](#hello-world)
 	+ [00hello.sh](#hellosh)
-	+ [01hello.py](#01hellopy)
+	+ [01hello.py](#01hello.py)
 + [Homework](#homework)
 
 ------------------------------------------------------------------------------
