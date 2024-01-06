@@ -347,11 +347,14 @@ gcode = {
 	'TGA' : '*',	'TGC' : 'C',	'TGG' : 'W',	'TGT' : 'C',
 	'TTA' : 'L',	'TTC' : 'F',	'TTG' : 'L',	'TTT' : 'F',
 }
-seq = uc(seq) # if you have lowercase sequences
-for i in range(1, len(seq), 3):
-	codon = seq[i:i+3]
-	if codon in gcode: aa = gcode[codon]
-	else:              aa = 'X'
+def translate(seq):
+	pro = []
+	for i in range(0, len(seq), 3):
+		codon = seq[i:i+3]
+		if codon in gcode: aa = gcode[codon]
+		else:              aa = 'X'
+		pro.append(aa)
+	return ''.join(pro)
 ```
 
 ## Calculating Hydropathy ##
@@ -368,6 +371,11 @@ kdh = {
 	'W': -0.9, 'Y': -1.3, 'P': -1.6, 'H': -3.2, 'E': -3.5,
 	'Q': -3.5, 'D': -3.5, 'K': -3.9, 'N': -3.5, 'R': -4.5,
 }
+def hydropathy(seq):
+	s = 0
+	for aa in seq:
+		s += kdh[aa]
+	return s
 ```
 
 ## Counting K-mers ##
