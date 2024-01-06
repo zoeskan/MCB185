@@ -32,7 +32,7 @@ Unit 0: Setup
 	+ [Text vs Binary](#text-vs-binary)
 	+ [Markdown](#markdown)
 + [Hello World](#hello-world)
-	+ [00hello.sh](#00hello.sh)
+	+ [00hello.sh](#00hellosh)
 	+ [01hello.py](#01hellopy)
 + [Homework](#homework)
 
