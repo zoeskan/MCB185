@@ -13,8 +13,8 @@ Unit 5: Containers
 	+ [list()](#list)
 	+ [split() and join()](#split-and-join)
 + [Searching](#searching)
-+ [Practice Problems]
-+ [Practice Solutions]
++ [Practice Problems](#practice-problems)
++ [Practice Solutions](#practice-solutions)
 	+ [minimum()](#minimum)
 	+ [minmax()](#minmax)
 	+ [mean()](#mean)
