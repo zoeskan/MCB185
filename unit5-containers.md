@@ -343,19 +343,29 @@ if 'A' in alph: print('yay')
 if 'a' in alph: print('no')
 ```
 
+The `index()` method returns the index of the first element it finds. If it
+can't find a matching item, the function throws an error.
+
+```
+print('index G?', alph.index('G'))
+print('index Z?', alph.index('Z'))
+```
+
+
 The `find()` method returns the index of the first element it finds or a -1 if
-it can't be found.
+it can't be found. This very useful behavior only works for strings, and not
+tuples or lists.
 
 ```
 print('find G?', alph.find('G'))
 print('find Z?', alph.find('Z'))
 ```
 
-The `index()` method is simliar to find but produces an error on failure.
+If you are searching a list or tuple, and you don't know if the element is
+in the list, first use `in`.
 
 ```
-print('index G?', alph.index('G'))
-print('index Z?', alph.index('Z'))
+if thing in list: idx = list.index(thing)
 ```
 
 ------------------------------------------------------------------------------
