@@ -1,6 +1,8 @@
 Unit 4: Random
 ==============
 
+## Outline ##
+
 + Random numbers
 + Pretty printing
 + Monte Carlo
@@ -56,7 +58,7 @@ print()
 
 The function we will use most often is `random.randint()`. This generates a
 random number between two _inclusive_ end points. For example, the following
-code simulated rolling a 6-sided die 3 times.
+code simulates rolling a 6-sided die 3 times.
 
 ```
 for i in range(3):
@@ -150,13 +152,15 @@ print(100, 2000, 30000, 40000, sep='\t')
 Historically, Python has provided multiple ways to format text. In this class,
 we only use f-strings. An f-string is created by placing a lowercase f before
 the first quotation mark. The main advantage of f-strings is that variables
-inside curly brackets dump their contents.
+inside curly brackets dump their contents. You can even do math inside curly
+brackets.
 
 ```
 i = 1
 pi = 3.14159
 print('normal string {i} {pi}')
 print(f'formatted string {i} {pi}')
+print(f'tau {pi + pi}')
 ```
 
 f-strings have several powerful formatting options. We are are only going to
@@ -170,9 +174,11 @@ print(f'formatted string {i} {pi:.3f}')
 ### sys.stderr ###
 
 When running thousands or millions of random trials, which we will do below,
-you sometimes want to send some non-program output to your terminal. A
-convenient way to do that is to specify `file=sys.stderr` in the `print()`
-function.
+you sometimes want to send some progress messages to your terminal so that you
+know the program is still running and to estiamte how much longer it will take.
+This isn't data, so you wouldn't want to mix it with the program output. A
+convenient way to separate messages from data is to specify `file=sys.stderr`
+in the `print()` function.
 
 ```
 import sys
@@ -229,11 +235,12 @@ generator so that subsequent calls to `random.random()` are repeated.
 
 ### Compound Assignment ### 
 
-The programs in this unit have a lot of variables that need to be incremented.
-Instead of writing `x = x + 1` there is a shortcut: `x += 1`. The compound
-assignment operators do the math and update the variable at the same time. We
-only use the 3 operators in the table below, but there are also operators for
-division, modulus, integer division, and exponentiation (and more).
+The programs in this unit and onward have a lot of variables that need to be
+incremented. Instead of writing `x = x + 1` there is a shortcut: `x += 1`. The
+compound assignment operators do the math and update the variable at the same
+time. We only use the 3 operators in the table below, but there are also
+operators for division, modulus, integer division, and exponentiation (and
+more).
 
 | Operator | Purpose           | Example
 |:---------|:------------------|:--------------------------
@@ -262,7 +269,9 @@ maximum is 77.
 10. 11
 11. 12 points if you roll a 12
 
-+ What is the distribution of game scores?
+Questions:
+
++ What is the approximate distribution of game scores?
 + What is the average score for a game of Chicago?
 + How often does a player end a game with a score of zero?
 
@@ -283,18 +292,18 @@ file called `42chicago.py` and then type the following lines.
 Line 3 prints out a new status message with each game. Notice the use of the
 f-string to do the formatting.
 
-Line 4 starts the iteration through values of 2-12.
+Line 4 performs the iteration with values of 2-12.
 
 Lines 5-6 contain the die rolls.
 
-Line 7-8 compare the die rolls to the target number and create a message when
-the roll happens to add up to the target.
+Line 7-8 compare the sum of the die rolls to the target number and create a
+message when the roll happens to add up to the target.
 
 In order to get accurate estimates on average score and such, we're going to
 have to play a lot of games of Chicago. We aren't going to want to print 'yay'
 every time. We also don't need the individual die rolls, just their sum. What
 we really care about is the score of each game. So let's create a variable for
-that and increment it every time we score. At the end of the game, we will just
+that and increment it every time we score. At the end of the game, we will
 print out the final score of the game.
 
 ```
@@ -317,13 +326,14 @@ We can get an idea of the distribution of game scores by sending the output to
 python3 42chicago.py | sort -n | uniq -c | sort -n
 ```
 
-My run found that 375 of the 1000 games had a score of zero. Try changing the
-1000 to 10000 or higher. If we want to play millions of games, we shouldn't
-stream the output to `sort` because that ends up taking a lot of memory and
-CPU. Instead, let's keep all the calculations internal to python. We will need
-two variables, one to keep track of the total points and another to count the
-number of games that end with zero points. Let's also add some logging so that
-a message is sent to stderr after each 1% of the trials are complete.
+My program reported that 375 of the 1000 games had a score of zero. Try
+changing the 1000 to 10000 or higher. If we want to play millions of games, we
+shouldn't stream the output to `sort` because that ends up taking a lot of
+memory and CPU. Instead, let's keep all the calculations internal to python. We
+will need two variables, one to keep track of the total points and another to
+count the number of games that end with zero points. Let's also add some
+logging so that a message is sent to stderr after each 1% of the trials are
+complete.
 
 ```
 1   games = 1000000 # 1 million trials
@@ -348,17 +358,17 @@ has been processed.
 
 Lines 3 and 4 are the initializations. In the end, we are going to divide the
 total scores by the total number of games played. We are also going to
-calculate the fraction of games that end with zero score. These calculations
-are at the very end of the program, so their initializations (lines 3-4) and
-finalizations (lines 13-14) must be outside all loops.
+calculate the fraction of games that end with a score of zero. These
+calculations are at the very end of the program, so their initializations
+(lines 3-4) and finalizations (lines 13-14) must be outside all loops.
 
 Lines 7-11 are identical to the previous code (lines 3-6).
 
 Lines 11-2 perform intermediate calculations.
 
 After 1 million trials, the average game has a score of 7.0 and 34.6% of games
-end with zero score. Honestly, the game doesn't sound like nearly as much fun
-as programming the solution.
+end with a score of zero. Honestly, the game doesn't sound like nearly as much
+fun as programming the solution.
 
 ------------------------------------------------------------------------------
 
@@ -391,9 +401,10 @@ CAGTATGGTCCACCCGCCTTTCAGGAATACTTCATCCTAAGTGCCTCGAA
 
 ### 44randompi.py ###
 
-Generate random values for x and y from 0 to 1. Calculate the distance to the
-origin. If the distance is less than 1, the point is inside the circle. The
-ratio of points that fall inside compared to the total is pi/4. Output each
+Write a program that estimates pi using Monte Carlo methods as was described
+above. Generate random values for x and y from 0 to 1. Calculate the distance
+to the origin. If the distance is less than 1, the point is inside the circle.
+The ratio of points that fall inside compared to the total is pi/4. Output each
 iteration and watch as the ratio gets closer to pi. Use an endless `while` loop
 in your program and stop it with ^C.
 
