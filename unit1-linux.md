@@ -1,24 +1,38 @@
 Unit 1: Linux
 =============
 
-## Outline ##
+## Contents ##
 
-+ Do not copy-paste
-+ Injury prevention shortcuts
-+ Environment variables
-+ Viewing files
-+ Absolute and relative paths
-+ Standard input, output, and error
-+ Creating and modifying files
-+ Compression
-+ Soft Links
-+ Extracting text
-+ Shell scripting
-+ Homework
++ [No Copy-Paste](#no-copy-paste)
++ [Shortcuts](#shortcuts)
+	+ [Tilde Expansion](#tilde-expansion)
+	+ [Tab Completion](#tab-completion)
+	+ [Up Arrow](#up-arrow)
+	+ [Wildcards](#wildcards)
++ [Environment Variables](#environment-variables)
+	+ [10.env.sh](#10envsh)
++ [Viewing files](#viewing-files)
++ [Absolute and Relative Paths](#absolute-and-relative-paths)
+	+ [Review](#review)
+	+ [Practice](#practice)
++ [stdout, stdin, stderr](#stdout-stdin-stderr)
++ [Creating and Modifying Files](#creating-and-modifying-files)
+	+ [Moving and Renaming](#moving-and-renaming)
+	+ [Copying](#copying)
+	+ [Comparing](#comparing)
+	+ [Directories](#directories)
++ [Compression](#compression)
++ [Soft Links](#soft-links)
++ [Extracting Text](#extracting-text)
+	+ [cut, sort, and uniq](#cut-sort-and-uniq)
+	+ [grep](#grep)
++ [Shell Scripting](#shell-scripting)
++ [Homework](#homework)
+	+ [13spellingbee.sh](#13spellingbeesh)
 
 ------------------------------------------------------------------------------
 
-## Do Not Copy-Paste ##
+## No Copy-Paste ##
 
 There are a lot of commands to type in this unit and throughout the course. Do
 not copy-paste any of the lines shown. One of the goals of this course is for
@@ -27,7 +41,7 @@ your CLI skills.
 
 ------------------------------------------------------------------------------
 
-## Injury Prevention Shortcuts ##
+## Shortcuts ##
 
 Typing is bad for your health. Seriously, if you type all day, you will end up
 with a repetitive stress injury. Don't type for hours at a time. Make sure you
@@ -205,7 +219,7 @@ compressed files.
 
 ------------------------------------------------------------------------------
 
-## Absolute, and Relative Paths ##
+## Absolute and Relative Paths ##
 
 When you open a terminal application, the focus of your shell begins in your
 home directory. Let's verify this. Open a new terminal and use the `pwd`
@@ -313,7 +327,7 @@ pwd
 
 ------------------------------------------------------------------------------
 
-## Standard Input, Output, and Error ##
+## stdout, stdin, stderr ##
 
 When you issue commands like `ls`, the output that is sent to your terminal is
 called Standard Output (stdout). Output doesn't have to go to your terminal.
@@ -354,7 +368,8 @@ So `ls > foo` followed by `wc foo` does the same thing as `ls | wc` without
 having any intermediate file. Unix pipes are a very powerful way to chain
 programs to each other.
 
-There is also the `<` operator. This sends stdin from a file to a program.
+There is also the `<` operator. This sends standard input (stdin) from a file
+to a program. The keyboard is the usual source of stdin.
 
 ```
 wc < foo

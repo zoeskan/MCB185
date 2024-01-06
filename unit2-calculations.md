@@ -1,17 +1,41 @@
 Unit 2: Calculations
 ====================
 
-## Outline ##
+## Contents ##
 
-+ Hello, again
-+ Comments & Whitespace
-+ Math
-+ Variables
-+ Functions
-+ Strings
-+ Conditionals
-+ Debugging
-+ Homework
++ [Hello, again](#hello-again)
++ [Comments and Whitespace](#comments-and-whitespace)
+	+ [Comments](#comments)
+	+ [Whitespace](#whitespace)
++ [Math](#math)
+	+ [Numbers](#numbers)
+	+ [Math Operators](#math-operators)
+	+ [Math Functions](#math-functions)
+	+ [Numbers Aren't Real](#numbers-arent-real)
++ [Variables](#variables)
+	+ [Assignment](#assignment)
+	+ [Type](#type)
++ [Functions](#functions)
+	+ [Block Structure](#block-structure)
+	+ [Example](#example)
+	+ [assert() and sys.exit()](#assert-and-sysexit)
+	+ [Practice](#practice)
++ [Strings](#strings)
++ [Conditionals](#conditionals)
+	+ [if](#if)
+	+ [Boolean](#boolean)
+	+ [Chaining](#chaining)
+	+ [Floating Point Warning](#floating-point-warning)
+	+ [Sting Comparison](#string-comparison)
+	+ [Mismatched Type Error](#mismatched-type-error)
+	+ [More Practice](#more-practice)
++ [Homework](#homework)
+	+ [20demo.py](#20demopy)
+	+ [21quadratic.py](#21quadraticpy)
+	+ [22oligotemp.py](#22oligotemppy)
+	+ [23hydropathy.py](#23hydropathypy)
+	+ [24accuracy.py](#24accuracypy)
+	+ [25entropy.py](#25entropypy)
 
 ------------------------------------------------------------------------------
 
@@ -38,7 +62,7 @@ If you don't see the output "hello, again", stop now and get help.
 
 ------------------------------------------------------------------------------
 
-## Comments & Whitespace ##
+## Comments and Whitespace ##
 
 ### Comments ###
 
@@ -113,7 +137,7 @@ understands scientific notation. 1.5e-2 means 1.5 times 10 to the -2 power
 print(1.5e-2)
 ```
 
-### Operators ##
+### Math Operators ##
 
 Python has the typical mathematical operators you're familiar with and uses
 parentheses to force precedence. There are also some operators that you may not
@@ -136,7 +160,7 @@ output.
 | `%`      | remainder         | `print(5 % 2)`      | 1
 | `()`     | precedence        | `print(5 * (2 + 1))`| 15
 
-### Functions ###
+### Math Functions ###
 
 Some typical mathematical transformations are not provided with operators. You
 might expect `|-1|` to produce the absolute value of -1, but it does not.
@@ -545,7 +569,7 @@ s = 'G'
 if a < s: print('a < s')
 ```
 
-### Practice ###
+### More Practice ###
 
 Write a function that determines if a number is an integer. A good name for
 such a function would be `is_integer()` or `isinteger()`. Functions with
