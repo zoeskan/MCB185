@@ -71,6 +71,7 @@ These are all of the Unix commands we use in the course.
 |           | `sort -nk2 f`    | sort file f numerically by column 2
 | `tail`    | `tail f`         | display the last 10 lines of file f
 |           | `tail -f f`      | as above and keep displaying if streaming
+| `time`    | `time x`         | report CPU and elapsed time for command x
 | `uname`   | `uname -a`       | reports the name of your flavor of unix
 | `touch`   | `touch f`        | create/update file
 | `wc`      | `wc f`           | count lines, words, and characters in file f
