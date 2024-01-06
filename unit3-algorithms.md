@@ -23,7 +23,7 @@ Unit 3: Algorithms
 	+ [34scoringmatrix.py](#34scoringmatrixpy)
 	+ [35nchoosek.py](#35nchoosekpy)
 	+ [36poisson.py](#36poissonpy)
-	+ [37nilakantha.py](#37nilakantha.py)
+	+ [37nilakantha.py](#37nilakanthapy)
 
 ------------------------------------------------------------------------------
 

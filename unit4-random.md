@@ -1,12 +1,28 @@
 Unit 4: Random
 ==============
 
-## Outline ##
+## Contents ##
 
-+ Random numbers
-+ Pretty printing
-+ Monte Carlo
-+ Homework
++ [Random numbers](#random-numbers)
+	+ [random.random()](#randomrandom)
+	+ [random.choice()](#randomchoice)
+	+ [random.randint()](#randomrandint)
+	+ [random.gauss()](#randomgauss)
+	+ [41zscores.py](#41zscorespy)
++ [Pretty Printing](#pretty-printing)
+	+ [Special Characters](#special-characters)
+	+ [f-strings](#fstrings)
+	+ [sys.stderr](#sysstderr)
++ [Monte Carlo](#monte-carlo)
+	+ [Pseudorandom](#pseudorandom)
+	+ [Compound Assignment](#compound-assignment)
+	+ [Chicago](#chicago)
++ [Homework](#homework)
+	+ [43randomdna.py](#randomdnapy)
+	+ [44randompi.py](#randompipy)
+	+ [45dndstats.py](#dndstatspy)
+	+ [46savingthrows.py](#savingthrowspy)
+	+ [47deathsaves.py](#deathsavespy)
 
 ## Random Numbers ##
 
@@ -233,7 +249,7 @@ print(random.random())
 In the code above, each call to `random.seed()` resets the random number
 generator so that subsequent calls to `random.random()` are repeated.
 
-### Compound Assignment ### 
+### Compound Assignment ###
 
 The programs in this unit and onward have a lot of variables that need to be
 incremented. Instead of writing `x = x + 1` there is a shortcut: `x += 1`. The
