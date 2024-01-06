@@ -3,15 +3,38 @@ Unit 0: Setup
 
 ## Contents ##
 
-+ [Install Unix/Linux](#unix/linx)
-+ [Find your terminal](#terminal)
-+ Choose a programming editor
-+ Organize your home directory
-+ Manage documents with Git
-+ Write documentation with Markdown
-+ Write your first shell script
-+ Write your first Python program
-+ Homework
++ [Unix/Linux](#unix/linx)
+	+ [Unix vs. Linux](#unix-vs-linux)
+	+ [Recommendations](#recommendations)
+	+ [Unix on Mac](#unix-on-mac)
+	+ [Cygwin on Windows](#cygwin-on-windows)
+	+ [VM on Windows](#vm-on-windows)
+	+ [Install Linux](#install-linux)
+	+ [Linux on Chromebook](#linux-on-chromebook)
+	+ [Git Bash on Windows](#gitbash-on-windows)
+	+ [Windows Substem for Linux](#windows-subsytem-for-linux)
+	+ [Raspberry Pi](#raspberry-pi)
+	+ [Remote Login](#remote-login)
++ [Terminal](#terminal)
++ [Programming Editor](#programming-editor)
++ [Home Directory](#home-dirctory)
+	+ [Code Directory](#code-directory)
+	+ [File Naming Conventions](#file-naming-conventions)
++ [Git](#git)
+	+ [GitHub Account](#github-account)
+	+ [Create a Repository](#create-a-repository)
+	+ [Personal Access Token](#personal-access-token)
+	+ [Cloning Repos from the CLI](#cloning-repos-from-the-cli)
+	+ [Git Commands](#git-commands)
++ [Text and Markdown](#text-and-markdown)
+	+ [Bits, Bytes, and ASCII](#bits-bytes-and-ascii)
+	+ [Colorspace](#colorspace)
+	+ [Text vs Binary](#text-vs-binary)
+	+ [Markdown](#markdown)
++ [Hello World](#hello-world)
+	+ [00hello.sh](#hellosh)
+	+ [01hello.py](#01hellopy)
++ [Homework](#homework)
 
 ------------------------------------------------------------------------------
 
@@ -22,7 +45,7 @@ have to love Unix/Linux, but you do have to be proficient at it. The file,
 `LINUX_REFERENCE.md`, contains all of the Unix/Linux commands we use in the
 course.
 
-### What's the deal with Unix vs. Linux? ###
+### Unix vs. Linux ###
 
 Most people about to embark on an adventure in bioinformatics programming will
 be using some flavor of Linux (e.g. Debian, Fedora, LinuxLite, Mint, Ubuntu,
@@ -33,7 +56,7 @@ source code in common. The biggest difference is philosophical. Unix is a
 commercial product and Linux is free open source software (FOSS). From a
 philosophical perspective, they are very different.
 
-### Where do I get Linux? ###
+### Recommendations ###
 
 Before we begin, you need a command line Linux environment on your computer.
 Why a CLI (command line interface) rather than a GUI (graphical user
@@ -71,7 +94,7 @@ xcode-select --install
 By default, your home directory might not be shown in your sidebar. Add it by
 clicking the home-shaped icon in Finder->Settings->Sidebar.
 
-### Windows + Cygwin ###
+### Cygwin on Windows ###
 
 Cygwin is not an entire operating system but rather a terminal with POSIX
 commands (POSIX is a portable standardization of Unix commands). It works great
@@ -96,7 +119,7 @@ Launching the "Cygwin64 Terminal" brings up a typical CLI.
 The statements above might not mean anything to you right now, but they will
 later.
 
-### Windows + Virtual Machine ###
+### VM on Windows ###
 
 A virtual machine (VM) is a _fictional_ computer running inside your normal
 Windows operating system. The virtualization _host_ software (e.g. VirtualBox)
@@ -144,7 +167,7 @@ post-install customizations you might need to do. On VirtualBox these include:
 
 If you're having problems with the install or post-install, ask for help.
 
-### Install Linux on PC ###
+### Install Linux ###
 
 There are a variety of ways you can install Linux natively on your PC. You can
 repartition your main SSD and dual boot, choosing Windows or Linux during
@@ -390,7 +413,7 @@ home, use `mkdir` to create the `Code` directory.
 mkdir Code
 ```
 
-### File-naming Conventions ###
+### File Naming Conventions ###
 
 Most of the time, we use lowercase for everything. There is one common
 exception: directories in your home directory are often upppercase (e.g.
@@ -630,7 +653,7 @@ still don't see your changes ask for help.
 
 ------------------------------------------------------------------------------
 
-## Text Files and Markdown ##
+## Text and Markdown ##
 
 Most of the files we work with in Linux are plain text files. Many things
 change in this world, but not the format of text files.
@@ -792,7 +815,7 @@ If you are using a Windows text editor (e.g. Notepad++) it may be set up to
 insert Windows-style line ending (CRLF) rather than Unix-style (LF). It's a good
 idea to change your editor defaults to LF.
 
-### Formatting Plain Text ###
+### Markdown ###
 
 Text files are incredibly simple. There are no choices of ruler settings, font
 family, font style, lists, or tables you expect to find in a word processing
