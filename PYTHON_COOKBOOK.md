@@ -11,7 +11,7 @@ MCB185 students are not allowed to use language features more advanced than the
 current unit. Just because there's a solution in the cookbook, doesn't mean
 you're automatically allowed to use it for your homework.
 
-## Table of Contents ##
+## Contents ##
 
 + Simple solutions
 	+ [Swapping 2 variables](#swapping-2-variables)
