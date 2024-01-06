@@ -24,7 +24,7 @@ Unit 5: Containers
 	+ [Compressed Files](#compressed-files)
 	+ [Converting Types](#converting-types)
 	+ [51cdslength.py](#51cdslengthpy)
-+ [sys.argv](#sys.argv)
++ [sys.argv](#sysargv)
 + [Homework](#homework)
 	+ [53genomestats.py](#53genomestatspy)
 	+ [55colorname.py](#55colornamepy)
@@ -689,7 +689,7 @@ Line 19 reports the final value.
 + `55colorname.md`
 + `56birthday.md`
 
-### 53genometats.py ###
+### 53genomestats.py ###
 
 Write a program that reads a GFF file and reports the following information
 about the length of GFF features.
