@@ -1,14 +1,29 @@
 Unit 3: Algorithms
 ===================
 
-## Outline ##
+## Contents ##
 
-+ Iteration
-+ Nested Loops
-+ Algorithms
-+ Practice Problems
-+ Practice Solutions
-+ Homework
++ [Iteration](#iteration)
+	+ [while](#while)
+	+ [for i in range()](#for-i-in-range)
+	+ [for item in container](#for-item-in-container)
++ [Nested Loops](#nested-loops)
+	+ [31fizzbuzz.py](#31fizzbuzzpy)
++ [Algorithms](#algorithms)
++ [Practice Problems](#practice-problems)
++ [Practice Solutions](#practice-solutions)
+	+ [triangular()](#triangular)
+	+ [factorial()](#factorial)
+	+ [euler()](#euler)
+	+ [is_perfect_square()](#is_perfect_square)
+	+ [is_prime()](#is_prime)
++ [Homework](#homework)
+	+ [32fibonacci.py](#32fibonaccipy)
+	+ [33triples.py](#33triplespy)
+	+ [34scoringmatrix.py](#34scoringmatrixpy)
+	+ [35nchoosek.py](#35nchoosekpy)
+	+ [36poisson.py](#36poissonpy)
+	+ [37nilakantha.py](#37nilakantha.py)
 
 ------------------------------------------------------------------------------
 
@@ -105,7 +120,7 @@ for i in range(0, 5): print(i)
 for i in range(0, 5, 1): print(i)
 ```
 
-### for item in container: ###
+### for item in container ###
 
 `for` loops can be used to loop over items in a container. We will see much
 more of this next unit. For now, our items are characters, and the container is
@@ -355,7 +370,7 @@ described in more detail below.
 + `36poisson.py`
 + `37nilakantha.py`
 
-### 32finbonacci.py ###
+### 32fibonacci.py ###
 
 A classic programming interview question is to write a program that reports the
 first 10 numbers from the Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21. This
