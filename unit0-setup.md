@@ -1,10 +1,10 @@
 Unit 0: Setup
 =============
 
-## Outline ##
+## Contents ##
 
-+ Install Unix/Linux
-+ Find your terminal
++ [Install Unix/Linux](#unix/linx)
++ [Find your terminal](#terminal)
 + Choose a programming editor
 + Organize your home directory
 + Manage documents with Git
