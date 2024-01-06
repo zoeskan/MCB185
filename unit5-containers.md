@@ -1,13 +1,34 @@
 Unit 5: Containers
 ==================
 
-## Outline ##
+## Contents ##
 
-+ Strings
-+ Tuples
-+ Lists
-+ Files
-+ sys.argv
++ [Indexes](#indexes)
++ [Slices](#slices)
++ [Tuples](#tuples)
++ [enumerate() and zip()](#enumerate-and-zip)
+	+ [enumerate()](#enumerate)
+	+ [zip()](#zip)
++ [Lists](#lists)
+	+ [list()](#list)
+	+ [split() and join()](#split-and-join)
++ [Searching](#searching)
++ [Practice Problems]
++ [Practice Solutions]
+	+ [minimum()](#minimum)
+	+ [minmax()](#minmax)
+	+ [mean()](#mean)
+	+ [entropy()](#entropy)
+	+ [dkl()](#dkl)
++ [Files](#files)
+	+ [Compressed Files](#compressed-files)
+	+ [Converting Types](#converting-types)
+	+ [51cdslength.py](#51cdslengthpy)
++ [sys.argv](#sys.argv)
++ [Homework](#homework)
+	+ [53genomestats.py](#53genomestatspy)
+	+ [55colorname.py](#55colornamepy)
+	+ [56birthday.py](#56birthdaypy)
 
 ------------------------------------------------------------------------------
 
@@ -468,7 +489,7 @@ The `open()` function creates a new type of variable which is commonly called a
 "file pointer" which is why the variable is abbreviated `fp`. If you use the
 `type()` function you will see it has a much longer name: `_io.TextIOWrapper`.
 The `open()` function takes a "path" argument, which is a relative or absolute
-path to a file. 
+path to a file.
 
 The `for` loop iterates through the file until there are no more lines to read.
 
@@ -527,7 +548,7 @@ re-write it from a blank page.
 
 ```
 1   import gzip
-2   
+2
 3   path = '../MCB185/data/GCF_000005845.2_ASM584v2_genomic.gff.gz'
 4   with gzip.open(path, 'rt') as fp:
 5       for line in fp:
@@ -569,7 +590,7 @@ conditions.
 
 ```
 1   import gzip
-2   
+2
 3   path = '../MCB185/data/GCF_000005845.2_ASM584v2_genomic.gff.gz'
 4   with gzip.open(path, 'rt') as fp:
 5       for line in fp:
@@ -588,14 +609,14 @@ variable `sys.argv` is the complete list of words on the command line (argv is
 short for argument vector). `sys.argv[0]` is the name of your program.
 
 Create a new program called `52entropy.py` and type the following lines below.
-Try running it with various values, including those that create errors. 
+Try running it with various values, including those that create errors.
 
 ```
 python3 52entropy.py 0.5 0.5
 python3 52entropy.py 0.25 0.25 0.25 0.25
 python3 52entropy.py 0.4 0.3 0.2 0.1
 python3 52entropy.py 0.5 0.6
-python3 52entropy.py 0.5 -1 
+python3 52entropy.py 0.5 -1
 ```
 
 As usual, after experimenting with the program, destroy it and write it
@@ -604,13 +625,13 @@ yourself.
 ```
 1   import sys
 2   import math
-3   
+3
 4   probs = []
 5   for arg in sys.argv[1:]:
 6       f = float(arg)
 7       assert(f > 0 and f < 1)
 8       probs.append(float(arg))
-9   
+9
 10  total = 0
 11  for p in probs: total += p
 12  if not math.isclose(total, 1.0):
@@ -691,14 +712,14 @@ genome scientist would find interesting.
 | Genome         | Type |  N   | Min |  Max  | Mean | Stdv | Med  |
 |:---------------|:-----|:-----|:----|:------|:-----|:-----|:-----|
 | A.thaliana     | gene |  362 |  72 |  9511 | 2070 | 1435 | 1892 |
-|                | exon | 
-|                | CDS  | 
-| C.elegans      | gene | 
-|                | exon | 
-|                | CDS  | 
-| D.melanogaster | gene |  
-|                | exon | 
-|                | CDS  | 
+|                | exon |
+|                | CDS  |
+| C.elegans      | gene |
+|                | exon |
+|                | CDS  |
+| D.melanogaster | gene |
+|                | exon |
+|                | CDS  |
 ```
 
 Use `sys.argv` to specify the path to the GFF and the type of feature. This
@@ -742,7 +763,7 @@ B = int(sys.argv[4])
 Your commands should look something like this:
 
 ```
-python3 55colorname.py ~/Code/MCB185/data/colors_extended.tsv 200 0 50 
+python3 55colorname.py ~/Code/MCB185/data/colors_extended.tsv 200 0 50
 ```
 
 Hint: this algorithm is not very different from `minimum()` except that the
