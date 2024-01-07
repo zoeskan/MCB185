@@ -4,36 +4,36 @@ Unit 0: Setup
 ## Contents ##
 
 + [Unix/Linux](#unixlinx)
-	+ [Unix vs. Linux](#unix-vs-linux)
-	+ [Recommendations](#recommendations)
-	+ [Unix on Mac](#unix-on-mac)
-	+ [Cygwin on Windows](#cygwin-on-windows)
-	+ [VM on Windows](#vm-on-windows)
-	+ [Install Linux](#install-linux)
-	+ [Linux on Chromebook](#linux-on-chromebook)
-	+ [Git Bash on Windows](#gitbash-on-windows)
-	+ [Windows Substem for Linux](#windows-subsytem-for-linux)
-	+ [Raspberry Pi](#raspberry-pi)
-	+ [Remote Login](#remote-login)
+    + [Unix vs. Linux](#unix-vs-linux)
+    + [Recommendations](#recommendations)
+    + [Unix on Mac](#unix-on-mac)
+    + [Cygwin on Windows](#cygwin-on-windows)
+    + [VM on Windows](#vm-on-windows)
+    + [Install Linux](#install-linux)
+    + [Linux on Chromebook](#linux-on-chromebook)
+    + [Git Bash on Windows](#gitbash-on-windows)
+    + [Windows Substem for Linux](#windows-subsytem-for-linux)
+    + [Raspberry Pi](#raspberry-pi)
+    + [Remote Login](#remote-login)
 + [Terminal](#terminal)
 + [Programming Editor](#programming-editor)
 + [Home Directory](#home-dirctory)
-	+ [Code Directory](#code-directory)
-	+ [File Naming Conventions](#file-naming-conventions)
+    + [Code Directory](#code-directory)
+    + [File Naming Conventions](#file-naming-conventions)
 + [Git](#git)
-	+ [GitHub Account](#github-account)
-	+ [Create a Repository](#create-a-repository)
-	+ [Personal Access Token](#personal-access-token)
-	+ [Cloning Repos from the CLI](#cloning-repos-from-the-cli)
-	+ [Git Commands](#git-commands)
+    + [GitHub Account](#github-account)
+    + [Create a Repository](#create-a-repository)
+    + [Personal Access Token](#personal-access-token)
+    + [Cloning Repos from the CLI](#cloning-repos-from-the-cli)
+    + [Git Commands](#git-commands)
 + [Text and Markdown](#text-and-markdown)
-	+ [Bits, Bytes, and ASCII](#bits-bytes-and-ascii)
-	+ [Colorspace](#colorspace)
-	+ [Text vs Binary](#text-vs-binary)
-	+ [Markdown](#markdown)
+    + [Bits, Bytes, and ASCII](#bits-bytes-and-ascii)
+    + [Colorspace](#colorspace)
+    + [Text vs Binary](#text-vs-binary)
+    + [Markdown](#markdown)
 + [Hello World](#hello-world)
-	+ [00hello.sh](#00hellosh)
-	+ [01hello.py](#01hellopy)
+    + [00hello.sh](#00hellosh)
+    + [01hello.py](#01hellopy)
 + [Homework](#homework)
 
 ------------------------------------------------------------------------------
@@ -68,16 +68,16 @@ programmer, you need to become comfortable with the Linux CLI. But before we
 get to that, you need some flavor of Unix/Linux.
 
 + Recommended
-	+ Mac
-	+ Windows + Cygwin
-	+ Windows + Virtual Machine
-	+ Install Linux on spare PC
+    + Mac
+    + Windows + Cygwin
+    + Windows + Virtual Machine
+    + Install Linux on spare PC
 + Not Recommended
-	+ Chromebook
-	+ Git bash
-	+ Windows Subsystem for Linux
-	+ Raspberry Pi
-	+ Remote login
+    + Chromebook
+    + Git bash
+    + Windows Subsystem for Linux
+    + Raspberry Pi
+    + Remote login
 
 ### Unix on Mac ###
 
@@ -106,9 +106,9 @@ external libraries (which we don't use in the course) may be a pain to install.
 3. Choose the defaults with "Next" until you get to the Download Sites
 4. Choose one of the sites, and if it is slow, stop and choose another
 5. Install packages by double-clicking "Skip" -> version number
-	+ Interpreters - python39
-	+ Devel - git
-	+ Editors - nano
+    + Interpreters - python39
+    + Devel - git
+    + Editors - nano
 6. Choose "Next" and ultimately "Finish"
 
 Launching the "Cygwin64 Terminal" brings up a typical CLI.

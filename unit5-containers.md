@@ -7,28 +7,28 @@ Unit 5: Containers
 + [Slices](#slices)
 + [Tuples](#tuples)
 + [enumerate() and zip()](#enumerate-and-zip)
-	+ [enumerate()](#enumerate)
-	+ [zip()](#zip)
+    + [enumerate()](#enumerate)
+    + [zip()](#zip)
 + [Lists](#lists)
-	+ [list()](#list)
-	+ [split() and join()](#split-and-join)
+    + [list()](#list)
+    + [split() and join()](#split-and-join)
 + [Searching](#searching)
 + [Practice Problems](#practice-problems)
 + [Practice Solutions](#practice-solutions)
-	+ [minimum()](#minimum)
-	+ [minmax()](#minmax)
-	+ [mean()](#mean)
-	+ [entropy()](#entropy)
-	+ [dkl()](#dkl)
+    + [minimum()](#minimum)
+    + [minmax()](#minmax)
+    + [mean()](#mean)
+    + [entropy()](#entropy)
+    + [dkl()](#dkl)
 + [Files](#files)
-	+ [Compressed Files](#compressed-files)
-	+ [Converting Types](#converting-types)
-	+ [51cdslength.py](#51cdslengthpy)
+    + [Compressed Files](#compressed-files)
+    + [Converting Types](#converting-types)
+    + [51cdslength.py](#51cdslengthpy)
 + [sys.argv](#sysargv)
 + [Homework](#homework)
-	+ [53genomestats.py](#53genomestatspy)
-	+ [55colorname.py](#55colornamepy)
-	+ [56birthday.py](#56birthdaypy)
+    + [53genomestats.py](#53genomestatspy)
+    + [55colorname.py](#55colornamepy)
+    + [56birthday.py](#56birthdaypy)
 
 ------------------------------------------------------------------------------
 
@@ -381,7 +381,7 @@ Write a function that returns the mean of the values in a list.
 
 Write a function that computes the entropy of a probability distribution.
 
-Write a function that computes the Kulback-Leibler distance between two sets
+Write a function that computes the Kullback-Leibler distance between two sets
 of probability distributions.
 
 ## Practice Solutions ##
@@ -390,16 +390,16 @@ of probability distributions.
 
 The initialization on line 1 sets the minimum to the first value. If the list
 is only 1 item long, this is the minimum. For longer lists, the minimum is
-compared to every other value after the first `vals[1:]`. Whever a value is
+compared to every other value after the first `vals[1:]`. Whenever a value is
 less than the current minimum (line 4) the minimum is reset `mini = val`. There
 is no finalization step here.
 
 ```
-1	def minimum(vals):
-2		mini = vals[0]
-3		for val in vals[1:]:
-4			if val < mini: mini = val
-5		return mini
+1   def minimum(vals):
+2       mini = vals[0]
+3       for val in vals[1:]:
+4           if val < mini: mini = val
+5       return mini
 ```
 
 Note that python has built-in functions `min()`, `max()` and `sum()`. Sorry,
@@ -412,13 +412,13 @@ initializations (lines 2-3) and 2 return values (line 7). The conditionals on
 lines 5-6 could be formed as an `elif`.
 
 ```
-1	def minmax(vals):
-2		mini = vals[0]
-3		maxi = vals[0]
-4		for val in vals:
-5			if val < mini: mini = val
-6			if val > maxi: maxi = val
-7		return mini, maxi
+1   def minmax(vals):
+2       mini = vals[0]
+3       maxi = vals[0]
+4       for val in vals:
+5           if val < mini: mini = val
+6           if val > maxi: maxi = val
+7       return mini, maxi
 ```
 
 An alternative way to write this function is to sort the values and then return
@@ -432,10 +432,10 @@ It is possible to write this without finalizing, with `total += val/len(vals)`,
 but that increases the number of division calculations.
 
 ```
-1	def mean(vals):
-2		total = 0
-3		for val in vals: total += val
-4		return total / len(vals)
+1   def mean(vals):
+2       total = 0
+3       for val in vals: total += val
+4       return total / len(vals)
 ```
 
 ### entropy() ###
@@ -445,12 +445,12 @@ to something close to 1.0. It will also run into numerical errors if any of the
 values are 0.
 
 ```
-1	def entropy(probs):
-2		h = 0
-3		for p in probs:
-4			h -= p * math.log2(p)
-5		return h
-6	print(entropy([0.2, 0.3, 0.5]))
+1   def entropy(probs):
+2       h = 0
+3       for p in probs:
+4           h -= p * math.log2(p)
+5       return h
+6   print(entropy([0.2, 0.3, 0.5]))
 ```
 
 ### dkl() ###
@@ -470,14 +470,14 @@ defined as a list while `p2` is defined as a tuple. That's okay because both
 can be zipped in parallel.
 
 ```
-1	def dkl(P, Q):
-2		d = 0
-3		for p, q in zip(P, Q):
-4			d += p * math.log2(p/q)
-5		return d
-6	p1 = [0.4, 0.3, 0.2, 0.1]
-7	p2 = (0.1, 0.3, 0.4, 0.2)
-8	print(dkl(p1, p2))
+1   def dkl(P, Q):
+2       d = 0
+3       for p, q in zip(P, Q):
+4           d += p * math.log2(p/q)
+5       return d
+6   p1 = [0.4, 0.3, 0.2, 0.1]
+7   p2 = (0.1, 0.3, 0.4, 0.2)
+8   print(dkl(p1, p2))
 ```
 
 ------------------------------------------------------------------------------
@@ -679,7 +679,7 @@ to 1.0. Of course, we never ask if floating point values are actually equal to
 anything, so we check if they sum nearly to 1.0.
 
 Line 14 is blank to separate the previous sanity check from the calculation of
-Shannonn entropy.
+Shannon entropy.
 
 Lines 15-17 calculate entropy.
 
@@ -788,10 +788,10 @@ assume probabilities or have problems with zero values.
 
 ```
 def dtc(P, Q):
-	d = 0
-	for p, q in zip(P, Q):
-		d += abs(p - q)
-	return d
+    d = 0
+    for p, q in zip(P, Q):
+        d += abs(p - q)
+    return d
 ```
 
 ### 56birthday.py ###

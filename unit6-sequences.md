@@ -4,26 +4,26 @@ Unit 6: Sequences
 ## Contents ##
 
 + [Reading FASTA Files](#reading-fasta-files)
-	+ [mcb185 Library](#mcb185-library)
-	+ [Stepping Through FASTA Files](#stepping-through-fasta-files)
+    + [mcb185 Library](#mcb185-library)
+    + [Stepping Through FASTA Files](#stepping-through-fasta-files)
 + [Sequence Composition](#sequence-composition)
-	+ [if-elif-else Stack](#if-elif-else-stack)
-	+ [List Variation](#list-variation)
-	+ [Indexing with str.find()](#indexing-with-strfind)
-	+ [Counting with str.count()](#counting-with-strcount)
+    + [if-elif-else Stack](#if-elif-else-stack)
+    + [List Variation](#list-variation)
+    + [Indexing with str.find()](#indexing-with-strfind)
+    + [Counting with str.count()](#counting-with-strcount)
 + [Central Dogma](#central-dogma)
-	+ [dogma.py](#dogmapy)
-	+ [Transcription](#transcription)
-	+ [Reverse-Complement](#reverse-complement)
-	+ [test_dogma.py](#test_dogmapy)
-	+ [Translation](#translation)
+    + [dogma.py](#dogmapy)
+    + [Transcription](#transcription)
+    + [Reverse-Complement](#reverse-complement)
+    + [test_dogma.py](#test_dogmapy)
+    + [Translation](#translation)
 + [Sliding Window Algorithms](#sliding-window-algorithms)
-	+ [61skewer.py](#61skewerpy)
+    + [61skewer.py](#61skewerpy)
 + [Homework](#homework)
-	+ [62skewer.py](#62skewerpy)
-	+ [63dust.py](#63dustpy)
-	+ [64profinder.py](#64profinderpy)
-	+ [65transmembrane.py](#65transmembranepy)
+    + [62skewer.py](#62skewerpy)
+    + [63dust.py](#63dustpy)
+    + [64profinder.py](#64profinderpy)
+    + [65transmembrane.py](#65transmembranepy)
 
 ------------------------------------------------------------------------------
 
@@ -63,7 +63,7 @@ MCRHSLRSDGAGFYQLAGCEYSFSAIKIAAGGQFLPVICAMAMKSHFFLISVLNRRLTLTAVQGILGRFSLF
 ### mcb185 Library ###
 
 Reading FASTA files is a little bit awkward because there is no end-of-record
-delimiter. Records start with `>` but the end is either signalled by a new
+delimiter. Records start with `>` but the end is either signaled by a new
 record or the end of the file. To make our lives a little simpler, we're going
 to import a FASTA file reader from the MCB185 repo.
 
@@ -94,11 +94,11 @@ favorite functions (which we will do a little later).
 Add the following code to your demo.
 
 ```
-1	import sys
-2	import mcb185
+1   import sys
+2   import mcb185
 3
-4	for defline, seq in mcb185.read_fasta(sys.argv[1]):
-5		print(defline[:30], seq[:40], len(seq))
+4   for defline, seq in mcb185.read_fasta(sys.argv[1]):
+5       print(defline[:30], seq[:40], len(seq))
 ```
 
 Run it like this.
@@ -119,13 +119,13 @@ Let's write a program that calculates the GC composition of nucleotide
 sequences in a FASTA file. Swap out line 5 above for the following.
 
 ```
-4	for defline, seq in mcb185.read_fasta(sys.argv[1]):
-5		defwords = defline.split()
-6		name = defwords[0]
-7		gc = 0
-8		for nt in seq:
-9			if nt == 'C' or nt == 'G': gc += 1
-10		print(name, gc/len(seq))
+4   for defline, seq in mcb185.read_fasta(sys.argv[1]):
+5       defwords = defline.split()
+6       name = defwords[0]
+7       gc = 0
+8       for nt in seq:
+9           if nt == 'C' or nt == 'G': gc += 1
+10      print(name, gc/len(seq))
 ```
 
 Lines 5-6 split the defline and assign the unique identifier to a variable
@@ -156,18 +156,18 @@ each nucleotide and a stack of if-elif-else statements that assigns them
 individually.
 
 ```
-5	A = 0
-6	C = 0
-7	G = 0
-8	T = 0
-9	N = 0
-10	for nt in seq:
-11		if   nt == 'A': A += 1
-12		elif nt == 'C': C += 1
-13		elif nt == 'G': G += 1
-14		elif nt == 'T': T += 1
-15		else:           N += 1
-16	print(name, A/len(seq), C/len(seq), G/len(seq), T/len(seq), N/len(seq))
+5   A = 0
+6   C = 0
+7   G = 0
+8   T = 0
+9   N = 0
+10  for nt in seq:
+11      if   nt == 'A': A += 1
+12      elif nt == 'C': C += 1
+13      elif nt == 'G': G += 1
+14      elif nt == 'T': T += 1
+15      else:           N += 1
+16  print(name, A/len(seq), C/len(seq), G/len(seq), T/len(seq), N/len(seq))
 ```
 
 ### List Variation ###
@@ -178,18 +178,18 @@ instead of assigning named variables, the assignments are at specific indices
 of the list variable `counts`.
 
 ```
-5	nts = 'ACGTN' # should really be defined outside the loop
-6	counts = []
-7	for i in range(len(nts)): counts.append(0)
-8	for nt in seq:
-9		if   nt == 'A': counts[0] += 1
-10		elif nt == 'C': counts[1] += 1
-11		elif nt == 'G': counts[2] += 1
-12		elif nt == 'T': counts[3] += 1
-13		else:           counts[4] += 1
-14	print(name, end='\t')
-15	for n in counts: print(f'{n/len(seq):.4f}', end='\t')
-16	print()
+5   nts = 'ACGTN' # should really be defined outside the loop
+6   counts = []
+7   for i in range(len(nts)): counts.append(0)
+8   for nt in seq:
+9       if   nt == 'A': counts[0] += 1
+10      elif nt == 'C': counts[1] += 1
+11      elif nt == 'G': counts[2] += 1
+12      elif nt == 'T': counts[3] += 1
+13      else:           counts[4] += 1
+14  print(name, end='\t')
+15  for n in counts: print(f'{n/len(seq):.4f}', end='\t')
+16  print()
 ```
 
 ### Indexing with str.find() ###
@@ -203,19 +203,19 @@ The major change is to replace the if-elif-else stack with `str.find()`. Each
 letter is found, its index is returned. For example, if the letter is a 'G',
 the index in 'ACGT' is 2 and the code does `counts[2] += 1` (line 9).
 Conveniently, if there are any unknown letters, they get a -1 index. Negative
-numbers like `counts[-1]` index backwords. As a result, unknown letters get
+numbers like `counts[-1]` index backwards. As a result, unknown letters get
 dumped into the counts for 'N'. This is the exact behavior of the if-elif-else
 stack.
 
 ```
-5	nts = 'ACGTN' # should really be defined outside the loop
-6	counts = [0] * len(nts)
-7	for nt in seq:
-8		idx = nts.find(nt)
-9		counts[idx] += 1
-10	print(name, end='\t')
-11	for n in counts: print(f'{n/len(seq):.4f}', end='\t')
-12	print()
+5   nts = 'ACGTN' # should really be defined outside the loop
+6   counts = [0] * len(nts)
+7   for nt in seq:
+8       idx = nts.find(nt)
+9       counts[idx] += 1
+10  print(name, end='\t')
+11  for n in counts: print(f'{n/len(seq):.4f}', end='\t')
+12  print()
 ```
 
 ### Counting with str.count() ###
@@ -226,11 +226,11 @@ the counts for each one. For example, in the first iteration, the letter is
 'A'. On line 8, we simply ask `seq` to count how many As it has.
 
 ```
-5	nts = 'ACGTN' # should really be defined outside the loop
-6	print(name, end='\t')
-7	for nt in nts:
-8		print(seq.count(nt) / len(seq), end='\t')
-9	print()
+5   nts = 'ACGTN' # should really be defined outside the loop
+6   print(name, end='\t')
+7   for nt in nts:
+8       print(seq.count(nt) / len(seq), end='\t')
+9   print()
 ```
 
 This solution is both tidy and efficient. However, what do we do if we run into
@@ -267,7 +267,7 @@ modified copy. Put this function in `dogma.py`.
 
 ```
 def transcribe(dna):
-	return dna.replace('T', 'U')
+    return dna.replace('T', 'U')
 ```
 
 ### Reverse-Complement ###
@@ -276,15 +276,15 @@ When working with DNA, we often need to work with the reverse-complement
 strand. Let's make a function that does that and add it to our library.
 
 ```
-1	def revcomp(dna):
-2		rc = []
-3		for nt in dna[::-1]:
-4			if   nt == 'A': rc.append('T')
-5			elif nt == 'C': rc.append('G')
-6			elif nt == 'G': rc.append('C')
-7			elif nt == 'T': rc.append('A')
-8			else:           rc.append('N')
-9		return ''.join(rc)
+1   def revcomp(dna):
+2       rc = []
+3       for nt in dna[::-1]:
+4           if   nt == 'A': rc.append('T')
+5           elif nt == 'C': rc.append('G')
+6           elif nt == 'G': rc.append('C')
+7           elif nt == 'T': rc.append('A')
+8           else:           rc.append('N')
+9       return ''.join(rc)
 ```
 
 Line 2 creates a list `rc` to hold the new sequence. At the end, the function
@@ -298,15 +298,15 @@ thorough and confusing version, see `mcb185.anti_seq()`.
 
 ### test_dogma.py ###
 
-In order to test the functions in our libary, we need a program that imports
+In order to test the functions in our library, we need a program that imports
 the library and calls its functions. Create a file called `test_dogma.py` or
 `test_name.py` depending on the name of your library.
 
 ```
-1	import dogma
+1   import dogma
 2
-3	print(dogma.transcribe('ACGT'))
-4	print(dogma.revcomp('AAAACGT'))
+3   print(dogma.transcribe('ACGT'))
+4   print(dogma.revcomp('AAAACGT'))
 ```
 
 Most software engineers create "unit tests" and "integration tests" that call
@@ -333,17 +333,17 @@ represented as a '*').
 print(dogma.translate('ATGTAA')) # should return M*
 ```
 
-Let's wite a minimal translation function in `dogma.py`.
+Let's write a minimal translation function in `dogma.py`.
 
 ```
-1	def translate(dna):
-2		aas = []
-3		for i in range(0, len(dna), 3):
-4			codon = dna[i:i+3]
-5			if   codon == 'ATG': aas.append('M')
-6			elif codon == 'TAA': aas.append('*')
-7			else:                aas.append('X')
-8		return ''.join(aas)
+1   def translate(dna):
+2       aas = []
+3       for i in range(0, len(dna), 3):
+4           codon = dna[i:i+3]
+5           if   codon == 'ATG': aas.append('M')
+6           elif codon == 'TAA': aas.append('*')
+7           else:                aas.append('X')
+8       return ''.join(aas)
 ```
 
 Line 2 initializes an empty list for the amino acids. Each codon that is
@@ -366,19 +366,19 @@ Line 8 returns the amino acid list as a string.
 Here's an alternative way to write the function:
 
 ```
-1	def translate(dna):
-2		codons = ('ATG', 'TAA')
-3		aminos = 'M*'
-4		aas = []
-5		for i in range(0, len(dna), 3):
-6			codon = dna[i:i+3]
-7			if codon in codons:
-8				idx = codons.index(codon)
-9				aa = aminos[idx]
-10				aas.append(aa)
-11			else:
-12				aas.append('X')
-13		return ''.join(aas)
+1   def translate(dna):
+2       codons = ('ATG', 'TAA')
+3       aminos = 'M*'
+4       aas = []
+5       for i in range(0, len(dna), 3):
+6           codon = dna[i:i+3]
+7           if codon in codons:
+8               idx = codons.index(codon)
+9               aa = aminos[idx]
+10              aas.append(aa)
+11          else:
+12              aas.append('X')
+13      return ''.join(aas)
 ```
 
 Lines 2-3 create parallel containers that match up codons to amino acids.
@@ -409,10 +409,10 @@ The `translate()` function we just wrote was a specialized form of "sliding
 window algorithm". The canonical form is shown below.
 
 ```
-1	w = 10
-2	s = 1
-3	for i in range(0, len(seq) -w +1, s):
-4		subseq = seq[i:i+w]
+1   w = 10
+2   s = 1
+3   for i in range(0, len(seq) -w +1, s):
+4       subseq = seq[i:i+w]
 ```
 
 Line 1 sets the size of the window. For translation, this is 3 because codons
@@ -439,7 +439,7 @@ like useful functions we might want to use again, so let's put them into
 
 ```
 def gc_comp(seq):
-	return (seq.count('C') + seq.count('G')) / len(seq)
+    return (seq.count('C') + seq.count('G')) / len(seq)
 ```
 
 The only difficulty in `gc_skew()` is that it's possible for windows to have no
@@ -447,10 +447,10 @@ Gs or Cs in them.
 
 ```
 def gc_skew(seq):
-	c = seq.count('C')
-	g = seq.count('G')
-	if c + g == 0: return 0
-	return (g - c) / (g + c)
+    c = seq.count('C')
+    g = seq.count('G')
+    if c + g == 0: return 0
+    return (g - c) / (g + c)
 ```
 
 The calling code goes in `test_dogma.py`.
@@ -465,11 +465,11 @@ Now that we know those functions work, let's toss them into the canonical
 windowing algorithm. Save this as `61skewer.py`.
 
 ```
-1	seq = 'ACGTACGTGGGGGACGTACGTCCCCC'
-2	w = 10
-3	for i in range(len(seq) -w +1):
-4		s = seq[i:i+w]
-5		print(i, dogma.gc_comp(s), dogma.gc_skew(s))
+1   seq = 'ACGTACGTGGGGGACGTACGTCCCCC'
+2   w = 10
+3   for i in range(len(seq) -w +1):
+4       s = seq[i:i+w]
+5       print(i, dogma.gc_comp(s), dogma.gc_skew(s))
 ```
 
 Line 1 is actually important here. When writing, testing, and debugging code,
@@ -592,7 +592,7 @@ In order to complete this program, you will have to completely fill out your
 `dogma.translate()` function with all 64 codons. Yes, this is laborious, but
 you only need to do it once.
 
-The output should eventually llok like this.
+The output should eventually look like this.
 
 ```
 >NC_000913.3-prot-0
