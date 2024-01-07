@@ -6,7 +6,7 @@ Unit 6: Sequences
 + [Reading FASTA Files](#reading-fasta-files)
 	+ [mcb185 Library](#mcb185-library)
 	+ [Stepping Through FASTA Files](#stepping-through-fasta-files)
-+ [Sequence Calculations](#sequence-calculations)
++ [Sequence Composition](#sequence-composition)
 	+ [if-elif-else Stack](#if-elif-else-stack)
 	+ [List Variation](#list-variation)
 	+ [Indexing with str.find()](#indexing-with-strfind)
@@ -76,8 +76,8 @@ import mcb185
 If you try running your program, you will get an error. Python doesn't know
 where the `mcb185.py` library file is. There are several places it looks, and
 one of those is your current directory. Make a soft link from
-`MCB185/mcb185.py` to your homework directory so that it appears `mcb185.py` is
-in your homework repo.
+`MCB185/mcb185.py` to your homework directory so that it looks like `mcb185.py`
+is in your homework repo.
 
 ```
 cd ~/Code/mcb185_homework
@@ -91,7 +91,7 @@ favorite functions (which we will do a little later).
 
 ### Stepping Through FASTA Files ###
 
-Add the following code to your demo (as well as `import sys`).
+Add the following code to your demo.
 
 ```
 1	import sys
@@ -128,7 +128,7 @@ sequences in a FASTA file. Swap out line 5 above for the following.
 10		print(name, gc/len(seq))
 ```
 
-Line 5-6 split the defline and assign the unique identifier to a variable
+Lines 5-6 split the defline and assign the unique identifier to a variable
 appropriately called `name`. Note that the `>` was already removed by
 `mcb185.read_fasta()`.
 
@@ -202,11 +202,13 @@ The major change is to replace the if-elif-else stack with `str.find()`. Each
 `nt` retrieved from the sequence is compared to the alphabet in `nts`. If the
 letter is found, its index is returned. For example, if the letter is a 'G',
 the index in 'ACGT' is 2 and the code does `counts[2] += 1` (line 9).
-Conveniently, if there are any unknown letters, they get a -1 index, and get
+Conveniently, if there are any unknown letters, they get a -1 index. Negative
+numbers like `counts[-1]` index backwords. As a result, unknown letters get
 dumped into the counts for 'N'. This is the exact behavior of the if-elif-else
 stack.
 
 ```
+5	nts = 'ACGTN' # should really be defined outside the loop
 6	counts = [0] * len(nts)
 7	for nt in seq:
 8		idx = nts.find(nt)
@@ -224,6 +226,7 @@ the counts for each one. For example, in the first iteration, the letter is
 'A'. On line 8, we simply ask `seq` to count how many As it has.
 
 ```
+5	nts = 'ACGTN' # should really be defined outside the loop
 6	print(name, end='\t')
 7	for nt in nts:
 8		print(seq.count(nt) / len(seq), end='\t')
@@ -318,8 +321,8 @@ aren't wearing gloves, you're not being very professional.
 
 Converting nucleotide sequences to proteins isn't as simple as transcription or
 reverse-complement. First, we have to retrieve codons by stepping through the
-nucleotide sequnce 3 letters at a time. Then we have to convert codons to amino
-acids.
+nucleotide sequence 3 letters at a time. Then we have to convert codons to
+amino acids.
 
 Let's create some really simple code in `test_dogma.py` that demonstrates how
 we expect to call the function. Ideally, this results in 'M*' where 'ATG' gets
@@ -339,7 +342,7 @@ Let's wite a minimal translation function in `dogma.py`.
 4			codon = dna[i:i+3]
 5			if   codon == 'ATG': aas.append('M')
 6			elif codon == 'TAA': aas.append('*')
-7           else:                aas.append('X')
+7			else:                aas.append('X')
 8		return ''.join(aas)
 ```
 
@@ -380,7 +383,7 @@ Here's an alternative way to write the function:
 
 Lines 2-3 create parallel containers that match up codons to amino acids.
 
-Lines 7-12 do the translation. The strategy here is very similar the
+Lines 7-12 do the translation. The strategy here is very similar to the
 letter-counting code that used `str.find()`. Lists and tuples don't have a
 `find()` method, so we have to use `index()`. Unfortunately, this throws errors
 if the codon isn't found. So first we ask if the codon is `in` the tuple, then
@@ -450,7 +453,7 @@ def gc_skew(seq):
 	return (g - c) / (g + c)
 ```
 
-The calling goes in `test_dogma.py`.
+The calling code goes in `test_dogma.py`.
 
 ```
 s = 'ACGTGGGGGGCATATG'
@@ -502,14 +505,15 @@ window is counted and then forgotten. Imagine counting 1000 bp windows by hand.
 Let's say you get 500 Gs and 500Cs. How many Gs do you think the next window
 will have it's just 1 bp away? 499, 500, or 501. You're losing 1 nt on the left
 and gaining a new nt on the right. The counts can't change by more than just
-those 2 letters. So why bother counting everything in the middle
+those 2 letters. So why bother counting everything in the middle?
 
 A much more efficient algorithm only counts the initial window. After that, it
 "moves" the window by dropping off one nucleotide on the left and adding one on
 the right.
 
-Re-write 61skewer.py as 62skewer.py using the more efficient algorithm and then
-calculate GC-skew and GC composition in 1000 nt windows in the E.coli genome.
+Re-write `61skewer.py` as `62skewer.py` using the more efficient algorithm and
+then calculate GC-skew and GC composition in 1000 nt windows in the E.coli
+genome.
 
 For debugging purposes you might find it very useful to write the program
 twice: once using the wasteful strategy in `61skewer.py` and once using the
@@ -519,8 +523,8 @@ mistakes. Having a simpler solution helps debug the more difficult problem.
 If you're so inclined, try timing the simple and fast algorithms with the
 `time` program. Use various window sizes to see how much that affects compute
 time. Your command line might look like the following. Here, it is assumed your
-program takes 2 arguments: the window size (1000) and a soft-linked fasta file
-(because the original name is so long).
+program takes 2 arguments: (1) the sequence file (here, soft-linked because the
+name is so long an (2) the value of 1000 for the window size.
 
 ```
 time python3 62skewer.py ecoli.fa.gz 1000
@@ -550,7 +554,7 @@ programs that does this task is called `dust`. Write a python version.
 + Provide parameters for fasta file, window size, and entropy
 
 Your command line should look like the one below, provided you soft-linked the
-FASTA file and defined the window size as 20 and entropy threhold at 1.4.
+FASTA file and defined the window size as 20 and entropy threshold at 1.4.
 
 ```
 python3 63dust.py ecoli.fa.gz 20 1.4
@@ -581,7 +585,7 @@ DNA sequences.
 The command line should look something like this.
 
 ```
-python3 64profinder.py ecoli.fa.gz 100|
+python3 64profinder.py ecoli.fa.gz 100
 ```
 
 In order to complete this program, you will have to completely fill out your
@@ -610,11 +614,11 @@ historical importance.
 
 https://en.wikipedia.org/wiki/Hydrophilicity_plot
 
+Here are the specifics of what the program is looking for in each sequence
+
 + signal peptide: 8 aa long, average KD >= 2.5, first 30 aa
 + transmembrane region: 11 aa long, average KD >= 2.0, after 30 aa
-
-Both the signal peptide and the transmembrane regions are alpha-helices
-Therefore, they do not contain proline.
++ no prolines in either hydrophobic region
 
 For the E.coli proteome, your output should look something like this:
 

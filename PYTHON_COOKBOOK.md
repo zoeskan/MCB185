@@ -3,7 +3,7 @@ MCB185 Python Cookbook
 
 This cookbook is a collection of statements, functions, and programs that
 illustrate how to perform biology-flavored programming tasks in Python. The
-source code is written to be easy to understand rather than efficient or
+source code is written to be easy to understand rather than to be efficient or
 bullet-proof. MCB185 students are only allowed to use a subset of the Python
 language, so there may be better solutions than shown here.
 
@@ -51,7 +51,7 @@ print(a, b)
 
 Strings are immutable in Python. You can't make a _mutation_ in a sequence if
 it's stored as a string. However, you can edit a list. To convert a string to a
-list, use the `list()` function.
+list, use the `list()` function. Convert it back with `str.join()`.
 
 ```
 seq = list(string)
@@ -59,6 +59,7 @@ seq[5] = 'G'        # substitution
 seq.pop(3)          # deletion
 del seq[3]          # also deletion
 seq.insert(1, 'A')  # insertion
+seq = ''.join(seq)  # convert to string
 ```
 
 
@@ -101,7 +102,7 @@ for f in read_numbers(filename): ...
 ## Reading CSV and TSV ##
 
 To read a CSV (comma-separated values) file, split each line at the comma
-character into its columns.
+character into its component columns.
 
 ```
 with open(filename) as fp:
@@ -117,7 +118,8 @@ with open(filename) as fp:
 		cols = line.split('\t')
 ```
 
-To read space-separated files, use the default `split()`.
+To read space-separated files, use the default `split()`. This will segment on
+any number of spaces including tabs.
 
 ```
 with open(filename) as fp:
@@ -375,7 +377,7 @@ def hydropathy(seq):
 	s = 0
 	for aa in seq:
 		s += kdh[aa]
-	return s
+	return s / len(seq)
 ```
 
 ## Counting K-mers ##
@@ -400,7 +402,8 @@ for i in range(len(seq) -k +1):
 
 `itertools.product()` makes it simple to generate all possible k-mers. The
 function generates tuples, so you might want to join them into a string as
-shown below.
+shown below. Don't do this with large values of k or you will run out of
+memory.
 
 ```
 import itertools

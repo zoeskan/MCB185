@@ -3,7 +3,8 @@ MCB185 Python Reference
 
 This Python Reference contains a subset of the Python language used
 specifically for MCB185. MCB185 students are not allowed to use any Python
-construct that isn't in this reference.
+construct that isn't in this reference. Even if code is in this reference, they
+aren't allowed to use it until it has been introduced.
 
 ## Table of Contents ##
 
@@ -64,9 +65,9 @@ Naming Rules:
 + Multi-word variables may use snake case, but not mixedCase
 
 ```
-speedlimit  = 65  # yes
-speed_limit = 65  # yes
-speedLimit  = 65  # no
+widowsize   = 60  # yes
+window_size = 60  # yes
+windowSize  = 60  # no
 ```
 
 Variables sometimes have very short names that implicitly describe their type.
@@ -181,7 +182,7 @@ The `type()` function returns the type of a variable.
 | `<class 'tuple'>`             | a collection of fixed values
 | `<class 'list'>`              | a collection of mutable values
 | `<class 'dict'>`              | a dictionary of key, value pairs
-| `<class '_io.TextIOWrapper'>` | file handle
+| `<class '_io.TextIOWrapper'>` | file pointer
 
 The `int()`, `float()`, and `str()` functions are useful to convert values from
 one type to another.
@@ -228,7 +229,6 @@ Comparison operators are unsurprising except that `==` is used for equality
 | `>`      | greater than      | `if a > b:`
 | `<=`     | less or equal     | `if a <= b:`
 | `>=`     | greater or equal  | `if a >= b:`
-
 
 Constants from the `math` library include:
 
@@ -289,11 +289,12 @@ Most string operations use method syntax `s.method()`.
 | `s.endswith(s1)`    | True if `s` ends with `s1`
 | `s.startswith(s1)`  | True if `s` starts with `s1`
 | `s.find(s1)`        | position of `s1` in `s` or -1 if not found
-| `s.join(it)`        | join elements of `it` with s between
+| `s.join(list)`      | join elements of `list` with `s` between
 | `s.upper()`         | convert s to uppercase
 | `s.lower()`         | convert s to lowercase
 | `s.rstrip()`        | remove characters from the end, usually newline
 | `s.split(s1)`       | split `s` into a list of strings at every `s1`
+| `s.replace(a, b)`   | copy string, replaceing substring a with b
 
 
 ## Exceptions ##
@@ -464,8 +465,9 @@ random seed to any integer value.
 | `random.random()`        | a random variable from 0 almost 1
 | `random.seed(i)`         | set the random seed
 | `random.randint(a, b)`   | a random integer from a to b, inclusive
+| `random.gauss(m, s)`     | random number with mean m, and stdev s
 | `random.choice('ACGT')`  | a random letter: A, C, G, or T
-| `random.shuffle('ACGT')` | randomize positions, works on lists too
+| `random.shuffle(list)`   | randomize positions
 
 
 ## Files ##
