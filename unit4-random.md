@@ -4,25 +4,25 @@ Unit 4: Random
 ## Contents ##
 
 + [Random numbers](#random-numbers)
-	+ [random.random()](#randomrandom)
-	+ [random.choice()](#randomchoice)
-	+ [random.randint()](#randomrandint)
-	+ [random.gauss()](#randomgauss)
-	+ [41zscores.py](#41zscorespy)
+    + [random.random()](#randomrandom)
+    + [random.choice()](#randomchoice)
+    + [random.randint()](#randomrandint)
+    + [random.gauss()](#randomgauss)
+    + [41zscores.py](#41zscorespy)
 + [Pretty Printing](#pretty-printing)
-	+ [Special Characters](#special-characters)
-	+ [f-strings](#f-strings)
-	+ [sys.stderr](#sysstderr)
+    + [Special Characters](#special-characters)
+    + [f-strings](#f-strings)
+    + [sys.stderr](#sysstderr)
 + [Monte Carlo](#monte-carlo)
-	+ [Pseudorandom](#pseudorandom)
-	+ [Compound Assignment](#compound-assignment)
-	+ [Chicago](#chicago)
+    + [Pseudorandom](#pseudorandom)
+    + [Compound Assignment](#compound-assignment)
+    + [Chicago](#chicago)
 + [Homework](#homework)
-	+ [43randomdna.py](#43randomdnapy)
-	+ [44randompi.py](#44randompipy)
-	+ [45dndstats.py](#45dndstatspy)
-	+ [46savingthrows.py](#46savingthrowspy)
-	+ [47deathsaves.py](#47deathsavespy)
+    + [43randomdna.py](#43randomdnapy)
+    + [44randompi.py](#44randompipy)
+    + [45dndstats.py](#45dndstatspy)
+    + [46savingthrows.py](#46savingthrowspy)
+    + [47deathsaves.py](#47deathsavespy)
 
 ## Random Numbers ##
 
@@ -49,7 +49,7 @@ for i in range(5):
 
 Given a container of values, `random.choice()` randomly chooses an item from
 the container. So far, the only container we have seen are strings, which
-contain characters. We can make random dna by choosing letters from its
+contain characters. We can make random DNA by choosing letters from its
 alphabet.
 
 ```
@@ -191,7 +191,7 @@ print(f'formatted string {i} {pi:.3f}')
 
 When running thousands or millions of random trials, which we will do below,
 you sometimes want to send some progress messages to your terminal so that you
-know the program is still running and to estiamte how much longer it will take.
+know the program is still running and to estimate how much longer it will take.
 This isn't data, so you wouldn't want to mix it with the program output. A
 convenient way to separate messages from data is to specify `file=sys.stderr`
 in the `print()` function.
