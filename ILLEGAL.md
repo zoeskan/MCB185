@@ -53,6 +53,7 @@ curriculum.
 + `argparse` - for processing command-line arguments
 + `gzip` - for reading compressed files
 + `itertools` - for producing k-mers from `itertools.product()`
++ `json` - for `json.dumps()`
 + `math` - for various math functions `like math.log2()`
 + `random` - for creating random numbers or choices
 + `re` - for regular expressions
