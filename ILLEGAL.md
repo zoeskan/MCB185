@@ -35,6 +35,7 @@ The following common and useful features of Python are not introduced in
 MCB185, and any programs using these features are illegal.
 
 + Recursion: functions that call themselves
++ Closures or any function that defines inner functions
 + The `input()` function to get user input from the keyboard
 + Ternary operator like `v1 if condition else v2`
 + The `match` and `case` keywords to make switch-like statements
@@ -52,6 +53,7 @@ curriculum.
 + `argparse` - for processing command-line arguments
 + `gzip` - for reading compressed files
 + `itertools` - for producing k-mers from `itertools.product()`
++ `json` - for `json.dumps()`
 + `math` - for various math functions `like math.log2()`
 + `random` - for creating random numbers or choices
 + `re` - for regular expressions

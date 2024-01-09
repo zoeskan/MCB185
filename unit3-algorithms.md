@@ -58,15 +58,25 @@ while True:
     print('hello')
 ```
 
-In order to break the loop, we must provide some kind of condition when the
-Boolean expression is no longer True. In the example below, we create a
-variable `i` that will be used to store an integer. Each time through the loop,
-the value of `i` increases (`i = i + 1`). Once `i` reaches 5,  `i < 5` is
-`False` and the loop terminates.
+One way to break a loop is with the `break` statement. In the example below, we
+create a variable `i` that will be used to store an integer. Each time through
+the loop, the value of `i` increases: `i = i + 1`. Once `i` reaches 3, the
+loop breaks.
 
 ```
 i = 0
-while i < 5:
+while True:
+	i = i + 1
+	print('hey', i)
+	if i == 3: break
+```
+
+A better way to break a `while` loop is to provide some kind of condition when
+the Boolean expression is no longer True.
+
+```
+i = 0
+while i < 3:
     print(i)
     i = i + 1
 print('final value of i is', i)
