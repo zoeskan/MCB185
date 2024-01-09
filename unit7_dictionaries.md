@@ -4,17 +4,17 @@ Unit 7: Dictionaries
 ## Contents ##
 
 + [Basics](#basics)
-	+ [Iteration](#iteration)
+    + [Iteration](#iteration)
 + [Lookup Tables](#lookup-tables)
 + [Categorial Data](#categorical-data)
-	+ [71countgff.py](#71countgffpy)
-	+ [Composition, again](#composition-again)
-	+ [Sorting](#sorting)
+    + [71countgff.py](#71countgffpy)
+    + [Composition, again](#composition-again)
+    + [Sorting](#sorting)
 + [K-mers](#k-mers)
-	+ [72kmercount.py](#72kmercount.py)
+    + [72kmercount.py](#72kmercount.py)
 + [Homework](#homework)
-	+ [73missingkmers.py](#73missingkmerspy)
-	+ [74genefinder.py](#74genefinderpy)
+    + [73missingkmers.py](#73missingkmerspy)
+    + [74genefinder.py](#74genefinderpy)
 
 ------------------------------------------------------------------------------
 
@@ -128,29 +128,29 @@ to your demo.
 
 ```
 def kd_cond(seq):
-	kd = 0
-	for aa in seq:
-		if   aa == 'I': kd += 4.5
-		elif aa == 'V': kd += 4.2
-		elif aa == 'L': kd += 3.8
-		elif aa == 'F': kd += 2.8
-		elif aa == 'C': kd += 2.5
-		elif aa == 'M': kd += 1.9
-		elif aa == 'A': kd += 1.8
-		elif aa == 'G': kd += -0.4
-		elif aa == 'T': kd += -0.7
-		elif aa == 'S': kd += -0.8
-		elif aa == 'W': kd += -0.9
-		elif aa == 'Y': kd += -1.3
-		elif aa == 'P': kd += -1.6
-		elif aa == 'H': kd += -3.2
-		elif aa == 'E': kd += -3.5
-		elif aa == 'Q': kd += -3.5
-		elif aa == 'D': kd += -3.5
-		elif aa == 'N': kd += -3.5
-		elif aa == 'K': kd += -3.9
-		elif aa == 'R': kd += -4.5
-	return kd/len(seq)
+    kd = 0
+    for aa in seq:
+        if   aa == 'I': kd += 4.5
+        elif aa == 'V': kd += 4.2
+        elif aa == 'L': kd += 3.8
+        elif aa == 'F': kd += 2.8
+        elif aa == 'C': kd += 2.5
+        elif aa == 'M': kd += 1.9
+        elif aa == 'A': kd += 1.8
+        elif aa == 'G': kd += -0.4
+        elif aa == 'T': kd += -0.7
+        elif aa == 'S': kd += -0.8
+        elif aa == 'W': kd += -0.9
+        elif aa == 'Y': kd += -1.3
+        elif aa == 'P': kd += -1.6
+        elif aa == 'H': kd += -3.2
+        elif aa == 'E': kd += -3.5
+        elif aa == 'Q': kd += -3.5
+        elif aa == 'D': kd += -3.5
+        elif aa == 'N': kd += -3.5
+        elif aa == 'K': kd += -3.9
+        elif aa == 'R': kd += -4.5
+    return kd/len(seq)
 ```
 
 Another way is to index parallel lists. While this is a lot less code than the
@@ -159,14 +159,14 @@ example above, it is basically the same linear search. Don't add this either.
 ```
 aas = 'IVLFCMAGTSWYPHEQDNKR'
 kds = (4.5, 4.2, 3.8, 2.8, 2.5, 1.9, 1.8, -0.4, -0.7, -0.8, -0.9, -1.3,
-	-1.6, -3.2, -3.5, -3.5, -3.5, -3.5, -3.9, -4.5, 0)
+    -1.6, -3.2, -3.5, -3.5, -3.5, -3.5, -3.9, -4.5, 0)
 
 def kd_list(seq):
-	kd = 0
-	for aa in seq:
-		idx = aas.find(aa)
-		kd += kds[idx]
-	return kd/len(seq)
+    kd = 0
+    for aa in seq:
+        idx = aas.find(aa)
+        kd += kds[idx]
+    return kd/len(seq)
 ```
 
 The better way is to use a dictionary. The code is cleaner and runs faster
@@ -174,15 +174,15 @@ because dictionaries are designed for fast lookups.
 
 ```
 kdtable = {
-	'I':  4.5, 'V':  4.2, 'L':  3.8, 'F':  2.8, 'C':  2.5, 'M': 1.9, 'A': 1.8,
-	'G': -0.4, 'T': -0.7, 'S': -0.8, 'W': -0.9, 'Y': -1.3, 'P':-1.6, 'H': -3.2,
-	'E': -3.5, 'Q': -3.5, 'D': -3.5, 'N': -3.5, 'K': -3.9, 'R': -4.5
+    'I':  4.5, 'V':  4.2, 'L':  3.8, 'F':  2.8, 'C':  2.5, 'M': 1.9, 'A': 1.8,
+    'G': -0.4, 'T': -0.7, 'S': -0.8, 'W': -0.9, 'Y': -1.3, 'P':-1.6, 'H': -3.2,
+    'E': -3.5, 'Q': -3.5, 'D': -3.5, 'N': -3.5, 'K': -3.9, 'R': -4.5
 }
 
 def kd_dict(seq):
-	kd = 0
-	for aa in seq: kd += kdtable[aa]
-	return kd/len(seq)
+    kd = 0
+    for aa in seq: kd += kdtable[aa]
+    return kd/len(seq)
 ```
 
 Now that dictionaries have been introduced, you're welcome to use them. Check
@@ -210,15 +210,15 @@ Let's do the equivalent in python. Start a new program called `71countgff.py`
 and add the following lines.
 
 ```
-1	count = {}
-2	with gzip.open(sys.argv[1], 'rt') as fp:
-3		for line in fp:
-4			if line.startswith('#'): continue
-5			f = line.split()
-6			feature = f[2]
-7			if feature not in count: count[feature] = 0
-8			count[feature] += 1
-9	for f, n in count.items(): print(f, n)
+1   count = {}
+2   with gzip.open(sys.argv[1], 'rt') as fp:
+3       for line in fp:
+4           if line.startswith('#'): continue
+5           f = line.split()
+6           feature = f[2]
+7           if feature not in count: count[feature] = 0
+8           count[feature] += 1
+9   for f, n in count.items(): print(f, n)
 ```
 
 Line 1 creates an empty dictionary that will eventually fill up with key:value
@@ -241,8 +241,8 @@ Lines 9 reports the counts of each feature.
 An alternative way of writing lines 7 and 8 is below.
 
 ```
-7			if feature not in count: count[feature] = 1
-8			else:                    count[feature] += 1
+7           if feature not in count: count[feature] = 1
+8           else:                    count[feature] += 1
 ```
 
 ### Composition, again ###
@@ -265,8 +265,8 @@ counting strategy.
 ```
 count = {}
 for nt in seq:
-	if nt not in count: count[nt] = 0
-	count[nt] += 1
+    if nt not in count: count[nt] = 0
+    count[nt] += 1
 ```
 
 ### Sorting ###
@@ -288,7 +288,7 @@ But what if you want the sort to occur inside python? Sorting by keys is really
 easy. The `sorted()` function sorts the keys of count.
 
 ```
-	for k in sorted(count): print(k, count[k])
+    for k in sorted(count): print(k, count[k])
 ```
 
 Sorting by values is more complex. Consider the rest of this section as
@@ -300,8 +300,8 @@ keys. We want to sort items based on their values, so we have to send
 `sorted()` the values of the items. Here's the code.
 
 ```
-	for k, v in sorted(count.items(), key=lambda item: item[1]):
-		print(k, v)
+    for k, v in sorted(count.items(), key=lambda item: item[1]):
+        print(k, v)
 ```
 
 Lambda functions are tiny anonymous functions. This lambda function reads the
@@ -316,10 +316,10 @@ sorting (in this case the value).
 
 ```
 def by_value(tuple):
-	return tuple[1]
+    return tuple[1]
 
 for k, v in sorted(count.items(), key=by_value):
-	print(k, v)
+    print(k, v)
 ```
 
 ## K-mers ##
@@ -334,14 +334,14 @@ To explore k-mers, let's make a new program: `72kmercount.py`. As the name
 suggests, it will count kmers.
 
 ```
-1	k = int(sys.argv[2])
-2	kcount = {}
-3	for defline, seq in mcb185.read_fasta(sys.argv[1]):
-4		for i in range(len(seq) -k +1):
-5			kmer = seq[i:i+k]
-6			if kmer not in kcount: kcount[kmer] = 0
-7			kcount[kmer] += 1
-8	for kmer, n in kcount.items(): print(kmer, n)
+1   k = int(sys.argv[2])
+2   kcount = {}
+3   for defline, seq in mcb185.read_fasta(sys.argv[1]):
+4       for i in range(len(seq) -k +1):
+5           kmer = seq[i:i+k]
+6           if kmer not in kcount: kcount[kmer] = 0
+7           kcount[kmer] += 1
+8   for kmer, n in kcount.items(): print(kmer, n)
 ```
 
 Line 1 sets up a command line parameter for the value of k.
@@ -382,17 +382,17 @@ want to see it in action.
 ```
 import itertools
 for nts in itertools.product('ACGT', repeat=2):
-	print(nts)
+    print(nts)
 ```
 
 Add the following to `72kmercount.py`.
 
 ```
-1	import itertools
-2	for nts in itertools.product('ACGT', repeat=k):
-3		kmer = ''.join(nts)
-4		if kmer in kcount: print(kmer, kcount[kmer])
-5		else:              print(kmer, 0)
+1   import itertools
+2   for nts in itertools.product('ACGT', repeat=k):
+3       kmer = ''.join(nts)
+4       if kmer in kcount: print(kmer, kcount[kmer])
+5       else:              print(kmer, 0)
 ```
 
 Line 3 joins the tuple `nts` into a string so that we can use it to index our
@@ -411,6 +411,7 @@ strand). It does exist if you reverse-complement the genome.
 + `71countgff.py`
 + `72kmercount.py`
 + `73missingkmers.py`
++ `74genefinder.py`
 
 ### 73missingkmers.py ###
 
