@@ -17,7 +17,7 @@ Unit 0: Setup
     + [Remote Login](#remote-login)
 + [Terminal](#terminal)
 + [Programming Editor](#programming-editor)
-+ [Home Directory](#home-dirctory)
++ [Home Directory](#home-directory)
     + [Code Directory](#code-directory)
     + [File Naming Conventions](#file-naming-conventions)
 + [Git](#git)
