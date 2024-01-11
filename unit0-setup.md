@@ -854,7 +854,7 @@ Here is the table of all the simple characters without special meanings.
 |  60 |  3c | < |  92 |  5c | \ | 124 |  7c | | |
 |  61 |  3d | = |  93 |  5d | ] | 125 |  7d | } |
 |  62 |  3e | > |  94 |  5e | ^ | 126 |  7e | ~ |
-|  63 |  3f | ? |  95 |  5f | _ | 127 |  7f |   |
+|  63 |  3f | ? |  95 |  5f | _ | 127 |  7f |DEL|
 
 In addition to these simple characters, text files also contain a few special
 characters. The tab key inserts an invisible character that "snaps" to various
