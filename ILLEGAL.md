@@ -47,7 +47,7 @@ MCB185, and any programs using these features are illegal.
 + The `class` keyword used in object-oriented programming
 + Decorators like `@function_name`
 
-You may `import` these 6 built-in libraries after they are introduced in the
+You may `import` these built-in libraries after they are introduced in the
 curriculum.
 
 + `argparse` - for processing command-line arguments
@@ -59,7 +59,7 @@ curriculum.
 + `re` - for regular expressions
 + `sys` - for `sys.argv`, `sys.stdin`, `sys.stderr`, and `sys.exit()`
 
-You may also import any library you write or co-author with other students of
-your current MCB185 cohort.
+You may also import `MCB185/mcb185.py` after it is introduced and any library
+you write or co-author with other students of your current MCB185 cohort.
 
 The use of any other library is illegal.
