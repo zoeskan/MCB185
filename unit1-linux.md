@@ -27,6 +27,7 @@ Unit 1: Linux
     + [cut, sort, and uniq](#cut-sort-and-uniq)
     + [grep](#grep)
 + [Shell Scripting](#shell-scripting)
++ [Shell Customization](#shell-customization)
 + [Homework](#homework)
     + [13spellingbee.sh](#13spellingbeesh)
 
@@ -105,6 +106,11 @@ ls ~/Code
 ls ~/Code/*
 ls ~/Code/MCB185/*.md
 ```
+
+### Aliases ###
+
+Another great way to save keystrokes is to create aliases for your favorite
+commands. See the section on Shell Customization.
 
 ------------------------------------------------------------------------------
 
@@ -901,6 +907,55 @@ Save the output of the report as `12report.txt`.
 
 ```
 sh 11status.sh > 12report.txt
+```
+
+------------------------------------------------------------------------------
+
+## Shell Customization ##
+
+When you start up a terminal, the shell usually reads a login script in your
+home directory. The purpose of the login script is personalize your CLI
+experience. For example, perhaps you always type `ls -F` when listing
+directories and you wished that `ls` showed file types by default. You can do
+that in your the login script.
+
+The name of your login script depends on your shell.
+
+```
+echo $SHELL
+```
+
++ `/bin/bash` - `.bashrc` or `.bash_profile` or `.profile`
++ `/bin/zsh` - `.zshrc`
+
+Note the leading `.` on the filenames above. This means these files are normally
+hidden. Use the `-a` flag to show all files.
+
+```
+cd
+ls -a
+```
+
+If you don't see any of the files above, create one. Make sure the focus of
+your terminal is your home directory. Then create the file name based on the
+$SHELL. Place the following contents at the end of the file.
+
+```
+alias ls="ls -F"
+```
+
+Now, every time you give the `ls` command, you will actually be doing `ls -F`.
+I type `git status` so often that I have an alias for that: `gs`.
+
+
+Here are some common customizations.
+
+```
+alias ..="cd .."
+alias la="ls -a"
+alias ll="ls -l"
+alias rm="rm -i"  # prompt user before removing file
+alias cp="cp -i"  # prompt user before overwriting file
 ```
 
 ------------------------------------------------------------------------------
