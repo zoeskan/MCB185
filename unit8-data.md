@@ -4,16 +4,16 @@ Unit 8: Data
 ## Contents ##
 
 + [Lists of Things](#2-lists-of-things)
-	+ [Arrays and Matrices](#arrays-and-matrices)
+    + [Arrays and Matrices](#arrays-and-matrices)
 + [Records](#records)
-	+ [Dicts of Dicts](#dicts-of-dicts)
+    + [Dicts of Dicts](#dicts-of-dicts)
 + [Complex Data](#complex-data)
-	+ [JSON](#json)
+    + [JSON](#json)
 + [Regular Expressions](#regular-expressions)
-	+ [81prosite.py](#81prositepy)
+    + [81prosite.py](#81prositepy)
 + [Homework](#homework)
-	+ [82kozak.py](#82kozakpy)
-	+ [83splicesites.py](#83splicesitespy)
+    + [82kozak.py](#82kozakpy)
+    + [83splicesites.py](#83splicesitespy)
 
 ------------------------------------------------------------------------------
 
@@ -46,10 +46,10 @@ same type or "shape".
 
 ```
 d = [
-	'hello',
-	(3.14, 'pi'),
-	[-1, 0, 1],
-	{'year': 2000, 'month': 7}
+    'hello',
+    (3.14, 'pi'),
+    [-1, 0, 1],
+    {'year': 2000, 'month': 7}
 ]
 print(d[0][4], d[1][0], d[2][2], d[3]['month'])
 ```
@@ -81,10 +81,10 @@ a sequencing oligo might look like this:
 
 ```
 oligo = {
-	'Name': 'SO116',
-	'Length': 18,
-	'Sequence': 'ATTTAGGTGACACTATAG',
-	'Description': 'SP6 promoter sequencing primer'
+    'Name': 'SO116',
+    'Length': 18,
+    'Sequence': 'ATTTAGGTGACACTATAG',
+    'Description': 'SP6 promoter sequencing primer'
 }
 ```
 
@@ -101,20 +101,20 @@ some sequencing primers from a catalog. Here's how we read a CSV file into a
 list of records.
 
 ```
-1	def read_catalog(filepath):
-2		catalog = []
-3		with open(filepath) as fp:
-4			for line in fp:
-5				if line.startswith('#'): continue
-6				name, length, seq, desc = line.rstrip().split(',')
-7				record = {
-8					'Name': name,
-9					'Length': length,
-10					'Sequence': seq,
-11					'Description': desc
-12				}
-13				catalog.append(record)
-14		return catalog
+1   def read_catalog(filepath):
+2       catalog = []
+3       with open(filepath) as fp:
+4           for line in fp:
+5               if line.startswith('#'): continue
+6               name, length, seq, desc = line.rstrip().split(',')
+7               record = {
+8                   'Name': name,
+9                   'Length': length,
+10                  'Sequence': seq,
+11                  'Description': desc
+12              }
+13              catalog.append(record)
+14      return catalog
 ```
 
 Line 6 is a new construction. `str.rstrip()` removes characters from the
@@ -137,7 +137,7 @@ its records.
 ```
 catalog = read_catalog('primers.csv')
 for primer in catalog:
-	print(primer['Name'], primer['Description'])
+    print(primer['Name'], primer['Description'])
 ```
 
 Like any dictionary, we can edit fields by accessing their keys and add new
@@ -149,7 +149,7 @@ accept a string, and add it to your library.
 
 ```
 for primer in catalog:
-	primer['Tm'] = dogma.tm(primer['Sequence'])
+    primer['Tm'] = dogma.tm(primer['Sequence'])
 print(catalog)
 ```
 
@@ -160,11 +160,11 @@ them, we wanted to know the location of each k-mer on the sequence? Here's what
 the code looked like before. Take note of lines 4-5.
 
 ```
-1	kcount = {}
-2	for i in range(len(seq) -k +1):
-3		kmer = seq[i:i+k]
-4		if kmer not in kcount: kcount[kmer] = 0
-5		kcount[kmer] += 1
+1   kcount = {}
+2   for i in range(len(seq) -k +1):
+3       kmer = seq[i:i+k]
+4       if kmer not in kcount: kcount[kmer] = 0
+5       kcount[kmer] += 1
 ```
 
 In order to record locations of k-mers, we need to turn the initialization of 0
@@ -172,14 +172,14 @@ into an initialization of an empty list. And then instead of counting k-mers,
 we need to append their locations.
 
 ```
-1	seq = 'AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGT'
-2	k = 2
-3	kloc = {}
-4	for i in range(len(seq) -k +1):
-5		kmer = seq[i:i+k]
-6		if kmer not in kloc: kloc[kmer] = []
-7		kloc[kmer].append(i)
-8	print(kloc)
+1   seq = 'AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGT'
+2   k = 2
+3   kloc = {}
+4   for i in range(len(seq) -k +1):
+5       kmer = seq[i:i+k]
+6       if kmer not in kloc: kloc[kmer] = []
+7       kloc[kmer].append(i)
+8   print(kloc)
 ```
 
 Line 6 associates a new empty list with each new dictionary key.
@@ -249,9 +249,9 @@ the structure.
 
 ```
 truc = {
-	'animals': {'dog': 'woof', 'cat': 'meow', 'pig': 'oink'},
-	'numbers': [1.09, 2.72, 3.14],
-	'is_complete': False,
+    'animals': {'dog': 'woof', 'cat': 'meow', 'pig': 'oink'},
+    'numbers': [1.09, 2.72, 3.14],
+    'is_complete': False,
 }
 print(json.dumps(truc, indent=4))
 ```
@@ -288,7 +288,7 @@ with `in`.
 
 ```
 for defline, seq in mcb185.read_fasta(sys.argv[1]):
-	if 'DKTGT' in seq: print(defline)
+    if 'DKTGT' in seq: print(defline)
 ```
 
 The regular expression version isn't much different. `re.search()` takes two
@@ -297,7 +297,7 @@ the string is the sequence.
 
 ```
 for defline, seq in mcb185.read_fasta(sys.argv[1]):
-	if re.search('DKTGT', seq): print(defline)
+    if re.search('DKTGT', seq): print(defline)
 ```
 
 'D-K-T-G-T' is a subset of a larger PROSITE pattern for P-type ATPases
@@ -309,7 +309,7 @@ syntax for the character classes we used back in Unit 1 with `grep`.
 
 ```
 for defline, seq in mcb185.read_fasta(sys.argv[1]):
-	if re.search('DKTGT[LIVM][TI]', seq): print(defline)
+    if re.search('DKTGT[LIVM][TI]', seq): print(defline)
 ```
 
 Let's try a more complex pattern: C-x(2,4)-C-x(3)-[LIVMFYWC]-x(8)-H-x(3,5)-H.
@@ -322,17 +322,17 @@ curly braces for ranges rather than parentheses.
 
 ```
 for defline, seq in mcb185.read_fasta(sys.argv[1]):
-	if re.search('C.{2,4}C.{3}[LIVMFYWC].{8}H.{3,5}H', seq): print(defline)
+    if re.search('C.{2,4}C.{3}[LIVMFYWC].{8}H.{3,5}H', seq): print(defline)
 ```
 
 Regular expressions can also extract the text they match. Each pair of
 parentheses is called a match group.
 
 ```
-1	pat = '(C.{2,4}C.{3}[LIVMFYWC].{8}H.{3,5}H)'
-2	for defline, seq in mcb185.read_fasta(sys.argv[1]):
-3		m = re.search(pat, seq)
-4		if m: print(m.group(1))
+1   pat = '(C.{2,4}C.{3}[LIVMFYWC].{8}H.{3,5}H)'
+2   for defline, seq in mcb185.read_fasta(sys.argv[1]):
+3       m = re.search(pat, seq)
+4       if m: print(m.group(1))
 ```
 
 Line 1 abstracts the pattern into a variable, which is what we should have done

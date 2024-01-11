@@ -18,9 +18,9 @@ Unit 0: Setup
 + [Terminal](#terminal)
 + [Programming Editor](#programming-editor)
 + [Home Directory](#home-directory)
-	+ [Mac](#mac)
-	+ [Cygwin](#cygwin)
-	+ [Linux](#linux)
+    + [Mac](#mac)
+    + [Cygwin](#cygwin)
+    + [Linux](#linux)
     + [Code Directory](#code-directory)
     + [File Naming Conventions](#file-naming-conventions)
 + [Git](#git)
@@ -407,36 +407,56 @@ pwd
 
 ### Mac ###
 
-You home directory is found here:
+Your home directory path is:
 
 ```
 /Users
-	/username
-		/home
+    /username
+        /home
 ```
 
 ### Cygwin ###
 
-From Cygwin
+From Cygwin, your Cygwin home directory path is:
+
 ```
 /home
-	/username  # cygwin home from cygwin
-/cygdrive
-	/c
-		/Users
-			username  # windows home from cygwin
-C:
-	\cygdrive64
-		\Users
-			\username
+    /username
 ```
 
+From Cygwin, your Windows home directory path is:
+
+```
+/cygdrive
+    /c
+        /Users
+            username
+```
+
+From Windows, your Windows home directory path is:
+
+```
+C:
+    \Users
+        \username
+```
+
+From Widows, your Cygwin home directory path is:
+
+```
+C:
+    \cygdrive64
+        \home
+            \username
+```
 
 ### Linux ###
 
+Your home directory path is:
+
 ```
 /home
-	/username
+    /username
 ```
 
 ### Code Directory ###

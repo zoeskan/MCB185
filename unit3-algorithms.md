@@ -66,9 +66,9 @@ loop breaks.
 ```
 i = 0
 while True:
-	i = i + 1
-	print('hey', i)
-	if i == 3: break
+    i = i + 1
+    print('hey', i)
+    if i == 3: break
 ```
 
 A better way to break a `while` loop is to provide some kind of condition when
