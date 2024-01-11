@@ -18,6 +18,9 @@ Unit 0: Setup
 + [Terminal](#terminal)
 + [Programming Editor](#programming-editor)
 + [Home Directory](#home-directory)
+	+ [Mac](#mac)
+	+ [Cygwin](#cygwin)
+	+ [Linux](#linux)
     + [Code Directory](#code-directory)
     + [File Naming Conventions](#file-naming-conventions)
 + [Git](#git)
@@ -402,11 +405,45 @@ cd
 pwd
 ```
 
+### Mac ###
+
+You home directory is found here:
+
+```
+/Users
+	/username
+		/home
+```
+
+### Cygwin ###
+
+From Cygwin
+```
+/home
+	/username  # cygwin home from cygwin
+/cygdrive
+	/c
+		/Users
+			username  # windows home from cygwin
+C:
+	\cygdrive64
+		\Users
+			\username
+```
+
+
+### Linux ###
+
+```
+/home
+	/username
+```
+
 ### Code Directory ###
 
 We are going to organize all of our programming efforts in a directory called
 `Code`. Use `pwd` to ensure your focus is your home directory. If you are in
-another directory, use `cd` to get back to your home. Once your focus is set to
+another directory, use `cd` to get back to our home. Once your focus is set to
 home, use `mkdir` to create the `Code` directory.
 
 ```
