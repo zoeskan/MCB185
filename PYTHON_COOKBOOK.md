@@ -422,40 +422,38 @@ is a simple CLI for the program `dust.py` that masks low complexity regions of
 a sequence.
 
 ```
-import argparse
-parser = argparse.ArgumentParser(description='DNA entropy filter.')
-parser.add_argument('file', type=str, help='name of fasta file')
-parser.add_argument('k', type=int, help='window size')
-parser.add_argument('h', type=float, help='entropy threshold')
-parser.add_argument('--lower', action='store_true', help='mask with lowercase')
-arg = parser.parse_args()
-do_something(arg.file, arg.k, arg.h, arg.lower)
+1	import argparse
+2
+3	parser = argparse.ArgumentParser(description='DNA entropy filter.')
+4	parser.add_argument('file', type=str, help='name of fasta file')
+5	parser.add_argument('size', type=int, help='window size')
+6	parser.add_argument('threshold', type=float, help='threshold')
+7	arg = parser.parse_args()
 ```
 
 When you run the program without any arguments, it reports the following brief
 message.
 
 ```
-usage: dust.py [-h] [--lower] file k h
-dust.py: error: the following arguments are required: file, k, h
+usage: dust.py [-h] [--lower] file size threshold
+dust.py: error: the following arguments are required: file, size, threshold
 ```
 
 To get more information about what the program does, run the program again with
 `-h` or `--help`.
 
 ```
-usage: dust.py [-h] [--lower] file k h
+usage: dust.py [-h] [--lower] file size threshold
 
 DNA entropy filter.
 
 positional arguments:
   file        name of fasta file
-  k           window size
-  h           entropy threshold
+  size        window size
+  threshold   entropy threshold
 
 optional arguments:
   -h, --help  show this help message and exit
-  --lower     mask with lowercase
 ```
 
 ## Nested CLI ##

@@ -577,7 +577,8 @@ ls
 You should now see your homework directory when you `ls`. Also clone the MCB185
 repo so that you have all of the course content on your computer. You might be
 asking yourself why MCB185 is capitalized. That's because you're not supposed
-to modify it. Think of the contents there as read-only.
+to modify it. Think of the contents there as read-only. Note that the URL below
+has my name in it intentionally. Don't substitute your name.
 
 ```
 git clone https://github.com/iankorf/MCB185
