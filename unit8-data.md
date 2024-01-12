@@ -359,14 +359,19 @@ surface. There are a lot of good guides on regular expressions.
 + `80demo.py`
 + `81prosite.py`
 + `82kozak.py`
++ `84pwm.py`
 
 ### 82kozak.py ###
 
 Create a PWM for the Kozak consensus (translation intiation) for E.coli. Output
-the file in JSON, JASPAR, and TRANSFAC formats.
+the file in JASPAR and TRANSFAC formats.
 
 ### 83splicesites.py ###
 
 Create PWMs for the splice donor and acceptor sites using the FASTA and GFF
-files from the model organisms. Output the file in JSON, JASPAR, and TRANSFAC
-formats.
+files from the model organisms. Output the file in JASPAR and TRANSFAC formats.
+
+### 84pwm.py ###
+
+Create a program that matches PWMs to sequences. The program should work with
+both JASPAR or TRANSFAC file, and auto-detect the file type.
