@@ -59,9 +59,10 @@ print(d[0][4], d[1][0], d[2][2], d[3]['month'])
 The words 'array' and 'list' are sometimes used interchangeably. In some
 languages, they mean the exact same thing. In Python they do not. We have been
 working with lists since unit 5. But Python also defines arrays, which are
-linear containers where all elements are the exact same type (e.g. int). We
-aren't using arrays in this course. One of the most popular Python libraries is
-'numpy', which also defines arrays.
+linear containers where all elements are the exact same type (e.g. int). Arrays
+are constructed with the `array()` function. We aren't using arrays in this
+course. One of the most popular Python libraries is 'numpy', which also defines
+arrays as `numpy.array()`. We also aren't using numpy arrays.
 
 Matrices are multi-dimensional arrays. Matrices are rectangular (each dimension
 has the same number of elements) and like arrays, all values are of the same
@@ -125,7 +126,7 @@ a named variable, we can split it immediately by calling `str.split()` to
 retrieve a list from the comma-separated values on the line.
 
 Lines 7-12 create the record. Note that you don't need to name a record before
-appending it. Lines 7-13 could be replaced by the following.
+appending it. Lines 7-13 could be replaced by the following (but should it?).
 
 ```
 catalog.append({'Name': name, 'Length': length, 'Sequence': seq, 'Description': desc})
@@ -239,7 +240,7 @@ above is also compatible with the data exchange standard called JSON
 (Javascript Object Notation). It's very similar to Python with some exceptions.
 
 + Double-quotes only
-+ Boolean values are `true` and `false`
++ Boolean values are `true` and `false` (lower case instead of title case)
 + Trailing commas are not allowed on the last element of a block
 + There are no comments
 
@@ -264,13 +265,13 @@ One of the oldest but still useful ways to analyze protein sequences are
 PROSITE patterns. The rules specify exact and partial matches. Here are some
 examples.
 
-+ R-G-D means sequences with the substring "RGD" in them
-+ X means any amino acid
-+ [ST]-X-[RK] means S or T followed by any amino acid, followed by R or K
-+ [ILV](3,5) any mixture of 3 to 5 of these hydrophobic amino acids
-+ {P} means not proline
-+ <M means begins with methionine
-+ >W means ends with tryptophan
++ `R-G-D` means proteins with the peptide "RGD" in them
++ `X` means any amino acid
++ `[ST]-X-[RK]` means S or T followed by any amino acid, followed by R or K
++ `[ILV](3,5)` any mixture of 3 to 5 of these hydrophobic amino acids
++ `{P}` means not proline
++ `<M` means begins with methionine
++ `>W` means ends with tryptophan
 
 If you're thinking to yourself that these rules sound a bit like `grep`, you
 are correct. Both PROSITE and `grep` are regular grammars. `grep` stands for
@@ -283,7 +284,7 @@ matching.
 Let's explore regular expressions in the context of PROSITE patterns. Start a
 program `81prosite.py` and start stepping through E.coli proteins (in
 MCB185/data of course). Print the names of any sequences matching the PROSITE
-pattern D-K-T-G-T. This is easily solved by dropping the dashes and searing
+pattern "D-K-T-G-T". This is easily solved by dropping the dashes and searching
 with `in`.
 
 ```
@@ -292,7 +293,7 @@ for defline, seq in mcb185.read_fasta(sys.argv[1]):
 ```
 
 The regular expression version isn't much different. `re.search()` takes two
-arguments, a _pattern_ and a string. In this case, the pattern is 'DKTGT' and
+arguments, a _pattern_ and a string. In this case, the pattern is "DKTGT" and
 the string is the sequence.
 
 ```
@@ -300,25 +301,26 @@ for defline, seq in mcb185.read_fasta(sys.argv[1]):
     if re.search('DKTGT', seq): print(defline)
 ```
 
-'D-K-T-G-T' is a subset of a larger PROSITE pattern for P-type ATPases
-phosphorylation site (PDOC00139). The full pattern is: D-K-T-G-T-[LIVM]-[TI].
-The token '[LIVM]' means any one of leucine, isoleucine, valine, or methionine.
-Similarly '[TI]' is a choice of two amino acids. We can't use `in` to make a
-match to the entire pattern, but we can with regex, which uses the exact same
-syntax for the character classes we used back in Unit 1 with `grep`.
+"D-K-T-G-T" is a subset of a larger PROSITE pattern for P-type ATPases
+phosphorylation site (PDOC00139). The full pattern is: "D-K-T-G-T-[LIVM]-[TI]".
+The character class "[LIVM]" means any one of leucine, isoleucine, valine, or
+methionine. Similarly "[TI]" is a choice of two amino acids. We can't use `in`
+to make a match to this fuzzy pattern, but we can with regex, which uses the
+exact same syntax for the character classes we used back in Unit 1 with `grep`.
 
 ```
 for defline, seq in mcb185.read_fasta(sys.argv[1]):
     if re.search('DKTGT[LIVM][TI]', seq): print(defline)
 ```
 
-Let's try a more complex pattern: C-x(2,4)-C-x(3)-[LIVMFYWC]-x(8)-H-x(3,5)-H.
-This is the pattern for C2H2 zinc-finger proteins (PS00028). The 'x' stands for
-any amino acid while the number in parentheses stands for a range. (2,4) means
-2 to 4 amino acids while (3) means exactly 3.
+Let's try a more complex pattern: "C-x(2,4)-C-x(3)-[LIVMFYWC]-x(8)-H-x(3,5)-H".
+This is the pattern for C2H2 zinc-finger proteins (PS00028). The "x" stands for
+any amino acid while the number in parentheses stands for a range. "x(2,4)"
+means 2 to 4 amino acids while "x(3)" means exactly 3.
 
-In regular expressions, `.` means any symbol rather than x. Also, regex uses
-curly braces for ranges rather than parentheses.
+In regular expressions, `.` means any symbol rather than "x". Also, regex uses
+curly braces for ranges rather than parentheses. Therefore "x(2,4)" becomes
+`.{2,4}`.
 
 ```
 for defline, seq in mcb185.read_fasta(sys.argv[1]):
@@ -326,7 +328,8 @@ for defline, seq in mcb185.read_fasta(sys.argv[1]):
 ```
 
 Regular expressions can also extract the text they match. Each pair of
-parentheses is called a match group.
+parentheses is called a match group. The example below has only one group,
+which is the entire pattern.
 
 ```
 1   pat = '(C.{2,4}C.{3}[LIVMFYWC].{8}H.{3,5}H)'
@@ -335,22 +338,21 @@ parentheses is called a match group.
 4       if m: print(m.group(1))
 ```
 
-Line 1 abstracts the pattern into a variable, which is what we should have done
-from the beginning. But sometimes you don't know that until later.
+Line 1 abstracts the pattern into a variable. Imagine swapping iterating
+through a list of a bunch of patterns in an outer loop.
 
 Line 3 assigns the search to a variable. The variable will either have a value
-of `None`, which is logically `False`, or it will contain a "match object".
-This is why the variable is named `m`.
+of `None`, which is logically `False`, or it will contain a "match object". The
+variable is named `m` as an abbreviation for "match".
 
 Line 4 retrieves the matched substring if `m` has a value that can be
 considered `True` (most things are `True` except `None`, `False`, 0, and empty
 containers).
 
-Ultimately, the protein that matches has the following peptide that matches the
-C2H2 zinc-finger pattern: CHACEIACVMAHNDEQHVLSQHH
+Ultimately, the pattern matches: "CHACEIACVMAHNDEQHVLSQHH".
 
 Regular expressions are very powerful, and we have barely scratched the
-surface. There are a lot of good guides on regular expressions.
+surface. The Internet has a lot of good guides on regular expressions.
 
 ------------------------------------------------------------------------------
 
