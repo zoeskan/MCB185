@@ -12,9 +12,9 @@ Unit 8: Data
 + [Regular Expressions](#regular-expressions)
     + [81prosite.py](#81prositepy)
 + [Homework](#homework)
-	+ [82transfac.py](#transfacpy)
-    + [83kozak.py](#82kozakpy)
-    + [84splicesites.py](#83splicesitespy)
+    + [82transfac.py](#82transfacpy)
+    + [83kozak.py](#83kozakpy)
+    + [84splicesites.py](#84splicesitespy)
 
 ------------------------------------------------------------------------------
 
