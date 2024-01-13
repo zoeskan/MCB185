@@ -3,7 +3,7 @@ Unit 8: Data
 
 ## Contents ##
 
-+ [Lists of Things](#2-lists-of-things)
++ [Lists of Things](#lists-of-things)
     + [Arrays and Matrices](#arrays-and-matrices)
 + [Records](#records)
     + [Dicts of Dicts](#dicts-of-dicts)
@@ -12,8 +12,9 @@ Unit 8: Data
 + [Regular Expressions](#regular-expressions)
     + [81prosite.py](#81prositepy)
 + [Homework](#homework)
-    + [82kozak.py](#82kozakpy)
-    + [83splicesites.py](#83splicesitespy)
+	+ [82transfac.py](#transfacpy)
+    + [83kozak.py](#82kozakpy)
+    + [84splicesites.py](#83splicesitespy)
 
 ------------------------------------------------------------------------------
 
@@ -377,4 +378,3 @@ format.
 
 Create PWMs for the splice donor and acceptor sites using the FASTA and GFF
 files from the model organisms. Output the file in TRANSFAC format.
-
