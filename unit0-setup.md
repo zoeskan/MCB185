@@ -410,9 +410,7 @@ pwd
 Your home directory path is:
 
 ```
-/Users
-    /username
-        /home
+/Users/username
 ```
 
 ### Cygwin ###
@@ -420,34 +418,25 @@ Your home directory path is:
 From Cygwin, your Cygwin home directory path is:
 
 ```
-/home
-    /username
+/home/username
 ```
 
 From Cygwin, your Windows home directory path is:
 
 ```
-/cygdrive
-    /c
-        /Users
-            username
+/cygdrive/c/Users/username
 ```
 
 From Windows, your Windows home directory path is:
 
 ```
-C:
-    \Users
-        \username
+C:Users\username
 ```
 
 From Widows, your Cygwin home directory path is:
 
 ```
-C:
-    \cygdrive64
-        \home
-            \username
+C:cygdrive64\home\username
 ```
 
 ### Linux ###
@@ -455,8 +444,7 @@ C:
 Your home directory path is:
 
 ```
-/home
-    /username
+/home/username
 ```
 
 ### Code Directory ###
