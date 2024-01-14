@@ -40,6 +40,7 @@ MCB185, and any programs using these features are illegal.
 + Ternary operator like `v1 if condition else v2`
 + The `match` and `case` keywords to make switch-like statements
 + Sets like `s = {'a', 'b'}` of type `<class 'set'>`
++ The `from` keyword used for importing
 + Dunders like `if __name__ == '__main__':`
 + Writing named files (e.g. `open('whatever', 'w')`)
 + Comprehensions (list, generator, dictionary)
