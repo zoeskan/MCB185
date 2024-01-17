@@ -10,7 +10,7 @@ Unit 1: Linux
     + [Up Arrow](#up-arrow)
     + [Wildcards](#wildcards)
 + [Environment Variables](#environment-variables)
-    + [10.env.sh](#10envsh)
+    + [10env.sh](#10envsh)
 + [Viewing files](#viewing-files)
 + [Absolute and Relative Paths](#absolute-and-relative-paths)
     + [Review](#review)
@@ -155,14 +155,22 @@ echo "Hello $USER, your home directory is: $HOME"
 
 ### 10env.sh ###
 
-Write a shell script called `10env.sh` that reports each of the following
-environment variables and their contents.
+Create a new file called `10env.sh` and open it in your programming editor.
+Enter the following contents.
 
-+ USER
-+ HOME
-+ SHELL
-+ PWD
-+ PATH
+```
+echo "user: $USER"
+echo "home: $HOME"
+echo "shell: $SHELL"
+echo "pwd: $PWD"
+echo "path: $PATH"
+```
+
+Save and then run as follows:
+
+```
+sh 10env.sh
+```
 
 ------------------------------------------------------------------------------
 
@@ -897,7 +905,7 @@ Here's an explanation of each line.
 5. Reports some information about your Code directory
 
 Run the program to see what it outputs. If you get an error, make sure both
-`10env.sh` and `11.status.sh` are in your `mcb185_homework` directory.
+`10env.sh` and `11status.sh` are in your `mcb185_homework` directory.
 
 ```
 sh 11status.sh

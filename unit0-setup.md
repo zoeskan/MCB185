@@ -168,7 +168,16 @@ post-install customizations you might need to do. On VirtualBox these include:
 + Set up a shared clipboard if you want to copy-paste between host and VM
 + Set up a shared folder if you want Linux and Windows to share files
 
-If you're having problems with the install or post-install, ask for help.
+After you install Linux. Go to the Devices menus and "Insert Guest Additions CD
+Image". You may see a dialog box to open the CD. Hit OK. Open a terminal.
+Change directory to the CD and then run the installer. Some of these commands
+and terminology may be unfamiliar now. If you're having problems with the
+install or post-install, ask for help.
+
+```
+cd /media/username/VBOX_GAs*
+sudo sh VBoxLinuxAdditions.run
+```
 
 ### Install Linux ###
 
@@ -273,6 +282,10 @@ sometimes single dashes followed by single letters, like `-I`, and sometimes
 double dashes with longer tokens, like `--iso-8601`. Many Linux programs like
 `date` support both long and short options. Both of these lines do the exact
 same thing.
+
+Note, in the following block of text, you're supposed to type `date -I` and
+then hit the return/enter key. Then type the next line and hit return/enter.
+It's two separate commands.
 
 ```
 date -I
