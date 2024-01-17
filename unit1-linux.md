@@ -166,7 +166,9 @@ echo "pwd: $PWD"
 echo "path: $PATH"
 ```
 
-Save and then run as follows:
+Save the file. If you're using a Windows-based editor, it may have defaulted to
+inserted CRLF instead of LF. Make sure you have Unix line endings. Run as
+follows:
 
 ```
 sh 10env.sh
