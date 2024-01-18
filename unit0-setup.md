@@ -555,6 +555,7 @@ In the "Note" you might put in "programming" or something. It doesn't matter.
 For "Expiration" choose the "No expiration" option.
 
 Click on the "repo" checkbox, which will also check the subordinate boxes.
+Finally, go to the bottom of the page and click "Generate token".
 
 This personal access token is given to you once. Copy it and save it somewhere
 safe. You can never get to this PAT again. Ever. However, you can generate a
