@@ -166,10 +166,11 @@ echo "pwd: $PWD"
 echo "path: $PATH"
 ```
 
-Save the file. If you're using a Windows-based editor (e.g. Notepad++), it may
-have defaulted to inserting Windows-style line endings (CRLF) instead of
-Unix-style line endings (LF). Make sure you have Unix line endings. Run as
-follows:
+Save the file. If you're using a Windows-based editor it may have defaulted to
+inserting Windows-style line endings (CRLF) instead of Unix-style line endings
+(LF). Make sure you have Unix line endings. In Notepad++, look at the bottom of
+your screen. If it shows "Windows (CRLF)", click it and change to Unix (LF).
+Run the script as follows:
 
 ```
 sh 10env.sh
