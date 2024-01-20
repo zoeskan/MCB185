@@ -6,6 +6,7 @@ Unit 0: Setup
 + [Unix/Linux](#unixlinx)
     + [Unix vs. Linux](#unix-vs-linux)
     + [Recommendations](#recommendations)
+    + [Command Line Interface](#command-line-interface)
     + [Unix on Mac](#unix-on-mac)
     + [Cygwin on Windows](#cygwin-on-windows)
     + [VM on Windows](#vm-on-windows)
@@ -57,7 +58,8 @@ and yes. Linux was designed to be just like Unix, so from a practical
 standpoint they are very similar. Despite looking the same, they share no
 source code in common. The biggest difference is philosophical. Unix is a
 commercial product and Linux is free open source software (FOSS). From a
-philosophical perspective, they are very different.
+philosophical perspective, they are very different. From our perspective, they
+all behave very similarly, but not always identically.
 
 ### Recommendations ###
 
@@ -67,8 +69,8 @@ interface)? When it comes to automating tasks, it's easier to automate text
 commands than mouse clicks. Also, most computer clusters run Linux because it's
 free and robust. For these reasons, most professional bioinformatics is done
 with a Linux CLI. If you have any aspirations of becoming a bioinformatics
-programmer, you need to become comfortable with the Linux CLI. But before we
-get to that, you need some flavor of Unix/Linux.
+programmer or sophisticated user, you need to become comfortable with the Linux
+CLI. But before we get to that, you need some flavor of Unix/Linux.
 
 + Recommended
     + Mac
@@ -81,6 +83,26 @@ get to that, you need some flavor of Unix/Linux.
     + Windows Subsystem for Linux
     + Raspberry Pi
     + Remote login
+
+### Command Line Interface ###
+
+In this course, we will be typing _commands_ at a command line interface (CLI).
+Whever you see a block of text like the one below, it means type the words
+followed by the Return key (or the Enter key). For example, we will eventually
+type the `date` command followed by the Return key to report the current date.
+
+```
+date
+```
+
+If you see multiple lines in a block, these represent 2 commands. For example,
+in the block below, type `date` followed by Return, then `ls` followed by
+Return.
+
+```
+date
+ls
+```
 
 ### Unix on Mac ###
 
@@ -114,13 +136,15 @@ external libraries (which we don't use in the course) may be a pain to install.
     + Editors - nano
 6. Choose "Next" and ultimately "Finish"
 
-Launching the "Cygwin64 Terminal" brings up a typical CLI.
+Launching the "Cygwin64 Terminal" brings up a typical CLI where you type
+commands. Try typing `git` followed by the return key.
 
-+ Your Windows C drive is mounted in Cygwin at `/cygdrive/c`
-+ Your Cygwin root is mounted in Windows at `C:\cygdrive64` (by default)
+```
+git
+```
 
-The statements above might not mean anything to you right now, but they will
-later.
+If this produces an error message, you didn't install Cygwin properly. Stop and
+get help right now. Do not move on thinking you will get back to this later.
 
 ### VM on Windows ###
 
@@ -161,23 +185,26 @@ own unique look and feel. Here are some recommendations for setting up your VM.
 + VM Memory: 2 GB (or 4 GB if your computer has more than 8 GB)
 + Disk: use default types, 20G is a good amount
 
-Make sure you read the installation directions fully. There are some
-post-install customizations you might need to do. On VirtualBox these include:
+If you want to be able to copy-paste between Windows and Linux or create a
+shared folder that both can access, you need to "Install the Guest Additions
+CD" and run its installation script.
 
-+ Install the Guest Additions "CD"
-+ Set up a shared clipboard if you want to copy-paste between host and VM
-+ Set up a shared folder if you want Linux and Windows to share files
-
-After you install Linux. Go to the Devices menus and "Insert Guest Additions CD
-Image". You may see a dialog box to open the CD. Hit OK. Open a terminal.
-Change directory to the CD and then run the installer. Some of these commands
-and terminology may be unfamiliar now. If you're having problems with the
-install or post-install, ask for help.
++ Start up the Linux VM
++ Click on the "Devices" menu
++ Click on "Install the Guest Additions CD image..."
++ Click OK if you get a dialog box asking if you want to mount the CD
++ Open a Terminal application
++ Do the two commands below, replacing `username` with your user name
 
 ```
 cd /media/username/VBOX_GAs*
 sudo sh VBoxLinuxAdditions.run
 ```
+
++ Set up a shared clipboard if you want to copy-paste between host and VM
++ Set up a shared folder if you want Linux and Windows to share files
+
+If you have any problems or questions, seek help from the instructor or TA.
 
 ### Install Linux ###
 
@@ -186,7 +213,7 @@ repartition your main SSD and dual boot, choosing Windows or Linux during
 startup. You can install Linux on a spare SSD. You can even run Linux off a
 flash drive, plugging it in whenever you want to run it. Any of these methods
 will give you a 100% Linux-only environment that will take advantage of all of
-the CPU and memory in your machine. The main downside is that you may
+the CPU and memory of your laptop/desktop. The main downside is that you may
 accidentally destroy Windows during installation.
 
 ### Linux on Chromebook ###
@@ -196,9 +223,8 @@ Conveniently, Linux is built right in. Select the clock in the lower right
 corner and then go to Settings->Advanced->Developers.
 
 Scroll down to "Linux development environment" and turn it on. It takes a few
-minutes to install the first time. To get to the Linux CLI, use the Terminal
-application. This takes a little while to launch the first time and also after
-a Chrome OS update.
+minutes to install the first time and also between OS updates. To get to the
+Linux CLI, use the Terminal application.
 
 I don't really recommend Chromebooks because it's not a popular platform for
 professional bioinformatics work. However, they will work great for this
@@ -319,8 +345,10 @@ date "+%m/%d/%Y"
 ## Programming Editor ##
 
 You will spend a lot of time using a text editor designed for programming. A
-text editor is not a word processor. We won't be using MS Word or Google Docs
-ever. Popular text editors include:
+text editor is sort of like a word processor but without a choice for font
+styles, ruler settings, or embedded images. We don't use MS Word, Google Docs
+or any other word processor in the course, only text editors. Popular text
+editors include:
 
 + BBedit (Mac only)
 + Notepad++ (Windows only)
@@ -366,17 +394,19 @@ use the `ls` command to list and sort its contents.
 ls
 ```
 
-Linux and Mac users will see directories (folders) for Desktop, Documents,
-Downloads, as well as other directories that depend on your specific operating
-system. Cygwin users will not see anything at all because Cygwin doesn't create
-any directories for you.
+Linux and Mac users will see familiar folder names like Desktop, Documents,
+Downloads, as well as other folders or files you may possess in your home
+directory. In Unix, we call folders "directories". They mean the same thing.
+Cygwin users will not see names after `ls` because Cygwin doesn't automatically
+create any directories for you. That's okay. We will be creating some of our
+own very soon.
 
-Your home directory is located at a specific point in your filesystem. The root
-of the Unix filesystem is `/`. All directories and files are hierarchically
-under "slash". For example, your home directory might be in `/home/your_name`
-or `/Users/your_name`. The exact location depends on your operating system.
-Let's examine the path to your home directory with the `pwd` command, which
-stands for "print working directory".
+Your home directory is located at a specific address in your filesystem. The
+root of the Unix filesystem is `/`. All directories and files are
+hierarchically under "slash". For example, your home directory might be in
+`/home/your_name` or `/Users/your_name`. The exact location depends on your
+operating system. Let's examine the path to your home directory with the `pwd`
+command, which stands for "print working directory".
 
 ```
 pwd
@@ -468,6 +498,7 @@ another directory, use `cd` to get back to our home. Once your focus is set to
 home, use `mkdir` to create the `Code` directory.
 
 ```
+cd
 mkdir Code
 ```
 
@@ -486,18 +517,25 @@ Documents, Downloads, etc.). This is why `Code` is capitalized and not `code`.
 
 ## Git ##
 
-Git is the most popular version control software. While it was designed for
+Git is a very popular document management system. While it was designed for
 source code management, it can be used to manage all kinds of projects. Git
 allows multiple people to work on the same files without anyone over-writing
 anyone else's work. You will always know who did what and when.
 
+A "repository" is a collection of files and folders. Each repository has a
+specific intent. You might start a repo (slang for repository) to store a
+collection of cooking recipes, or maybe to write a book with a couple other
+co-authors. If you have a computer-based project, Git is a great way to manage
+the project.
+
 ### GitHub Account ###
 
-GitHub is a website that lets you store your git repositories for free. There
-are several similar sites, but GitHub is the most popular. Every bioinformatics
-developer should have a GitHub account. Your repositories and activity are part
-of your CV. If you don't have a GitHub account, it's time to point your web
-browser to [GitHub](https://github.com) and create an account.
+GitHub is a website that lets you store your git repositories for free. It's
+secure and backed up. There are several similar sites, but GitHub is the most
+popular. Every bioinformatics developer should have a GitHub account. Your
+repositories and activity are part of your CV. If you don't have a GitHub
+account, it's time to point your web browser to [GitHub](https://github.com)
+and create an account.
 
 Choose a username. It's okay to be clever, but don't be silly. Remember, this
 will be part of your CV. After setting your email and password, choose the free
@@ -506,9 +544,8 @@ account. Go to your email to verify your email address.
 
 ### Create a Repository ###
 
-It's time to create your first repository, which we often shorten to _repo_.
-Before we begin, we need to talk a little about ownership, privacy, and
-security.
+It's time to create your first repository. Before we begin, we need to talk a
+little about ownership, privacy, and security.
 
 When you create a repo, you own it. You can read it, write to it, or even
 delete it. Later, you can invite collaborators who can join you in your
@@ -588,7 +625,8 @@ ls
 ```
 
 You should now see both the `mcb185_homework` and `MCB185` repos in your `Code`
-directory.
+directory. If you don't see these directories in your home directory, stop and
+get help now. Do not proceed thinking you will get back to this later.
 
 ### Git Commands ###
 

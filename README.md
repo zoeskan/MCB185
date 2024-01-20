@@ -86,22 +86,7 @@ for the schedule and URL.
 
 ## Getting Started ##
 
-This course is organized as a GitHub repository. GitHub is a website that lets
-you store and manage Git repositories. While Git was designed for source code
-management, it can be used to manage all kinds of projects. Git allows multiple
-people to work on the same files without anyone over-writing anyone else's
-work. You will always know who did what and when.
-
-There are several services similar to GitHub, but GitHub is the most popular.
-Every bioinformatics developer should have a GitHub account. Your repositories
-and activity are part of your CV. If you don't have a GitHub account, it's time
-to point your web browser to [GitHub](https://github.com) and create an
-account.
-
-Choose a username. Your GitHub account will be part of your CV, so choose a
-name that future you won't be embarrassed by. After setting your email and
-password, choose the free plan and then answer a few questions about your
-interests to create your account. Go to your email to verify your email
-address.
-
-To begin the course, start at `unit0-setup.md`.
+To begin the course, start reading `unit0-setup.md` and follow the directions.
+Once you finish that, move on to subsequent units. The course is designed to be
+completed in linear order. Skipping around between or within units is not
+advised.

@@ -46,7 +46,7 @@ your CLI skills.
 
 Typing is bad for your health. Seriously, if you type all day, you will end up
 with a repetitive stress injury. Don't type for hours at a time. Make sure you
-schedule breaks. Unix has several ways to save your fingers (that does not
+schedule breaks. Unix has several ways to save your fingers (that do not
 involve copy-paste).
 
 ### Tilde Expansion ###
@@ -72,7 +72,11 @@ his
 ```
 
 This fills in the word `history`, which is the name of a Unix command. Hit
-return and you will see all the commands you have typed in this terminal.
+return and you will see all the commands you have typed in this terminal. If
+`his` didn't fill in `history` it's because you have another command that
+starts with `his`. Hit the tab key again, and the terminal will report the
+names of those other commands. Try following with a `t` to make `hist` and then
+tab-complete again.
 
 ### Up Arrow ###
 
@@ -110,7 +114,7 @@ ls ~/Code/MCB185/*.md
 ### Aliases ###
 
 Another great way to save keystrokes is to create aliases for your favorite
-commands. See the section on Shell Customization.
+commands. See the section on Shell Customization below.
 
 ------------------------------------------------------------------------------
 
@@ -865,6 +869,12 @@ specify a range.
 gunzip -c dictionary.gz | grep -E "z.{3,4}z"
 ```
 
+To specify an unlimted upper bound, use the comma by itself.
+
+```
+gunzip -c dictionary.gz | grep -E "z.{3,}z"
+```
+
 You can also search for specific classes of letters. For example, let's require
 that the middle letters be one or more of the vowels, a, e, i, o, or u. A
 character class is created with square brackets.
@@ -998,3 +1008,5 @@ Z     N
 I     C
    A
 ```
+
+If you solved the problem correctly, you should find 50 words.
