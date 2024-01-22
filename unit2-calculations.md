@@ -711,8 +711,8 @@ times within the program.
 
 ### 22oligotemp.py ###
 
-Write a program that computes oligo melting temperature given the number of As,
-Cs, Gs, and Ts in the oligo. Use these two methods.
+Write a program that returns the oligo melting temperature given the number of
+As, Cs, Gs, and Ts in the oligo. Use these two methods.
 
 1. For oligos <= 13 nt, Tm = (A+T)*2 + (G+C)*4
 2. For longer oligos, Tm = 64.9 + 41*(G+C -16.4) / (A+T+G+C)
@@ -729,10 +729,10 @@ times with different letters.
 ### 24accuracy.py ###
 
 Given values for true positives, false positives, true negatives, and false
-negatives, write a function that reports the accuracy and F1 score. Demonstrate
+negatives, write a function that returns the accuracy and F1 score. Demonstrate
 your function works by using it several times in the program.
 
 ### 25entropy.py ##
 
-Write a function that calculates Shannon entropy for nucleotide counts a, c, g,
-t. Demonstrate it works using multiple calls.
+Write a function that returns the Shannon entropy for nucleotide counts a, c,
+g, t. Demonstrate it works using multiple calls.
