@@ -637,6 +637,15 @@ elif nt == 'T': comp = 'A'
 else:           sys.exit('unknown nucleotide', nt)
 ```
 
+(6) There is no space between a function and its opening parentheses. Note that
+`return` is a keyword, not a function.
+
++ Yes: `print('hello')`
++ No: `print ('hello')`
++ Yes: `return a, b`
++ No: `return(a, b)`
++ No: `return (a, b)`
+
 ### Naming ###
 
 + Variable and function names are generally all lowercase
