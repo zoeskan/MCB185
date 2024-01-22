@@ -30,8 +30,8 @@ Unit 2: Calculations
     + [Mismatched Type Error](#mismatched-type-error)
     + [More Practice](#more-practice)
 + [Style](#style)
-	+ [Spacing](#spacing)
-	+ [Naming](#naming)
+    + [Spacing](#spacing)
+    + [Naming](#naming)
 + [Homework](#homework)
     + [20demo.py](#20demopy)
     + [21quadratic.py](#21quadraticpy)
@@ -399,8 +399,8 @@ values separated by a comma. Your function will look something like this.
 
 ```
 def midpoint(x1, y1, x2, y2):
-	# insert stuff here
-	return mx, my
+    # insert stuff here
+    return mx, my
 ```
 
 Call your function like this: `x, y = midpoint(x1, y1, x2, y2)`.
@@ -635,7 +635,8 @@ paragraph structure in English.
 (4) Use tabs for left side indentation. The use of spaces for indentation flags
 your code as potential **cheating**.
 
-(5) Use spaces for lining up simple `if-elif-else` type constructs.
+(5) Use spaces for lining up simple `if-elif-else` type constructs. Don't put
+blank lines between any of the `if-elif-else` words.
 
 ```
 if   nt == 'A': comp = 'T'
@@ -644,6 +645,18 @@ elif nt == 'G': comp = 'C'
 elif nt == 'T': comp = 'A'
 else:           sys.exit('unknown nucleotide', nt)
 ```
+
+```
+if something:
+    whaterver
+
+elif something:
+    whatever
+
+else:
+    whatever
+```
+
 
 (6) There is no space between a function and its opening parentheses. Note that
 `return` is a keyword, not a function.
