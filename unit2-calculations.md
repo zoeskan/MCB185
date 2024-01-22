@@ -29,6 +29,9 @@ Unit 2: Calculations
     + [Sting Comparison](#string-comparison)
     + [Mismatched Type Error](#mismatched-type-error)
     + [More Practice](#more-practice)
++ [Style](#style)
+	+ [Spacing](#spacing)
+	+ [Naming](#naming)
 + [Homework](#homework)
     + [20demo.py](#20demopy)
     + [21quadratic.py](#21quadraticpy)
@@ -582,6 +585,87 @@ Write a function that determines if a number is a valid probability.
 Write a function that returns the molecular weight of a DNA letter.
 
 Write a function that returns the complement of a DNA letter.
+
+------------------------------------------------------------------------------
+
+## Style ##
+
+Your code is graded on two criteria:
+
+1. Correctness - does the code solve the problem
+2. Style - does the code have good "style"
+
+Correctness is easier to grade than style, but style is at least as important.
+Incorrect code can usually be fixed quickly. Code with poor style is confusing
+and difficult to maintain/extend. Here's a typical scenario in a biology lab. A
+postdoc writes some code and then leaves. The PI asks the graduate student to
+continue working on the project. However, the code has poor style and the
+graduate student can't work with it. Instead, she reinvents the whole project
+from the beginning. Unfortunately, when she leaves, the next student has the
+same problem.
+
+### Spacing ###
+
+(1) Use a maximum line length of 79 characters (most of the time).
+
+(2) Use 1 space around/after most operators, just like in English. But don't be
+robotic about it, as sometimes it's clearer not to use spaces.
+
++ Yes: "Hello, my name is Ian. What's your name?"
++ No: "Hello,my name is Ian.What's your name?"
++ No: "Hello, my name is  Ian .  What's your name?"
++ Yes: `print(a, b, c)`
++ No: `print(a,b,c)`
++ Yes: `if a > b: a = 1`
++ No: `if a>b:a=1`
++ Yes: `print('hello', end='')` there is no space around keyword `=`
++ Yes: `c = (a**2 + b**2) ** 0.5` the interior looks better without spaces
+
+(3) Use vertical spacing (blank lines) to separate logic, just as you would use
+paragraph structure in English.
+
+(4) Use tabs for left side indentation. The use of spaces for indentation flags
+your code as potential **cheating**.
+
+(5) Use spaces for lining up simple `if-elif-else` type constructs.
+
+```
+if   nt == 'A': comp = 'T'
+elif nt == 'C': comp = 'G'
+elif nt == 'G': comp = 'C'
+elif nt == 'T': comp = 'A'
+else:           sys.exit('unknown nucleotide', nt)
+```
+
+### Naming ###
+
++ Variable and function names are generally all lowercase
++ Multi-word variables may use snake case, but not mixedCase
+
+```
+widowsize   = 60  # yes
+window_size = 60  # yes
+windowSize  = 60  # no
+```
+
+Variables sometimes have very short names that implicitly describe their type.
+It's okay for loop variables to have such short names, but for longer-lived
+variables, you should use more descriptive names.
+
++ `i`, `j`, `k`, and `n` are integers
++ `f`, `x`, and `y`, are floating point numbers
++ `p` and `q` are probabilities
++ `a`, `b`, and `c` are often numbers: ax^2 + bx + c or a^2 + b^2 = c^2
++ `c` by itself is a character
++ `s` is a string
++ `fp` is a file pointer
+
+For biological sequences it's common to use these shorthands:
+
++ `nt` and `aa` are single characters of nucleotides or amino acids
++ `seq` is often used for a biological sequence
++ `dna`, `rna`, `tx` are nucleotide strings
++ `pro` and `pep` are protein/peptide strings
 
 ------------------------------------------------------------------------------
 
