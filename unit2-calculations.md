@@ -705,8 +705,9 @@ repo.
 
 ### 21quadratic.py ###
 
-Write a function that solves the quadratic formula (ax^2 + bx + c). Demonstrate
-that it works by using the formula multiple times within the program.
+Write a function that solves the quadratic formula (ax^2 + bx + c), returning
+the two X-intercepts. Demonstrate that it works by using the formula multiple
+times within the program.
 
 ### 22oligotemp.py ###
 
