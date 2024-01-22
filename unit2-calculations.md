@@ -724,7 +724,8 @@ different sizes.
 
 Write a function that returns the Kyte-Doolittle hydrophobicity value for an
 amino acid letter. Demonstrate that the function works by calling it multiple
-times with different letters.
+times with different letters, one of which should be outside the amino acid
+alphabet.
 
 ### 24accuracy.py ###
 
@@ -735,4 +736,5 @@ your function works by using it several times in the program.
 ### 25entropy.py ##
 
 Write a function that returns the Shannon entropy for nucleotide counts a, c,
-g, t. Demonstrate it works using multiple calls.
+g, t. Demonstrate it works using multiple calls, including those where one of
+the counts is zero.
