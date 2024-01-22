@@ -395,7 +395,15 @@ Write a function that computes the distance between two points in a graph.
 
 Write a function that computes the midpoint between two points. Note that this
 function must return values for x and y. Your `return` statement will have two
-values separated by a comma. Call it like `x, y = midpoint(x1, y1, x2, y2)`.
+values separated by a comma. Your function will look something like this.
+
+```
+def midpoint(x1, y1, x2, y2):
+	# insert stuff here
+	return mx, my
+```
+
+Call your function like this: `x, y = midpoint(x1, y1, x2, y2)`.
 
 ------------------------------------------------------------------------------
 
