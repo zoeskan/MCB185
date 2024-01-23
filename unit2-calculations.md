@@ -371,6 +371,8 @@ print(pythagoras(-1, 1))
 An alternative is to call `sys.exit()` and provide your own error message.
 
 ```
+import sys
+
 def pythagoras(a, b):
     if a <= 0: sys.exit('error: a must be greater than 0')
     if b <= 0: sys.exit('error: b must be greater than 0')
