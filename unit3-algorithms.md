@@ -45,8 +45,8 @@ expression that can be evaluated as `True` or `False`. This is followed by an
 indented code block.
 
 ```
-while <boolen expression is True>:
-    do_someting
+while <boolean expression is True>:
+    do_something
 ```
 
 Add the following lines to your demo program and run it. The Boolean expression
