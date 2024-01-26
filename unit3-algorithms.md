@@ -34,7 +34,7 @@ example, if you want to compute the standard deviation for a set of numbers,
 you must iterate through the values, squaring the differences to the mean.
 Iteration is also called looping.
 
-Create a new `demo30.py` program in your homework repo and bring it up in your
+Create a new `30demo.py` program in your homework repo and bring it up in your
 editor.
 
 ### while ###
