@@ -410,13 +410,13 @@ T -1 -1 -1 +1
 ### 35nchoosek.py ###
 
 Create a function that solves "n choose k": n! / k!(n - k)! and demonstrate
-that it works by calling it multiple times with several values of n an k.
+that it works by calling it multiple times with several values of n and k.
 
 ### 36poisson.py ###
 
 Create a function that computes the Poisson probability of k events occuring
 with an expectation of n (n^k e^-n / k!) and demonstrate it works by calling it
-with several values of n an k.
+with several values of n and k.
 
 ### 37nilakantha.py ##
 
