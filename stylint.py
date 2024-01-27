@@ -11,6 +11,7 @@ issues = {
 	'long':  '(^[^#].{81,}$)',
 }
 
+clean = True
 with open(sys.argv[1]) as fp:
 	n = 0
 	for line in fp:
@@ -20,4 +21,7 @@ with open(sys.argv[1]) as fp:
 			if m:
 				found = m.group(1)
 				print(f'{n}\t{infraction}\t"{found}"')
+				clean = False
 				break
+
+if clean: print(sys.arg[0], 'is clean')
