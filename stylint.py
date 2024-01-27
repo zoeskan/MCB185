@@ -4,12 +4,12 @@ import sys
 if len(sys.argv) != 2: sys.exit(f'usage: {sys.argv[0]} file.py')
 
 issues = {
-	'tabs': '^( +\w+)',
+	'tabs':   '^( +\w+)',
 	'return': '(return\s+\()',
-	'space': '(\w+\s+\()',
-	'comma': '(\w+,\w+)',
-	'mixed': '([a-z][A-Z])',
-	'long': '(^[^#].{81,}$)',
+	'space':  '(\w+\s+\()',
+	'comma':  '(\w+,\w+)',
+	'mixed':  '([a-z][A-Z])',
+	'long':   '(^[^#].{81,}$)',
 }
 
 with open(sys.argv[1]) as fp:
