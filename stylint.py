@@ -24,4 +24,4 @@ with open(sys.argv[1]) as fp:
 				clean = False
 				break
 
-if clean: print(sys.argv[0], 'is clean')
+if clean: print(sys.argv[1], 'is clean')
