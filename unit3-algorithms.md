@@ -34,7 +34,7 @@ example, if you want to compute the standard deviation for a set of numbers,
 you must iterate through the values, squaring the differences to the mean.
 Iteration is also called looping.
 
-Create a new `demo30.py` program in your homework repo and bring it up in your
+Create a new `30demo.py` program in your homework repo and bring it up in your
 editor.
 
 ### while ###
@@ -45,8 +45,8 @@ expression that can be evaluated as `True` or `False`. This is followed by an
 indented code block.
 
 ```
-while <boolen expression is True>:
-    do_someting
+while <boolean expression is True>:
+    do_something
 ```
 
 Add the following lines to your demo program and run it. The Boolean expression
@@ -384,7 +384,7 @@ described in more detail below.
 
 A classic programming interview question is to write a program that reports the
 first 10 numbers from the Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21. This
-is a tricky problem. You need to initialzize and keep track of 2 previous
+is a tricky problem. You need to initialize and keep track of 2 previous
 values.
 
 ### 33triples.py ###
@@ -410,13 +410,13 @@ T -1 -1 -1 +1
 ### 35nchoosek.py ###
 
 Create a function that solves "n choose k": n! / k!(n - k)! and demonstrate
-that it works by calling it multiple times with several values of n an k.
+that it works by calling it multiple times with several values of n and k.
 
 ### 36poisson.py ###
 
 Create a function that computes the Poisson probability of k events occuring
 with an expectation of n (n^k e^-n / k!) and demonstrate it works by calling it
-with several values of n an k.
+with several values of n and k.
 
 ### 37nilakantha.py ##
 
