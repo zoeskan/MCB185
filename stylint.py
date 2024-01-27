@@ -19,5 +19,5 @@ with open(sys.argv[1]) as fp:
 			m = re.search(pattern, line)
 			if m:
 				found = m.group(1)
-				print(f'{n}\t{infraction}\t{found}')
+				print(f'{n}\t{infraction}\t"{found}"')
 				break
