@@ -18,7 +18,6 @@ Unit 2: Calculations
 + [Functions](#functions)
     + [Block Structure](#block-structure)
     + [Example](#example)
-    + [assert() and sys.exit()](#assert-and-sysexit)
     + [Practice](#practice)
 + [Strings](#strings)
 + [Conditionals](#conditionals)
@@ -352,35 +351,6 @@ def pythagoras(a, b):
 
 print(pythagoras(3, 4))
 print(pythagoras(1, 1))
-```
-
-### assert() and sys.exit() ###
-
-What happens if you send the wrong value to a function? For example, the
-pythagorean formula only works for positive numbers. Triangles can't have
-negative or zero length sides.
-
-To ensure that your functions only receive correct values, use `assert()`. If
-the assertion isn't true, the program ends with an error.
-
-```
-def pythagoras(a, b):
-    assert(a > 0)
-    assert(b > 0)
-    return math.sqrt(a**2 + b**2)
-
-print(pythagoras(-1, 1))
-```
-
-An alternative is to call `sys.exit()` and provide your own error message.
-
-```
-import sys
-
-def pythagoras(a, b):
-    if a <= 0: sys.exit('error: a must be greater than 0')
-    if b <= 0: sys.exit('error: b must be greater than 0')
-    return math.sqrt(a**2 + b**2)
 ```
 
 ### Practice ###
