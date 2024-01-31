@@ -4,11 +4,11 @@ import sys
 if len(sys.argv) != 2: sys.exit(f'usage: {sys.argv[0]} file.py')
 
 issues = {
-	'indent':  '^( +\w+)',
-	'space': '(\w+)\s+\(',
-	'comma': '(\w+,\w+)',
-	'mixed': '([a-z]+[A-Z]+|[A-Z]+[a-z]+)',
-	'length':  '(^[^#].{81,}$)',
+	'indent': r'^( +\w+)',
+	'space':  r'(\w+)\s+\(',
+	'comma':  r'(\w+,\w+)',
+	'mixed':  r'([a-z]+[A-Z]+|[A-Z]+[a-z]+)',
+	'length': r'(^[^#].{81,}$)',
 }
 
 keywords = (
