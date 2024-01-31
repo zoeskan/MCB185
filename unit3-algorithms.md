@@ -373,7 +373,7 @@ described in more detail below.
 
 + `30demo.py`
 + `31fizzbuzz.py`
-+ `32finbonacci.py`
++ `32fibonacci.py`
 + `33triples.py`
 + `34scoringmatrix.py`
 + `35nchoosek.py`
