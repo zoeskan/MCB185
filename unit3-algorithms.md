@@ -397,7 +397,8 @@ all sides, including the hypotenuse, must be an integer.
 
 Write a program the displays a +1/-1 scoring matrix as shown below. The program
 must have a single variable for the alphabet (don't hard code it multiple
-times).
+times). Hint: use `print(end=' ')` to end a print with a space instead of the
+default newline.
 
 ```
    A  C  G  T
@@ -411,6 +412,7 @@ T -1 -1 -1 +1
 
 Create a function that solves "n choose k": n! / k!(n - k)! and demonstrate
 that it works by calling it multiple times with several values of n and k.
+Hint: reuse your factorial function.
 
 ### 36poisson.py ###
 
