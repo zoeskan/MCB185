@@ -397,7 +397,7 @@ all sides, including the hypotenuse, must be an integer.
 
 Write a program the displays a +1/-1 scoring matrix as shown below. The program
 must have a single variable for the alphabet (don't hard code it multiple
-times). Hint: use `print(end=' ')` to end a print with a space instead of the
+times). Hint: use `print(end=' ')` to terminate with a space instead of the
 default newline.
 
 ```
