@@ -24,8 +24,13 @@ clean = True
 with open(sys.argv[1]) as fp:
 	n = 0
 	for line in fp:
-		if line.startswith('#'): continue
 		n += 1
+		if line.startswith('#'): continue
+		if line.startswith('"""') or line.startswith("'''"):
+			for line in fp:
+				n += 1
+				if line.startswith('"""') or line.startswith("'''"): break
+		
 		for problem, pattern in issues.items():
 			m = re.search(pattern, line)
 			if m:
