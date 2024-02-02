@@ -383,23 +383,23 @@ described in more detail below.
 ### 32fibonacci.py ###
 
 A classic programming interview question is to write a program that reports the
-first 10 numbers from the Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21. This
-is a tricky problem. You need to initialize and keep track of 2 previous
+first 10 numbers from the Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34.
+This is a tricky problem. You need to initialize and keep track of 2 previous
 values.
 
 ### 33triples.py ###
 
-Write a program that finds all Pythagorean triples for triangles with sides a
-and b less than 100. For example, 3, 4, 5 is a triple: 3^2 + 4^2 = 5^2. Hint:
+Write a program that finds all Pythagorean triples for triangles with sides `a`
+and `b` less than 100. For example, 3, 4, 5 is a triple: 3^2 + 4^2 = 5^2. Hint:
 all sides, including the hypotenuse, must be an integer. There are 62 unique
-triples.
+triples (half-matrix minus the major diagonal).
 
 ### 34scoringmatrix.py ##
 
 Write a program the displays a +1/-1 scoring matrix as shown below. The program
 must have a single variable for the alphabet (don't hard code it multiple
-times). Hint: use `print(end=' ')` to terminate with a space instead of the
-default newline.
+times). Hint: use `print(end=' ')` to terminate `print()` statements with a
+space instead of the default newline.
 
 ```
    A  C  G  T
@@ -412,14 +412,14 @@ T -1 -1 -1 +1
 ### 35nchoosek.py ###
 
 Create a function that solves "n choose k": n! / k!(n - k)! and demonstrate
-that it works by calling it multiple times with several values of n and k.
-Hint: reuse your factorial function.
+that it works by calling it multiple times with several values of n and k. It's
+more _fun_ to reuse your factorial function than `math.factorial()`.
 
 ### 36poisson.py ###
 
 Create a function that computes the Poisson probability of k events occuring
 with an expectation of n (n^k e^-n / k!) and demonstrate it works by calling it
-with several values of n and k.
+with several values of n and k. Use `math.e`.
 
 ### 37nilakantha.py ##
 
