@@ -440,9 +440,9 @@ but that increases the number of division calculations.
 
 ### entropy() ###
 
-This function should check that the probability distribution in `probs` sums up
-to something close to 1.0. It will also run into numerical errors if any of the
-values are 0.
+This function should checks that the probability distribution in `probs` sums
+up to something close to 1.0. It will also run into numerical errors if any of
+the values are 0. Can you write it better?
 
 ```
 1   def entropy(probs):
@@ -457,13 +457,14 @@ values are 0.
 
 In this function, capital `P` and `Q` stand for probability distributions while
 `p` and `q` represent individual values. This example follows more of a math
-convention than software engineering. Given the K-L is so commonly described by
-P and Q, this seems fitting.
+convention for naming variable (single letters) than software engineering
+(descriptive names). Given the K-L is so commonly described by P and Q, this
+seems fitting.
 
 Note the use of `zip()` on line 3 that simultaneously retrieves probabilities
 from `P` and `Q`. It is assumed that `P` and `Q` are containers with the same
 length (and also that they sum up to 1 and don't have zeros or negative
-numbers).
+numbers). Again, maybe you can improve the function?
 
 Lines 6 and 7 create containers to hold the probability distributions. `p1` is
 defined as a list while `p2` is defined as a tuple. That's okay because both
@@ -485,9 +486,9 @@ can be zipped in parallel.
 ## Files ##
 
 Text files can contain lots of data, but they are not containers in the same
-way that strings, tuples, and lists are. Files must be "opened" to get access
-to them. Later, they must be "closed". Here's the canonical structure for
-reading a file line-by-line.
+way that strings, tuples, and lists are. Files cannot be sliced. Files must be
+"opened" to get access to them. Later, they must be "closed". Here's the
+canonical structure for reading a file line-by-line.
 
 ```
 with open(path) as fp:
@@ -537,9 +538,15 @@ with gzip.open(path, 'rt') as fp:
 
 ### Converting Types ###
 
-Text files contain strings. So numbers like 1, 3.14, or 1e-5 are all strings.
-If you want to do math with string-like numbers, you must first convert them
-from strings to numbers. The `int()` and `float()` functions do that.
+Text files contain strings. Even though numbers like 1, 3.14, or 1e-5 all look
+like numbers. they are actually strings. If you want to do math with
+string-like numbers, you must first convert them from strings to numbers. The
+`int()` and `float()` functions do that.
+
+```
+i = int('42')
+x = float('0.61803')
+```
 
 ### 51cdslength.py ###
 
@@ -651,7 +658,7 @@ yourself.
 16  for p in probs:
 17      h -= p * math.log2(p)
 18
-19..print(h)
+19  print(h)
 ```
 
 Lines 1-2 import the necessary libraries.
@@ -668,7 +675,8 @@ Line 6 converts the argument into a floating point number.
 
 Line 7 checks to see if the number is a valid probability. The numbers 0 and 1
 are considered illegal in this context because values of 0 cause numerical
-errors (log(0) and there is no point in calculating the entropy of 1.0.
+errors (log(0) and there is no point in calculating the entropy of a single
+value of 1.0).
 
 Line 8 adds each floating point number to the container of probabilities.
 
@@ -746,7 +754,7 @@ gffpath = sys.argv[1]
 feature = sys.argv[2]
 ```
 
-Your commands should look something like this:
+Your command lines should look something like this:
 
 ```
 python3 53genomestats.py ~/Code/MCB185/data/A.thaliana.gff.gz gene
@@ -770,11 +778,13 @@ G = int(sys.argv[3])
 B = int(sys.argv[4])
 ```
 
-Your commands should look something like this:
+Your command lines should look something like this:
 
 ```
 python3 55colorname.py ~/Code/MCB185/data/colors_extended.tsv 200 0 50
 ```
+
+The output for the command above will be "crimson".
 
 Hint: this algorithm is not very different from `minimum()` except that the
 number you are trying to minimize is the difference between the input RGB
@@ -799,8 +809,8 @@ def dtc(P, Q):
 You may have heard of the 'birthday paradox' before. Write a program that
 simulates the problem by filling up classrooms of students with randomly chosen
 birthdays. Make the number of days in the calendar and the number of people in
-the classroom command line arguments. You will also have to run this thousands
-of times to get an accurate estimate, so have a parameter for that too.
+the classroom command line arguments. You will have to run this thousands of
+times to get an accurate estimate, so have a parameter for that too.
 
 https://en.wikipedia.org/wiki/Birthday_problem
 
