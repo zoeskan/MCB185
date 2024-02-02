@@ -476,8 +476,8 @@ Line 1 is actually important here. When writing, testing, and debugging code,
 make the problem small enough that you can calculate it by hand. When given a
 problem, such as "compute GC-skew" in 1000 bp windows in the E.coli genome",
 don't work with the genome until the code has been thoroughly tested on a tiny
-subset. This is one reason why the model organism data files in the MCB185 repo
-represent only 1% of each genome.
+subset. This is one reason why the eukaryote model organism data files in the
+MCB185 repo represent only 1% of each genome.
 
 Line 5 calls the composition and skew functions you just added to your library.
 This is fine for testing purposes. Later, when you want the output to look more
@@ -503,9 +503,10 @@ print(f'{i}\t{dogma.gc_comp(s):.3f}\t{dogma.gc_skew(s):.3f}')
 One problem with `61skewer.py` is that it is computationally inefficient. Each
 window is counted and then forgotten. Imagine counting 1000 bp windows by hand.
 Let's say you get 500 Gs and 500Cs. How many Gs do you think the next window
-will have it's just 1 bp away? 499, 500, or 501. You're losing 1 nt on the left
-and gaining a new nt on the right. The counts can't change by more than just
-those 2 letters. So why bother counting everything in the middle?
+will have? It's just 1 bp away. As the window moves left to right, you're
+losing 1 nt on the left and gaining 1 new nt on the right. The counts can't
+change by more than just those 2 letters. So why bother counting everything in
+the middle?
 
 A much more efficient algorithm only counts the initial window. After that, it
 "moves" the window by dropping off one nucleotide on the left and adding one on
