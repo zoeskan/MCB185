@@ -58,7 +58,7 @@ for i in range(50):
 print()
 ```
 
-What if you wanted to make something that wasn't 25% each letter. One way to do
+What if you wanted to make something that wasn't 25% each letter? One way to do
 that is with `random.random()` and conditionals. The code below generates
 sequence that is 70% AT on average.
 
@@ -101,8 +101,8 @@ above the mean. Use `random.gauss()`.
 
 Create a new file called `41zscores.py` to solve the problem. After typing this
 in line-by-line, run it and verify it works. Then delete everything and see if
-you can do it by yourself. Doing ground-zero re-writes like this is a great way
-to improve your programming aptitude.
+you can do it by yourself. Doing ground-zero re-writes like this are a great
+way to improve your programming aptitude.
 
 ```
 1   import random
@@ -155,8 +155,15 @@ print('this line\n has some\n line breaks')
 
 The tab key `\t` is used to line up columns of text. Every time this is
 printed, the cursor jumps to the next tab stop (usually set at 4 or 8
-characters). In the code below, the tab character is in the separator. Files
-with tab-separated values are sometimes called TSV and have extensions `.tsv`.
+characters).
+
+```
+print('a\tb\tcat\tdogma')
+```
+
+A common use of the tab character is in `print()` statments with a `sep=\t`
+option to separate values with tabs. Files with tab-separated values are
+sometimes called TSV and have extensions `.tsv`.
 
 ```
 print(10, 20, 30, 40, sep='\t')
@@ -436,7 +443,7 @@ below.
 
 + 3D6: roll 3 six-sided dice
 + 3D6r1: roll 3 six-sided dice, but re-roll any 1s
-+ 3D6x2: roll 3 six-sided dice twice, and take the maximum of the two
++ 3D6x2: roll pairs of six-sided 3 times, taking the maximum each time
 + 4D6d1: roll 4 six-sided dice, dropping the lowest die roll
 
 ### 46savingthrows.py ###
