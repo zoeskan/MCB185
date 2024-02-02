@@ -347,7 +347,7 @@ for an `else:` statement on line 4.
 ```
 1   def is_perfect_square(n):
 2       root = math.sqrt(n)
-3       if math.isclose(root, root // 1): return True
+3       if root % 1 == 0: return True
 4       return False
 ```
 
@@ -391,7 +391,8 @@ values.
 
 Write a program that finds all Pythagorean triples for triangles with sides a
 and b less than 100. For example, 3, 4, 5 is a triple: 3^2 + 4^2 = 5^2. Hint:
-all sides, including the hypotenuse, must be an integer.
+all sides, including the hypotenuse, must be an integer. There are 62 unique
+triples.
 
 ### 34scoringmatrix.py ##
 
