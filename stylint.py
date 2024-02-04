@@ -29,7 +29,7 @@ explain = {
 
 keywords = (
 	'None', 'False', 'True',
-	'and', 'or', 'not', 
+	'and', 'or', 'not',
 	'for', 'while', 'break', 'continue', 'in',
 	'if', 'elif', 'else',
 	'try', 'except', 'raise',
@@ -48,11 +48,11 @@ fp = open(sys.argv[1])
 n = 0
 for line in fp:
 	n += 1
-		
+
 	# comments: only check for length
 	if line.startswith('#'):
 		if len(line) > 80: problems.append( (n, 'max80', line) )
-		else:              continue
+		continue
 
 	# long comments: also only length
 	if line.startswith('"""') or line.startswith("'''"):
@@ -61,7 +61,7 @@ for line in fp:
 			if len(line) > 80: problems.append( (n, 'max80', line) )
 			if line.startswith('"""') or line.startswith("'''"): break
 		continue
-	
+
 	# style issues
 	if len(line) > 80: problems.append( (n, 'max80', line) )
 	for problem, pattern in issues.items():

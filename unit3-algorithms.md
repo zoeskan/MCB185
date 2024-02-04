@@ -428,8 +428,8 @@ more _fun_ to reuse your factorial function than `math.factorial()`.
 ### 36poisson.py ###
 
 Create a function that computes the Poisson probability of k events occuring
-with an expectation of n (n^k e^-n / k!) and demonstrate it works by calling it
-with several values of n and k. Use `math.e`.
+with an expectation of n: n^k e^-n / k! and demonstrate it works by calling
+it with several values of n and k. Use `math.e`.
 
 ### 37nilakantha.py ##
 
