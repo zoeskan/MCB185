@@ -22,3 +22,5 @@ GFF formats.
 + A. thaliana
 + C. elegans
 + D. melanogaster
+
+The C. elegans genome also has a pseudo-vcf file with variant information.
