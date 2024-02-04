@@ -186,9 +186,9 @@ print(f'formatted string {i} {pi}')
 print(f'tau {pi + pi}')
 ```
 
-f-strings have several powerful formatting options. We are are only going to
-use floating point rounding. This is simply appending `:.3f`, where the 3 after
-the dot is 3 digits of precision.
+f-strings have several powerful formatting options. We are only going to use
+floating point rounding. This is simply appending `:.3f`, where the 3 after the
+dot is 3 digits of precision.
 
 ```
 print(f'formatted string {i} {pi:.3f}')
@@ -375,7 +375,7 @@ complete.
 14  print(zeroes / games)
 ```
 
-Line 2 sets the logging interval relative to he number of games played. This
+Line 2 sets the logging interval relative to the number of games played. This
 value works with line 6 to display a status message each time 1% of the data
 has been processed.
 
@@ -387,7 +387,7 @@ calculations are at the very end of the program, so their initializations
 
 Lines 7-11 are identical to the previous code (lines 3-6).
 
-Lines 11-2 perform intermediate calculations.
+Lines 11-12 perform intermediate calculations.
 
 After 1 million trials, the average game has a score of 7.0 and 34.6% of games
 end with a score of zero. Honestly, the game doesn't sound like nearly as much
