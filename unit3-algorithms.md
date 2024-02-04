@@ -391,15 +391,13 @@ values.
 
 Write a program that finds all Pythagorean triples for triangles with sides `a`
 and `b` less than 100. For example, 3, 4, 5 is a triple: 3^2 + 4^2 = 5^2. Hint:
-all sides, including the hypotenuse, must be an integer. There are 62 unique
-triples (half-matrix minus the major diagonal).
+all sides, including the hypotenuse, must be an integer. A good way to test for
+an integer is `if c % 1 == 0`. There are 62 unique triples (half-matrix minus
+the major diagonal).
 
 ### 34scoringmatrix.py ##
 
-Write a program the displays a +1/-1 scoring matrix as shown below. The program
-must have a single variable for the alphabet (don't hard code it multiple
-times). Hint: use `print(end=' ')` to terminate `print()` statements with a
-space instead of the default newline.
+Write a program the displays a +1/-1 scoring matrix as shown below.
 
 ```
    A  C  G  T
@@ -408,6 +406,18 @@ C -1 +1 -1 -1
 G -1 -1 +1 -1
 T -1 -1 -1 +1
 ```
+
+Your code must start as follows, and must be able to print a similar looking
+scoring matrix simply by changing the variables below.
+
+```
+alphabet = 'ACGT'
+match = '+1'
+mismatch = '-1'
+```
+
+Hint: use `print(end=' ')` to terminate `print()` statements with a space
+instead of the default newline.
 
 ### 35nchoosek.py ###
 
