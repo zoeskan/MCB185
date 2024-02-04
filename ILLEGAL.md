@@ -6,9 +6,10 @@ rules.
 
 1. No programming constructs except those in the current and previous units
 2. Indentation must be with tabs, not spaces
+3. No copy-paste
 
-Turning in homework with illegal code receives zero credit and may result in a
-conversation with student judicial affairs.
+Turning in homework with illegal code results in a failed assignment and may
+result in a conversation with Student Judicial Affairs.
 
 -------------------------------------------------------------------------------
 
@@ -19,7 +20,7 @@ A: There are a few reasons. (1) The main point of the class it to learn
 programming logic, and some of the built-in functions obscure that logic. (2)
 You're supposed to learn to program, not copy-paste from the Internet. One way
 to catch cheaters is by prohibiting certain conveniences. (3) Not all languages
-have some of the advanced Python features. Using a reduced version of the
+have some of the advanced Python features. Using a reduced subset of the
 language means you learn more general principles.
 
 Q: Why do we have to use tabs instead of spaces? The Python style guide
@@ -31,11 +32,12 @@ find cheaters who copied their code from the Internet.
 
 -------------------------------------------------------------------------------
 
-The following common and useful features of Python are not introduced in
-MCB185, and any programs using these features are illegal.
+The following common and useful features of Python are not introduced in MCB185
+at any point. Any programs using these features are grounds for an immediate
+conversation with Student Judicial Affairs. If you have previous Python
+programming experience and use these naturally, you must be extra-vigilant.
 
-+ Recursion: functions that call themselves
-+ Closures or any function that defines inner functions
++ Recursion and closures
 + The `input()` function to get user input from the keyboard
 + Ternary operator like `v1 if condition else v2`
 + The `match` and `case` keywords to make switch-like statements
