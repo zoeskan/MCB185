@@ -2,11 +2,22 @@ MCB185 Illegal Practices
 ========================
 
 In MCB185, your code may be labeled as ILLEGAL if you don't follow a few simple
-rules.
+rules and guidelines.
+
+## Rules ##
 
 1. No programming constructs except those in the current and previous units
 2. Indentation must be with tabs, not spaces
-3. No copy-paste
+
+## Guidelines ##
+
++ Don't copy-paste
++ Don't get code from the Internet
++ Don't seek help from YouTube or other sources
++ Don't ask people outside of class for help
++ If you don't understand something or want help
+	+ Ask your classmates
+	+ Ask your instructors
 
 Turning in homework with illegal code results in a failed assignment and may
 result in a conversation with Student Judicial Affairs.
