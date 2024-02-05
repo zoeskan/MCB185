@@ -5,7 +5,8 @@ import re
 import sys
 
 parser = argparse.ArgumentParser(description='MCB185 style-checker')
-parser.add_argument('file', type=str, help='path to python file')
+parser.add_argument('file', help='path to python file(s)',
+	nargs='+')
 parser.add_argument('-r', '--report-level', type=int, default=2,
 	metavar='[0-2]', help='reporting level [%(default)i]')
 arg = parser.parse_args()
@@ -43,65 +44,65 @@ def in_string(found, line):
 	if p1 < p2 and p2 < p3: return True
 	return False
 
-problems = []
-fp = open(sys.argv[1])
-n = 0
-for line in fp:
-	n += 1
-
-	# comments: only check for length
-	if line.startswith('#'):
-		if len(line) > 80: problems.append( (n, 'max80', line) )
-		continue
-
-	# long comments: also only length
-	if line.startswith('"""') or line.startswith("'''"):
+def style_issues(file):
+	problems = []
+	with open(file) as fp:
+		n = 0
 		for line in fp:
 			n += 1
+		
+			# comments: only check for length
+			if line.startswith('#'):
+				if len(line) > 80: problems.append( (n, 'max80', line) )
+				continue
+		
+			# long comments: also only length
+			if line.startswith('"""') or line.startswith("'''"):
+				for line in fp:
+					n += 1
+					if len(line) > 80: problems.append( (n, 'max80', line) )
+					if line.startswith('"""') or line.startswith("'''"): break
+				continue
+		
+			# style issues
 			if len(line) > 80: problems.append( (n, 'max80', line) )
-			if line.startswith('"""') or line.startswith("'''"): break
+			for problem, pattern in issues.items():
+				m = re.search(pattern, line)
+				if m:
+					found = m.group(1)
+					if problem == 'space':
+						kwfound = False
+						for kw in keywords:
+							if found.startswith(kw):
+								kwfound = True
+								break
+						if kwfound: continue
+					if problem == 'space' and in_string(found, line): continue
+					if problem == 'mixed' and found in keywords: continue
+					if problem == 'mixed' and '#' in line: continue
+					if problem == 'mixed' and '"' in line: continue
+					if problem == 'mixed' and "'" in line: continue
+					line = line.rstrip()
+					problems.append( (n, problem, line) )
+	return problems
+
+tell = {}
+for file in arg.file:
+	probs = style_issues(file)
+	
+	if len(probs) == 0:
+		print(file, 'is clean')
 		continue
-
-	# style issues
-	if len(line) > 80: problems.append( (n, 'max80', line) )
-	for problem, pattern in issues.items():
-		m = re.search(pattern, line)
-		if m:
-			found = m.group(1)
-			if problem == 'space':
-				kwfound = False
-				for kw in keywords:
-					if found.startswith(kw):
-						kwfound = True
-						break
-				if kwfound: continue
-			if problem == 'space' and in_string(found, line): continue
-			if problem == 'mixed' and found in keywords: continue
-			if problem == 'mixed' and '#' in line: continue
-			if problem == 'mixed' and '"' in line: continue
-			if problem == 'mixed' and "'" in line: continue
-			line = line.rstrip()
-			problems.append( (n, problem, line) )
-
-# report
-
-if arg.report_level >= 0:
-	if len(problems) == 0:
-		print(sys.argv[1], 'is clean')
-		sys.exit(0)
 	else:
-		print(sys.argv[1], 'has style issues')
-
-if arg.report_level >= 1:
+		print(file, 'has style issues')
+	if arg.report_level == 0: continue
+	
 	print('Line Report')
-	tell = {}
-	for n, prob, line in problems:
-		print(f'  Line {n} ({prob}): {line[:50]}')
+	for n, prob, code in probs:
 		tell[prob] = True
+		print(f'  Line {n} ({prob}): {code[:50]}')
 
-if arg.report_level >= 2:
+if arg.report_level == 2:
 	print('Detailed Explanations')
 	for prob in tell:
 		print(f'  {prob}: {explain[prob]}')
-
-
