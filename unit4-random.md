@@ -23,6 +23,7 @@ Unit 4: Random
     + [45dndstats.py](#45dndstatspy)
     + [46savingthrows.py](#46savingthrowspy)
     + [47deathsaves.py](#47deathsavespy)
+    + [48report.md](#48reportmd)
 
 ## Random Numbers ##
 
@@ -461,9 +462,11 @@ friend is instructed to pull you aside if anything bad happens, you could have
 "advantage". This allows you to roll two d20s and take the larger value. You
 may also have disadvantage, for example another "friend" pushes you from
 behind, causing you to stumble forward. In this case, you have "disadvantage"
-and must take the lower of two d20 rolls. Write a program that simulates saving
-throws against DCs of 5, 10, and 15. What is the probability of success
-normally or with advantage/disadvantage? Make a table showing the results.
+and must take the lower of two d20 rolls.
+
+Write a program that simulates saving throws against DCs of 5, 10, and 15. What
+is the probability of success normally or with advantage/disadvantage? Make a
+table showing the results.
 
 ### 47deathsaves.py ###
 
@@ -476,3 +479,7 @@ you collect 3 successes, you are "stable" but unconscious. If you are unlucky
 and roll a 1, it counts as 2 failures. If you're lucky and roll a 20, you gain
 1 health and have "revived". Write a program that simulates death saves. What
 is the probability one dies, stabilizes, or revives?
+
+### 48report.md ###
+
+Create a report in Markdown format that shows the results of programs 45-47.
