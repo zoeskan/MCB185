@@ -300,7 +300,8 @@ Questions:
 + How often does a player end a game with a score of zero?
 
 Let's start by getting the computer to play 10 games of Chicago. Create a new
-file called `42chicago.py` and then type the following lines.
+file called `42chicago.py` and then type the following lines (note, you will
+have to `import random` and later `import sys`).
 
 ```
 1   games = 10
