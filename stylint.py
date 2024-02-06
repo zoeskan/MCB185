@@ -50,12 +50,12 @@ def style_issues(file):
 		n = 0
 		for line in fp:
 			n += 1
-		
+
 			# comments: only check for length
 			if line.startswith('#'):
 				if len(line) > 80: problems.append( (n, 'max80', line) )
 				continue
-		
+
 			# long comments: also only length
 			if line.startswith('"""') or line.startswith("'''"):
 				for line in fp:
@@ -63,7 +63,7 @@ def style_issues(file):
 					if len(line) > 80: problems.append( (n, 'max80', line) )
 					if line.startswith('"""') or line.startswith("'''"): break
 				continue
-		
+
 			# style issues
 			if len(line) > 80: problems.append( (n, 'max80', line) )
 			for problem, pattern in issues.items():
@@ -89,20 +89,20 @@ def style_issues(file):
 tell = {}
 for file in arg.file:
 	probs = style_issues(file)
-	
+
 	if len(probs) == 0:
 		print(file, 'is clean')
 		continue
 	else:
 		print(file, 'has style issues')
 	if arg.report_level == 0: continue
-	
+
 	print('Line Report')
 	for n, prob, code in probs:
 		tell[prob] = True
 		print(f'  Line {n} ({prob}): {code[:50]}')
 
-if arg.report_level == 2:
+if arg.report_level == 2 and tell:
 	print('Detailed Explanations')
 	for prob in tell:
 		print(f'  {prob}: {explain[prob]}')
