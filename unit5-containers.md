@@ -41,7 +41,7 @@ index, which is its position. `seq[0]` is the first letter of the sequence
 (most computer languages start counting at 0 rather than 1). `seq[1]` is the
 second character.
 
-```
+```python
 seq = 'GAATTC'
 print(seq[0], seq[1])
 ```
@@ -49,13 +49,13 @@ print(seq[0], seq[1])
 Indexes can be negative, in which case they count backwards from the right,
 starting at -1. So `seq[-1]` is the last character of string.
 
-```
+```python
 print(seq[-1])
 ```
 
 Previously, we iterated through the characters in a string using a `for` loop.
 
-```
+```python
 for nt in seq: print(nt, end='')
 print()
 ```
@@ -63,7 +63,7 @@ print()
 We can also iterate through the letters by their indices using the `range()`
 function to generate the indices and `len()` to set the limit.
 
-```
+```python
 for i in range(len(seq)):
     print(i, seq[i])
 ```
@@ -79,7 +79,7 @@ separator is a colon and not a comma. The following code prints the first 5
 letters of the string. The `0` represents the initial position, while the `5`
 is the end-before limit.
 
-```
+```python
 s = 'ABCDEFGHIJ'
 print(s[0:5])
 ```
@@ -87,14 +87,14 @@ print(s[0:5])
 Like the `range()` function, slices can also have a step size. When omitted,
 the step size is assumed to be 1.
 
-```
+```python
 print(s[0:8:2])
 ```
 
 As a shortcut, you may omit either the initial value, which is replaced by 0,
 or the final value, which is the length of the string.
 
-```
+```python
 print(s[0:5], s[:5])        # both ABCDE
 print(s[5:len(s)], s[5:])   # both FGHIJ
 ```
@@ -108,7 +108,7 @@ implicitly set the bounds of the slice to the whole string. While it is not
 very surprising that `s[::1]` is also the same thing, your should definitely
 take a long look at `s[::-1]`.
 
-```
+```python
 print(s, s[::], s[::1], s[::-1])
 ```
 
@@ -119,7 +119,7 @@ print(s, s[::], s[::1], s[::-1])
 A tuple is container that holds multiple values. Tuples are generally
 constructed with comma-separated values (usually in parentheses).
 
-```
+```python
 tax = ('Homo', 'sapiens', 9606)  # construct tuple
 print(tax)                       # note the parentheses in the output
 ```
@@ -127,7 +127,7 @@ print(tax)                       # note the parentheses in the output
 Tuples and strings are immutable. That means you cannot change their contents
 by poking at their indices. These two lines generate errors.
 
-```
+```python
 s[0] = 'C'
 tax[0] = 'human'
 ```
@@ -135,7 +135,7 @@ tax[0] = 'human'
 Tuples are linear containers of values, just like strings, and can be indexed
 and sliced using the exact same syntax.
 
-```
+```python
 print(tax[0])      # index
 print(tax[::-1])   # slice
 ```
@@ -143,7 +143,7 @@ print(tax[::-1])   # slice
 You may not have realized it, but you already wrote a function that returned a
 tuple. `quadratic()` returns two values separated by a comma. That was a tuple.
 
-```
+```python
 def quadratic(a, b, c):
     x1 = (-b + (b**2 - 4*a*c)**0.5) / (2*a)
     x2 = (-b - (b**2 - 4*a*c)**0.5) / (2*a)
@@ -154,7 +154,7 @@ When you call a function that returns a tuple, you can either _unpack_ the
 tuple into separate named variables or capture the entire tuple as a single
 value and access its contents by the interior indices. ALWAYS UNPACK THE TUPLE.
 
-```
+```python
 x1, x2 = quadratic(5, 6, 1)          # unpacked tuple - yes
 print(x1, x2)                        # pretty
 intercepts = quadratic(5, 6, 1)      # packed tuple - no
@@ -171,7 +171,7 @@ print(intercepts[0], intercepts[1])  # ugly
 When stepping through containers, it's often useful to have both indices and
 values. One way to do this is with the `range()` function.
 
-```
+```python
 nts = 'ACGT'
 for i in range(len(nts)):
     print(i, nts[i])
@@ -180,7 +180,7 @@ for i in range(len(nts)):
 A tidier alternative is to have `enumerate()` provide you a tuple containing
 the index and value in separate named variables.
 
-```
+```python
 for i, nt in enumerate(nts):
     print(i, nt)
 ```
@@ -190,7 +190,7 @@ for i, nt in enumerate(nts):
 When stepping through two containers in parallel, you can use `range()` to
 simultaneously index separate containers.
 
-```
+```python
 names = ('adenine', 'cytosine', 'guanine', 'thymine')
 for i in range(len(names)):
     print(nts[i], names[i])
@@ -199,7 +199,7 @@ for i in range(len(names)):
 The tidier solution uses `zip()` to retrieve an element from each container and
 return them to you in a tuple.
 
-```
+```python
 for nt, name in zip(nts, names):
     print(nt, name)
 ```
@@ -207,7 +207,7 @@ for nt, name in zip(nts, names):
 You can even enumerate the zip as shown below. Here, you have to unpack the
 tuples in series using additional parentheses.
 
-```
+```python
 for i, (nt, name) in enumerate(zip(nts, names)):
     print(i, nt, name)
 ```
@@ -219,7 +219,7 @@ for i, (nt, name) in enumerate(zip(nts, names)):
 Lists are similar to tuples except they are constructed with square brackets
 and their contents are mutable.
 
-```
+```python
 nts = ['A', 'T', 'C']
 print(nts)
 nts[2] = 'G'
@@ -228,7 +228,7 @@ print(nts)
 
 Elements can be added to the end of a list with `list.append()`.
 
-```
+```python
 nts.append('C')
 print(nts)
 ```
@@ -242,7 +242,7 @@ specific data types, and are closely bound to those data types are called
 
 Remove elements from the end of a list with `list.pop()`.
 
-```
+```python
 last = nts.pop()
 print(last)
 ```
@@ -251,7 +251,7 @@ Lists are sorted with `list.sort()`. Note that all of the elements in the list
 must have similar types. You can sort a mixture of ints and floats, but you
 cannot mix them with strings.
 
-```
+```python
 nts.sort()
 print(nts)
 nts.sort(reverse=True)
@@ -263,7 +263,7 @@ name for the same list. In the example below, `nucleotides` is modified and the
 modifications also occur in `nts` because both variable names correspond to the
 same underlying data.
 
-```
+```python
 nucleotides = nts
 nucleotides.append('C')
 nucleotides.sort()
@@ -278,7 +278,7 @@ We don't make deep copies in this class.
 
 The `list()` function without arguments creates empty lists.
 
-```
+```python
 items = list()
 print(items)
 items.append('eggs')
@@ -287,7 +287,7 @@ print(items)
 
 You can also create empty lists with empty square brackets.
 
-```
+```python
 stuff = []
 stuff.append(3)
 print(stuff)
@@ -296,7 +296,7 @@ print(stuff)
 The `list()` function coerces other "iterables" into lists. For example, it can
 convert a string into a list of letters.
 
-```
+```python
 alph = 'ACDEFGHIKLMPQRSVW'
 print(alph)
 aas = list(alph)
@@ -308,7 +308,7 @@ print(aas)
 The `list.split()` method splits strings into lists of strings. This is useful
 for segmenting words. By default, the delimiter is any number of spaces.
 
-```
+```python
 text = 'good day   to you'
 words = text.split()
 print(words)
@@ -316,7 +316,7 @@ print(words)
 
 For TSV or CSV data, split on `\t` or comma (as shown below).
 
-```
+```python
 line = '1.41,2.72,3.14'
 print(line.split(','))
 ```
@@ -325,7 +325,7 @@ Lists can be turned into strings by joining them with a delimiter. The
 delimiter can be nothing. Here, the list is an argument to a method owned by
 the delimiter string (which can be empty).
 
-```
+```python
 s = '-'.join(aas)
 print(s)
 s = ''.join(aas)
@@ -338,7 +338,7 @@ To search for items in containers, you can use `in`, `find()`, and `index()`.
 
 The keyword `in` reads particularly well in conditional statements.
 
-```
+```python
 if 'A' in alph: print('yay')
 if 'a' in alph: print('no')
 ```
@@ -346,7 +346,7 @@ if 'a' in alph: print('no')
 The `index()` method returns the index of the first element it finds. If it
 can't find a matching item, the function throws an error.
 
-```
+```python
 print('index G?', alph.index('G'))
 print('index Z?', alph.index('Z'))
 ```
@@ -356,7 +356,7 @@ The `find()` method returns the index of the first element it finds or a -1 if
 it can't be found. This very useful behavior only works for strings, and not
 tuples or lists.
 
-```
+```python
 print('find G?', alph.find('G'))
 print('find Z?', alph.find('Z'))
 ```
@@ -364,7 +364,7 @@ print('find Z?', alph.find('Z'))
 If you are searching a list or tuple, and you don't know if the element is
 in the list, first use `in`.
 
-```
+```python
 if thing in list: idx = list.index(thing)
 ```
 
@@ -394,7 +394,7 @@ compared to every other value after the first `vals[1:]`. Whenever a value is
 less than the current minimum (line 4) the minimum is reset `mini = val`. There
 is no finalization step here.
 
-```
+```python
 1   def minimum(vals):
 2       mini = vals[0]
 3       for val in vals[1:]:
@@ -411,7 +411,7 @@ This function is very similar to `minimum()` except that it has 2
 initializations (lines 2-3) and 2 return values (line 7). The conditionals on
 lines 5-6 could be formed as an `elif`.
 
-```
+```python
 1   def minmax(vals):
 2       mini = vals[0]
 3       maxi = vals[0]
@@ -431,7 +431,7 @@ Unlike the previous two functions, this one has a finalization step on line 4.
 It is possible to write this without finalizing, with `total += val/len(vals)`,
 but that increases the number of division calculations.
 
-```
+```python
 1   def mean(vals):
 2       total = 0
 3       for val in vals: total += val
@@ -444,7 +444,7 @@ This function should checks that the probability distribution in `probs` sums
 up to something close to 1.0. It will also run into numerical errors if any of
 the values are 0. Can you write it better?
 
-```
+```python
 1   def entropy(probs):
 2       h = 0
 3       for p in probs:
@@ -470,7 +470,7 @@ Lines 6 and 7 create containers to hold the probability distributions. `p1` is
 defined as a list while `p2` is defined as a tuple. That's okay because both
 can be zipped in parallel.
 
-```
+```python
 1   def dkl(P, Q):
 2       d = 0
 3       for p, q in zip(P, Q):
@@ -490,7 +490,7 @@ way that strings, tuples, and lists are. Files cannot be sliced. Files must be
 "opened" to get access to them. Later, they must be "closed". Here's the
 canonical structure for reading a file line-by-line.
 
-```
+```python
 with open(path) as fp:
     for line in fp:
         do_something_with(line)
@@ -511,7 +511,7 @@ Note that there is no close operation. Files are automatically closed when
 program execution goes beyond the `with` block. Here's the alternative, not
 recommended way to write the equivalent code.
 
-```
+```python
 fp = open(path)
 for line in fp:
     do_something_with(line)
@@ -529,7 +529,7 @@ the typical structure.
 This code snippet reads a compressed file and reports its contents to stdout.
 This is effectively the same thing as `gunzip -c path`.
 
-```
+```python
 import gzip
 with gzip.open(path, 'rt') as fp:
     for line in fp:
@@ -543,7 +543,7 @@ like numbers. they are actually strings. If you want to do math with
 string-like numbers, you must first convert them from strings to numbers. The
 `int()` and `float()` functions do that.
 
-```
+```python
 i = int('42')
 x = float('0.61803')
 ```
@@ -563,7 +563,7 @@ the following tasks inside the line-reading loop.
 Type the following lines and observe how the code works. Delete it all and
 re-write it from a blank page.
 
-```
+```python
 1   import gzip
 2
 3   path = '../MCB185/data/GCF_000005845.2_ASM584v2_genomic.gff.gz'
@@ -605,7 +605,7 @@ the extra levels of nesting. Novice programmers sometimes prefer the
 construction below. De-nesting is much neater when there are multiple
 conditions.
 
-```
+```python
 1   import gzip
 2
 3   path = '../MCB185/data/GCF_000005845.2_ASM584v2_genomic.gff.gz'
@@ -628,7 +628,7 @@ short for argument vector). `sys.argv[0]` is the name of your program.
 Create a new program called `52entropy.py` and type the following lines below.
 Try running it with various values, including those that create errors.
 
-```
+```python
 python3 52entropy.py 0.5 0.5
 python3 52entropy.py 0.25 0.25 0.25 0.25
 python3 52entropy.py 0.4 0.3 0.2 0.1
@@ -639,7 +639,7 @@ python3 52entropy.py 0.5 -1
 As usual, after experimenting with the program, destroy it and write it
 yourself.
 
-```
+```python
 1   import sys
 2   import math
 3
@@ -746,7 +746,7 @@ different files or feature types.
 
 Your program should start something like this:
 
-```
+```python
 import gzip
 import sys
 
@@ -769,7 +769,7 @@ color definitions in the `colors_basic.tsv` and `colors_extended.tsv` in
 
 The first few lines of your program should look something like this.
 
-```
+```python
 import sys
 
 colorfile = sys.argv[1]
@@ -796,7 +796,7 @@ can use taxi-cab distance. This is very similar to `dkl()` except that the loop
 sums up the absolute difference of each pair of values. It therefore doesn't
 assume probabilities or have problems with zero values.
 
-```
+```python
 def dtc(P, Q):
     d = 0
     for p, q in zip(P, Q):
@@ -819,7 +819,7 @@ https://en.wikipedia.org/wiki/Birthday_problem
 
 The first few lines of your program should look something like this:
 
-```
+```python
 import random
 import sys
 

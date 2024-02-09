@@ -12,7 +12,6 @@ Unit 4: Random
 + [Pretty Printing](#pretty-printing)
     + [Special Characters](#special-characters)
     + [f-strings](#f-strings)
-    + [sys.stderr](#sysstderr)
 + [Monte Carlo](#monte-carlo)
     + [Pseudorandom](#pseudorandom)
     + [Compound Assignment](#compound-assignment)
@@ -33,7 +32,7 @@ import the random library and call the functions therein.
 
 Start a new `40demo.py` program and add the following line.
 
-```
+```python
 import random
 ```
 
@@ -41,7 +40,7 @@ import random
 
 The simplest function is `random.random()`, which produces a number 0 <= X < 1.
 
-```
+```python
 for i in range(5):
     print(random.random())
 ```
@@ -53,7 +52,7 @@ the container. So far, the only container we have seen are strings, which
 contain characters. We can make random DNA by choosing letters from its
 alphabet.
 
-```
+```python
 for i in range(50):
     print(random.choice('ACGT'), end='')
 print()
@@ -63,7 +62,7 @@ What if you wanted to make something that wasn't 25% each letter? One way to do
 that is with `random.random()` and conditionals. The code below generates
 sequence that is 70% AT on average.
 
-```
+```python
 for i in range(50):
     r = random.random()
     if r < 0.7: print(random.choice('AT'), end='')
@@ -77,7 +76,7 @@ The function we will use most often is `random.randint()`. This generates a
 random number between two _inclusive_ end points. For example, the following
 code simulates rolling a 6-sided die 3 times.
 
-```
+```python
 for i in range(3):
     print(random.randint(1, 6))
 ```
@@ -87,7 +86,7 @@ for i in range(3):
 The random library supports several common distributions, such as the Gaussian
 (normal) distribution. The arguments are the mean and standard deviation.
 
-```
+```python
 for i in range(5):
     print(random.gauss(0.0, 1.0))
 ```
@@ -105,7 +104,7 @@ in line-by-line, run it and verify it works. Then delete everything and see if
 you can do it by yourself. Doing ground-zero re-writes like this are a great
 way to improve your programming aptitude.
 
-```
+```python
 1   import random
 2
 3   z1 = 0
@@ -150,7 +149,7 @@ pretty. There are several strategies.
 There are two special characters we frequently use to tidy-up text. The newline
 character `\n` creates vertical spacing. It's like hitting the return key.
 
-```
+```python
 print('this line\n has some\n line breaks')
 ```
 
@@ -158,7 +157,7 @@ The tab key `\t` is used to line up columns of text. Every time this is
 printed, the cursor jumps to the next tab stop (usually set at 4 or 8
 characters).
 
-```
+```python
 print('a\tb\tcat\tdogma')
 ```
 
@@ -166,7 +165,7 @@ A common use of the tab character is in `print()` statments with a `sep=\t`
 option to separate values with tabs. Files with tab-separated values are
 sometimes called TSV and have extensions `.tsv`.
 
-```
+```python
 print(10, 20, 30, 40, sep='\t')
 print(100, 2000, 30000, 40000, sep='\t')
 ```
@@ -179,7 +178,7 @@ the first quotation mark. The main advantage of f-strings is that variables
 inside curly brackets dump their contents. You can even do math inside curly
 brackets.
 
-```
+```python
 i = 1
 pi = 3.14159
 print('normal string {i} {pi}')
@@ -191,34 +190,9 @@ f-strings have several powerful formatting options. We are only going to use
 floating point rounding. This is simply appending `:.3f`, where the 3 after the
 dot is 3 digits of precision.
 
-```
+```python
 print(f'formatted string {i} {pi:.3f}')
 ```
-
-### sys.stderr ###
-
-When running thousands or millions of random trials, which we will do below,
-you sometimes want to send some progress messages to your terminal so that you
-know the program is still running and to estimate how much longer it will take.
-This isn't data, so you wouldn't want to mix it with the program output. A
-convenient way to separate messages from data is to specify `file=sys.stderr`
-in the `print()` function.
-
-```
-import sys
-print('logging', file=sys.stderr)
-```
-
-If you run this program from your terminal, it won't look like anything
-special. However, try redirecting the output to a file.
-
-```
-python3 40demo.py > foo
-```
-
-The contents of your demo program are now in `foo`, but `logging` is still
-printed to your terminal. That's because your program output went to stdout and
-your logging statement went to stderr.
 
 ------------------------------------------------------------------------------
 
@@ -242,7 +216,7 @@ repeated exactly the same again and again if you set the seed ahead of time.
 This can be useful for debugging. If you don't choose a seed, you will be given
 one somewhat randomly.
 
-```
+```python
 random.seed(1)
 print(random.random())
 print(random.random())
@@ -303,7 +277,7 @@ Let's start by getting the computer to play 10 games of Chicago. Create a new
 file called `42chicago.py` and then type the following lines (note, you will
 have to `import random` and later `import sys`).
 
-```
+```python
 1   games = 10
 2   for i in range(games):
 3       print(f'game #{i}')
@@ -331,7 +305,7 @@ we really care about is the score of each game. So let's create a variable for
 that and increment it every time we score. At the end of the game, we will
 print out the final score of the game.
 
-```
+```python
 1   games = 1000
 2   for i in range(games):
 3       score = 0
@@ -347,7 +321,7 @@ errors new programmers make is placing the `score = 0` outside the loop.
 We can get an idea of the distribution of game scores by sending the output to
 `sort` and `uniq` like we did back in Unit 1.
 
-```
+```python
 python3 42chicago.py | sort -n | uniq -c | sort -n
 ```
 
@@ -357,16 +331,15 @@ shouldn't stream the output to `sort` because that ends up taking a lot of
 memory and CPU. Instead, let's keep all the calculations internal to python. We
 will need two variables, one to keep track of the total points and another to
 count the number of games that end with zero points. Let's also add some
-logging so that a message is sent to stderr after each 1% of the trials are
-complete.
+logging so that a message is reported after each 1% of the trials are complete.
 
-```
+```python
 1   games = 1000000 # 1 million trials
 2   log = games // 100 # report progress at 1% intervals
 3   total = 0
 4   zeroes = 0
 5   for i in range(games):
-6       if i % log == 0: print(f'{100 * i/games:.0f}', file=sys.stderr)
+6       if i % log == 0: print(f'{100 * i/games:.0f}')
 7       score = 0
 8       for target in range(2, 13):
 9           if random.randint(1, 6) + random.randint(1, 6) == target:

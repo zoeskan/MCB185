@@ -32,7 +32,7 @@ dictionary exists as a key:value pair. The key is the string in square brackets
 Let's start `70demo.py` and do some exploring. An empty dictionary is created
 either with empty braces or the `dict()` function.
 
-```
+```python
 d = {}
 d = dict()
 ```
@@ -40,47 +40,47 @@ d = dict()
 To make a dictionary with predefined items, use curly braces and key:value
 pairs as shown below.
 
-```
+```python
 d = {'dog': 'woof', 'cat': 'meow'}
 print(d)
 ```
 
 To access items use square brackets.
 
-```
+```python
 print(d['cat'])
 ```
 
 To add new items to a dictionary, assign a new key:value pair.
 
-```
+```python
 d['pig'] = 'oink'
 print(d)
 ```
 
 To change the value of an item, access it with its key.
 
-```
+```python
 d['cat'] = 'mew'
 print(d)
 ```
 
 To delete an item, use `del`.
 
-```
+```python
 del d['cat']
 print(d)
 ```
 
 If you try to access a key that doesn't exist, you get an error.
 
-```
+```python
 print(d['rat'])
 ```
 
 To check if a key exists, use the keyword `in`.
 
-```
+```python
 if 'dog' in d: print(d['dog'])
 ```
 
@@ -90,20 +90,20 @@ There are several ways to iterate through a dictionary. The standard `for` loop
 iterates over the keys in the order in which they were created. To get to a
 specific element, use the key as an index to the dictionary.
 
-```
+```python
 for key in d: print(f'{key} says {d[key]}')
 ```
 
 The most common way to iterate through a dictionary is with `dict.items()`.
 
-```
+```python
 for k, v in d.items(): print(k, 'says', v)
 ```
 
 Again, you should always unpack your tuples. Consider how awful the following
 looks.
 
-```
+```python
 for thing in d.items(): print(thing[0], thing[1])
 ```
 
@@ -111,7 +111,7 @@ If you want just the keys or just the values, Python has methods `dict.keys()`
 and `dict.values()` that return iterable objects. If you want these as actual
 lists, coerce them with `list()`.
 
-```
+```python
 print(d.keys(), d.values(), list(d.values()))
 ```
 
@@ -126,7 +126,7 @@ for a peptide. There were several strategies.
 The most labor-intensive way is to make a stack of conditionals. Don't add this
 to your demo.
 
-```
+```python
 def kd_cond(seq):
     kd = 0
     for aa in seq:
@@ -156,7 +156,7 @@ def kd_cond(seq):
 Another way is to index parallel lists. While this is a lot less code than the
 example above, it is basically the same linear search. Don't add this either.
 
-```
+```python
 aas = 'IVLFCMAGTSWYPHEQDNKR'
 kds = (4.5, 4.2, 3.8, 2.8, 2.5, 1.9, 1.8, -0.4, -0.7, -0.8, -0.9, -1.3,
     -1.6, -3.2, -3.5, -3.5, -3.5, -3.5, -3.9, -4.5, 0)
@@ -172,7 +172,7 @@ def kd_list(seq):
 The better way is to use a dictionary. The code is cleaner and runs faster
 because dictionaries are designed for fast lookups.
 
-```
+```python
 kdtable = {
     'I':  4.5, 'V':  4.2, 'L':  3.8, 'F':  2.8, 'C':  2.5, 'M': 1.9, 'A': 1.8,
     'G': -0.4, 'T': -0.7, 'S': -0.8, 'W': -0.9, 'Y': -1.3, 'P':-1.6, 'H': -3.2,
@@ -209,7 +209,7 @@ gunzip -c ecoli.gff.gz | grep -v "^#" | cut -f 3 | sort | uniq -c | sort -nr
 Let's do the equivalent in python. Start a new program called `71countgff.py`
 and add the following lines.
 
-```
+```python
 1   count = {}
 2   with gzip.open(sys.argv[1], 'rt') as fp:
 3       for line in fp:
@@ -240,7 +240,7 @@ Lines 9 reports the counts of each feature.
 
 An alternative way of writing lines 7 and 8 is below.
 
-```
+```python
 7           if feature not in count: count[feature] = 1
 8           else:                    count[feature] += 1
 ```
@@ -262,7 +262,7 @@ counted at all.
 The better way is to use a dictionary. The strategy is identical to the gff
 counting strategy.
 
-```
+```python
 count = {}
 for nt in seq:
     if nt not in count: count[nt] = 0
@@ -287,7 +287,7 @@ python3 71countgff.py ecoli.gff.gz | sort -nk2
 But what if you want the sort to occur inside python? Sorting by keys is really
 easy. The `sorted()` function sorts the keys of count.
 
-```
+```python
     for k in sorted(count): print(k, count[k])
 ```
 
@@ -299,7 +299,7 @@ The `sorted()` function needs a list of things to sort. By default, this is the
 keys. We want to sort items based on their values, so we have to send
 `sorted()` the values of the items. Here's the code.
 
-```
+```python
     for k, v in sorted(count.items(), key=lambda item: item[1]):
         print(k, v)
 ```
@@ -314,7 +314,7 @@ function that does the exact same thing. In the code below, `key=by_value`
 calls the `by_value()` function on each tuple to get the _thing_ used for
 sorting (in this case the value).
 
-```
+```python
 def by_value(tuple):
     return tuple[1]
 
@@ -333,7 +333,7 @@ window algorithms are k-mers. Individual nucleotides are k-mers of length 1.
 To explore k-mers, let's make a new program: `72kmercount.py`. As the name
 suggests, it will count kmers.
 
-```
+```python
 1   k = int(sys.argv[2])
 2   kcount = {}
 3   for defline, seq in mcb185.read_fasta(sys.argv[1]):
@@ -379,7 +379,7 @@ and check them against the `kcount` dictionary. We'll use `itertools.product()`
 to generate all possible kmers. Throw the following code in your demo if you
 want to see it in action.
 
-```
+```python
 import itertools
 for nts in itertools.product('ACGT', repeat=2):
     print(nts)
@@ -387,7 +387,7 @@ for nts in itertools.product('ACGT', repeat=2):
 
 Add the following to `72kmercount.py`.
 
-```
+```python
 1   import itertools
 2   for nts in itertools.product('ACGT', repeat=k):
 3       kmer = ''.join(nts)

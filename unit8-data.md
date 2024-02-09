@@ -28,7 +28,7 @@ been `sys.argv`. You may not have recognized that. The following command shows
 that `sys.argv` is a list with a single element: the name of your program, and
 of course you can access that by indexing.
 
-```
+```python
 print(sys.argv)
 print(sys.argv[0])
 ```
@@ -36,7 +36,7 @@ print(sys.argv[0])
 What you might not have appreciated, is that you can access individual
 characters with another set of brackets.
 
-```
+```python
 print(sys.argv[0][3])
 ```
 
@@ -45,7 +45,7 @@ dimension. The letters are the second. As soon as we put containers in a list,
 the list becomes multi-dimensional. The containers don't even have to be the
 same type or "shape".
 
-```
+```python
 d = [
     'hello',
     (3.14, 'pi'),
@@ -81,7 +81,7 @@ this will be called a list of objects, list of structs, or list of records.
 A record is a data type with various named _fields_. For example, a record for
 a sequencing oligo might look like this:
 
-```
+```python
 oligo = {
     'Name': 'SO116',
     'Length': 18,
@@ -92,7 +92,7 @@ oligo = {
 
 A catalog is a list of records.
 
-```
+```python
 catalog = []
 catalog.append(oligo)
 ```
@@ -102,7 +102,7 @@ typically read them in from files. Examine `MCB185/data/primers.csv`, which has
 some sequencing primers from a catalog. Here's how we read a CSV file into a
 list of records.
 
-```
+```python
 1   def read_catalog(filepath):
 2       catalog = []
 3       with open(filepath) as fp:
@@ -129,14 +129,14 @@ retrieve a list from the comma-separated values on the line.
 Lines 7-12 create the record. Note that you don't need to name a record before
 appending it. Lines 7-13 could be replaced by the following (but should it?).
 
-```
+```python
 catalog.append({'Name': name, 'Length': length, 'Sequence': seq, 'Description': desc})
 ```
 
 Now that we have a function that reads a catalog, we can load it and access
 its records.
 
-```
+```python
 catalog = read_catalog('primers.csv')
 for primer in catalog:
     print(primer['Name'], primer['Description'])
@@ -149,7 +149,7 @@ each oligo.
 Do you remember `22oligotemp.py`? Harvest the code from there, modify it to
 accept a string, and add it to your library.
 
-```
+```python
 for primer in catalog:
     primer['Tm'] = dogma.tm(primer['Sequence'])
 print(catalog)
@@ -161,7 +161,7 @@ In the last unit, we counted k-mers in sequences. What if instead of counting
 them, we wanted to know the location of each k-mer on the sequence? Here's what
 the code looked like before. Take note of lines 4-5.
 
-```
+```python
 1   kcount = {}
 2   for i in range(len(seq) -k +1):
 3       kmer = seq[i:i+k]
@@ -173,7 +173,7 @@ In order to record locations of k-mers, we need to turn the initialization of 0
 into an initialization of an empty list. And then instead of counting k-mers,
 we need to append their locations.
 
-```
+```python
 1   seq = 'AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGT'
 2   k = 2
 3   kloc = {}
@@ -211,7 +211,7 @@ like REFERENCE contains a list of 19 papers. Each paper contains some key:value
 pairs. In Python, we might make a data structure like the one below. It
 contains a mixture of dictionaries and lists.
 
-```
+```python
 {
     "locus": "NC_000913",
     "length": 4641652,
@@ -249,7 +249,7 @@ Python provides the `json` library for reading and writing JSON. When working
 with complex data structures, `json.dumps()` can be a useful way of examining
 the structure.
 
-```
+```python
 truc = {
     'animals': {'dog': 'woof', 'cat': 'meow', 'pig': 'oink'},
     'numbers': [1.09, 2.72, 3.14],
@@ -288,7 +288,7 @@ MCB185/data of course). Print the names of any sequences matching the PROSITE
 pattern "D-K-T-G-T". This is easily solved by dropping the dashes and searching
 with `in`.
 
-```
+```python
 for defline, seq in mcb185.read_fasta(sys.argv[1]):
     if 'DKTGT' in seq: print(defline)
 ```
@@ -297,7 +297,7 @@ The regular expression version isn't much different. `re.search()` takes two
 arguments, a _pattern_ and a string. In this case, the pattern is "DKTGT" and
 the string is the sequence.
 
-```
+```python
 for defline, seq in mcb185.read_fasta(sys.argv[1]):
     if re.search('DKTGT', seq): print(defline)
 ```
@@ -309,7 +309,7 @@ methionine. Similarly "[TI]" is a choice of two amino acids. We can't use `in`
 to make a match to this fuzzy pattern, but we can with regex, which uses the
 exact same syntax for the character classes we used back in Unit 1 with `grep`.
 
-```
+```python
 for defline, seq in mcb185.read_fasta(sys.argv[1]):
     if re.search('DKTGT[LIVM][TI]', seq): print(defline)
 ```
@@ -323,7 +323,7 @@ In regular expressions, `.` means any symbol rather than "x". Also, regex uses
 curly braces for ranges rather than parentheses. Therefore "x(2,4)" becomes
 `.{2,4}`.
 
-```
+```python
 for defline, seq in mcb185.read_fasta(sys.argv[1]):
     if re.search('C.{2,4}C.{3}[LIVMFYWC].{8}H.{3,5}H', seq): print(defline)
 ```
@@ -332,7 +332,7 @@ Regular expressions can also extract the text they match. Each pair of
 parentheses is called a match group. The example below has only one group,
 which is the entire pattern.
 
-```
+```python
 1   pat = '(C.{2,4}C.{3}[LIVMFYWC].{8}H.{3,5}H)'
 2   for defline, seq in mcb185.read_fasta(sys.argv[1]):
 3       m = re.search(pat, seq)

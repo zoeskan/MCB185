@@ -53,7 +53,7 @@ Add the following lines to your demo program and run it. The Boolean expression
 in this case is the value `True`, which means this loop will never end.
 Interrupt the endless output by typing ^C.
 
-```
+```python
 while True:
     print('hello')
 ```
@@ -63,7 +63,7 @@ create a variable `i` that will be used to store an integer. Each time through
 the loop, the value of `i` increases: `i = i + 1`. Once `i` reaches 3, the
 loop breaks.
 
-```
+```python
 i = 0
 while True:
     i = i + 1
@@ -74,7 +74,7 @@ while True:
 A better way to break a `while` loop is to provide some kind of condition when
 the Boolean expression is no longer True.
 
-```
+```python
 i = 0
 while i < 3:
     print(i)
@@ -85,7 +85,7 @@ print('final value of i is', i)
 The loop doesn't have to start at 0, increment by 1, or end before 5. The
 modified code below starts at 1, ends before 10, and skips by 3s.
 
-```
+```python
 i = 1
 while i < 10:
     print(i)
@@ -98,7 +98,7 @@ print('final value of i is', i)
 Most loops in Python are `for` loops, not `while` loops. Let's recreate the
 last code example using a `for` loop and the `range()` function.
 
-```
+```python
 for i in range(1, 10, 3):
     print(i)
 ```
@@ -109,7 +109,7 @@ end-before limit (10), and an increment (3).
 Most "for i in range()" loops increment by one. For this reason, you can skip
 the increment number and use just 2 arguments.
 
-```
+```python
 for i in range(0, 5):
     print(i)
 ```
@@ -117,14 +117,14 @@ for i in range(0, 5):
 Also, most "for i in range()" loops also start at zero, meaning you can skip
 the initial value and simply give the end-before limit.
 
-```
+```python
 for i in range(5):
     print(i)
 ```
 
 All of these constructions do the exact same thing.
 
-```
+```python
 for i in range(5): print(i)
 for i in range(0, 5): print(i)
 for i in range(0, 5, 1): print(i)
@@ -137,7 +137,7 @@ more of this next unit. For now, our items are characters, and the container is
 a string. The string 'hello' has 5 characters. We can loop over each one as
 follows.
 
-```
+```python
 for char in 'hello':
     print(char)
 ```
@@ -145,7 +145,7 @@ for char in 'hello':
 As this is class is themed around biology, we will be using nucleotide and
 amino acid sequences very soon.
 
-```
+```python
 seq = 'GAATTC'
 for nt in seq:
     print(nt)
@@ -160,7 +160,7 @@ vice-versa. In sequence alignment, a pair of letters is given a score, for
 example, +1 for a match and -1 for a mismatch. Let's display that relationship
 using 2 nested loops, one for each collection of letters.
 
-```
+```python
 for nt1 in 'ACGT':
     for nt2 in 'ACGT':
         if nt1 == nt2: print(nt1, nt2, '+1')
@@ -180,7 +180,7 @@ In the code below `nts` holds the alphabet. Changing the variable changes both
 loops. By naming the variable `nts` we can read it simply as "for nucleotide 1
 in nucleotides".
 
-```
+```python
 nts = 'ACGT'
 for nt1 in nts:
     for nt2 in nts:
@@ -196,7 +196,7 @@ there's no point in specifying both distances. Given 4 species, we only want to
 see the pairings of 1-2, 1-3, 1-4, 2-3, 2-4, and 3-4. This is accomplished by
 initializing the inner loop one beyond the current value of the outer loop.
 
-```
+```python
 limit = 4
 for i in range(0, limit):
     for j in range(i + 1, limit):
@@ -234,7 +234,7 @@ final calculation, we also need to know the total number of nucleotides, which
 we'll store in a variable called `total`. Here's the complete function and an
 example of use.
 
-```
+```python
 1   def gc_comp(seq):
 2       gc_count = 0
 3       total = 0
@@ -298,7 +298,7 @@ In order to sum up the numbers, we must have a variable to hold the sum (line
 value of the loop variable (line 4). The finalization step is simply returning
 the value of the sum (line 5).
 
-```
+```python
 1   def triangular(n):
 2       tri = 0
 3       for i in range(n+1):
@@ -313,7 +313,7 @@ as 1. Use a conditional for that special case (line 2). Second, when
 multiplying values, you cannot initialize at zero or you will always get zero.
 So factorial must initialize at 1 (line 3).
 
-```
+```python
 1   def factorial(n):
 2       if n == 0: return 1
 3       fac = 1
@@ -328,7 +328,7 @@ The solution to this problem is very similar to `triangular()` because it
 simply sums up a bunch of numbers. To get the factorial of a number, use the
 function you created above (line 4).
 
-```
+```python
 1   def euler(limit):
 2       e = 0
 3       for n in range(limit):
@@ -344,7 +344,7 @@ rounding and `math.isclose()` does the comparison (line 4). Never ask if
 floating point numbers are _equal_ to anything. Note that there is no reason
 for an `else:` statement on line 4.
 
-```
+```python
 1   def is_perfect_square(n):
 2       root = math.sqrt(n)
 3       if root % 1 == 0: return True
@@ -357,7 +357,7 @@ This algorithm features a short-circuit (line 4). It returns `False` as soon as
 it finds any factor smaller than itself. If it fails to find any factors, it
 eventually returns `True`.
 
-```
+```python
 1   def is_prime(n):
 2       for den in range(2, n//2):
 3           if n % den == 0: return False
@@ -410,7 +410,7 @@ T -1 -1 -1 +1
 Your code must start as follows, and must be able to print a similar looking
 scoring matrix simply by changing the variables below.
 
-```
+```python
 alphabet = 'ACGT'
 match = '+1'
 mismatch = '-1'

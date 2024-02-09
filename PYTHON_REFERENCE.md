@@ -51,7 +51,7 @@ your code as potential **cheating**.
 
 (5) Use spaces for lining up single `if-elif-else` type constructs.
 
-```
+```python
 if   nt == 'A': comp = 'T'
 elif nt == 'C': comp = 'G'
 elif nt == 'G': comp = 'C'
@@ -64,7 +64,7 @@ Naming Rules:
 + Variable and function names are generally all lowercase
 + Multi-word variables may use snake case, but not mixedCase
 
-```
+```python
 widowsize   = 60  # yes
 window_size = 60  # yes
 windowSize  = 60  # no
@@ -98,7 +98,7 @@ Lists are often plural versions of descriptive names. If the word is very long,
 use an abbreviation. Using singluar and plural names allows for intuitive looop
 constructs such as:
 
-```
+```python
 for name in names: ...
 ```
 
@@ -158,7 +158,7 @@ In Python, variables are given a type as they are created. There is no way to
 create a variable without a type, but once a variable has been created with one
 type, it can be reassigned to another type.
 
-```
+```python
 n = 1               # integer
 f = 1.0             # floating point number
 s = '1'             # string
@@ -336,7 +336,7 @@ Tuples are created with parentheses. Lists are created with square brackets.
 Tuples cannot be changed, but lists can. Both tuples and lists are indexed with
 square brackets.
 
-```
+```python
 tup = (1, 2, 'cat', 'dog')
 lis = [1, 2, 'cat', 'dog']
 print(tup[2]) # cat
@@ -412,7 +412,7 @@ string, list, or tuple.
 For `enumerate()`, `zip()` and related iterators, always unpack the tuple into
 named variables.
 
-```
+```python
 pets = ('cat', 'dot', 'rat')
 for i, pet in enumerate((pets): # yes, unpack the tuple
 	print(i, pet)
@@ -428,10 +428,10 @@ _positional_ arguments, meaning the arguments are in a specific order.
 Functions may return multiple values. Here is a function with 3 positional
 arguments that returns a tuple of 2 values.
 
-```
+```python
 def quadratic(a, b, c):
-	x1 = -b - sqrt(b**2 - 4*a*c) / 2*a
-	x2 = -b + sqrt(b**2 - 4*a*c) / 2*a
+	x1 = -b - math.sqrt(b**2 - 4*a*c) / 2*a
+	x2 = -b + math.sqrt(b**2 - 4*a*c) / 2*a
 	return x1, x2
 ```
 
@@ -440,7 +440,7 @@ arguments and may occur in any order. For example, a `translate()` function
 might translate coding sequence in frame 0 by default, but can also translate
 in other reading frames using an optional `frame` parameter.
 
-```
+```python
 def translate(seq, frame=0):
 	cds = ''
 	for i in range(frame, len(seq) -2, 3):
@@ -474,7 +474,7 @@ random seed to any integer value.
 
 Files are opened and closed as follows:
 
-```
+```python
 fp = open(filename)
 fp.close()
 ```
@@ -483,7 +483,7 @@ Files are automatically closed when using a `with open` construction. Here's
 the preferred code to open a file, read it line-by-line, and automataically
 close it:
 
-```
+```python
 with open(filename) as fp:
 	for line in fp:
 		# do something with each line
@@ -492,7 +492,7 @@ with open(filename) as fp:
 To open a compressed file, use `gzip.open()` and include an additional argument
 `rt` to read as text, as shown below.
 
-```
+```python
 with gzip.open(filename, 'rt') as fp:
 ```
 
@@ -502,7 +502,7 @@ with gzip.open(filename, 'rt') as fp:
 Dictionaries are created with curly brackets and indexed with square brackets.
 Dictionaries consist of key:value pairs.
 
-```
+```python
 d = {'cat': 'meow', 'dog': 'woof', 'rat': 'squeak'}
 print(d['cat'])  # meow
 ```
@@ -510,20 +510,20 @@ print(d['cat'])  # meow
 The assignment operator `=` adds new elements to the dictionary. It also
 overwrites previous values.
 
-```
+```python
 d['pig'] = 'oink'  # new pair
 d['cat'] = 'mew'   # overwrite previous value
 ```
 
 To check if a key exists, use the `in` keyword.
 
-```
+```python
 if 'cow' not in d: d['cow'] = 'moo'
 ```
 
 To remove a key from a dictionary, use the `del` keyword.
 
-```
+```python
 del d['cow']
 ```
 
@@ -540,7 +540,7 @@ of a dictionary. The order of keys is the order in which they were created.
 Use the `items()` method to iterate over a tuple of key/value pairs. A `for`
 loop iterates over the keys of a dictionary. These 3 loops do the same thing.
 
-```
+```python
 for k, v in d.items(): print(k, v)
 for k in d.keys(): print(k, d[k])
 for k in d: print(k, d[k])
@@ -549,7 +549,7 @@ for k in d: print(k, d[k])
 Sometimes you want to sort a dictionary by keys and sometimes by values. The
 syntax for this is a little arcane, using a lambda function.
 
-```
+```python
 d = { ... }
 for k, v in sorted(d.items(), key=lambda x: x[1]): ...
 ```
@@ -560,7 +560,7 @@ for k, v in sorted(d.items(), key=lambda x: x[1]): ...
 Regular expressions can be used to search a string for a sub-string. You can
 also do this with `in`.
 
-```
+```python
 import re
 s = 'abcdefghij'
 if 'e' in s: print('found with in')
@@ -573,7 +573,7 @@ characters that make up words. The parentheses associate what was found into
 group 1. If there was a second pair of parentheses, the contents would go into
 group 2.
 
-```
+```python
 m = re.search('e(\w+)i', s)
 if m: print(m.group(1))     # prints fgh
 ```
@@ -604,7 +604,7 @@ Regex syntax is a little arcane. Here is a subset of the regex rules.
 Values on the command line are in the `sys.argv` list. You could therefore
 harvest parameters from the command line as follows:
 
-```
+```python
 import sys
 filename = sys.argv[1]
 k = int(sys.argv[2])

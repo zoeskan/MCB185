@@ -69,7 +69,7 @@ to import a FASTA file reader from the MCB185 repo.
 
 Create `60demo.py` and add the following to the top.
 
-```
+```python
 import mcb185
 ```
 
@@ -93,7 +93,7 @@ favorite functions (which we will do a little later).
 
 Add the following code to your demo.
 
-```
+```python
 1   import sys
 2   import mcb185
 3
@@ -118,7 +118,7 @@ nothing stopping you from looking.
 Let's write a program that calculates the GC composition of nucleotide
 sequences in a FASTA file. Swap out line 5 above for the following.
 
-```
+```python
 4   for defline, seq in mcb185.read_fasta(sys.argv[1]):
 5       defwords = defline.split()
 6       name = defwords[0]
@@ -155,7 +155,7 @@ and Gs. One way to solve this problem is to create individual variables for
 each nucleotide and a stack of if-elif-else statements that assigns them
 individually.
 
-```
+```python
 5   A = 0
 6   C = 0
 7   G = 0
@@ -177,7 +177,7 @@ initialize a list called `counts`. There is still a stack of if-elif-else, but
 instead of assigning named variables, the assignments are at specific indices
 of the list variable `counts`.
 
-```
+```python
 5   nts = 'ACGTN' # should really be defined outside the loop
 6   counts = []
 7   for i in range(len(nts)): counts.append(0)
@@ -207,7 +207,7 @@ numbers like `counts[-1]` index backwards. As a result, unknown letters get
 dumped into the counts for 'N'. This is the exact behavior of the if-elif-else
 stack.
 
-```
+```python
 5   nts = 'ACGTN' # should really be defined outside the loop
 6   counts = [0] * len(nts)
 7   for nt in seq:
@@ -225,7 +225,7 @@ specific letters. Here, we iterate through the letters of the alphabet, getting
 the counts for each one. For example, in the first iteration, the letter is
 'A'. On line 8, we simply ask `seq` to count how many As it has.
 
-```
+```python
 5   nts = 'ACGTN' # should really be defined outside the loop
 6   print(name, end='\t')
 7   for nt in nts:
@@ -265,7 +265,7 @@ substrings and converts those to other substrings. Recall that strings are
 immutable, so the original string isn't modified. `str.replace()` returns a
 modified copy. Put this function in `dogma.py`.
 
-```
+```python
 def transcribe(dna):
     return dna.replace('T', 'U')
 ```
@@ -275,7 +275,7 @@ def transcribe(dna):
 When working with DNA, we often need to work with the reverse-complement
 strand. Let's make a function that does that and add it to our library.
 
-```
+```python
 1   def revcomp(dna):
 2       rc = []
 3       for nt in dna[::-1]:
@@ -302,7 +302,7 @@ In order to test the functions in our library, we need a program that imports
 the library and calls its functions. Create a file called `test_dogma.py` or
 `test_name.py` depending on the name of your library.
 
-```
+```python
 1   import dogma
 2
 3   print(dogma.transcribe('ACGT'))
@@ -329,13 +329,13 @@ we expect to call the function. Ideally, this results in 'M*' where 'ATG' gets
 translated to 'M' and 'TAA' gets translated to a stop codon (which is usually
 represented as a '*').
 
-```
+```python
 print(dogma.translate('ATGTAA')) # should return M*
 ```
 
 Let's write a minimal translation function in `dogma.py`.
 
-```
+```python
 1   def translate(dna):
 2       aas = []
 3       for i in range(0, len(dna), 3):
@@ -365,7 +365,7 @@ Line 8 returns the amino acid list as a string.
 
 Here's an alternative way to write the function:
 
-```
+```python
 1   def translate(dna):
 2       codons = ('ATG', 'TAA')
 3       aminos = 'M*'
@@ -394,7 +394,7 @@ append `aa` to the growing protein.
 Note that the `idx` and `aa` variables are only used once. They don't really
 need to exist. Lines 8-10 could be written as a single line:
 
-```
+```python
 aas.append(aminos[codons.index(codon)])
 ```
 
@@ -408,7 +408,7 @@ make the code more readable or more efficient.
 The `translate()` function we just wrote was a specialized form of "sliding
 window algorithm". The canonical form is shown below.
 
-```
+```python
 1   w = 10
 2   s = 1
 3   for i in range(0, len(seq) -w +1, s):
@@ -437,7 +437,7 @@ First, let's create the functions for `gc_comp()` and `gc_skew()`. These sound
 like useful functions we might want to use again, so let's put them into
 `dogma.py`. `gc_comp()` is so simple it's not worth discussing.
 
-```
+```python
 def gc_comp(seq):
     return (seq.count('C') + seq.count('G')) / len(seq)
 ```
@@ -445,7 +445,7 @@ def gc_comp(seq):
 The only difficulty in `gc_skew()` is that it's possible for windows to have no
 Gs or Cs in them.
 
-```
+```python
 def gc_skew(seq):
     c = seq.count('C')
     g = seq.count('G')
@@ -455,7 +455,7 @@ def gc_skew(seq):
 
 The calling code goes in `test_dogma.py`.
 
-```
+```python
 s = 'ACGTGGGGGGCATATG'
 print(dogma.gc_comp(s))
 print(dogma.gc_skew(s), dogma.gc_skew(dogma.revcomp(s)))
@@ -464,7 +464,7 @@ print(dogma.gc_skew(s), dogma.gc_skew(dogma.revcomp(s)))
 Now that we know those functions work, let's toss them into the canonical
 windowing algorithm. Save this as `61skewer.py`.
 
-```
+```python
 1   seq = 'ACGTACGTGGGGGACGTACGTCCCCC'
 2   w = 10
 3   for i in range(len(seq) -w +1):
@@ -483,7 +483,7 @@ Line 5 calls the composition and skew functions you just added to your library.
 This is fine for testing purposes. Later, when you want the output to look more
 consistent and professional, use f-strings like below.
 
-```
+```python
 print(f'{i}\t{dogma.gc_comp(s):.3f}\t{dogma.gc_skew(s):.3f}')
 ```
 

@@ -77,7 +77,7 @@ end of a line, at which point, the rest of the line is a comment.
 Modify your program with comments as shown below. It's a good idea to put a
 comment in your programs with your name.
 
-```
+```python
 # 20demo.py by your_name
 print('hello, again') # greeting
 ```
@@ -86,7 +86,7 @@ Python also has multi-line comments. These begin and end with triple quotes.
 Note that we generally use single quotes, like in `hello, again`, but for
 multi-line comments we use double quotes.
 
-```
+```python
 """
 This is a
 multi-line
@@ -104,7 +104,7 @@ The comment with your program name and author name is like a header. It's very
 different from the code that follows, and should have vertical spacing between
 the code that follows. We call this vertical spacing "whitespace".
 
-```
+```python
 # 20demo.py by your_name
 
 print('hello, again') # greeting
@@ -115,7 +115,7 @@ statements to provide clarity. This is much like using spaces as part of
 punctuation. Note how the lack of horizontal whitespace below impedes
 readability.
 
-```
+```python
 #20demo.py by your_name
 print('hello,again')#greeting,formatted badly
 ```
@@ -135,7 +135,7 @@ with the numeral "1". You can do math with 1 and 1.0, but not '1'. Python
 understands scientific notation. 1.5e-2 means 1.5 times 10 to the -2 power
 (0.015).
 
-```
+```python
 print(1.5e-2)
 ```
 
@@ -200,7 +200,7 @@ The math library also defines some useful constants.
 Here's what my demo program looks like. Notice that there are multiple ways to
 do powers and roots.
 
-```
+```python
 # 20demo.py by Ian Korf
 
 import math
@@ -227,7 +227,7 @@ integers (ints) have exact values, floating point numbers (floats) are
 approximations with finite precision. For example, the value 0.1 isn't exactly
 equal to 0.1.
 
-```
+```python
 print(0.1 * 1)
 print(0.1 * 3)
 ```
@@ -249,7 +249,7 @@ numbers (and other types of things).
 
 The code below computes the hypotenuse `c` given sides `a` and `b`.
 
-```
+```python
 a = 3                       # side of triangle
 b = 4                       # side of triangle
 c = math.sqrt(a**2 + b**2)  # hypotenuse
@@ -269,7 +269,7 @@ When variables are created, they always have a type. In the code above, `a` and
 `math.sqrt()` function creates floats. Consequently, `c` is a float. To see the
 type of a variable, use the `type()` function.
 
-```
+```python
 print(type(a), type(b), type(c))
 ```
 
@@ -280,7 +280,7 @@ For example, let's change the separator to a comma followed by a space using
 the optional `sep=` syntax (this is very similar to Linux commands with
 optional parameters).
 
-```
+```python
 print(type(a), type(b), type(c), sep=', ')
 ```
 
@@ -295,7 +295,7 @@ all lines that are part of the function, must be indented.
 
 Here's a function that simply prints a greeting.
 
-```
+```python
 def greeting():
     print('hello yourself')
 ```
@@ -330,7 +330,7 @@ values `3`, and `4` are passed into the function, the function does the work,
 and hands back the value `5`, which is stored in variable `x`. Here's how that
 looks in code.
 
-```
+```python
 def pythagoras(a, b):
     c = math.sqrt(a**2 + b**2)
     return c
@@ -338,14 +338,14 @@ def pythagoras(a, b):
 
 We can run it like this:
 
-```
+```python
 x = pythagoras(3, 4)
 print(x)
 ```
 
 We don't really need the variables `c` or `x`.
 
-```
+```python
 def pythagoras(a, b):
     return math.sqrt(a**2 + b**2)
 
@@ -373,7 +373,7 @@ Write a function that computes the midpoint between two points. Note that this
 function must return values for x and y. Your `return` statement will have two
 values separated by a comma. Your function will look something like this.
 
-```
+```python
 def midpoint(x1, y1, x2, y2):
     # insert stuff here
     return mx, my
@@ -393,7 +393,7 @@ thing. In Python, we use single quotes because it's one less keypress compared
 to double quotes. The exception to that is multi-line comments, which are
 triple-double-quotes (see above).
 
-```
+```python
 s = 'hello world'
 print(s, type(s))
 ```
@@ -415,7 +415,7 @@ equality uses a double equals sign `==`. That's because a single equals sign is
 used for assignment. Try changing `b` so that they are unequal and observe the
 behavior.
 
-```
+```python
 a = 2
 b = 2
 if a == b:
@@ -426,7 +426,7 @@ Did you notice that the `print()` statement was indented? That's because it has
 block structure. In the following block, the values of `a` and `b` are only
 reported if they are equal.
 
-```
+```python
 if a == b:
     print('a equals b')
     print(a, b)
@@ -435,7 +435,7 @@ if a == b:
 If you want the program to report the values always, put the second statement
 outside the conditional (either before or after).
 
-```
+```python
 if a == b:
     print('a equals b')
 print(a, b)
@@ -458,7 +458,7 @@ The numeric comparison operators are shown below.
 This may seem weird, but the expression `a == b` has a value and type. We can
 explore this by assigning it to a variable.
 
-```
+```python
 c = a == b
 print(c)
 print(type(c))
@@ -474,7 +474,7 @@ Much of the time we write conditional statements, there are multiple branches.
 In these cases, we use the `if-elif-else` construct. There is only one `if` and
 only one `else`, but there can be any number of `elif`.
 
-```
+```python
 if a < b:
     print('a < b')
 elif a > b:
@@ -487,7 +487,7 @@ When you have a stack of really simple if-elif-else conditions, it's tidy to
 format as one-liners and align them horizontally. You can't do this if each
 block has multiple statements.
 
-```
+```python
 if   a < b: print('a < b')
 elif a > b: print('a > b')
 else:       print('a == b')
@@ -497,7 +497,7 @@ else:       print('a == b')
 
 Boolean expressions can be chained with `and` and `or` and inverted with `not`.
 
-```
+```python
 if a < b or a > b: print('all things being equal, a and b are not')
 if a < b and a > b: print('you are living in a strange world')
 if not False: print(True)
@@ -508,7 +508,7 @@ if not False: print(True)
 If you recall that floating point numbers have finite precision you may not be
 surprised that the following code reports that a < b.
 
-```
+```python
 a = 0.3
 b = 0.1 * 3
 if   a < b: print('a < b')
@@ -520,7 +520,7 @@ NEVER expect equality with floating point numbers. Instead, examine their
 difference and if that's less than some acceptable precision, consider them to
 be the same. Here's how you do that manually.
 
-```
+```python
 print(abs(a - b)) # 5.551115123125783e-17
 if abs(a - b) < 1e-9: print('close enough')
 ```
@@ -528,7 +528,7 @@ if abs(a - b) < 1e-9: print('close enough')
 Python has a math function `math.isclose()` that compares two values and
 returns `True` if their values are close and `False` otherwise.
 
-```
+```python
 if math.isclose(a, b): print('close enough')
 ```
 
@@ -537,7 +537,7 @@ if math.isclose(a, b): print('close enough')
 Strings are compared alphabetically, sort of. They are actually compared by
 their ASCII values. This is why "A" is less than "B" but "B" is less than "a".
 
-```
+```python
 s1 = 'A'
 s2 = 'B'
 s3 = 'a'
@@ -550,7 +550,7 @@ if s2 < s3: print('B < a')
 If two variables have different types, it usually doesn't make sense to compare
 them. That's why the following code results in a "Type Error".
 
-```
+```python
 a = 1
 s = 'G'
 if a < s: print('a < s')
@@ -611,28 +611,15 @@ paragraph structure in English.
 (4) Use tabs for left side indentation. The use of spaces for indentation flags
 your code as potential **cheating**.
 
-(5) Use spaces for lining up simple `if-elif-else` type constructs. Don't put
-blank lines between any of the `if-elif-else` words.
+(5) Use spaces for lining up simple `if-elif-else` type constructs.
 
-```
+```python
 if   nt == 'A': comp = 'T'
 elif nt == 'C': comp = 'G'
 elif nt == 'G': comp = 'C'
 elif nt == 'T': comp = 'A'
 else:           sys.exit('unknown nucleotide', nt)
 ```
-
-```
-if something:
-    whaterver
-
-elif something:
-    whatever
-
-else:
-    whatever
-```
-
 
 (6) There is no space between a function and its opening parentheses. Note that
 `return` is a keyword, not a function.
@@ -648,7 +635,7 @@ else:
 + Variable and function names are generally all lowercase
 + Multi-word variables may use snake case, but not mixedCase
 
-```
+```python
 widowsize   = 60  # yes
 window_size = 60  # yes
 windowSize  = 60  # no

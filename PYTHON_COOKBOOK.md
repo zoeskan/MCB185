@@ -422,13 +422,13 @@ is a simple CLI for the program `dust.py` that masks low complexity regions of
 a sequence.
 
 ```python
-1	import argparse
-2
-3	parser = argparse.ArgumentParser(description='DNA entropy filter.')
-4	parser.add_argument('file', type=str, help='name of fasta file')
-5	parser.add_argument('size', type=int, help='window size')
-6	parser.add_argument('threshold', type=float, help='threshold')
-7	arg = parser.parse_args()
+import argparse
+
+parser = argparse.ArgumentParser(description='DNA entropy filter.')
+parser.add_argument('file', type=str, help='name of fasta file')
+parser.add_argument('size', type=int, help='window size')
+parser.add_argument('threshold', type=float, help='threshold')
+arg = parser.parse_args()
 ```
 
 When you run the program without any arguments, it reports the following brief
