@@ -39,7 +39,7 @@ you're automatically allowed to use it for your homework.
 The classic way to swap 2 variables is to use a temporary variable. But in
 Python, you can use tuples. The variables can even be different types.
 
-```
+```python
 a = 1
 b = 'two'
 a, b = b, a
@@ -53,7 +53,7 @@ Strings are immutable in Python. You can't make a _mutation_ in a sequence if
 it's stored as a string. However, you can edit a list. To convert a string to a
 list, use the `list()` function. Convert it back with `str.join()`.
 
-```
+```python
 seq = list(string)
 seq[5] = 'G'        # substitution
 seq.pop(3)          # deletion
@@ -68,7 +68,7 @@ seq = ''.join(seq)  # convert to string
 To read a file of numbers into a list, convert each number to a `float` and
 then append it to a list.
 
-```
+```python
 values = [] # empty list
 with open(filename) as fp:
 	for line in fp:
@@ -77,7 +77,7 @@ with open(filename) as fp:
 
 To make this a function, return the list.
 
-```
+```python
 def read_numbers(filename):
 	values = [] # empty list
 	with open(filename) as fp:
@@ -88,7 +88,7 @@ def read_numbers(filename):
 
 To make this a generator, yield the list, one number at a time
 
-```
+```python
 def read_numbers(filename):
 	with open(filename) as fp:
 		for line in fp:
@@ -104,7 +104,7 @@ for f in read_numbers(filename): ...
 To read a CSV (comma-separated values) file, split each line at the comma
 character into its component columns.
 
-```
+```python
 with open(filename) as fp:
 	for line in fp:
 		cols = line.split(',')
@@ -112,7 +112,7 @@ with open(filename) as fp:
 
 To read tab-separated files (TSV) change the comma to a tab.
 
-```
+```python
 with open(filename) as fp:
 	for line in fp:
 		cols = line.split('\t')
@@ -121,7 +121,7 @@ with open(filename) as fp:
 To read space-separated files, use the default `split()`. This will segment on
 any number of spaces including tabs.
 
-```
+```python
 with open(filename) as fp:
 	for line in fp:
 		cols = line.split()
@@ -132,7 +132,7 @@ If some of the columns have numeric values, you must change them to `int` or
 split the line into named variables rather than a list of unknown length. The
 function below hands back a list of tuples.
 
-```
+```python
 def read_people(filename):
 	people = []
 	with open(filename) as fp:
@@ -148,7 +148,7 @@ An alternative is to write this as a generator where each call to the function
 retrieves the next person. The advantage of the generator is that you don't
 need to keep all of the people in memory at the same time.
 
-```
+```python
 def read_people(filename):
 	with open(filename) as fp:
 		for line in fp:
@@ -165,7 +165,7 @@ for name, age, salary in read_people(filename): ...
 To read a FASTA file into a string, remove the newlines and concatenate the
 lines together.
 
-```
+```python
 seq = '' # empty string
 with open(filename) as fp:
 	header = fp.readline() # read one line
@@ -182,7 +182,7 @@ has some useful features.
 + It uses `join` to prevent the CPU overhead of concatenation
 + It uses `yield` to reduce memory footprint to a single sequence
 
-```
+```python
 import gzip
 import sys
 def read_fasta(filename):
@@ -211,7 +211,7 @@ def read_fasta(filename):
 
 To iterate over all of the sequences in a file, unpack the tuple in a for loop.
 
-```
+```python
 for name, seq in read_fasta(filename): ...
 ```
 
@@ -219,7 +219,7 @@ for name, seq in read_fasta(filename): ...
 
 The simplest way to reverse a string is to retrieve a slice in reverse step.
 
-```
+```python
 rev = seq[::-1]
 ```
 
@@ -228,7 +228,7 @@ rev = seq[::-1]
 To generate a sequence of DNA with equal probabilities of each letter, use
 `random.choice()`.
 
-```
+```python
 import random
 s = ''
 for i in range(100):
@@ -238,14 +238,14 @@ for i in range(100):
 An alternative is to use `random.choices()` to generate a tuple of random
 letters of length k (which you may want to `join()` into a string as shown).
 
-```
+```python
 s = ''.join(random.choices('ACGT', k=100))
 ```
 
 If you want sequences biased towards AT or GC, split the probability space. The
 code below creates sequences that are 70%
 
-```
+```python
 s = ''
 for i in range(100):
 	if random.random() < 0.7:
@@ -259,7 +259,7 @@ for i in range(100):
 An alternative to the above is to use `random.choices()` with `weights` or
 `cum_weights` and a value for `k` that is the length of the sequence.
 
-```
+```python
 nts = 'ACGT'
 ntp = (0.35, 0.15, 0.15, 0.35)
 ntc = (0.35, 0.50, 0.65, 1.00)
@@ -270,7 +270,7 @@ s2 = ''.join(random.choices(nts, cum_weights=ntc, k=100))
 To shuffle the letters of a sequence, use `random.shuffle()`. Since strings are
 immutable, you must first turn the sequence into a list.
 
-```
+```python
 seq = '0123456789'
 lseq = list(seq)
 random.shuffle(lseq)
@@ -282,7 +282,7 @@ seq = ''.join(lseq)
 A windowing algorithm moves a window of fixed size along a sequence, doing
 _something_ with each window.
 
-```
+```python
 seq = ... # from somewhere
 w = 10 # window size
 for i in range(len(seq) - w + 1):
@@ -295,7 +295,7 @@ above). However, sometimes you may want to skip by 3s for codons, in which case
 you must use the 3 argument form of `range()`, which specifies the starting
 index, the length, and the increment (e.g. 3).
 
-```
+```python
 for i in range(0, len(seq), 3):
 	codon = seq[i:i+3]
 ```
@@ -303,7 +303,7 @@ for i in range(0, len(seq), 3):
 To get codons in a different frame, you would start with a different initial
 value (e.g. 1 instead of 0).
 
-```
+```python
 for i in range(1, len(seq), 3):
 	codon = seq[i:i+3]
 ```
@@ -311,7 +311,7 @@ for i in range(1, len(seq), 3):
 To print out a FASTA file with typical 60-character line lengths, you would
 skip by 60.
 
-```
+```python
 for i in range(0, len(seq), 60):
 	print(seq[i:i+60])
 ```
@@ -330,7 +330,7 @@ an ambiguity code (e.g. `N`), it will not be in the dictionary, and you will
 have to translate that codon as `X`. If your sequence contains lowercase
 letters, you will need to change them.
 
-```
+```python
 gcode = {
 	'AAA' : 'K',	'AAC' : 'N',	'AAG' : 'K',	'AAT' : 'N',
 	'ACA' : 'T',	'ACC' : 'T',	'ACG' : 'T',	'ACT' : 'T',
@@ -366,7 +366,7 @@ First, see [Windowing Algorithms](#windowing-algorithms).
 Use the dictionary below or write a stack of `if-elif-else` statements. Also
 see the notes about unusual characters or lowercase in Translating DNA.
 
-```
+```python
 kdh = {
 	'I':  4.5, 'V':  4.2, 'L':  3.8, 'F':  2.8, 'C':  2.5,
 	'M':  1.9, 'A':  1.8, 'G': -0.4, 'T': -0.7, 'S': -0.8,
@@ -388,7 +388,7 @@ The first time you 'see' a k-mer, you must add it to the dictionary.
 Afterwards, increase counts by one. If you want to pre-populate the dictionary
 to include missing k-mers, see [Generating K-mers](#generating-kmers).
 
-```
+```python
 seq = 'ACATGAGGATATATAT'
 k = 3
 kcount = {}
@@ -405,7 +405,7 @@ function generates tuples, so you might want to join them into a string as
 shown below. Don't do this with large values of k or you will run out of
 memory.
 
-```
+```python
 import itertools
 k = 3
 kcount = {}
@@ -421,7 +421,7 @@ synopsis of what a program does and what parameters it takes. For example, here
 is a simple CLI for the program `dust.py` that masks low complexity regions of
 a sequence.
 
-```
+```python
 1	import argparse
 2
 3	parser = argparse.ArgumentParser(description='DNA entropy filter.')
@@ -467,7 +467,7 @@ if you choose `praise` execution goes to `fn2()`.
 A CLI created this way has a generic usage statement for the whole program and
 individual usage statements for each sub-command.
 
-```
+```python
 import argparse
 import sys
 
