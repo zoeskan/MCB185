@@ -704,8 +704,8 @@ Line 19 reports the final value.
 + `52entropy.py`
 + `53genometats.py`
 + `54genometats.md`
-+ `55colorname.md`
-+ `56birthday.md`
++ `55colorname.py`
++ `56birthday.py`
 
 ### 53genomestats.py ###
 
