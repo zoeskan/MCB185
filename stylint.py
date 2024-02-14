@@ -88,6 +88,10 @@ def style_issues(file):
 
 tell = {}
 for file in arg.file:
+	if not file.endswith('.py'):
+		print(f'skipping non-python file: {file}', file=sys.stderr) 
+		continue
+		
 	probs = style_issues(file)
 
 	if len(probs) == 0:
