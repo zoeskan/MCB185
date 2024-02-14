@@ -25,8 +25,10 @@ Unit 5: Containers
     + [Converting Types](#converting-types)
     + [51cdslength.py](#51cdslengthpy)
 + [sys.argv](#sysargv)
+	+ [52entropy.py](#entropypy)
 + [Homework](#homework)
     + [53genomestats.py](#53genomestatspy)
+    + [54genomestats.md](#53genomestatsmd)
     + [55colorname.py](#55colornamepy)
     + [56birthday.py](#56birthdaypy)
     + [57birthday.py](#57birthdaypy)
@@ -643,6 +645,8 @@ conditions.
 Another way to get data into your program is from the command line itself. The
 variable `sys.argv` is the complete list of words on the command line (argv is
 short for argument vector). `sys.argv[0]` is the name of your program.
+
+### 52entropy.py ###
 
 Create a new program called `52entropy.py` and type the following lines below.
 Try running it with various values, including those that create errors.
