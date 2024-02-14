@@ -25,7 +25,7 @@ Unit 5: Containers
     + [Converting Types](#converting-types)
     + [51cdslength.py](#51cdslengthpy)
 + [sys.argv](#sysargv)
-	+ [52entropy.py](#entropypy)
+	+ [52entropy.py](#52entropypy)
 + [Homework](#homework)
     + [53genomestats.py](#53genomestatspy)
     + [54genomestats.md](#53genomestatsmd)
