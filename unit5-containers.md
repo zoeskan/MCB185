@@ -29,6 +29,7 @@ Unit 5: Containers
     + [53genomestats.py](#53genomestatspy)
     + [55colorname.py](#55colornamepy)
     + [56birthday.py](#56birthdaypy)
+    + [57birthday.py](#57birthdaypy)
 
 ------------------------------------------------------------------------------
 
@@ -832,8 +833,8 @@ times to get an accurate estimate, so have a parameter for that too.
 
 https://en.wikipedia.org/wiki/Birthday_problem
 
-+ Variation 1: try making the calendar a list
-+ Variation 2: try making the birthdays a list
+In this program, you must use a list for the birthdays. For example, if there
+are 23 people in the classroom, the list has a length of 23.
 
 The first few lines of your program should look something like this:
 
@@ -853,3 +854,8 @@ python3 56birthday.py 10000 365 23
 ```
 
 And the output should be a little over 50%.
+
+### 57birthday.py ###
+
+This is the same problem as above, but instead of making a list of birthdays
+(e.g. 23) make a list from the calendar (e.g. 365).
