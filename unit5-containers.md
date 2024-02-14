@@ -28,7 +28,7 @@ Unit 5: Containers
 	+ [52entropy.py](#52entropypy)
 + [Homework](#homework)
     + [53genomestats.py](#53genomestatspy)
-    + [54genomestats.md](#53genomestatsmd)
+    + [54genomestats.md](#54genomestatsmd)
     + [55colorname.py](#55colornamepy)
     + [56birthday.py](#56birthdaypy)
     + [57birthday.py](#57birthdaypy)
@@ -765,7 +765,7 @@ Your command lines should look something like this:
 python3 53genomestats.py ~/Code/MCB185/data/A.thaliana.gff.gz gene
 ```
 
-### 53genomestats.md ###
+### 54genomestats.md ###
 
 Create a report in markdown format as `54genomestats.md`. In addition to
 filling out the table below, include any other information you think another
