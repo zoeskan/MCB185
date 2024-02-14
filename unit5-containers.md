@@ -702,8 +702,8 @@ Line 19 reports the final value.
 + `50demo.py`
 + `51cdslength.py`
 + `52entropy.py`
-+ `53genometats.py`
-+ `54genometats.md`
++ `53genomestats.py`
++ `54genomestats.md`
 + `55colorname.py`
 + `56birthday.py`
 
