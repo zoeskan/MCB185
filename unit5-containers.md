@@ -745,24 +745,6 @@ about the length of GFF features.
 Run your program on the GFF files for the A.thaliana, C.elegans, and
 D.melanogaster genomes. You will find the files in the MCB185 data directory.
 
-Create a report in markdown format as `54genomestats.md`. In addition to
-filling out the table below, include any other information you think another
-genome scientist would find interesting.
-
-```
-| Genome         | Type |  N   | Min |  Max  | Mean | Stdv | Med  |
-|:---------------|:-----|:-----|:----|:------|:-----|:-----|:-----|
-| A.thaliana     | gene |  362 |  72 |  9511 | 2070 | 1435 | 1892 |
-|                | exon |
-|                | CDS  |
-| C.elegans      | gene |
-|                | exon |
-|                | CDS  |
-| D.melanogaster | gene |
-|                | exon |
-|                | CDS  |
-```
-
 Use `sys.argv` to specify the path to the GFF and the type of feature. This
 will allow you to write the program once and change command line parameters for
 different files or feature types.
@@ -781,6 +763,26 @@ Your command lines should look something like this:
 
 ```
 python3 53genomestats.py ~/Code/MCB185/data/A.thaliana.gff.gz gene
+```
+
+### 53genomestats.md ###
+
+Create a report in markdown format as `54genomestats.md`. In addition to
+filling out the table below, include any other information you think another
+genome scientist would find interesting.
+
+```
+| Genome         | Type |  N   | Min |  Max  | Mean | Stdv | Med  |
+|:---------------|:-----|:-----|:----|:------|:-----|:-----|:-----|
+| A.thaliana     | gene |  362 |  72 |  9511 | 2070 | 1435 | 1892 |
+|                | exon |
+|                | CDS  |
+| C.elegans      | gene |
+|                | exon |
+|                | CDS  |
+| D.melanogaster | gene |
+|                | exon |
+|                | CDS  |
 ```
 
 ### 55colorname.py ###
