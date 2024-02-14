@@ -598,6 +598,24 @@ integers with values of 190.
 Line 11 computes and reports the length. This calculation cannot be done
 without converting strings to ints or floats.
 
+In this unit, we are working with containers. Instead of printing out all of
+the distances, put them in a container. Note the changes to lines 2 and 11.
+
+```python
+1   import gzip
+2   lengths = []
+3   path = '../MCB185/data/GCF_000005845.2_ASM584v2_genomic.gff.gz'
+4   with gzip.open(path, 'rt') as fp:
+5       for line in fp:
+6           if line[0] == '#': continue
+7           words = line.split()
+8           if words[2] != 'CDS': continue
+9           beg = int(words[3])
+10          end = int(words[4])
+11          lengths.append(end - begin + 1)
+```
+
+
 Here's an alternative way to write the conditional statements above that does
 not use `continue` statements. Instead of skipping the lines we aren't
 interested in, we create code blocks for the lines we are interested in. Note
@@ -607,7 +625,7 @@ conditions.
 
 ```python
 1   import gzip
-2
+2   lengths = []
 3   path = '../MCB185/data/GCF_000005845.2_ASM584v2_genomic.gff.gz'
 4   with gzip.open(path, 'rt') as fp:
 5       for line in fp:
@@ -616,7 +634,7 @@ conditions.
 8               if words[2] == 'CDS':
 9                   beg = int(words[3])
 10                  end = int(words[4])
-11                  print(end - beg + 1)
+11                  lengths.append(end - begin + 1)
 ```
 
 ## sys.argv ##
