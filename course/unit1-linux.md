@@ -102,13 +102,13 @@ character as a wildcard. The `*` character matches missing characters if it
 can. We'll see this a lot later. The first line below lists your Code
 directory. The second line lists all of the items in your Code directory
 (performs `ls` on `MCB185`, `mcb185_homework`, and anything else in there). The
-third line lists all of the markdown files in the MCB185 directory (markdown
-files use the `.md` suffix).
+third line lists all of the markdown files in the `MCB185/course` directory
+(markdown files use the `.md` suffix).
 
 ```
 ls ~/Code
 ls ~/Code/*
-ls ~/Code/MCB185/*.md
+ls ~/Code/MCB185/course/*.md
 ```
 
 ### Aliases ###
@@ -473,15 +473,17 @@ directory" it's because you did one of two things.
 1. You copy-pasted the line
 2. You typed the whole line verbatim
 
-The reason for the error is that `poetery` has been misspelled.
+The reason for the error is that `poetery` has been intentionally misspelled.
+There are several intentional misspellings in this unit to encourage you to use
+your brain rather than be lazy.
 
 If you copy-pasted, consider dropping the course. You have been told multiple
 times not to copy-paste and your stubborn laziness or inability to seek help
 will be a hindrance moving on.
 
 If you typed the whole path, you are congratulated for your amazing attention
-to detail. Also you're acting like a stupid robot. Hopefully you can break of
-that mindset.
+to detail. Also you're acting like a robot. Hopefully you can break of that
+mindset.
 
 If you noticed the misspelling and continued to type out the whole command
 without using tab-completion, you're a CLI novice. Don't worry, we all start

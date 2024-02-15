@@ -76,12 +76,12 @@ import mcb185
 If you try running your program, you will get an error. Python doesn't know
 where the `mcb185.py` library file is. There are several places it looks, and
 one of those is your current directory. Make a soft link from
-`MCB185/mcb185.py` to your homework directory so that it looks like `mcb185.py`
-is in your homework repo.
+`MCB185/src/mcb185.py` to your homework directory so that it looks like
+`mcb185.py` is in your homework repo.
 
 ```
 cd ~/Code/mcb185_homework
-ln -s ../MCB185/mcb185.py .
+ln -s ../MCB185/src/mcb185.py .
 ```
 
 Libraries are collections of reusable functions. We've used them in the past.

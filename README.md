@@ -60,8 +60,8 @@ you turn in illegal code, you will be penalized. Depending on the severity of
 the infraction, you may be sent to Student Judicial Affairs. There are no
 warnings.
 
-See the `ILLEGAL.md` file in this repo for more information on what is
-considered illegal.
+See the `ILLEGAL.md` file in this `course` directory for more information on
+what is considered illegal.
 
 In general, resist copy-paste. Typing words helps you remember what you did
 later. Copy-paste is one of the worst ways to learn how to program. Also,
@@ -90,10 +90,10 @@ for the schedule and URL.
 
 ## Getting Started ##
 
-To begin the course, start reading `unit0-setup.md` and follow the directions.
-Once you finish that, move on to subsequent units. The course is designed to be
-completed in linear order. Skipping around between or within units is not
-advised.
+To begin the course, start reading `course/unit0-setup.md` and follow the
+directions. Once you finish that, move on to subsequent units. The course is
+designed to be completed in linear order. Skipping around between or within
+units is not advised.
 
 ## Getting Behind ##
 
@@ -101,5 +101,4 @@ People learn programming at highly variable rates. Some people can do this
 entire course in a couple weeks. Others may never finish. Unfortunately, the
 course has a 10-week schedule that ends in a letter grade. Not all students
 will finish the course. That's okay, you can still get a good grade even if you
-don't finish all of the material. Every assignment has a due date, but it's a
-soft deadline. You may turn in assignments late for full credit.
+don't finish all of the material.
