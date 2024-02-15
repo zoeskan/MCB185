@@ -1,4 +1,0 @@
-Quiz REAMDE
-===========
-
-Wait, whut?
