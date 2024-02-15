@@ -17,6 +17,7 @@ issues = {
 	'white':  r'(\t | \t)',
 	'comma':  r'(\w+,\w+)',
 	'mixed':  r'([a-z]+[A-Z]+|[A-Z]+[a-z]+)',
+	'caps' :  r'(def\s+[A-Z])'
 }
 
 explain = {
@@ -25,6 +26,7 @@ explain = {
 	'white': 'mixing spaces and tabs in whitespace can look weird',
 	'comma': 'there should be a space after a comma',
 	'mixed': 'use snake_case instead of mixedCase',
+	'caps' : 'function names should be lowercase',
 	'max80': 'line length exceeds 80 characters',
 }
 
@@ -89,9 +91,9 @@ def style_issues(file):
 tell = {}
 for file in arg.file:
 	if not file.endswith('.py'):
-		print(f'skipping non-python file: {file}', file=sys.stderr) 
+		print(f'skipping non-python file: {file}', file=sys.stderr)
 		continue
-		
+
 	probs = style_issues(file)
 
 	if len(probs) == 0:
