@@ -6,9 +6,8 @@ Unit 0: Setup
 + [Unix/Linux](#unixlinx)
     + [Unix](#unix)
     + [Linux](#linux)
-    + [CLI](#cli)
+    + [CLI and Terminal](#cli-and-terminal)
     + [Recommendations](#recommendations)
-    + [Commands](#commands)
     + [Unix on Mac](#unix-on-mac)
     + [Cygwin on Windows](#cygwin-on-windows)
     + [VM on Windows](#vm-on-windows)
@@ -84,13 +83,17 @@ similar to Unix (which also has several different flavors). In addition, there
 are also other Unix-like things that aren't truly Linux or Unix but behave
 similarly (e.g. Cygwin, see below).
 
-### CLI ###
+### CLI and Terminal ###
 
-Before we begin, you need a Unix-compatible command line interface (CLI) on
-your computer. 99% of bioinformatics is done with a Unix CLI. If you have any
-aspirations of becoming a bioinformatics programmer or sophisticated user, you
-need to become comfortable with the CLI. But before we get to that, you need to
-find or install a CLI on your computer.
+99% of bioinformatics is done in a Unix Command Line Interface (CLI). If you
+have any aspirations of becoming a bioinformatics programmer or sophisticated
+user, you need to become comfortable with the CLI.
+
+A "terminal" is an application (program) that allows you to type commands and
+see the text outputs of those commands.
+
+In order to begin your journey as a bioinformatics programmer, you will need to
+find/install a Terminal with a Unix-compatible CLI.
 
 ### Recommendations ###
 
@@ -105,26 +108,6 @@ find or install a CLI on your computer.
     + Windows Subsystem for Linux
     + Raspberry Pi
     + Remote login
-
-### Commands ###
-
-In this course, we will be typing _commands_ at a command line interface (CLI).
-Whenever you see a block of text like the one below, it means type the words
-followed by the Return key (or the Enter key). For example, we will eventually
-type the `date` command followed by the Return key to report the current date.
-
-```
-date
-```
-
-If you see multiple lines in a block, these represent 2 commands. For example,
-in the block below, type `date` followed by Return, then `ls` followed by
-Return.
-
-```
-date
-ls
-```
 
 ### Unix on Mac ###
 
