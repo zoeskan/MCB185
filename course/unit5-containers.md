@@ -615,7 +615,7 @@ the distances, put them in a container. Note the changes to lines 2 and 11.
 8           if words[2] != 'CDS': continue
 9           beg = int(words[3])
 10          end = int(words[4])
-11          lengths.append(end - begin + 1)
+11          lengths.append(end - beg + 1)
 ```
 
 
@@ -637,7 +637,7 @@ conditions.
 8               if words[2] == 'CDS':
 9                   beg = int(words[3])
 10                  end = int(words[4])
-11                  lengths.append(end - begin + 1)
+11                  lengths.append(end - beg + 1)
 ```
 
 ## sys.argv ##
