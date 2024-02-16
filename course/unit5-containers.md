@@ -618,10 +618,9 @@ the distances, put them in a container. Note the changes to lines 2 and 11.
 11          lengths.append(end - beg + 1)
 ```
 
-
 Here's an alternative way to write the conditional statements above that does
 not use `continue` statements. Instead of skipping the lines we aren't
-interested in, we create code blocks for the lines we are interested in. Note
+interested in, we create code blocks for the lines we _are_ interested in. Note
 the extra levels of nesting. Novice programmers sometimes prefer the
 construction below. De-nesting is much neater when there are multiple
 conditions.
@@ -648,19 +647,8 @@ short for argument vector). `sys.argv[0]` is the name of your program.
 
 ### 52entropy.py ###
 
-Create a new program called `52entropy.py` and type the following lines below.
-Try running it with various values, including those that create errors.
-
-```python
-python3 52entropy.py 0.5 0.5
-python3 52entropy.py 0.25 0.25 0.25 0.25
-python3 52entropy.py 0.4 0.3 0.2 0.1
-python3 52entropy.py 0.5 0.6
-python3 52entropy.py 0.5 -1
-```
-
-As usual, after experimenting with the program, destroy it and write it
-yourself.
+Create a new program called `52entropy.py`. This calculates the entropy for a
+list of probabilities on the command line.
 
 ```python
 1   import sys
@@ -717,6 +705,19 @@ Lines 15-17 calculate entropy.
 Line 18 is again blank to separate calculation from reporting.
 
 Line 19 reports the final value.
+
+Now try running it with various values, including those that create errors.
+
+```
+python3 52entropy.py 0.5 0.5
+python3 52entropy.py 0.25 0.25 0.25 0.25
+python3 52entropy.py 0.4 0.3 0.2 0.1
+python3 52entropy.py 0.5 0.6
+python3 52entropy.py 0.5 -1
+```
+
+Now that you understand how the program works, can you delete it and re-write
+it again?
 
 ------------------------------------------------------------------------------
 
