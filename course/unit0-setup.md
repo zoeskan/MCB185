@@ -4,9 +4,11 @@ Unit 0: Setup
 ## Contents ##
 
 + [Unix/Linux](#unixlinx)
-    + [Unix vs. Linux](#unix-vs-linux)
+    + [Unix](#unix)
+    + [Linux](#linux)
+    + [CLI](#cli)
     + [Recommendations](#recommendations)
-    + [Command Line Interface](#command-line-interface)
+    + [Commands](#commands)
     + [Unix on Mac](#unix-on-mac)
     + [Cygwin on Windows](#cygwin-on-windows)
     + [VM on Windows](#vm-on-windows)
@@ -45,32 +47,52 @@ Unit 0: Setup
 ## Unix/Linux ##
 
 Most professional bioinformatics is done in a Unix/Linux environment. You don't
-have to love Unix/Linux, but you do have to be proficient at it. The file,
-`LINUX_REFERENCE.md`, contains all of the Unix/Linux commands we use in the
-course.
+have to love Unix/Linux, but you do have to be proficient at it.
 
-### Unix vs. Linux ###
+### Unix ###
 
-Most people about to embark on an adventure in bioinformatics programming will
-be using some flavor of Linux (e.g. Debian, Fedora, LinuxLite, Mint, Ubuntu,
-etc.) and not actually Unix. Is there a difference between Linux and Unix? No
-and yes. Linux was designed to be just like Unix, so from a practical
-standpoint they are very similar. Despite looking the same, they share no
-source code in common. The biggest difference is philosophical. Unix is a
-commercial product and Linux is free open source software (FOSS). From a
-philosophical perspective, they are very different. From our perspective, they
-all behave very similarly, but not always identically.
+Unix is an operating system, Like Mac or Windows, but much older. It uses a
+command line interface where you type at the keyboard to make things happen. On
+a computer running Mac or Windows, you typically use a mouse to make things
+happen. For example, if you wanted to move a picture called "oops.jpg" from
+your Downloads folder into the trash, you could click the icon of the picture
+and drag it to the trash can. Alternatively, you might right-click the icon,
+and choose "Delete" from the menu that pops up. On a Unix computer, you would
+type the following command and then hit the Enter or Return key.
+
+```
+rm oops.jpg
+```
+
+Dragging a file to a trash can is a lot more intuitive than typing commands, so
+why do you have to learn Unix? Because when it comes to doing repetitive tasks,
+it's much easier to automate them in Unix. Imagine you had 1000 photos in your
+Downloads folder along with a bunch of other files. Clicking and dragging each
+one to the trash can would take a while. However, in Unix, it's just this:
+
+```
+rm *.jpg
+```
+
+### Linux ###
+
+Linux is a lot newer than Unix. It is designed to work just like Unix. The main
+difference is that Unix is a commercial product and Linux is completely free.
+It can be confusing that Linux is branded with different names like Debian,
+Fedora, LinuxLite, Mint, and Ubuntu. They are all similar to each other and all
+similar to Unix (which also has several different flavors). In addition, there
+are also other Unix-like things that aren't truly Linux or Unix but behave
+similarly (e.g. Cygwin, see below).
+
+### CLI ###
+
+Before we begin, you need a Unix-compatible command line interface (CLI) on
+your computer. 99% of bioinformatics is done with a Unix CLI. If you have any
+aspirations of becoming a bioinformatics programmer or sophisticated user, you
+need to become comfortable with the CLI. But before we get to that, you need to
+find or install a CLI on your computer.
 
 ### Recommendations ###
-
-Before we begin, you need a command line Linux environment on your computer.
-Why a CLI (command line interface) rather than a GUI (graphical user
-interface)? When it comes to automating tasks, it's easier to automate text
-commands than mouse clicks. Also, most computer clusters run Linux because it's
-free and robust. For these reasons, most professional bioinformatics is done
-with a Linux CLI. If you have any aspirations of becoming a bioinformatics
-programmer or sophisticated user, you need to become comfortable with the Linux
-CLI. But before we get to that, you need some flavor of Unix/Linux.
 
 + Recommended
     + Mac
@@ -84,10 +106,10 @@ CLI. But before we get to that, you need some flavor of Unix/Linux.
     + Raspberry Pi
     + Remote login
 
-### Command Line Interface ###
+### Commands ###
 
 In this course, we will be typing _commands_ at a command line interface (CLI).
-Whever you see a block of text like the one below, it means type the words
+Whenever you see a block of text like the one below, it means type the words
 followed by the Return key (or the Enter key). For example, we will eventually
 type the `date` command followed by the Return key to report the current date.
 
@@ -121,10 +143,10 @@ clicking the home-shaped icon in Finder->Settings->Sidebar.
 
 ### Cygwin on Windows ###
 
-Cygwin is not an entire operating system but rather a terminal with POSIX
-commands (POSIX is a portable standardization of Unix commands). It works great
-for this course and for lots of Unix and Python tasks in general. However, some
-external libraries (which we don't use in the course) may be a pain to install.
+Cygwin is not an entire operating system but rather a terminal with Unix-like
+commands. It works great for this course and for lots of Unix and Python tasks
+in general. However, some external libraries (which we don't use in the course)
+may be a pain to install.
 
 1. Go to https://www.cygwin.com
 2. Download and run the installer: `setup-x86_64.exe`
