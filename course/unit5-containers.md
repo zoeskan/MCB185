@@ -772,8 +772,8 @@ python3 53genomestats.py ~/Code/MCB185/data/A.thaliana.gff.gz gene
 Create a report in markdown format as `54genomestats.md`. In addition to
 filling out the table below, include any other information you think another
 genome scientist would find interesting. (BTW, the actual value for median in
-the table belolw is 1892, but I rounded it off because I didn't want anything
-but integers in the table).
+the table below is 1892.5, but I rounded it off because I only wanted integers
+in the table).
 
 ```
 | Genome         | Type |  N   | Min |  Max  | Mean | Stdv | Med  |
