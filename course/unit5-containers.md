@@ -308,7 +308,7 @@ print(aas)
 
 ### split() and join() ###
 
-The `list.split()` method splits strings into lists of strings. This is useful
+The `str.split()` method splits strings into lists of strings. This is useful
 for segmenting words. By default, the delimiter is any number of spaces.
 
 ```python
