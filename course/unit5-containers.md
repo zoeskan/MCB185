@@ -657,7 +657,7 @@ list of probabilities on the command line.
 4   probs = []
 5   for arg in sys.argv[1:]:
 6       f = float(arg)
-7       assert(f > 0 and f < 1)
+7       if f <= 0 or f >= 1: sys.exit('error: not a probability')
 8       probs.append(float(arg))
 9
 10  total = 0
@@ -844,7 +844,7 @@ times to get an accurate estimate, so have a parameter for that too.
 https://en.wikipedia.org/wiki/Birthday_problem
 
 In this program, you must use a list for the birthdays. For example, if there
-are 23 people in the classroom, the list has a length of 23.
+are 23 people in the classroom, you will `list.append()` up to 23 times.
 
 The first few lines of your program should look something like this:
 
@@ -868,4 +868,6 @@ And the output should be a little over 50%.
 ### 57birthday.py ###
 
 This is the same problem as above, but instead of making a list of birthdays
-(e.g. 23) make a list from the calendar (e.g. 365).
+(e.g. 23) make a list from the calendar (e.g. 365). In the previous program,
+you appended birthdays to a list. In this one, all possible days are already in
+a list, so assigning a birthday is: `calendar[birthday] += 1`.
