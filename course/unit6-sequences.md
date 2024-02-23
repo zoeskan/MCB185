@@ -610,7 +610,7 @@ Transmembrane proteins are characterized by having:
 + a hydrophobic signal peptide near the N-terminus
 + other hydrophobic regions to cross the plasma membrane
 
-Hydrophobicity can be measured in many ways. We'll use Kyte-Dolittle for its
+Hydrophobicity can be measured in many ways. We'll use Kyte-Doolittle for its
 historical importance.
 
 https://en.wikipedia.org/wiki/Hydrophilicity_plot
