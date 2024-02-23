@@ -844,7 +844,8 @@ times to get an accurate estimate, so have a parameter for that too.
 https://en.wikipedia.org/wiki/Birthday_problem
 
 In this program, you must use a list for the birthdays. For example, if there
-are 23 people in the classroom, you will `list.append()` up to 23 times.
+are 23 people in the classroom, you will `list.append()` 23 times (unless
+you're extra-clever and figure out how to make a short-circuit).
 
 The first few lines of your program should look something like this:
 
@@ -864,6 +865,9 @@ python3 56birthday.py 10000 365 23
 ```
 
 And the output should be a little over 50%.
+
+Note that a birthday is simply a number from 0 to 364. You do not need to
+generate a month and a day.
 
 ### 57birthday.py ###
 
