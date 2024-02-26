@@ -571,6 +571,10 @@ TGATAGCAGCTTCTGAACTGGTTACCTGCCGNNNNNNNNNNNNNNNNNNNNNNNCTTAGG
 TCACTAAATACTTTAACCAATATAGGCATAGCGCACAGACAGATAAAAATTACAGAGTAC...
 ```
 
+Hint: You cannot edit strings. You will therefore need to create a copy of your
+sequence as a list. When you find windows of sequence below the entropy
+threshold, convert the region of the list into Ns.
+
 ### 64profinder.py ###
 
 Write a program that reports the protein sequences of putative coding genes in
