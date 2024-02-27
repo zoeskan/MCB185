@@ -103,6 +103,10 @@ Try running it with the correct number and types of values.
 python3 90dust.py foo 20 1.4
 ```
 
+If you can't find the file called `foo` it's because this is simply a
+placeholder for some file that you might use for testing. Maybe it's a
+truncated version of the E.coli genome.
+
 ### Named Arguments ###
 
 The arguments for `file`, `size`, and `entropy` were all positional. That is,
