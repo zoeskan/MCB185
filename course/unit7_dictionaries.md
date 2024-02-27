@@ -20,7 +20,7 @@ Unit 7: Dictionaries
 
 ## Basics ##
 
-A dictionary is like a list, but with string instead of numeric indicies.
+A dictionary is like a list, but with string instead of numeric indices.
 
 + `list[0]` - 0 is a numeric index
 + `dict['hey']` - 'hey' is a string index
