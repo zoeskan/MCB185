@@ -23,8 +23,8 @@ Unit 8: Data
 Start `80demo.py` as usual.
 
 Up to now, almost all of the data has been 1-dimensional. Strings, tuples,
-lists, and dictionaries are all 1-dimensional. The only 2-dimensional thing has
-been `sys.argv`. You may not have recognized that. The following command shows
+lists, and dictionaries are all 1-dimensional. The first 2-dimensional thing
+was `sys.argv`. You may not have recognized that. The following command shows
 that `sys.argv` is a list with a single element: the name of your program, and
 of course you can access that by indexing.
 
@@ -339,8 +339,8 @@ which is the entire pattern.
 4       if m: print(m.group(1))
 ```
 
-Line 1 abstracts the pattern into a variable. Imagine swapping iterating
-through a list of a bunch of patterns in an outer loop.
+Line 1 abstracts the pattern into a variable. Imagine iterating through a list
+of of patterns in an outer loop.
 
 Line 3 assigns the search to a variable. The variable will either have a value
 of `None`, which is logically `False`, or it will contain a "match object". The
@@ -370,11 +370,62 @@ surface. The Internet has a lot of good guides on regular expressions.
 Create a program that reads position weight matrices (PWMs) in TRANSFAC format
 and outputs the records as JSON. See `MCB185/data/*.transfac.gz`.
 
+The output of your program should look like this:
+
+```
+[
+    {
+        "id": "AGL3",
+        "pwm": [
+            {
+                "A": 0.0,
+                "C": 92.0,
+                "G": 0.0,
+                "T": 3.0
+            },
+            {
+                "A": 0.0,
+                "C": 79.0,
+                "G": 0.0,
+                "T": 16.0
+            },
+            {
+                "A": 82.0,
+                "C": 1.0,
+                "G": 2.0,
+                "T": 10.0
+            },
+ ```
+
 ### 83kozak.py ###
 
 Create a PWM for the Kozak consensus (translation intiation) for E.coli using
 the GenBank flat file: `MCB185/data/*.gbff.gz`. Output the PWM in TRANSFAC
-format.
+format as shown below.
+
+```
+AC IMTSU001
+XX
+ID ECKOZ
+XX
+DE I made this shit up
+PO      A       C       G       T
+1       1220    245     2413    417
+2       1565    333     1845    552
+3       1591    469     1426    809
+4       1441    614     1168    1072
+5       1445    763     889     1198
+6       1526    935     757     1077
+7       1812    766     982     735
+8       1126    1138    583     1448
+9       1160    1133    664     1338
+10      3875    2       338     80
+11      0       0       0       4295
+12      0       0       4291    4
+13      2134    667     880     614
+14      1588    1214    711     782
+XX
+```
 
 ### 84splicesites.py ###
 

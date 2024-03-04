@@ -607,6 +607,9 @@ MRVLKFGGTSVANAERFLRVADILESNARQGQVATVLSAPAKITNHLVAMIEKTISGQDALPNISDAERIFAEL...
 MKTASDCQQSKDSENNACHQRGKIKRKTQGAGNGVRLNSAENYAIGDEQKDGEQNAHPAHPQPARHIPCRSATK...
 ```
 
+If you don't know what is meant by 6-frame translation, see
+https://en.wikipedia.org/wiki/Reading_frame
+
 ### 65transmembrane.py ###
 
 Write a program that predicts which proteins in a proteome are transmembrane.
