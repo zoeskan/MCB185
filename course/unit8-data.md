@@ -443,8 +443,10 @@ files from the model organisms. Output the file in TRANSFAC format.
 
 For the C. elegans splice sites of type `RNASeq_splice`, you will get the
 following PWMs. Each intron is counted once, but one could make the argument
-that you should weight by the number of occurrences, which is actullay
-available in the GFF.
+that you should weight by the number of occurrences, which is actually
+available in the GFF. However, if you do that, the counts do not fit in the
+pre-formatted table. If you go that route, you will need to output as
+probabilties instead of raw counts.
 
 ```
 AC DEMO1
