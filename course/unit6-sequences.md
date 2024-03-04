@@ -502,7 +502,7 @@ print(f'{i}\t{dogma.gc_comp(s):.3f}\t{dogma.gc_skew(s):.3f}')
 
 One problem with `61skewer.py` is that it is computationally inefficient. Each
 window is counted and then forgotten. Imagine counting 1000 bp windows by hand.
-Let's say you get 500 Gs and 500Cs. How many Gs do you think the next window
+Let's say you get 500 Gs and 500 Cs. How many Gs do you think the next window
 will have? It's just 1 bp away. As the window moves left to right, you're
 losing 1 nt on the left and gaining 1 new nt on the right. The counts can't
 change by more than just those 2 letters. So why bother counting everything in
@@ -510,7 +510,8 @@ the middle?
 
 A much more efficient algorithm only counts the initial window. After that, it
 "moves" the window by dropping off one nucleotide on the left and adding one on
-the right.
+the right. You will **not** be sending windows to any functions. That is the
+source of the inefficiency. Use the counts of Gs and Cs.
 
 Re-write `61skewer.py` as `62skewer.py` using the more efficient algorithm and
 then calculate GC-skew and GC composition in 1000 nt windows in the E.coli
