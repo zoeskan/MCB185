@@ -440,3 +440,40 @@ for i in range(5):
 
 Create PWMs for the splice donor and acceptor sites using the FASTA and GFF
 files from the model organisms. Output the file in TRANSFAC format.
+
+For the C. elegans splice sites of type `RNASeq_splice`, you will get the
+following PWMs. Each intron is counted once, but one could make the argument
+that you should weight by the number of occurrences, which is actullay
+available in the GFF.
+
+```
+AC DEMO1
+XX
+ID ACC
+XX
+DE splice acceptor
+PO      A       C       G       T
+1       1747    1094    861     3571
+2       956     822     713     4782
+3       796     655     518     5304
+4       1231    1594    1095    3353
+5       963     4621    631     1058
+6       7020    78      87      88
+7       71      162     6961    79
+XX
+//
+AC DEMO2
+XX
+ID DON
+XX
+DE splice donor
+PO      A       C       G       T
+1       149     87      6962    75
+2       104     337     79      6753
+3       3224    569     2015    1465
+4       3478    1103    1189    1503
+5       1451    699     3809    1314
+6       1588    1076    1280    3329
+XX
+//
+```
