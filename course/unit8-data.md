@@ -340,7 +340,7 @@ which is the entire pattern.
 ```
 
 Line 1 abstracts the pattern into a variable. Imagine iterating through a list
-of of patterns in an outer loop.
+of patterns in an outer loop.
 
 Line 3 assigns the search to a variable. The variable will either have a value
 of `None`, which is logically `False`, or it will contain a "match object". The
