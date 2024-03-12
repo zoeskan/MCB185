@@ -427,7 +427,7 @@ PO      A       C       G       T
 XX
 ```
 
-To make your values print neatly into colums of a specific width, use f-strings
+To make your values print neatly into columns of a specific width, use f-strings
 with `:<8` to left-justify text that will always be 8 letters wide, even if
 there is just one character.
 
