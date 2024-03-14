@@ -428,7 +428,7 @@ a new terminal and now you can `dust` from anywhere you like.
 
 ## Library Path ##
 
-For your homework, you will have to compelte the rest of the `90dust.py`
+For your homework, you will have to complete the rest of the `90dust.py`
 program. But as soon as you `import mcb185` you will get an error. You have two
 choices: (1) copy-paste the `read_fasta()` from `mcb185.py` or (2) learn about
 library paths. Obviously, we're going to do the second.
