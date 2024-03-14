@@ -56,7 +56,7 @@ Line 3 creates the argument parser object in a variable called `parser`.
 
 Line 4 adds a "positional argument" for the path to a FASTA file.
 
-Lines 5 adds a positional argument for the window size and specifies that it is
+Line 5 adds a positional argument for the window size and specifies that it is
 an integer.
 
 Line 6 adds a positional argument for the entropy threshold, which is a float.
