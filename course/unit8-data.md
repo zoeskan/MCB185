@@ -363,7 +363,7 @@ surface. The Internet has a lot of good guides on regular expressions.
 + `81prosite.py`
 + `82transfac.py`
 + `83kozak.py`
-+ `84splicsites.py`
++ `84splicesites.py`
 
 ### 82transfac.py ###
 
