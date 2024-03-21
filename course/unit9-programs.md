@@ -415,7 +415,7 @@ printenv PATH
 
 This is a colon-delimited list of directories. This is where the shell looks
 for executables. Your `Code/bin` isn't there, so we have to add it to your
-login script. Edit your logging script to include:
+login script. Edit your login script (.bashrc or .zshrc) to include:
 
 ```
 export PATH=$PATH:$HOME/Code/bin

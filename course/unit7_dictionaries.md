@@ -11,7 +11,7 @@ Unit 7: Dictionaries
     + [Composition, again](#composition-again)
     + [Sorting](#sorting)
 + [K-mers](#k-mers)
-    + [72kmercount.py](#72kmercount.py)
+    + [72kmercount.py](#72kmercountpy)
 + [Homework](#homework)
     + [73missingkmers.py](#73missingkmerspy)
     + [74genefinder.py](#74genefinderpy)
@@ -428,8 +428,8 @@ at k=8.
 
 ### 74genefinder.py ###
 
-Write a program the reports putative coding genes in the E.coli genome. This is
-similar to `64profinder.py`, but you must get the coordinates of each CDS.
+Write a program that reports putative coding genes in the E.coli genome. This
+is similar to `64profinder.py`, but you must get the coordinates of each CDS.
 
 + Input: FASTA file
 + Output: GFF of gene features

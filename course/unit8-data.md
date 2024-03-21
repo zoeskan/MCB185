@@ -6,7 +6,7 @@ Unit 8: Data
 + [Lists of Things](#lists-of-things)
     + [Arrays and Matrices](#arrays-and-matrices)
 + [Records](#records)
-    + [Dicts of Dicts](#dicts-of-dicts)
+    + [Dicts of Lists](#dicts-of-lists)
 + [Complex Data](#complex-data)
     + [JSON](#json)
 + [Regular Expressions](#regular-expressions)
