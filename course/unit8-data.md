@@ -340,7 +340,7 @@ which is the entire pattern.
 ```
 
 Line 1 abstracts the pattern into a variable. Imagine iterating through a list
-of of patterns in an outer loop.
+of patterns in an outer loop.
 
 Line 3 assigns the search to a variable. The variable will either have a value
 of `None`, which is logically `False`, or it will contain a "match object". The
@@ -363,7 +363,7 @@ surface. The Internet has a lot of good guides on regular expressions.
 + `81prosite.py`
 + `82transfac.py`
 + `83kozak.py`
-+ `84splicsites.py`
++ `84splicesites.py`
 
 ### 82transfac.py ###
 
@@ -427,7 +427,7 @@ PO      A       C       G       T
 XX
 ```
 
-To make your values print neatly into colums of a specific width, use f-strings
+To make your values print neatly into columns of a specific width, use f-strings
 with `:<8` to left-justify text that will always be 8 letters wide, even if
 there is just one character.
 
@@ -446,7 +446,7 @@ following PWMs. Each intron is counted once, but one could make the argument
 that you should weight by the number of occurrences, which is actually
 available in the GFF. However, if you do that, the counts do not fit in the
 pre-formatted table. If you go that route, you will need to output as
-probabilties instead of raw counts.
+probabilities instead of raw counts.
 
 ```
 AC DEMO1
