@@ -285,9 +285,10 @@ The terminal is how you interact with the Unix/Linux command line interface
 There are many terminal applications. Generally, it doesn't matter which one
 you use. It's sort of like choosing between Firefox and Chrome: they look a
 little different, but both let you browse the Internet. Find a terminal
-application on your computer. The name might be 'Terminal', 'xterm', 'Qterm' or
-something with 'term' in it somewhere. Create a shortcut in your dock/launchbar
-so you can access it quickly.
+application on your computer. Mac users have 'Terminal'. Cygwin users have
+'Cygwin64 Terminal'. Linux users have 'xterm', 'Qterm' or some other name with
+'term' in it. Create a shortcut in your dock/launchbar so you can access it
+quickly.
 
 Every terminal has a command line interpreter called a shell. There are many
 flavors of shell with names like `sh`, `bash`, `zsh`, `csh`, `ksh`, etc. The
