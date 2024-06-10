@@ -1,7 +1,7 @@
 MCB185: Programming for Biologists
 ==================================
 
-## Intent ## 
+## Intent ##
 
 In this course, you will learn computer programming in a biological context.
 This is not so much a science or data analysis course as an introductory
