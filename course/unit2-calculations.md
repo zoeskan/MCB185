@@ -452,6 +452,19 @@ The numeric comparison operators are shown below.
 | `<=`     | less or equal     | `if a <= b:`
 | `>=`     | greater or equal  | `if a >= b:`
 
+Let's put conditionals into practice using a simple function that checks if a
+number is evenly divisible by 2.
+
+```python
+def is_even(x):
+    if x % 2 == 0: return True
+    return False
+
+
+print(is_even(2))
+print(is_even(3))
+```
+
 
 ### Boolean ###
 
@@ -561,8 +574,6 @@ if a < s: print('a < s')
 Write a function that determines if a number is an integer. A good name for
 such a function would be `is_integer()` or `isinteger()`. Functions with
 Boolean return values often have `is` in their prefix.
-
-Write a function that determines if a number is odd.
 
 Write a function that determines if a number is a valid probability.
 
