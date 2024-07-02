@@ -338,10 +338,8 @@ function you created above (line 4).
 
 ### is_perfect_square() ###
 
-The trick to solving this problem is determining if a floating point number is
-equal to a rounded-down version of the number. The `//` operator does the
-rounding and `math.isclose()` does the comparison (line 4). Never ask if
-floating point numbers are _equal_ to anything. Note that there is no reason
+The trick to solving this problem is determining if a number has a fractional
+component. The modulo operator does this simply. Note that there is no reason
 for an `else:` statement on line 4.
 
 ```python
