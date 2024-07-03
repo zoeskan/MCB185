@@ -351,7 +351,7 @@ for an `else:` statement on line 4.
 
 ### is_prime() ###
 
-This algorithm features a short-circuit (line 4). It returns `False` as soon as
+This algorithm features a short-circuit (line 3). It returns `False` as soon as
 it finds any factor smaller than itself. If it fails to find any factors, it
 eventually returns `True`.
 
