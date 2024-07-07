@@ -357,7 +357,7 @@ eventually returns `True`.
 
 ```python
 1   def is_prime(n):
-2       for den in range(2, n):
+2       for den in range(2, n//2):
 3           if n % den == 0: return False
 4       return True
 ```
