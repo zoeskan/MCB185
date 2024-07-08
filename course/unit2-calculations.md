@@ -38,6 +38,7 @@ Unit 2: Calculations
     + [23hydropathy.py](#23hydropathypy)
     + [24accuracy.py](#24accuracypy)
     + [25entropy.py](#25entropypy)
+    + [26phred.py](#phredpy)
 
 ------------------------------------------------------------------------------
 
@@ -725,3 +726,9 @@ your function works by using it several times in the program.
 Write a function that returns the Shannon entropy for nucleotide counts a, c,
 g, t. Demonstrate it works using multiple calls, including those where one of
 the counts is zero.
+
+## 26phred.py ##
+
+Write a function that converts probabilties into PHRED scores and vice-versa.
+For input parameters x: 0 < x < 1 return the PHRED score. For x > 1 return the
+probability. Values of 0 and 1 are not permitted.
