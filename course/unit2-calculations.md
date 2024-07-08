@@ -33,7 +33,7 @@ Unit 2: Calculations
     + [Naming](#naming)
 + [Homework](#homework)
     + [20demo.py](#20demopy)
-    + [21quadratic.py](#21quadraticpy)
+    + [21swap.py](#21swappy)
     + [22oligotemp.py](#22oligotemppy)
     + [23hydropathy.py](#23hydropathypy)
     + [24accuracy.py](#24accuracypy)
@@ -370,18 +370,6 @@ Write a function that computes DNA concentration from OD260.
 
 Write a function that computes the distance between two points in a graph.
 
-Write a function that computes the midpoint between two points. Note that this
-function must return values for x and y. Your `return` statement will have two
-values separated by a comma. Your function will look something like this.
-
-```python
-def midpoint(x1, y1, x2, y2):
-    # insert stuff here
-    return mx, my
-```
-
-Call your function like this: `x, y = midpoint(x1, y1, x2, y2)`.
-
 ------------------------------------------------------------------------------
 
 ## Strings ##
@@ -680,22 +668,22 @@ Check the following programs into your homework repo. They are described in
 more detail below.
 
 + `20demo.py`
-+ `21quadratic.py`
++ `21swap.py`
 + `22oligotemp.py`
 + `23hydropathy.py`
 + `24accuracy.py`
 + `25entropy.py`
++ `26phred.py`
 
 ### 20.demo.py ###
 
 It doesn't matter what state your demo program is in. Just check it into your
 repo.
 
-### 21quadratic.py ###
+### 21swap.py ###
 
-Write a function that solves the quadratic formula (ax^2 + bx + c), returning
-the two X-intercepts. Demonstrate that it works by using the formula multiple
-times within the program.
+Write a function that swaps 2 values. That is, if the input parameters are 2
+and 3, the output parameters are 3 and 2.
 
 ### 22oligotemp.py ###
 
@@ -718,8 +706,8 @@ alphabet.
 ### 24accuracy.py ###
 
 Given values for true positives, false positives, true negatives, and false
-negatives, write a function that returns the accuracy and F1 score. Demonstrate
-your function works by using it several times in the program.
+negatives, write a function that returns the F1 score. Demonstrate your
+function works by using it several times in the program.
 
 ### 25entropy.py ##
 
