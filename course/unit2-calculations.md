@@ -33,7 +33,7 @@ Unit 2: Calculations
     + [Naming](#naming)
 + [Homework](#homework)
     + [20demo.py](#20demopy)
-    + [21swap.py](#21swappy)
+    + [21max3.py](#21max3py)
     + [22oligotemp.py](#22oligotemppy)
     + [23hydropathy.py](#23hydropathypy)
     + [24accuracy.py](#24accuracypy)
@@ -668,7 +668,7 @@ Check the following programs into your homework repo. They are described in
 more detail below.
 
 + `20demo.py`
-+ `21swap.py`
++ `21max3.py`
 + `22oligotemp.py`
 + `23hydropathy.py`
 + `24accuracy.py`
@@ -680,10 +680,10 @@ more detail below.
 It doesn't matter what state your demo program is in. Just check it into your
 repo.
 
-### 21swap.py ###
+### 21max3.py ###
 
-Write a function that swaps 2 values. That is, if the input parameters are 2
-and 3, the output parameters are 3 and 2.
+Write a function that returns the maximum of 3 numbers. To be clear, the
+function takes 3 input parameters and returns the single largest one.
 
 ### 22oligotemp.py ###
 
