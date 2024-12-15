@@ -200,6 +200,7 @@ CD" and run its installation script.
 + Click OK if you get a dialog box asking if you want to mount the CD
 + Open a Terminal application
 + Do the two commands below, replacing `username` with your user name
++ The `*` doesn't mean to type a star (it's an unknown version number)
 
 ```
 cd /media/username/VBOX_GAs*

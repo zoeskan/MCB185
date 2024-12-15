@@ -390,8 +390,8 @@ values.
 Write a program that finds all Pythagorean triples for triangles with sides `a`
 and `b` less than 100. For example, 3, 4, 5 is a triple: 3^2 + 4^2 = 5^2. Hint:
 all sides, including the hypotenuse, must be an integer. A good way to test for
-an integer is `if c % 1 == 0`. There are 62 unique triples (half-matrix minus
-the major diagonal).
+an integer is `if c % 1 == 0`. There are 62 unique triples (in the half-matrix
+minus the major diagonal of comparisons).
 
 ### 34scoringmatrix.py ##
 
