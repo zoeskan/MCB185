@@ -289,12 +289,15 @@ Most string operations use method syntax `s.method()`.
 | `s.endswith(s1)`    | True if `s` ends with `s1`
 | `s.startswith(s1)`  | True if `s` starts with `s1`
 | `s.find(s1)`        | position of `s1` in `s` or -1 if not found
-| `s.join(list)`      | join elements of `list` with `s` between
-| `s.upper()`         | convert s to uppercase
-| `s.lower()`         | convert s to lowercase
+| `s.upper()`         | returns an uppercase copy of s
+| `s.lower()`         | returns a lowercase copy of s
 | `s.rstrip()`        | remove characters from the end, usually newline
+| `s.upper()`         | uppercase version of s
+| `s.lower()`         | lowercase version of s
+| `s.rstrip()`        | strip characters from the right (spaces by default)
+| `s.replace(a, b)`   | convert substring `a` to `b`
+| `s.join(list)`      | join elements of `list` with `s` between
 | `s.split(s1)`       | split `s` into a list of strings at every `s1`
-| `s.replace(a, b)`   | copy string, replaceing substring a with b
 
 
 ## Exceptions ##
