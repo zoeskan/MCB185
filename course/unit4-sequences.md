@@ -30,6 +30,7 @@ Unit 4: Sequences
     + [46dust.py](#46dustpy)
     + [47cdsfinder.py](#47cdsfinderpy)
     + [48transmembrane.py](#48transmembranepy)
++ [Assessment Example](#assessment-example)
 
 ------------------------------------------------------------------------------
 
@@ -812,7 +813,7 @@ NP_414699.1 PF03458 family protein YadS [Escherichia coli st
 NP_414717.2 CDP-diglyceride synthetase [Escherichia coli str
 ```
 
-## Assessment Examples ##
+## Assessment Example ##
 
 1. Write a program that performs a statistical summary of the lengths of
 sequences in a FASTA file. It should report: count, min, max, mean, stdev,
