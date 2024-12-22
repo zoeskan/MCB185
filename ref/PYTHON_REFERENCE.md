@@ -1,10 +1,7 @@
 MCB185 Python Reference
 =======================
 
-This Python Reference contains a subset of the Python language used
-specifically for MCB185. MCB185 students are not allowed to use any Python
-construct that isn't in this reference. Even if code is in this reference, they
-aren't allowed to use it until it has been introduced.
+This Python Reference contains a subset of the Python language used in MCB185.
 
 ## Table of Contents ##
 
@@ -46,10 +43,7 @@ robotic about it, as sometimes it's clearer not to use spaces.
 (3) Use vertical spacing (blank lines) to separate logic, just as you would use
 paragraph structure in English.
 
-(4) Use tabs for left side indentation. The use of spaces for indentation flags
-your code as potential **cheating**.
-
-(5) Use spaces for lining up single `if-elif-else` type constructs.
+(4) Use spaces for lining up single `if-elif-else` type constructs.
 
 ```python
 if   nt == 'A': comp = 'T'
@@ -302,6 +296,8 @@ Most string operations use method syntax `s.method()`.
 
 ## Exceptions ##
 
+The current version of MCB185 does not cover this material.
+
 There are times when programs run into illegal instructions or instructions
 that lead to illegal values. For example, you cannot divide by zero. An attempt
 to do so leads to a ZeroDivisionError.
@@ -452,10 +448,6 @@ def translate(seq, frame=0):
 translate('ATGACG')    # implicitly use frame 0
 translate('ATGACG', 1) # use frame 1
 ```
-
-Functions may call themselves. This is called _recursion_.
-**Recursion is not allowed in MCB185.**
-
 
 ## Random ##
 

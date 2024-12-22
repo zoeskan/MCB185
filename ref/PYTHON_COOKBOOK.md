@@ -4,12 +4,7 @@ MCB185 Python Cookbook
 This cookbook is a collection of statements, functions, and programs that
 illustrate how to perform biology-flavored programming tasks in Python. The
 source code is written to be easy to understand rather than to be efficient or
-bullet-proof. MCB185 students are only allowed to use a subset of the Python
-language, so there may be better solutions than shown here.
-
-MCB185 students are not allowed to use language features more advanced than the
-current unit. Just because there's a solution in the cookbook, doesn't mean
-you're automatically allowed to use it for your homework.
+bullet-proof.
 
 ## Contents ##
 
@@ -86,7 +81,8 @@ def read_numbers(filename):
 	return values
 ```
 
-To make this a generator, yield the list, one number at a time
+To make this a generator, yield the list, one number at a time. Note that
+generators are not part of the MCB185 curriculum.
 
 ```python
 def read_numbers(filename):
@@ -146,7 +142,8 @@ def read_people(filename):
 
 An alternative is to write this as a generator where each call to the function
 retrieves the next person. The advantage of the generator is that you don't
-need to keep all of the people in memory at the same time.
+need to keep all of the people in memory at the same time. Again, generators
+are not currently part of MCB185.
 
 ```python
 def read_people(filename):
@@ -176,7 +173,7 @@ with open(filename) as fp:
 ## Reading a multi-FASTA file ##
 
 Reading a multi-FASTA file is a little complicated. Use the code below, which
-has some useful features.
+has some useful features. You will also find this in `MCB185/src/mcb185.py`.
 
 + It can read from compressed files or stdin
 + It uses `join` to prevent the CPU overhead of concatenation
@@ -454,48 +451,4 @@ positional arguments:
 
 optional arguments:
   -h, --help  show this help message and exit
-```
-
-## Nested CLI ##
-
-Some programs, like `git` feature sub-commands right after the name of the
-program. You do this daily as `git status` and `git add`. Your programs can
-have the same behavior. The program below features 2 behaviors, `greet` or
-`praise`. If you choose `greet`, the program hands off execution to `fn1()` but
-if you choose `praise` execution goes to `fn2()`.
-
-A CLI created this way has a generic usage statement for the whole program and
-individual usage statements for each sub-command.
-
-```python
-import argparse
-import sys
-
-def fn1(arg):
-	print(f'{arg.greeting}, {arg.name}.')
-
-def fn2(arg):
-	print(f'{arg.name}, {arg.message}.')
-
-parser = argparse.ArgumentParser()
-sub = parser.add_subparsers(required=True, help='sub-commands')
-
-## greet sub-command ##
-sub_fn1 = sub.add_parser('greet', help='greet a person')
-sub_fn1.add_argument('name', help='name of person to greet')
-sub_fn1.add_argument('--greeting', default='Hello',
-	help='default %(default)s')
-sub_fn1.set_defaults(func=fn1)
-
-## praise sub-command ##
-sub_fn2 = sub.add_parser('praise', help='praise a person')
-sub_fn2.add_argument('name', help='name of person to praise')
-sub_fn2.add_argument('--message', default='you rock',
-	help='default %(default)s')
-sub_fn2.set_defaults(func=fn2)
-
-## execute sub-command ##
-try: arg = parser.parse_args()
-except: sys.exit(' malformed command line, use --help for more info')
-arg.func(arg)
 ```
