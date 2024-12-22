@@ -1,36 +1,117 @@
-Unit 7: Dictionaries
-====================
+Unit 5: Words
+=============
 
 ## Contents ##
 
-+ [Basics](#basics)
++ [Sets](#sets)
++ [Dictionaries](#dictionaries)
     + [Iteration](#iteration)
 + [Lookup Tables](#lookup-tables)
-+ [Categorial Data](#categorical-data)
-    + [71countgff.py](#71countgffpy)
++ [Categorical Data](#categorical-data)
+    + [51countgff.py](#51countgffpy)
     + [Composition, again](#composition-again)
     + [Sorting](#sorting)
 + [K-mers](#k-mers)
-    + [72kmercount.py](#72kmercountpy)
+    + [52kmercount.py](#52kmercountpy)
++ [Argparse](#argparse)
+	+ [53dust.py](#53dustpy)
 + [Homework](#homework)
-    + [73missingkmers.py](#73missingkmerspy)
-    + [74genefinder.py](#74genefinderpy)
+    + [54missingkmers.py](#54missingkmerspy)
+    + [55genefinder.py](#55genefinderpy)
 
 ------------------------------------------------------------------------------
 
-## Basics ##
+Create a file `50demo.py` for the various code explorations in this unit.
 
-A dictionary is like a list, but with string instead of numeric indices.
+## Sets ##
 
-+ `list[0]` - 0 is a numeric index
-+ `dict['hey']` - 'hey' is a string index
+A set is a mutable container, but all of the elements are unique and the
+elements are not ordered.
+
+```python
+s = {'A', 'C', 'G'}
+print(s)
+```
+
+Try running this multiple times. Did you notice the order of the elements isn't
+the same each time? Did you notice the curly brackets that indicate the variable
+is a set?
+
+To add items to a set, use the `add()` method.
+
+```python
+s.add('T')
+print(s)
+```
+
+Because it is a set, adding the same element doesn't do anything.
+
+```python
+s.add('A')
+print(s)
+```
+
+Since it doesn't have order, the following code generates an error:
+
+```python
+print(s[2])
+```
+
+Right about now, you're probably thinking that sets are useless. However, they
+are very efficient for looking things up. Let's do a little experiment (which
+you might not want to put in your `50demo.py`). The following code creates two
+random collections of DNA kmers of length 10 (e.g. TACGATAACA might be one suck
+kmer). It then cross-references the lists asking if the kmer from one list is
+also in the other list. As the lists get longer, the set gets faster and faster
+compared to the list. For large lists, a set can be thousands or even millions
+of times faster than a list.
+
+```python
+import random
+import time
+
+def random_names(n, k):
+	klist = list()
+	kset = set()
+	for _ in range(n):
+		kmer = ''.join(random.choices('ACGT', k=k))
+		klist.append(kmer)
+		kset.add(kmer)
+	return klist, kset
+
+for size in range(1000, 10000, 1000):
+
+	list1, set1 = random_names(size, 10)
+	list2, set2 = random_names(size, 10)
+
+	t0 = time.time()
+	for name1 in list1:
+		if name1 in list2: pass
+	t1 = time.time()
+	list_time = t1 - t0
+
+	t0 = time.time()
+	for name1 in list1:
+		if name1 in set2: pass
+	t1 = time.time()
+	set_time = t1 - t0
+
+	print(list_time, set_time, list_time/set_time)
+```
+
+## Dictionaries ##
+
+A dictionary is like a list, but the indices are strings instead of numbers.
+
++ `list[0]` - `0` is a numeric index
++ `dict['hey']` - `'hey'` is a string index
 
 Unlike lists, there is no `append()` for dictionaries. Each item in a
 dictionary exists as a key:value pair. The key is the string in square brackets
 ('hey' above). The value is anything you can put in a variable.
 
-Let's start `70demo.py` and do some exploring. An empty dictionary is created
-either with empty braces or the `dict()` function.
+An empty dictionary is created either with empty braces or the `dict()`
+function.
 
 ```python
 d = {}
@@ -44,6 +125,10 @@ pairs as shown below.
 d = {'dog': 'woof', 'cat': 'meow'}
 print(d)
 ```
+
+Both dictionaries and sets are displayed with curly brackets. The difference is
+that dictionaries are key:value pairs, whereas sets are just values. Like sets,
+dictionaries are also very efficient for lookups.
 
 To access items use square brackets.
 
@@ -78,7 +163,8 @@ If you try to access a key that doesn't exist, you get an error.
 print(d['rat'])
 ```
 
-To check if a key exists, use the keyword `in`.
+To check if a key exists, use the keyword `in` just as you would with a list or
+a set.
 
 ```python
 if 'dog' in d: print(d['dog'])
@@ -170,7 +256,7 @@ def kd_list(seq):
 ```
 
 The better way is to use a dictionary. The code is cleaner and runs faster
-because dictionaries are designed for fast lookups.
+because dictionaries, like sets, are designed for fast lookups.
 
 ```python
 kdtable = {
@@ -185,11 +271,6 @@ def kd_dict(seq):
     return kd/len(seq)
 ```
 
-Now that dictionaries have been introduced, you're welcome to use them. Check
-out the `PYTHON_COOKBOOK.md` file in MCB185 and copy-paste the `hydropathy()`
-and `translate()` functions into your library. Yes, I'm actually suggesting
-copy-paste in this instance so that you don't make any typing errors.
-
 ------------------------------------------------------------------------------
 
 ## Categorical Data ##
@@ -197,16 +278,16 @@ copy-paste in this instance so that you don't make any typing errors.
 Dictionaries aren't only for looking up previous information, but categorizing
 new information.
 
-### 71countgff.py ###
+### 51countgff.py ###
 
-Remember way back in Unit 1 when we crafted a CLI to count all of the features
+Remember way back in Unit 0 when we crafted a CLI to count all of the features
 in a GFF?
 
 ```
 gunzip -c ecoli.gff.gz | grep -v "^#" | cut -f 3 | sort | uniq -c | sort -nr
 ```
 
-Let's do the equivalent in python. Start a new program called `71countgff.py`
+Let's do the equivalent in python. Start a new program called `51countgff.py`
 and add the following lines.
 
 ```python
@@ -231,7 +312,7 @@ function. There is also a `str.endswith()`.
 Lines 5-6 retrieve the feature name from the line.
 
 Line 7 is critical. If the feature type isn't in the dictionary, we must create
-a key in the diectionary before we can start counting.
+a key in the dictionary before we can start counting.
 
 Line 8 does the counting under the assumption that the feature is already in
 the table, which it must be due to Line 7.
@@ -247,7 +328,7 @@ An alternative way of writing lines 7 and 8 is below.
 
 ### Composition, again ###
 
-In previous units we saw several strategies for counting nucleotides in
+In the last unit we saw several strategies for counting nucleotides in
 sequences.
 
 1. Create named variables `A`, `C`, `G`, `T` and an if-elif-else stack
@@ -255,12 +336,8 @@ sequences.
 3. Create parallel lists and use `str.find()` for indexing
 4. Use `str.count()` on each nucleotide
 
-Strategy 4 appeared to be tidy and efficient, but suffered from one problem:
-what happens when there are unexpected letters in the sequence? They won't be
-counted at all.
-
-The better way is to use a dictionary. The strategy is identical to the gff
-counting strategy.
+Another way to count letters is with a dictionary. The strategy is identical to
+the gff counting strategy.
 
 ```python
 count = {}
@@ -279,9 +356,9 @@ column `-k 2` numerically `-n`. The two options can be collapsed as `-nk2`. The
 work.
 
 ```
-python3 71countgff.py ecoli.gff.gz | sort
-python3 71countgff.py ecoli.gff.gz | sort -n -k 2
-python3 71countgff.py ecoli.gff.gz | sort -nk2
+python3 51countgff.py ecoli.gff.gz | sort
+python3 51countgff.py ecoli.gff.gz | sort -n -k 2
+python3 51countgff.py ecoli.gff.gz | sort -nk2
 ```
 
 But what if you want the sort to occur inside python? Sorting by keys is really
@@ -322,15 +399,18 @@ for k, v in sorted(count.items(), key=by_value):
     print(k, v)
 ```
 
+------------------------------------------------------------------------------
+
+
 ## K-mers ##
 
 K-mers are used in a variety of bioinformatics analyses. A k-mer is simply a
 sequence of length k, where k is a small integer. The subsequences of sliding
 window algorithms are k-mers. Individual nucleotides are k-mers of length 1.
 
-### 72kmercount.py ###
+### 52kmercount.py ###
 
-To explore k-mers, let's make a new program: `72kmercount.py`. As the name
+To explore k-mers, let's make a new program: `52kmercount.py`. As the name
 suggests, it will count kmers.
 
 ```python
@@ -363,7 +443,7 @@ Line 8 is the output.
 Run the program as follows:
 
 ```
-python3 72kmercount.py ecoli.fa.gz 1
+python3 52kmercount.py ecoli.fa.gz 1
 ```
 
 Try increasing the value for k on the command line. With each increase, you see
@@ -371,7 +451,7 @@ Try increasing the value for k on the command line. With each increase, you see
 there's only 16,383. One of the k-mers is missing.
 
 ```
-python3 72kmercount.py ecoli.fa.gz 7 | wc
+python3 52kmercount.py ecoli.fa.gz 7 | wc
 ```
 
 Which k-mer is missing? One way to find out is to generate all possible k-mers
@@ -385,7 +465,7 @@ for nts in itertools.product('ACGT', repeat=2):
     print(nts)
 ```
 
-Add the following to `72kmercount.py`.
+Add the following to `52kmercount.py`.
 
 ```python
 1   import itertools
@@ -399,24 +479,203 @@ Line 3 joins the tuple `nts` into a string so that we can use it to index our
 dictionary. Any kmers that aren't found will be reported with 0 counts.
 
 ```
-python3 72kmercount.py ecoli.fa.gz 7 | sort -nk2 | head
+python3 52kmercount.py ecoli.fa.gz 7 | sort -nk2 | head
 ```
 
 The k-mer 'GCCTAGG' doesn't exist in the E.coli genome (on the positive
 strand). It does exist if you reverse-complement the genome.
 
+
+------------------------------------------------------------------------------
+
+
+## Argparse ##
+
+"Real" Unix programs have a CLI that provides a "usage statement" and command
+line options. To see the usage statement for `head` and many other commands,
+follow it with the `--help` parameter.
+
+```
+head --help
+```
+
+A usage statement provides a brief synopsis of how to use the command. It
+should state what the command does, and what options and arguments it takes.
+Python provides this functionality in the `argparse` library.
+
+### Positional Arguments ###
+
+Let's create a program with a simple, but proper, CLI. Start a file called
+`53dust.py` and type in the following:
+
+```python
+1   import argparse
+2
+3   parser = argparse.ArgumentParser(description='DNA entropy filter.')
+4   parser.add_argument('file', type=str, help='name of fasta file')
+5   parser.add_argument('size', type=int, help='window size')
+6   parser.add_argument('entropy', type=float, help='entropy threshold')
+7   arg = parser.parse_args()
+8   print('dusting with', arg.file, arg.size, arg.entropy)
+```
+
+Line 1 imports the library.
+
+Line 3 creates the argument parser object in a variable called `parser`.
+
+Line 4 adds a "positional argument" for the path to a FASTA file.
+
+Line 5 adds a positional argument for the window size and specifies that it is
+an integer.
+
+Line 6 adds a positional argument for the entropy threshold, which is a float.
+
+Line 7 creates the `arg` object by harvesting the values on the command line
+and assigning them to various properties. For example, `arg.file` contains the
+path to the FASTA file. Similarly, `arg.size` is the window size and
+`arg.entropy` is the entropy threshold.
+
+Line 8 is just something that will print when we give the program the proper
+number and type of arguments.
+
+Try running the program `python3 53dust.py` and observe the usage statement.
+
+```
+usage: 53dust.py [-h] file size entropy
+53dust.py: error: the following arguments are required: file, size, entropy
+```
+
+If you don't give the program any arguments, it responds with a brief usage
+statement telling you what it requires, in this case an optional argument `-h`
+and 3 required positional arguments: `file`, `size`, and `entropy`. To get more
+information, type `python3 53dust.py -h`. Here, the `-h` stands for help and
+the usage statement provides more detail, including the final line, which tells
+you that you can also get to this message with a longer version: `--help`.
+
+```
+usage: 53dust.py [-h] file size entropy
+
+DNA entropy filter.
+
+positional arguments:
+  file        name of fasta file
+  size        window size
+  entropy     entropy
+
+options:
+  -h, --help  show this help message and exit
+```
+
+Try running it with the correct number and types of values.
+
+```
+python3 53dust.py e.coli.fa.gz 20 1.4
+```
+
+### Named Arguments ###
+
+The arguments for `file`, `size`, and `entropy` were all positional. That is,
+there were in a strict order. In contrast, named arguments are optional and can
+occur in any order. This is very much like python where the `print()` function
+has positional arguments (the things you want printed) as well as optional
+named arguments like `sep=` and `end='`.
+
+```python
+print('first', 'second')                       # positional only
+print('first', 'second', sep='\t', end='\n')   # named
+print('first', 'second', end='\n', sep='\t')   # named, different order
+```
+
+Let's change `size` and `entropy` to be named parameters. Like the `print()`
+function in python, they will have default values and can appear in any order.
+
+In the code below, `size` is now `--size` with `default=20`. Similarly.
+`entropy` is now `--entropy` and `default=1.4`. Inside the program, they are
+accessed exactly as before: `arg.size` and `arg.entropy`.
+
+To advertise the default values in the usage statement use `%(default)`. This
+is appended with `s`, `i` or `f` to indicate string, int or float. `.3f` is 3
+digits of precision, using the same formatting as f-strings.
+
+```python
+parser = argparse.ArgumentParser(description='DNA entropy filter.')
+parser.add_argument('file', type=str, help='name of fasta file')
+parser.add_argument('--size', type=int, default=20,
+    help='window size [%(default)i]')
+parser.add_argument('--entropy', type=float, default=1.4,
+    help='entropy threshold [%(default).3f]')
+arg = parser.parse_args()
+print('dusting with', arg.file, arg.size, arg.entropy)
+```
+
+Try observing the new usage statement advertising the default parameters. Also
+try overriding the defaults.
+
+```
+python3 53dust.py
+python3 53dust.py e.coli.fa.gz
+python3 53dust.py e.coli.fa.gz --size 15 --entropy 1.2
+```
+
+### Flags ###
+
+Another typical option is a flag that turns on/off some behavior. Let's create
+a flag so that the program can soft-mask sequences (use lowercase letters
+instead of 'N'). Add the line with "lower" and modify the print to show the
+value.
+
+```python
+parser = argparse.ArgumentParser(description='DNA entropy filter.')
+parser.add_argument('file', type=str, help='name of fasta file')
+parser.add_argument('--size', type=int, default=20,
+    help='window size [%(default)i]')
+parser.add_argument('--entropy', type=float, default=1.4,
+    help='entropy threshold [%(default).3f]')
+parser.add_argument('--lower', action='store_true', help='soft mask')
+arg = parser.parse_args()
+print('dusting with', arg.file, arg.size, arg.entropy, arg.lower)
+```
+
+Try it.
+
+```
+python3 53dust.py e.coli.fa.gz
+python3 53dust.py coli.fa.gz --lower
+```
+
+### Short and Long ###
+
+Let's add one more convenience, which is the ability to use both short and long
+argument names. So `--size` can be `-s` and `--entropy` can be `-e`. This is a
+simple modification to the named arguments.
+
+```python
+parser.add_argument('-s', '--size', type=int, default=20,
+    help='window size [%(default)i]')
+parser.add_argument('-e', '--entropy', type=float, default=1.4,
+    help='entropy threshold [%(default).3f]')
+```
+
+------------------------------------------------------------------------------
+
+
 ## Homework ##
 
-+ `70demo.py`
-+ `71countgff.py`
-+ `72kmercount.py`
-+ `73missingkmers.py`
-+ `74genefinder.py`
++ `50demo.py`
++ `51countgff.py`
++ `52kmercount.py`
++ `53dust.py`
++ `54missingkmers.py`
++ `55genefinder.py`
 
-### 73missingkmers.py ###
+### 53dust.py ###
+
+Fill in the rest of the code for the program.
+
+### 54missingkmers.py ###
 
 Write a program that searches sequences for the smallest missing k-mer. The
-program is a little different from `72kmercount.py`.
+program is a little different from `52kmercount.py`.
 
 + Start k at 1 and increase until there are missing k-mers
 + Only report the k-mers that are missing
@@ -426,10 +685,11 @@ program is a little different from `72kmercount.py`.
 The output of your program should find 52 missing k-mers in the E.coli genome
 at k=8.
 
-### 74genefinder.py ###
+### 55genefinder.py ###
 
 Write a program that reports putative coding genes in the E.coli genome. This
-is similar to `64profinder.py`, but you must get the coordinates of each CDS.
+is similar to `47cdsfinder.py`, but you must report the coordinates of each
+CDS.
 
 + Input: FASTA file
 + Output: GFF of gene features
@@ -448,4 +708,4 @@ Hints:
 + Use the E.coli gene coordinates to help you debug
 + Solve each frame and strand independently
 + Work it out on paper before programming
-+ Use a `while` loop to skip your indices ahead of the last stop codon
++ Consider a `while` loop rather than `for` so you can skip ahead as needed

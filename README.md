@@ -3,102 +3,79 @@ MCB185: Programming for Biologists
 
 ## Intent ##
 
-In this course, you will learn computer programming in a biological context.
-This is not so much a science or data analysis course as an introductory
-programming course with a molecular biology theme. Along with programming, you
-will be introduced to some essential bioinformatics skills and standards.
+In this course, you will learn computer programming in a biological-ish context. This is not so much a science or data analysis course as an introductory programming course with a molecular biology theme. Along with programming, you will be introduced to some essential bioinformatics skills and standards.
 
-## Participation ##
+## Course Design ##
 
-In the real world, programming is generally done in teams. For this reason,
-participation is a large part of your grade. There are multiple ways to
-participate.
+The format of the class is a text-based tutorial where you "learn at your own pace". There is a lot of reading and you must be able to type. Unlike many of your other classes, you are encouraged to work with your classmates on your homework assignments and can even be examined in small groups.
 
-+ Attendance in class during the scheduled time
-+ Attendance in online _coderie_ sessions (see below)
-+ Activity in the class Discord channel
-+ Collaborative coding activities
-	+ Organizing a group
-	+ Joining a group
-	+ Asking for help
-	+ Providing help
-	+ Solving problems together
+## Grading ##
+
+Your grade is based on 3 components:
+
+1. Progress (up to 95 points)
+2. Participation (up to 5 points)
+3. Intangibles (up to 5 points)
+
+Your grade is mostly determined by how far you progress in the course. Each time you COMPLETE a unit, you earn points. For example, if you complete units 0-4, you earn 83 points, or a B.
+
+- Unit 0: 30 points
+- Unit 1: 20 points
+- Unit 2: 15 points
+- Unit 3: 10 points
+- Unit 4: 8 points
+- Unit 5: 6 points
+- Unit 6: 4 points
+- Unit 7: 2 points
+
+In order to complete a unit, you must finish the homework assignments and undergo a LIVE ASSESSMENT. During a live assessment, your examiner will give you various tasks to complete. The result of the assessment is either PASS or FAIL. If you FAIL, you will have to try again later. Each time you FAIL, the total points in the unit decrease by 1, so take your assessments seriously.
+
+Programming in the real world is often collaborative. For these reasons, you are encouraged to solve homework problems with your classmates. You are even allowed to do live assessments in pairs (or even threes). However, team assessments have higher expectations and difficulty.
+
+Each week, you record how much you participated in the class. You can earn up to 5 stars per week for participation. Each star is worth 0.1 points. So if you earn 40 stars over the course, you get 4.0 points. Continuing the previous example, adding 4 points to 83, you now have an 87, which is a B+.
+
+At the end of the course, the instructors may adjust your grade from -5 to +5 points. These points are subjective and are determined by your overall performance and citizenship. Continuing the previous example, your instructors observed that you were a really great student who tried hard, always had a smile, and were an especially active presence in Discord. You started Unit 5 but didn't finish. They decide to give you 3.5 more points for your citizenship and efforts. You now have a 90.5, which is an A-.
 
 ## Form vs. Function ##
 
-This is foremost a course about _how_ to program. When faced with a homework
-problem, such as "compute the descriptive statistics for a set of numbers", you
-could very easily `import statistics` instead of writing the code yourself. In
-a professional setting, you _should_ do that. However, the goal here isn't to
-_solve_ a problem but to _learn_ how to solve a problem. In many programming
-courses, the instructors have automated grading. I would never do that, because
-that would mean that the focus was on getting the correct answer. In this
-course, the focus is on form as function. It's better to have beautiful code
-that is broken than ugly code that solves the problem correctly. The beautiful
-code is easier to fix and maintain in the long run.
+This is foremost a course about _how_ to program. When faced with a homework problem, such as "compute the descriptive statistics for a set of numbers", you could very easily `import statistics` instead of writing the code for standard deviation yourself. In a professional setting, you _should_ do that. However, the goal here isn't to _solve_ a problem but to _learn_ how to solve a problem. In many programming courses, the instructors have automated grading. I would never do that because that would mean that the focus was on getting the correct answer. In this course, the focus is on form as much as function. It's better to have beautiful code that is broken than ugly code that solves the problem correctly. Beautiful code is easier to fix and maintain in the long run.
 
-## Collaboration vs. Plagiarism ##
+## Common Questions ##
 
-In this course, you are encouraged to collaborate with other students. If you
-work closely with other students, it's entirely possible you will have the
-exact same code. In some classes that might be considered plagiarism, but not
-here. Each homework assignment has a section where you can list the names of
-the collaborators. Not only is this not plagiarism, it's actually encouraged,
-and counts towards your participation grade! Just fill out the names of the
-authors. It looks like this:
+Q: Is attendance mandatory?
 
-```
-# Authors: Ian, Keith, Hannah
-```
+A: No. However, most participation points are derived from classroom activities. Also, UCD is an in-person institution. You're _supposed_ to come to class. But don't come to class if you're sick.
 
-Working with people is very different from copy-pasting code from the Internet.
-If you copy-paste without attribution, it is considered plagiarism. In this
-course, you are not allowed to use any programming construct unless it has been
-introduced in a previous or current unit. Getting answers from the Internet,
-AI, or a more advanced programmer will frequently result in ILLEGAL code. If
-you turn in illegal code, you will be penalized. Depending on the severity of
-the infraction, you may be sent to Student Judicial Affairs. There are no
-warnings.
+Q: Are you allowed to turn in the exact same homework as someone else?
 
-See the `ILLEGAL.md` file in this `course` directory for more information on
-what is considered illegal.
+A: Yes. In fact, you're encouraged to co-author homework with your classmates. Put a comment in your code naming all the authors.
 
-In general, resist copy-paste. Typing words helps you remember what you did
-later. Copy-paste is one of the worst ways to learn how to program. Also,
-copy-paste is one of the greatest sources of silent programming errors and
-plagiarism.
+Q: Are you allowed to ask friends or family with help on your homework?
+
+A: Yes, however it's preferred that you ask your classmates. One of the best reasons to take this class is to meet and interact with your classmates.
+
+Q: Are you allowed to use the Internet to help with homework and during live assessments?
+
+A: Yes. In fact, you may be asked questions that require you to look up information you don't already know.
+
+Q: Are you allowed to use ChatGPT, co-pilot, and other computer-aided assistants for homework and live assessments?
+
+A: Yes. However, your instructor reserves the right to tell you to temporarily turn off those features at various times.
 
 ## Getting Good ##
 
-One of the best ways to practice programming is to write the same program over
-and over. Repetition is just as important in programming as it is in something
-like music or sports. After spending 30 minutes writing a program, you might
-feel like throwing it away and re-writing it would be dumb. And yet, it's the
-smartest thing you can do.
+One of the best ways to practice programming is to write the same program over and over. Repetition is just as important in programming as it is in something like music or sports. After spending 30 minutes writing a program, you might feel like throwing it away and re-writing it would be dumb. And yet, it's the smartest thing you can do.
 
 ## Getting Help ##
 
-The instructor and TA monitor the course Discord server, so asking questions in
-the #mcb185 channel will get you the fastest response. You may get answers from
-other students even sooner. Email will also work.
+The instructor and TA monitor the course Discord server, so asking questions in the #mcb185 channel will get you the fastest response. You may get answers from other students even sooner. Email will also work.
 
-The instructor and TA also hold _coderies_, which are online, small group
-programming sessions. Not only is this a good way to meet your classmates and
-get personalized help in a cozy setting, it's also a _required_ part of your
-participation grade. Sign-ups are managed via Calendly. See Canvas and Discord
-for the schedule and URL.
+The instructor and TA also hold _coderies_, which are online, small group programming sessions. Not only is this a good way to meet your classmates and get personalized help in a cozy setting, it's also a way to earn participation points.
 
 ## Getting Started ##
 
-To begin the course, start reading `course/unit0-setup.md` and follow the
-directions. Once you finish that, move on to subsequent units. The course is
-designed to be completed in linear order. Skipping around between or within
-units is not advised.
+To begin the course, start reading `course/unit0-unix.md` and follow the directions. Once you finish that, move on to subsequent units. The course is designed to be completed in linear order. Skipping around between or within units is not advised.
 
 ## Getting Behind ##
 
-People learn programming at highly variable rates. Some people can do this
-entire course in a couple weeks. Others may never finish. Unfortunately, the
-course has a 10-week schedule that ends in a letter grade. Not all students
-will finish the course. That's okay, you can still get a good grade even if you
-don't finish all of the material.
+People learn programming at highly variable rates. Some people can do this entire course in a couple weeks. Others may get stuck half way through and never finish. Unfortunately, the course has a 10-week schedule that ends in a letter grade. Not all students will finish the course. That's okay, you can still get a decent grade even if you don't finish all of the material.

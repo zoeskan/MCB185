@@ -1,4 +1,4 @@
-Unit 8: Data
+Unit 6: Data
 ============
 
 ## Contents ##
@@ -10,17 +10,17 @@ Unit 8: Data
 + [Complex Data](#complex-data)
     + [JSON](#json)
 + [Regular Expressions](#regular-expressions)
-    + [81prosite.py](#81prositepy)
+    + [61prosite.py](#61prositepy)
 + [Homework](#homework)
-    + [82transfac.py](#82transfacpy)
-    + [83kozak.py](#83kozakpy)
-    + [84splicesites.py](#84splicesitespy)
+    + [62transfac.py](#62transfacpy)
+    + [63kozak.py](#63kozakpy)
+    + [64splicesites.py](#64splicesitespy)
 
 ------------------------------------------------------------------------------
 
 ## Lists of Things ##
 
-Start `80demo.py` as usual.
+Start `60demo.py` as usual.
 
 Up to now, almost all of the data has been 1-dimensional. Strings, tuples,
 lists, and dictionaries are all 1-dimensional. The first 2-dimensional thing
@@ -41,9 +41,9 @@ print(sys.argv[0][3])
 ```
 
 A list of strings is a 2-dimensional data structure. The strings are the first
-dimension. The letters are the second. As soon as we put containers in a list,
-the list becomes multi-dimensional. The containers don't even have to be the
-same type or "shape".
+dimension. The letters are the second. As soon as we put containers inside
+other containers, you have a multi-dimensional data structure. The containers
+don't even have to be the same type or "shape".
 
 ```python
 d = [
@@ -59,7 +59,7 @@ print(d[0][4], d[1][0], d[2][2], d[3]['month'])
 
 The words 'array' and 'list' are sometimes used interchangeably. In some
 languages, they mean the exact same thing. In Python they do not. We have been
-working with lists since unit 5. But Python also defines arrays, which are
+working with lists since unit 3. But Python also defines arrays, which are
 linear containers where all elements are the exact same type (e.g. int). Arrays
 are constructed with the `array()` function. We aren't using arrays in this
 course. One of the most popular Python libraries is 'numpy', which also defines
@@ -146,7 +146,7 @@ Like any dictionary, we can edit fields by accessing their keys and add new
 items by creating new key:value pairs. Let's add the melting temperature for
 each oligo.
 
-Do you remember `22oligotemp.py`? Harvest the code from there, modify it to
+Do you remember `11oligotemp.py`? Harvest the code from there, modify it to
 accept a string, and add it to your library.
 
 ```python
@@ -280,10 +280,10 @@ are correct. Both PROSITE and `grep` are regular grammars. `grep` stands for
 `re`, that allows you to search, extract, and replace substrings with inexact
 matching.
 
-### 81prosite.py ###
+### 61prosite.py ###
 
 Let's explore regular expressions in the context of PROSITE patterns. Start a
-program `81prosite.py` and start stepping through E.coli proteins (in
+program `61prosite.py` and start stepping through E.coli proteins (in
 MCB185/data of course). Print the names of any sequences matching the PROSITE
 pattern "D-K-T-G-T". This is easily solved by dropping the dashes and searching
 with `in`.
@@ -359,18 +359,20 @@ surface. The Internet has a lot of good guides on regular expressions.
 
 ## Homework ##
 
-+ `80demo.py`
-+ `81prosite.py`
-+ `82transfac.py`
-+ `83kozak.py`
-+ `84splicesites.py`
++ `60demo.py`
++ `61prosite.py`
++ `62transfac.py`
++ `63kozak.py`
++ `64splicesites.py`
++ `65translate.py`
++ `66variants.py`
 
-### 82transfac.py ###
+### 62transfac.py ###
 
 Create a program that reads position weight matrices (PWMs) in TRANSFAC format
 and outputs the records as JSON. See `MCB185/data/*.transfac.gz`.
 
-The output of your program should look like this:
+The output of your program should start like this:
 
 ```
 [
@@ -397,9 +399,9 @@ The output of your program should look like this:
             },
  ```
 
-### 83kozak.py ###
+### 63kozak.py ###
 
-Create a PWM for the Kozak consensus (translation intiation) for E.coli using
+Create a PWM for the Kozak consensus (translation initiation) for E.coli using
 the GenBank flat file: `MCB185/data/*.gbff.gz`. Output the PWM in TRANSFAC
 format as shown below.
 
@@ -436,7 +438,7 @@ for i in range(5):
     print(f'{i+1:<8}', 'stuff')
 ```
 
-### 84splicesites.py ###
+### 64splicesites.py ###
 
 Create PWMs for the splice donor and acceptor sites using the FASTA and GFF
 files from the model organisms. Output the file in TRANSFAC format.
@@ -478,4 +480,87 @@ PO      A       C       G       T
 6       1588    1076    1280    3329
 XX
 //
+```
+
+
+### 65translate.py ###
+
+Write a program that translates transcripts. The usage statement should look
+similar to the one below.
+
+```
+usage: 65translate.py [-h] [-m MIN] [-a] file
+
+mRNA translator.
+
+positional arguments:
+  file               fasta file of mRNAs
+
+options:
+  -h, --help         show this help message and exit
+  -m MIN, --min MIN  minimum protein length [100]
+  -a, --anti         also examine the anti-parallel strand
+```
+
+The program output must be a FASTA file of protein sequences. You will find a
+file of C.elegans transcripts in `MCB185/data`. The first two records will look
+like this.
+
+```
+>AC3.10.1 gene=WBGene00004964
+MSWYSKIYVAVREYRAKHKITGWILTRCLNVLLFIQLILLWWSLYMYVTVTIGYYVQSTI
+QATIYLIVGSFLFVMSMWSLAKTLFTRVGRVPERYRPSKELEDRLKAVTPMEKNRYVVEK
+STPEQLAQQNTILEEMCTYCKVVVAECDQVGRLKYCYECGHIKPDRARHCSSCGKCCIKY
+DHHCPWINMCVTHVNYKYFLLYIIYTSFLVYWYLLTSLEGAVRYFINQQWTDELGKFLFY
+LFSFIVGGVFGYYPLGELIIFHYQLISLNETTVEQTKPALLRFDNAADYNMGKYNNFQSV
+FGWGLWLCPIDSSTQDGLHFDIRYVNTQQRNRFVRIEEEPSSTQSSQSSIQ
+>AC8.3.1 gene=WBGene00007075
+MKPVSVFGEQMHTIHCVELENGTVKKQCLRFREYVYVNYFSISDTYEVPECNEDVYRPLN
+SQVAVKKFLKEEAIPHRTLEGVRQVMEERGHHISTKQIQNAARSVRDAVVGNTGPHLSTT
+EDMLKALQSQNPDRVKYWIDAKQQLHFNIFTLFPDALKLFVHGCPTVTQHERWQRKVERW
+SLLDKQERKKKISEVLKKHPDGMIFASRIMVDTTFQLGDFYVTFVNGECPRFRTARSLKA
+RMLPLGFFIHTTKERPNHKEFAELLRSELNLVQVAGEPRKIPCVVIDGEAALGEYAKAVD
+SPCVRCDRHILTLISHNCGQNASRGAQALLFGKKVGGTFRAGLLGSFSMEEFEEKLKKCE
+KRMAAPVFEWTKAN
+```
+
+### 66variants.py ###
+
+Write a program that compares features in a GFF file to variants in a VCF file.
+The usage statement should look similar to the one below.
+
+```
+usage: 66variants.py [-h] gff vcf
+
+variant reporter
+
+positional arguments:
+  gff         GFF file
+  vcf         VCF file
+
+options:
+  -h, --help  show this help message and exit
+```
+
+Your program should report the region where each variant is found. For example,
+some variants might be in exons, while others are in introns. Note that because
+of alternative splicing and other complexities, some variants may appear in
+more than one category. List all categories a variant occurs in, and skip those
+variants that don't overlap any GFF feature. Your output should look like this:
+
+```
+I       3080    intron
+I       3412    intron,transcript_region
+I       3425    intron,transcript_region
+I       3452    intron,transcript_region
+I       3452    intron,transcript_region
+I       3597    intron,transcript_region
+I       3769    gene,snoRNA,exon,transcript_region
+I       3848    gene,snoRNA,exon,transcript_region
+I       3901    gene,snoRNA,exon,transcript_region
+I       4251    intron,gene,mRNA,exon,CDS,transcript_region
+I       4279    intron,gene,mRNA,exon,CDS,transcript_region
+I       4279    intron,gene,mRNA,exon,CDS,transcript_region
+I       4357    intron,gene,mRNA,exon,CDS,transcript_region
+I       4357    intron,gene,mRNA,exon,CDS,transcript_region
 ```

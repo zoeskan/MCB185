@@ -1,4 +1,4 @@
-Unit 2: Calculations
+Unit 1: Calculations
 ====================
 
 ## Contents ##
@@ -17,8 +17,7 @@ Unit 2: Calculations
     + [Type](#type)
 + [Functions](#functions)
     + [Block Structure](#block-structure)
-    + [Example](#example)
-    + [Practice](#practice)
++ [Practice](#practice)
 + [Strings](#strings)
 + [Conditionals](#conditionals)
     + [if](#if)
@@ -27,38 +26,36 @@ Unit 2: Calculations
     + [Floating Point Warning](#floating-point-warning)
     + [Sting Comparison](#string-comparison)
     + [Mismatched Type Error](#mismatched-type-error)
-    + [More Practice](#more-practice)
+    + [None Type](#none-type)
++ [More Practice](#more-practice)
 + [Style](#style)
     + [Spacing](#spacing)
     + [Naming](#naming)
++ [Even More Practice](#even-more-practice)
 + [Homework](#homework)
-    + [20demo.py](#20demopy)
-    + [21max3.py](#21max3py)
-    + [22oligotemp.py](#22oligotemppy)
-    + [23hydropathy.py](#23hydropathypy)
-    + [24accuracy.py](#24accuracypy)
-    + [25entropy.py](#25entropypy)
-    + [26phred.py](#26phredpy)
+    + [11oligo.py](#11oligopy)
+    + [12phred.py](#12phredpy)
++ [Assessment Example](#assessment-example)
 
 ------------------------------------------------------------------------------
 
 ## Hello, again ##
 
-Create a new file called `20demo.py` and save it in your `mcb185_homework`
+Create a new file called `10demo.py` and save it in your `mcb185_homework`
 repo. `touch` the file into existence and then open it in your text editor
 (e.g. FeatherPad, Notepad++, BBedit, etc.).
 
 ```
 cd ~/Code/mcb185_homework
-touch 20demo.py
+touch 10demo.py
 ```
 
 We used the `print()` function in Unit 0 to output "hello world". Edit
-`20demo.py` so that it prints out "hello, again". Save your work, then go to
+`10demo.py` so that it prints out "hello, again". Save your work, then go to
 your terminal and run the program.
 
 ```
-python3 20demo.py
+python3 10demo.py
 ```
 
 If you don't see the output "hello, again", stop now and get help.
@@ -79,13 +76,13 @@ Modify your program with comments as shown below. It's a good idea to put a
 comment in your programs with your name.
 
 ```python
-# 20demo.py by your_name
+# 10demo.py by your_name
 print('hello, again') # greeting
 ```
 
 Python also has multi-line comments. These begin and end with triple quotes.
 Note that we generally use single quotes, like in `hello, again`, but for
-multi-line comments we use double quotes.
+multi-line comments we generally use double quotes.
 
 ```python
 """
@@ -98,7 +95,7 @@ comment
 ### Whitespace ###
 
 Another important type of line is a blank line. Use blank lines to separate
-different "thoughts" much as you would use paragraphs to separate different
+different _thoughts_ much as you would use paragraphs to separate different
 thoughts.
 
 The comment with your program name and author name is like a header. It's very
@@ -106,7 +103,7 @@ different from the code that follows, and should have vertical spacing between
 the code that follows. We call this vertical spacing "whitespace".
 
 ```python
-# 20demo.py by your_name
+# 10demo.py by your_name
 
 print('hello, again') # greeting
 ```
@@ -117,8 +114,8 @@ punctuation. Note how the lack of horizontal whitespace below impedes
 readability.
 
 ```python
-#20demo.py by your_name
-print('hello,again')#greeting,formatted badly
+#10demo.pybyyourname
+print('hello,again')#greetingformattedbadly
 ```
 
 Clarity is much more important than saving keystrokes. Use vertical and
@@ -136,11 +133,14 @@ with the numeral "1". You can do math with 1 and 1.0, but not '1'. Python
 understands scientific notation. 1.5e-2 means 1.5 times 10 to the -2 power
 (0.015).
 
+Add the following line to `10demo.py`. We'll be adding a lot more lines to the
+file as we go.
+
 ```python
 print(1.5e-2)
 ```
 
-### Math Operators ##
+### Math Operators ###
 
 Python has the typical mathematical operators you're familiar with and uses
 parentheses to force precedence. There are also some operators that you may not
@@ -202,23 +202,22 @@ Here's what my demo program looks like. Notice that there are multiple ways to
 do powers and roots.
 
 ```python
-# 20demo.py by Ian Korf
+# 10demo.py by Ian Korf
 
 import math
 
 print('hello, again')
 print(1.5e-2)
 print(1 + 1)
-print(2 ** 3)
+print(2**3)
 print(pow(2, 3))
 print(math.pow(2, 3))
-print(2 ** 0.5)
+print(2**0.5)
 print(math.sqrt(2))
 print(math.log(2))
-# print(1 / 0)         # divide by zero error
-print(math.log(0))     # math domain error
-print(math.sqrt(-1))   # math domain error
-print((-1)**0.5)       # complex number, not a math domain error
+#print(1 / 0)           # divide by zero error
+#print(math.log(0))     # math domain error
+#print(math.sqrt(-1))   # math domain error
 ```
 
 ### Numbers Aren't Real ###
@@ -246,7 +245,7 @@ actual value: 0.100000001490116119384765625.
 
 We don't usually do math inside `print()` statements. We usually store numbers
 inside variables and do math with the variables. The `=` sign is used to assign
-numbers (and other types of things).
+numbers (and other types of values).
 
 The code below computes the hypotenuse `c` given sides `a` and `b`.
 
@@ -258,10 +257,11 @@ print(c)
 ```
 
 Note the use of comments to explain the intent of the variables. This is
-generally not necessary if you use more descriptive variable names. Take note
-of how neat the code looks with all of the comments aligned vertically. Also
-note the use of `a**2` rather than `a ** 2`. There are some cases where not
-using spaces is neater than using spaces.
+generally not necessary if you use descriptive variable names. Take note of how
+neat the code looks with all of the comments aligned vertically. Also note the
+use of `a**2` rather than `a ** 2`. There are some cases where not using spaces
+is neater than using spaces, for example with unary operators like `-` and `**`
+that work on a single number rather than two numbers.
 
 ### Type ###
 
@@ -278,12 +278,15 @@ This is the first place we have used the `print()` function with multiple
 arguments. When given multiple things to display, the function puts spaces
 between the values. You can change the separator from a space to anything else.
 For example, let's change the separator to a comma followed by a space using
-the optional `sep=` syntax (this is very similar to Linux commands with
-optional parameters).
+the optional `sep=` syntax, and the `end=` to create a custom ending.
 
 ```python
-print(type(a), type(b), type(c), sep=', ')
+print(type(a), type(b), type(c), sep=', ', end='!\n')
 ```
+
+The `\n` in the line above means "newline". This creates vertical space. If you
+don't use that, the cursor in the terminal will stay on the previous line. The
+default behavior is `print(sep=' ', end='\n')`.
 
 ------------------------------------------------------------------------------
 
@@ -291,84 +294,101 @@ print(type(a), type(b), type(c), sep=', ')
 
 Functions are reusable code constructs that form the backbone of computer
 programs. Functions are created with the `def` keyword, followed by the unique
-name of the function, followed by parentheses and a colon. The next line, and
-all lines that are part of the function, must be indented.
-
-Here's a function that simply prints a greeting.
+name of the function. A set of parentheses after the function name specifies
+the inputs. A `return` statement is used to terminate the function. Let's make
+the calculation of the hypotenuse into a reusable function.
 
 ```python
-def greeting():
-    print('hello yourself')
+def pythagoras(a, b):
+	c = math.sqrt(a**2 + b**2)
+	return c
 ```
 
-In general, functions like these are useless. Functions should do some _work_
-or solve a problem. Also, it's generally a bad idea to put `print()` statements
-in functions.
+The variables `a` and `b` are the "parameters" of the function. The calculation
+is stored in variable `c`, which is then sent back to the "caller". Let's see
+this in action.
+
+```python
+hyp = pythagoras(3, 4)
+print(hyp)
+```
+
+This could all have been simplified a little. There is no reason to create the
+variable `c`.
+
+```python
+def pythagoras(a, b):
+	return math.sqrt(a**2 + b**2)
+```
+
+There was also no need to create the variable `hyp`.
+
+```python
+print(pythagoras(3, 4))
+```
 
 ### Block Structure ###
 
-Functions, and other structures we will use later in the class, use "block
-structure". Blocks show hierarchy. The `print()` statement _belongs_ to the
-`greeting()` function. It is indented to show its membership. Block structure
-is very much like a hierarchical outline.
+Functions, and other structures we will use later in the class, have "block
+structure". Blocks show hierarchy. All of the code "owned" by the function is
+indented one level. Block structure is very much like a hierarchical outline
+or the document structure for a journal article.
 
-In this class, we ALWAYS use tabs to indent. If you indent with spaces, your
-code will be flagged for potential cheating and you will get zero credit.
-Unfortunately, some text editors automatically convert tabs to spaces.
-
-Notepad++ users, make sure you uncheck the "Replace by space" in: Settings ->
-Preferences -> Language -> Tab Settings -> python
-
-Check right now if your editor has inserted spaces instead of a tab. If you
-have spaces, change your editor preferences. If you can't figure out how to do
-that, ask for help.
-
-### Example ###
-
-Suppose we want to turn the Pythagorean formula above into something we could
-re-use again and again. We would like to write `x = pythagoras(3, 4)`. That is,
-values `3`, and `4` are passed into the function, the function does the work,
-and hands back the value `5`, which is stored in variable `x`. Here's how that
-looks in code.
-
-```python
-def pythagoras(a, b):
-    c = math.sqrt(a**2 + b**2)
-    return c
+```
+I. Introduction
+	A. Review of literature
+	B. Statement of problem
+	C. Brief synopsis
+II. Methods
+	A. Data sources
+	B. Procedures
+III. Results
+	A. Experiment 1
+		a. Table
+	B. Experiment 2
+		a. Figure 1
+		b. Figure 2
+IV. Discussion
 ```
 
-We can run it like this:
+If there is only 1 statement in a block, you may omit the indentation.
 
 ```python
-x = pythagoras(3, 4)
-print(x)
+def pythagoras(a, b): return math.sqrt(a**2 + b**2)
 ```
 
-We don't really need the variables `c` or `x`.
+------------------------------------------------------------------------------
 
-```python
-def pythagoras(a, b):
-    return math.sqrt(a**2 + b**2)
-
-print(pythagoras(3, 4))
-print(pythagoras(1, 1))
-```
-
-### Practice ###
-
-Write a function that turns negative numbers into positive numbers and vice
-versa. Give your function a name that is simultaneously simple and descriptive.
+## Practice ##
 
 Write functions that compute the areas, circumferences, or volumes of simple
 shapes like squares, rectangles, circles, spheres, etc.
 
-Write functions that convert temperature (whichever scales you prefer).
+```python
+def circle_area(r): return math.pi * r**2
+def rectangle_area(w, h): return w * h
+```
 
-Write functions that convert speeds (mph, kph, fps, mps, etc).
+Of course, you can use your own function in other functions. The area of a
+triangle is half the area of a rectangle, so one could call the rectangle
+function and divide by two (but in practice this is less efficient because the
+math is so simple).
 
-Write a function that computes DNA concentration from OD260.
+```python
+def triangle_area(w, h): return rectangle_area(w, h) / 2
+```
 
-Write a function that computes the distance between two points in a graph.
+Here are some more ideas of simple functions for practice.
+
+- Convert temperature from F to C or vice-versa
+- Convert speed from MPH to KPH or vice-versa
+- Compute DNA concentration from OD260
+- Compute the arithmetic mean of 3 numbers
+- Compute the geometric mean of 3 numbers
+- Compute the harmonic mean of 3 numbers
+- Compute the distance between 2 points in a graph
+
+Don't be surprised if these show up in your assessment.
 
 ------------------------------------------------------------------------------
 
@@ -379,8 +399,7 @@ you can also store letters in variables. A collection of zero or more letters
 inside quotes is known as a string. In your first program, 'hello world' was a
 string. Note that both 'hello world' and "hello world" are exactly the same
 thing. In Python, we use single quotes because it's one less keypress compared
-to double quotes. The exception to that is multi-line comments, which are
-triple-double-quotes (see above).
+to double quotes.
 
 ```python
 s = 'hello world'
@@ -388,8 +407,7 @@ print(s, type(s))
 ```
 
 Since this is a class that features bioinformatics programming, we will be
-working with biological sequences as strings quite a bit. But not so much in
-this unit.
+working with biological sequences as strings quite a bit, but not until unit 3.
 
 ------------------------------------------------------------------------------
 
@@ -421,8 +439,8 @@ if a == b:
     print(a, b)
 ```
 
-If you want the program to report the values always, put the second statement
-outside the conditional (either before or after).
+If you want the program to always report `a` and `b`, put the second statement
+after the block (or before).
 
 ```python
 if a == b:
@@ -446,14 +464,12 @@ number is evenly divisible by 2.
 
 ```python
 def is_even(x):
-    if x % 2 == 0: return True
-    return False
-
+	if x % 2 == 0: return True
+	return False
 
 print(is_even(2))
 print(is_even(3))
 ```
-
 
 ### Boolean ###
 
@@ -466,33 +482,41 @@ print(c)
 print(type(c))
 ```
 
-Expressions like `a == b` are Boolean expressions of type "bool" that can have
+Expressions like `a == b` are Boolean expressions of type `bool` that can have
 a value of either `True` or `False`. Try changing the values of `a` and `b` and
 observe the value of `c`.
 
 ### if-elif-else ###
 
 Much of the time we write conditional statements, there are multiple branches.
-In these cases, we use the `if-elif-else` construct. There is only one `if` and
+In these cases, we use the if-elif-else construct. There is only one `if` and
 only one `else`, but there can be any number of `elif`.
 
 ```python
 if a < b:
-    print('a < b')
+	print('a < b')
 elif a > b:
-    print('a > b')
+	print('a > b')
 else:
-    print('a == b')
+	print('a == b')
 ```
 
 When you have a stack of really simple if-elif-else conditions, it's tidy to
-format as one-liners and align them horizontally. You can't do this if each
+format as one-liners and align them horizontally. You cannot do this if each
 block has multiple statements.
 
 ```python
 if   a < b: print('a < b')
 elif a > b: print('a > b')
 else:       print('a == b')
+```
+
+In an if-elif-else construct, only the first true condition is executed.
+
+```python
+if   a < b:  print('a < b')
+elif a <= b: print('a <= b')
+elif a == b: print('this will never print!')
 ```
 
 ### Chaining ###
@@ -518,7 +542,7 @@ elif a > b: print('a > b')
 else:       print('a == b')
 ```
 
-NEVER expect equality with floating point numbers. Instead, examine their
+NEVER test for equality with floating point numbers. Instead, examine their
 difference and if that's less than some acceptable precision, consider them to
 be the same. Here's how you do that manually.
 
@@ -537,7 +561,8 @@ if math.isclose(a, b): print('close enough')
 ### String Comparison ###
 
 Strings are compared alphabetically, sort of. They are actually compared by
-their ASCII values. This is why "A" is less than "B" but "B" is less than "a".
+their ASCII values. This is why "A" is less than "B". But "B" is less than "a"
+because all lowercase letters have higher ASCII values than uppercase letters.
 
 ```python
 s1 = 'A'
@@ -558,23 +583,48 @@ s = 'G'
 if a < s: print('a < s')
 ```
 
-### More Practice ###
+------------------------------------------------------------------------------
+
+## None Type ##
+
+So far, we have seen values of type `int`, `float`, `str`, and `bool`. Another
+type is `NoneType`, which has a single value `None`. There are a variety of
+situations where you may end up with `None`. Consider the following function.
+
+```python
+def silly(m, x, b):
+	y = m * x + b
+```
+
+There is no `return` in the function. `y` is computed but not returned. What
+happens when you call the function? You end up with a value of `None`.
+
+```python
+print(silly(2, 3, 4))
+```
+
+------------------------------------------------------------------------------
+
+## More Practice ##
 
 Write a function that determines if a number is an integer. A good name for
 such a function would be `is_integer()` or `isinteger()`. Functions with
-Boolean return values often have `is` in their prefix.
+Boolean return values often have `is` in their prefix. To solve this problem,
+try using `//` or `%`.
 
 Write a function that determines if a number is a valid probability.
 
-Write a function that returns the molecular weight of a DNA letter.
+Write a function that returns the molecular weight of a DNA letter. If the
+letter doesn't match any nucleotide, return `None`.
 
-Write a function that returns the complement of a DNA letter.
+Write a function that returns the complement of a DNA letter, returning `None`
+if the letter isn't DNA.
 
 ------------------------------------------------------------------------------
 
 ## Style ##
 
-Your code is graded on two criteria:
+Your code is evaluated on two criteria:
 
 1. Correctness - does the code solve the problem
 2. Style - does the code have good "style"
@@ -611,24 +661,16 @@ paragraph structure in English.
 (4) Use tabs for left side indentation. The use of spaces for indentation flags
 your code as potential **cheating**.
 
-(5) Use spaces for lining up simple `if-elif-else` type constructs.
-
-```python
-if   nt == 'A': comp = 'T'
-elif nt == 'C': comp = 'G'
-elif nt == 'G': comp = 'C'
-elif nt == 'T': comp = 'A'
-else:           sys.exit('unknown nucleotide', nt)
-```
+(5) Don't indent simple if-elif-else type constructs.
 
 (6) There is no space between a function and its opening parentheses. Note that
-`return` is a keyword, not a function.
+`return` is a keyword, not a function, so it doesn't have parentheses.
 
 + Yes: `print('hello')`
 + No: `print ('hello')`
-+ Yes: `return a, b`
-+ No: `return(a, b)`
-+ No: `return (a, b)`
++ Yes: `return a`
++ No: `return(a)`
++ No: `return (a)`
 
 ### Naming ###
 
@@ -642,81 +684,88 @@ windowSize  = 60  # no
 ```
 
 Variables sometimes have very short names that implicitly describe their type.
-It's okay for loop variables to have such short names, but for longer-lived
-variables, you should use more descriptive names.
+It's okay for short-lived variables to have such short names, but for
+longer-lived variables, you should use more descriptive names.
 
-+ `i`, `j`, `k`, and `n` are integers
-+ `f`, `x`, and `y`, are floating point numbers
++ `i`, `j`, and `k` are integers
++ `x`, `y`, and `z` are floating point numbers in a graphical context
++ `x` by itself may represent anything
++ `n` by itself is a number
 + `p` and `q` are probabilities
-+ `a`, `b`, and `c` are often numbers: ax^2 + bx + c or a^2 + b^2 = c^2
++ `a`, `b`, and `c` are often numbers
 + `c` by itself is a character
 + `s` is a string
-+ `fp` is a file pointer
 
 For biological sequences it's common to use these shorthands:
 
 + `nt` and `aa` are single characters of nucleotides or amino acids
 + `seq` is often used for a biological sequence
-+ `dna`, `rna`, `tx` are nucleotide strings
++ `dna` and `rna` are nucleotide strings
 + `pro` and `pep` are protein/peptide strings
+
+------------------------------------------------------------------------------
+
+## Even More Practice ##
+
+Write a function that returns the maximum of 3 numbers. To be clear, the
+function takes 3 input parameters and returns the single largest one.
+
+Given values for true positives, false positives, true negatives, and false
+negatives, write functions that return sensitivity, specificity, and F1 score.
+
+Write a function that returns the Shannon entropy for nucleotide counts A, C,
+G, T. It should work even in the case where there are zero counts for one or
+more letters.
 
 ------------------------------------------------------------------------------
 
 ## Homework ##
 
-Check the following programs into your homework repo. They are described in
-more detail below.
+Push the following files to your repo.
 
-+ `20demo.py`
-+ `21max3.py`
-+ `22oligotemp.py`
-+ `23hydropathy.py`
-+ `24accuracy.py`
-+ `25entropy.py`
-+ `26phred.py`
+- 10demo.py
+- 11oligo.py
+- 12phred.py
 
-### 20.demo.py ###
+### 11oligo.py ###
 
-It doesn't matter what state your demo program is in. Just check it into your
-repo.
-
-### 21max3.py ###
-
-Write a function that returns the maximum of 3 numbers. To be clear, the
-function takes 3 input parameters and returns the single largest one.
-
-### 22oligotemp.py ###
-
-Write a program that returns the oligo melting temperature given the number of
+Write a function that returns the oligo melting temperature given the number of
 As, Cs, Gs, and Ts in the oligo. Use these two methods.
 
 1. For oligos <= 13 nt, Tm = (A+T)*2 + (G+C)*4
 2. For longer oligos, Tm = 64.9 + 41*(G+C -16.4) / (A+T+G+C)
 
 Demonstrate that your program works by computing the Tm of several oligos of
-different sizes.
+different sizes. For example:
 
-### 23hydropathy.py ##
+```python
+print(tm(5, 7, 3 4))
+```
 
-Write a function that returns the Kyte-Doolittle hydrophobicity value for an
-amino acid letter. Demonstrate that the function works by calling it multiple
-times with different letters, one of which should be outside the amino acid
-alphabet.
+### 12phred.py ###
 
-### 24accuracy.py ###
+Write functions that convert quality value symbols into error rates and
+vice-versa. The `ord()` function returns the ASCII value of a letter. The
+`chr()` function turns an ASCII value into a letter.
 
-Given values for true positives, false positives, true negatives, and false
-negatives, write a function that returns the F1 score. Demonstrate your
-function works by using it several times in the program.
+Demonstrate the functions work by calling them several times. Edge cases should
+return `None`.
 
-### 25entropy.py ##
+```python
+print(char_to_prob('A'))
+print(prob_to_char(0.001))
+```
 
-Write a function that returns the Shannon entropy for nucleotide counts a, c,
-g, t. Demonstrate it works using multiple calls, including those where one of
-the counts is zero.
+------------------------------------------------------------------------------
 
-### 26phred.py ###
+## Assessment Example ##
 
-Write a function that converts probabilties into PHRED scores and vice-versa.
-For input parameters x: 0 < x < 1 return the PHRED score. For x > 1 return the
-probability. Values of 0 and 1 are not permitted.
+1. Write a function that computes the distance between 2 points in a graph.
+
+2. Write a function that returns the complement of a DNA letter, returning
+`None` if the letter isn't DNA.
+
+3. Write a function `max3()` that returns the maximum of 3 numbers.
+
+4. Why do you think PHRED quality values are -10 * log10 rather than -log2? How
+would you modify your program if you thought log2 was better?
